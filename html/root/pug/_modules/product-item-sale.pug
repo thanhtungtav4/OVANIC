@@ -1,0 +1,16 @@
+li  
+    a(href)
+        .m-product__img 
+        picture
+            source(srcset=path+"assets/images/product_item.avif" type="image/avif")
+            source(srcset=path+"assets/images/product_item.webp" type="image/webp")
+            img.lazyload(src=path+"assets/images/product_item.jpg" data-src=path+"assets/images/product_item.jpg" alt='Logo' loading="lazy" width="323" height="323") 
+    .m-product__content 
+        .m-product__content-top 
+            a(href)
+                h3 
+                    strong XANIA BROWN
+            p 400.000VND
+        .m-product__content-bottom
+            p 8h/ngày | 3 tháng
+            include btn-cart

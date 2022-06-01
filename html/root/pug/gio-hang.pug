@@ -1,0 +1,101 @@
+extends _layout/default
+
+block vars
+  -title        = 'Top'
+  -description  = ''
+  -keywords     = ''
+  -pageID       = 'top'
+  -path         = ''
+  -ispage       = 'cart'
+block before_page
+  link(rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css")
+block after_page
+  script(src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.js")
+  script.
+    $('.owl-carousel').owlCarousel({
+      loop: true,
+      margin: 10,
+      nav: false,
+      navText: [
+        "<i class='fa fa-caret-left'></i>",
+        "<i class='fa fa-caret-right'></i>"
+      ],
+      dot: false,
+      autoplay: true,
+      items: 1,
+      autoplayHoverPause: true,
+    })
+
+block container
+  article
+    header.entry-header
+        h1.entry-title Giỏ hàng
+    .entry-content
+        .woocommerce
+            .woocommerce-notices-wrapper   
+            form.woocommerce-cart-form 
+                table.shop_table.shop_table_responsive.cart.woocommerce-cart-form__contents(cellspacing='0')
+                    thead
+                        tr
+                        th.product-remove  
+                        th.product-thumbnail  
+                        th.product-name Sản phẩm
+                        th.product-price Giá
+                        th.product-quantity Số lượng
+                        th.product-subtotal Tạm tính
+                    tbody
+                        tr.woocommerce-cart-form__cart-item.cart_item
+                        td.product-remove
+                            a.remove(href='http://localhost:8003/gio-hang/?remove_item=08b255a5d42b89b0585260b6f2360bdd&_wpnonce=79bf85558b' aria-label='Xóa sản phẩm này' data-product_id='590' data-product_sku='') ×
+                        td.product-thumbnail
+                            a(href='http://localhost:8003/courses/the-complete-2022-web-development-bootcamp/')
+                            img.attachment-woocommerce_thumbnail.size-woocommerce_thumbnail(width='300' height='300' src='http://localhost:8003/wp-content/uploads/2019/05/course3-1-300x300.jpg' alt='' loading='lazy' srcset='http://localhost:8003/wp-content/uploads/2019/05/course3-1-300x300.jpg 300w, http://localhost:8003/wp-content/uploads/2019/05/course3-1-100x100.jpg 100w, http://localhost:8003/wp-content/uploads/2019/05/course3-1-150x150.jpg 150w' sizes='(max-width: 300px) 100vw, 300px')
+                        td.product-name(data-title='Sản phẩm')
+                            a(href='http://localhost:8003/courses/the-complete-2022-web-development-bootcamp/') CMS
+                        td.product-price(data-title='Giá')
+                            span.woocommerce-Price-amount.amount
+                            bdi
+                                | 10 
+                                span.woocommerce-Price-currencySymbol ₫
+                        td.product-quantity(data-title='Số lượng')
+                            .quantity
+                            label.screen-reader-text(for='quantity_6277bec58df90') CMS số lượng
+                            input#quantity_6277bec58df90.input-text.qty.text(type='number' step='1' min='0' max='' name='cart[08b255a5d42b89b0585260b6f2360bdd][qty]' value='1' title='SL' size='4' placeholder='' inputmode='numeric' autocomplete='off')
+                        td.product-subtotal(data-title='Tạm tính')
+                            span.woocommerce-Price-amount.amount
+                            bdi
+                                | 10 
+                                span.woocommerce-Price-currencySymbol ₫
+                        tr.woocommerce-cart-form__cart-item.cart_item
+                        td.product-remove
+                            a.remove(href='http://localhost:8003/gio-hang/?remove_item=258be18e31c8188555c2ff05b4d542c3&_wpnonce=79bf85558b' aria-label='Xóa sản phẩm này' data-product_id='579' data-product_sku='') ×
+                        td.product-thumbnail
+                            a(href='http://localhost:8003/courses/nutrition-masterclass-build-your-perfect-diet-meal-plan-2/')
+                            img.woocommerce-placeholder.wp-post-image(width='300' height='300' src='http://localhost:8003/wp-content/uploads/woocommerce-placeholder-300x300.png' alt='Nơi nhập dữ liệu' loading='lazy' srcset='http://localhost:8003/wp-content/uploads/woocommerce-placeholder-300x300.png 300w, http://localhost:8003/wp-content/uploads/woocommerce-placeholder-100x100.png 100w, http://localhost:8003/wp-content/uploads/woocommerce-placeholder-600x600.png 600w, http://localhost:8003/wp-content/uploads/woocommerce-placeholder-1024x1024.png 1024w, http://localhost:8003/wp-content/uploads/woocommerce-placeholder-150x150.png 150w, http://localhost:8003/wp-content/uploads/woocommerce-placeholder-768x768.png 768w, http://localhost:8003/wp-content/uploads/woocommerce-placeholder.png 1200w' sizes='(max-width: 300px) 100vw, 300px')
+                        td.product-name(data-title='Sản phẩm')
+                            a(href='http://localhost:8003/courses/nutrition-masterclass-build-your-perfect-diet-meal-plan-2/') Nutrition: Build Your Perfect Diet & Meal Plan
+                        td.product-price(data-title='Giá')
+                            span.woocommerce-Price-amount.amount
+                            bdi
+                                | 2.000 
+                                span.woocommerce-Price-currencySymbol ₫
+                        td.product-quantity(data-title='Số lượng')
+                            .quantity
+                            label.screen-reader-text(for='quantity_6277bec596d8e') Nutrition: Build Your Perfect Diet & Meal Plan số lượng
+                            input#quantity_6277bec596d8e.input-text.qty.text(type='number' step='1' min='0' max='' name='cart[258be18e31c8188555c2ff05b4d542c3][qty]' value='1' title='SL' size='4' placeholder='' inputmode='numeric' autocomplete='off')
+                        td.product-subtotal(data-title='Tạm tính')
+                            span.woocommerce-Price-amount.amount
+                            bdi
+                                | 2.000 
+                                span.woocommerce-Price-currencySymbol ₫
+                        tr
+                        td.actions(colspan='6')
+                            .coupon
+                            label(for='coupon_code') Ưu đãi:
+                            input#coupon_code.input-text(type='text' name='coupon_code' value='' placeholder='Mã ưu đãi')
+                            button.button(type='submit' name='apply_coupon' value='Áp dụng') Áp dụng
+                            button.button(type='submit' name='update_cart' value='Cập nhật giỏ hàng' disabled='' aria-disabled='true') Cập nhật giỏ hàng
+                            input#woocommerce-cart-nonce(type='hidden' name='woocommerce-cart-nonce' value='79bf85558b')
+                            input(type='hidden' name='_wp_http_referer' value='/gio-hang/')
+
+

@@ -1,0 +1,45 @@
+.c-sure{
+    ul{
+        @include flex-jbetween;
+        li{
+            text-align: center;
+            width: 323px;
+            height: 216px;
+            box-shadow: 0px 0px 20px rgba(104, 104, 104, 0.25);
+            border-radius: 10px;
+            align-items: center;
+            margin: 60px 10px;
+            font-size: 2rem;
+            line-height: 1.2;
+            font-weight: 400;
+            @include flex-center;
+            transition: 0.3 ease-out;
+            position: relative;
+            &.slick-slide{
+                display: flex;
+            }
+            p{
+                padding: 0 40px;
+                z-index: 1;
+            }
+            &:hover{
+                transform: scale(1.05);
+                p{
+                    color: #EB6A6A;
+                }
+            }
+            picture{
+                position: absolute;
+                top: 20%;
+                bottom: 20%;
+                left: 0;
+            }
+            &:last-child{
+                picture{
+                    top: 10%;
+                }
+            }
+        }
+    }
+  
+}
