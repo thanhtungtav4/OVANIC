@@ -71,19 +71,5 @@ block after_page
         });
       });
 block container
-  .c-carousel
-    .c-carousel_inner
-      .c-carousel_item
-        a(href="#")
-          picture
-            source(srcset=path+"assets/images/carousel.avif" type="image/avif")
-            source(srcset=path+"assets/images/carousel.webp" type="image/webp")
-            img.lazyload(src=path+"assets/images/carousel.jpg" data-src=path+"assets/images/carousel.jpg" alt='Logo' loading="lazy" width="1512" height="600")
-      .c-carousel_item
-        a(href="#")
-          picture
-            source(srcset=path+"assets/images/carousel.avif" type="image/avif")
-            source(srcset=path+"assets/images/carousel.webp" type="image/webp")
-            img.lazyload(src=path+"assets/images/carousel.jpg" data-src=path+"assets/images/carousel.jpg" alt='Logo' loading="lazy" width="1512" height="600")
   .l-container
     include _modules/sure

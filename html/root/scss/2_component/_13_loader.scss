@@ -1,0 +1,23 @@
+.loader{
+  position: fixed;
+  left: 0;
+  top: -10px;
+  height: 100%;
+  width: 100vw;
+  right: 0;
+  @include flex-icenter;
+  justify-content: center;
+  z-index: 9999;
+  opacity: 1;
+  visibility: visible;
+  background-color: beige;
+    svg{
+      position: absolute;
+    }
+  &.onload{
+    opacity: 0;
+    visibility: hidden;
+    transform: translateX(-100%);
+    display: none;
+  }
+}
