@@ -9,9 +9,11 @@
 		padding: 15px 0 0;
 	}
 	&__top{
-		height: 32px;
+		height: 30px;
 		overflow-y: hidden;
 		padding: 0 20px;
+		background: #f5f5f5;
+		border-bottom: 1px solid #d1d1d1;
 		@include flex-jbetween;
 		.scrolling-words-box{
 			overflow: hidden;
@@ -27,7 +29,6 @@
 				}
 			}
 		}
-		// Variables
 		$item-count: 5;
 		@keyframes scrollUp {
 			@for $i from 1 through ($item-count - 1) {
@@ -50,5 +51,93 @@
 				@include flex;
 			}
 		}
+	}
+	&__med{
+		.l-container{
+			@include flex;
+			align-items: center;
+			padding: 0;
+		}
+		.logo{
+			width: 278px;
+			img{
+				height: 65px;
+				width: 162px;
+				padding: 15px 0;
+			}
+		}
+		ol{
+			@include flex-jbetween;
+			width: calc(100% - 278px);
+			li{
+				@include flex-jbetween;
+				padding: 0 15px;
+				.iconbox{
+					@include flex-jcenter;
+					align-items: center;
+					border-radius: 40px;
+					width: 40px;
+					height: 40px;
+					border: 1px solid #1b4a5b;
+					img{
+						width: 24px;
+						height: 24px;
+					}
+				}
+				p{
+					padding-left: 15px;
+					smail{
+						display: block;
+					}
+				}
+			}
+		}
+	}
+	&__bottom{
+		background: $color-main;
+		height: 78px;
+		.l-container{
+			@include flex-jbetween;
+			align-items: center;
+			.navbar{
+				width: 250px;
+				&__left{
+					width: calc(100% - 250px);
+					@include flex-jbetween;
+					.m-btn{
+						@include flex;
+						.cart  {
+							position: relative;
+							img{
+								width: 33px;
+								height: 33px;
+							}
+							span{
+								background-color: red;
+								border-radius: 50%;
+								padding: 5px;
+								font-size: 1.2rem;
+							}
+						}
+					}
+					.seach{
+						&_inner{
+							@include flex;
+							input{
+								height: 40px;
+								width: calc(100% - 90px);
+							}
+							button{
+								width: 75px;
+							}
+						}
+					}
+
+				}
+			}
+			
+		}
+	
+
 	}
 }

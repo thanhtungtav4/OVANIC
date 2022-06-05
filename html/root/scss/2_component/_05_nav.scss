@@ -1,0 +1,10 @@
+.dropdown{
+    &-toggle{
+
+    }
+    &-menu{
+        visibility: hidden;
+        transform: translateX(-100vw);
+        position: absolute;
+    }
+}

@@ -1,0 +1,12 @@
+2022-06-05T06:59:07+00:00 CRITICAL Cannot redeclare cptui_register_my_taxes_thuong_hieu() (previously declared in D:\Ampps\www\OVANIC\wp-content\themes\flatsome-child\functions.php:74) in D:\Ampps\www\OVANIC\wp-content\themes\flatsome-child\functions.php on line 138
+
+2022-06-05T07:01:08+00:00 CRITICAL Cannot redeclare cptui_register_my_taxes_thuong_hieu() (previously declared in D:\Ampps\www\OVANIC\wp-content\themes\flatsome-child\functions.php:74) in D:\Ampps\www\OVANIC\wp-content\themes\flatsome-child\functions.php on line 138
+
+2022-06-05T07:02:40+00:00 CRITICAL Cannot redeclare cptui_register_my_taxes_thuong_hieu() (previously declared in D:\Ampps\www\OVANIC\wp-content\themes\flatsome-child\functions.php:74) in D:\Ampps\www\OVANIC\wp-content\themes\flatsome-child\functions.php on line 138
+
+2022-06-05T07:02:59+00:00 CRITICAL Cannot redeclare cptui_register_my_taxes_thuong_hieu() (previously declared in D:\Ampps\www\OVANIC\wp-content\themes\flatsome-child\functions.php:74) in D:\Ampps\www\OVANIC\wp-content\themes\flatsome-child\functions.php on line 138
+
+2022-06-05T07:03:02+00:00 CRITICAL Cannot redeclare cptui_register_my_taxes_thuong_hieu() (previously declared in D:\Ampps\www\OVANIC\wp-content\themes\flatsome-child\functions.php:74) in D:\Ampps\www\OVANIC\wp-content\themes\flatsome-child\functions.php on line 138
+
+2022-06-05T07:03:05+00:00 CRITICAL Cannot redeclare cptui_register_my_taxes_thuong_hieu() (previously declared in D:\Ampps\www\OVANIC\wp-content\themes\flatsome-child\functions.php:74) in D:\Ampps\www\OVANIC\wp-content\themes\flatsome-child\functions.php on line 138
+

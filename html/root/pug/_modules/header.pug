@@ -14,7 +14,13 @@ header.c-header
           a(href="#") Phấn phủ Shiseido Nhật Bản 250g:
     ol
       li
-        a(href) Home
+        a(href="tel:0369.309.569") Khiếu nại, báo lỗi: 0369.309.569
+      li
+        a(href) 
+          span
+            svg(width='13' height='13' viewBox='0 0 24 24' fill='none' xmlns='http://www.w3.org/2000/svg')
+              path(fill-rule='evenodd' clip-rule='evenodd' d='M21 8.77217L14.0208 1.79299C12.8492 0.621414 10.9497 0.621413 9.77817 1.79299L3 8.57116V23.0858H10V17.0858C10 15.9812 10.8954 15.0858 12 15.0858C13.1046 15.0858 14 15.9812 14 17.0858V23.0858H21V8.77217ZM11.1924 3.2072L5 9.39959V21.0858H8V17.0858C8 14.8767 9.79086 13.0858 12 13.0858C14.2091 13.0858 16 14.8767 16 17.0858V21.0858H19V9.6006L12.6066 3.2072C12.2161 2.81668 11.5829 2.81668 11.1924 3.2072Z' fill='currentColor')
+          | &nbsp;Home
       li
         a(href) Tin tức
       li
@@ -25,3 +31,59 @@ header.c-header
         a(href) Đăng nhập
   .c-header__med
     .l-container
+      .logo 
+        picture 
+          source(srcset=path+"assets/images/logo.webp" type="image/webp")
+          img(src=path+"assets/images/logo.png" data-src=path+"assets/images/logo.png" alt='Logo'  width="161" height="124")
+      ol 
+        li 
+          .iconbox
+             img(src="https://chiaki.vn/frontend/images/shopping.svg", alt="", srcset="" width="24" height="24")     
+          p Mua hàng 
+            smail  Cam Kết Chất Lượng      
+        li 
+          .iconbox
+             img(src="https://chiaki.vn/frontend/images/shopping.svg", alt="", srcset="" width="24" height="24")     
+          p Thanh toán
+            smail  Giao hàng & thanh toán tại nhà                
+        li 
+          .iconbox
+             img(src="https://chiaki.vn/frontend/images/shopping.svg", alt="", srcset="" width="24" height="24")     
+          p Đổi trả hàng
+            smail  Trong vòng 05 ngày(*)    
+        li 
+          .iconbox
+             img(src="https://chiaki.vn/frontend/images/shopping.svg", alt="", srcset="" width="24" height="24")     
+          p Giờ mở cửa
+            smail  TP. HCM             
+  .c-header__bottom
+    .l-container
+      .navbar.dropdown-toggle
+        a(href="")  Danh mục sản phẩm
+        ul.dropdown-menu 
+          li
+            a(href="") 
+             i.gg-apple-watch 
+             | Hàng Hiệu Cao Cấp 
+      .navbar__left         
+        form.seach 
+          .seach_inner
+            input(type="text" name="q" placeholder="Tìm kiếm hàng nghìn Sản phẩm, Thương hiệu ...")
+            button Tìm kiếm
+          .seach_list
+            a(href="#" taget="_blank") Collagen
+            a(href="#" taget="_blank") Kem chống nắng
+            a(href="#" taget="_blank") Collagen
+            a(href="#" taget="_blank") Kem chống nắng
+            a(href="#" taget="_blank") Collagen
+            a(href="#" taget="_blank") Kem chống nắng
+        a.m-btn
+          i.gg-notes
+          | Tra cứu đơn hàng
+        a.m-btn(href="tel:0369.309.569")
+          i.gg-phone
+          | 0369.309.569
+        a.m-btn
+          .cart 
+            img(src=path+"assets/images/header-nav-cart.svg", alt="cart" width="24" height="24")
+            span 2
