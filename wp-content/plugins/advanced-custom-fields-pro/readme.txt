@@ -1,8 +1,8 @@
-=== Advanced Custom Fields ===
-Contributors: deliciousbrains, bradt, elliotcondon
+=== Advanced Custom Fields Pro ===
+Contributors: elliotcondon
 Tags: acf, fields, custom fields, meta, repeater
 Requires at least: 4.7
-Tested up to: 6.0
+Tested up to: 5.9.3
 Requires PHP: 5.6
 Stable tag: 5.12.2
 License: GPLv2 or later
@@ -13,8 +13,6 @@ Customize WordPress with powerful, professional and intuitive fields. Proudly po
 == Description ==
 
 Advanced Custom Fields turns WordPress sites into a fully-fledged content management system by giving you all the tools to do more with your data.
-
-https://deliciousbrains.wistia.com/medias/md7ea4ep8z
 
 Use the Advanced Custom Fields plugin to take full control of your WordPress edit screens & custom field data.
 

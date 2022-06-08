@@ -1,11 +1,12 @@
 <?php
 /*
-Plugin Name: Advanced Custom Fields
+Plugin Name: Advanced Custom Fields PRO
 Plugin URI: https://www.advancedcustomfields.com
 Description: Customize WordPress with powerful, professional and intuitive fields.
 Version: 5.12.2
 Author: Delicious Brains
 Author URI: https://www.advancedcustomfields.com
+Update URI: https://www.advancedcustomfields.com/pro
 Text Domain: acf
 Domain Path: /lang
 */
