@@ -1,0 +1,87 @@
+2022-06-08T02:15:03+00:00 CRITICAL Uncaught ArgumentCountError: Too few arguments to function wc_get_template_part(), 0 passed in D:\xampp\htdocs\OVANIC\wp-content\themes\flatsome-child\woocommerce\content-single-product.php on line 41 and at least 1 expected in D:\xampp\htdocs\OVANIC\wp-content\plugins\woocommerce\includes\wc-core-functions.php:242
+Stack trace:
+#0 D:\xampp\htdocs\OVANIC\wp-content\themes\flatsome-child\woocommerce\content-single-product.php(41): wc_get_template_part()
+#1 D:\xampp\htdocs\OVANIC\wp-includes\template.php(772): require('D:\\xampp\\htdocs...')
+#2 D:\xampp\htdocs\OVANIC\wp-content\plugins\woocommerce\includes\wc-core-functions.php(284): load_template('D:\\xampp\\htdocs...', false)
+#3 D:\xampp\htdocs\OVANIC\wp-content\themes\flatsome\woocommerce\single-product.php(38): wc_get_template_part('content', 'single-product')
+#4 D:\xampp\htdocs\OVANIC\wp-includes\template-loader.php(106): include('D:\\xampp\\htdocs...')
+#5 D:\xampp\htdocs\OVANIC\wp-blog-header.php(19): require_once('D:\\xampp\\htdocs...')
+#6 D:\xampp\htdocs in D:\xampp\htdocs\OVANIC\wp-content\plugins\woocommerce\includes\wc-core-functions.php on line 242
+
+2022-06-08T03:05:01+00:00 CRITICAL Uncaught Error: Cannot use object of type WP_Error as array in D:\xampp\htdocs\OVANIC\wp-content\themes\flatsome-child\functions\woo.php:6
+Stack trace:
+#0 D:\xampp\htdocs\OVANIC\wp-includes\class-wp-hook.php(307): add_brand_product_singer('')
+#1 D:\xampp\htdocs\OVANIC\wp-includes\class-wp-hook.php(331): WP_Hook->apply_filters(NULL, Array)
+#2 D:\xampp\htdocs\OVANIC\wp-includes\plugin.php(476): WP_Hook->do_action(Array)
+#3 D:\xampp\htdocs\OVANIC\wp-content\themes\flatsome-child\woocommerce\single-product\layouts\product.php(30): do_action('woocommerce_sin...')
+#4 D:\xampp\htdocs\OVANIC\wp-includes\template.php(772): require('D:\\xampp\\htdocs...')
+#5 D:\xampp\htdocs\OVANIC\wp-content\plugins\woocommerce\includes\wc-core-functions.php(284): load_template('D:\\xampp\\htdocs...', false)
+#6 D:\xampp\htdocs\OVANIC\wp-content\themes\flatsome-child\woocommerce\content-single-product.php(41): wc_get_template_part('single-product/...', 'right-sidebar-s...')
+#7 D:\xampp\htdocs\OVANIC\wp-includes\template.php(772): requir in D:\xampp\htdocs\OVANIC\wp-content\themes\flatsome-child\functions\woo.php on line 6
+
+2022-06-08T03:37:46+00:00 CRITICAL Uncaught Error: Call to undefined function get_sku() in D:\xampp\htdocs\OVANIC\wp-content\themes\flatsome-child\functions\woo.php:6
+Stack trace:
+#0 D:\xampp\htdocs\OVANIC\wp-includes\class-wp-hook.php(307): add_brand_product_singer('')
+#1 D:\xampp\htdocs\OVANIC\wp-includes\class-wp-hook.php(331): WP_Hook->apply_filters(NULL, Array)
+#2 D:\xampp\htdocs\OVANIC\wp-includes\plugin.php(476): WP_Hook->do_action(Array)
+#3 D:\xampp\htdocs\OVANIC\wp-content\themes\flatsome-child\woocommerce\single-product\layouts\product.php(30): do_action('woocommerce_sin...')
+#4 D:\xampp\htdocs\OVANIC\wp-includes\template.php(772): require('D:\\xampp\\htdocs...')
+#5 D:\xampp\htdocs\OVANIC\wp-content\plugins\woocommerce\includes\wc-core-functions.php(284): load_template('D:\\xampp\\htdocs...', false)
+#6 D:\xampp\htdocs\OVANIC\wp-content\themes\flatsome-child\woocommerce\content-single-product.php(41): wc_get_template_part('single-product/...', 'right-sidebar-s...')
+#7 D:\xampp\htdocs\OVANIC\wp-includes\template.php(772): require('D:\\ in D:\xampp\htdocs\OVANIC\wp-content\themes\flatsome-child\functions\woo.php on line 6
+
+2022-06-08T03:38:11+00:00 CRITICAL Uncaught ArgumentCountError: Too few arguments to function get_the_terms(), 1 passed in D:\xampp\htdocs\OVANIC\wp-content\themes\flatsome-child\functions\woo.php on line 6 and exactly 2 expected in D:\xampp\htdocs\OVANIC\wp-includes\category-template.php:1278
+Stack trace:
+#0 D:\xampp\htdocs\OVANIC\wp-content\themes\flatsome-child\functions\woo.php(6): get_the_terms(15)
+#1 D:\xampp\htdocs\OVANIC\wp-includes\class-wp-hook.php(307): add_brand_product_singer('')
+#2 D:\xampp\htdocs\OVANIC\wp-includes\class-wp-hook.php(331): WP_Hook->apply_filters(NULL, Array)
+#3 D:\xampp\htdocs\OVANIC\wp-includes\plugin.php(476): WP_Hook->do_action(Array)
+#4 D:\xampp\htdocs\OVANIC\wp-content\themes\flatsome-child\woocommerce\single-product\layouts\product.php(30): do_action('woocommerce_sin...')
+#5 D:\xampp\htdocs\OVANIC\wp-includes\template.php(772): require('D:\\xampp\\htdocs...')
+#6 D:\xampp\htdocs\OVANIC\wp-content\plugins\woocommerce\includes\wc-core-functions.php(284): load_template('D:\\xampp\\htdocs...', false)
+#7 D:\xampp in D:\xampp\htdocs\OVANIC\wp-includes\category-template.php on line 1278
+
+2022-06-08T03:38:15+00:00 CRITICAL Uncaught ArgumentCountError: Too few arguments to function get_the_terms(), 1 passed in D:\xampp\htdocs\OVANIC\wp-content\themes\flatsome-child\functions\woo.php on line 6 and exactly 2 expected in D:\xampp\htdocs\OVANIC\wp-includes\category-template.php:1278
+Stack trace:
+#0 D:\xampp\htdocs\OVANIC\wp-content\themes\flatsome-child\functions\woo.php(6): get_the_terms(15)
+#1 D:\xampp\htdocs\OVANIC\wp-includes\class-wp-hook.php(307): add_brand_product_singer('')
+#2 D:\xampp\htdocs\OVANIC\wp-includes\class-wp-hook.php(331): WP_Hook->apply_filters(NULL, Array)
+#3 D:\xampp\htdocs\OVANIC\wp-includes\plugin.php(476): WP_Hook->do_action(Array)
+#4 D:\xampp\htdocs\OVANIC\wp-content\themes\flatsome-child\woocommerce\single-product\layouts\product.php(30): do_action('woocommerce_sin...')
+#5 D:\xampp\htdocs\OVANIC\wp-includes\template.php(772): require('D:\\xampp\\htdocs...')
+#6 D:\xampp\htdocs\OVANIC\wp-content\plugins\woocommerce\includes\wc-core-functions.php(284): load_template('D:\\xampp\\htdocs...', false)
+#7 D:\xampp in D:\xampp\htdocs\OVANIC\wp-includes\category-template.php on line 1278
+
+2022-06-08T03:38:23+00:00 CRITICAL Uncaught ArgumentCountError: Too few arguments to function get_the_terms(), 1 passed in D:\xampp\htdocs\OVANIC\wp-content\themes\flatsome-child\functions\woo.php on line 6 and exactly 2 expected in D:\xampp\htdocs\OVANIC\wp-includes\category-template.php:1278
+Stack trace:
+#0 D:\xampp\htdocs\OVANIC\wp-content\themes\flatsome-child\functions\woo.php(6): get_the_terms(15)
+#1 D:\xampp\htdocs\OVANIC\wp-includes\class-wp-hook.php(307): add_brand_product_singer('')
+#2 D:\xampp\htdocs\OVANIC\wp-includes\class-wp-hook.php(331): WP_Hook->apply_filters(NULL, Array)
+#3 D:\xampp\htdocs\OVANIC\wp-includes\plugin.php(476): WP_Hook->do_action(Array)
+#4 D:\xampp\htdocs\OVANIC\wp-content\themes\flatsome-child\woocommerce\single-product\layouts\product.php(30): do_action('woocommerce_sin...')
+#5 D:\xampp\htdocs\OVANIC\wp-includes\template.php(772): require('D:\\xampp\\htdocs...')
+#6 D:\xampp\htdocs\OVANIC\wp-content\plugins\woocommerce\includes\wc-core-functions.php(284): load_template('D:\\xampp\\htdocs...', false)
+#7 D:\xampp in D:\xampp\htdocs\OVANIC\wp-includes\category-template.php on line 1278
+
+2022-06-08T03:39:44+00:00 CRITICAL Uncaught ArgumentCountError: Too few arguments to function get_the_terms(), 1 passed in D:\xampp\htdocs\OVANIC\wp-content\themes\flatsome-child\functions\woo.php on line 6 and exactly 2 expected in D:\xampp\htdocs\OVANIC\wp-includes\category-template.php:1278
+Stack trace:
+#0 D:\xampp\htdocs\OVANIC\wp-content\themes\flatsome-child\functions\woo.php(6): get_the_terms(15)
+#1 D:\xampp\htdocs\OVANIC\wp-includes\class-wp-hook.php(307): add_brand_product_singer('')
+#2 D:\xampp\htdocs\OVANIC\wp-includes\class-wp-hook.php(331): WP_Hook->apply_filters(NULL, Array)
+#3 D:\xampp\htdocs\OVANIC\wp-includes\plugin.php(476): WP_Hook->do_action(Array)
+#4 D:\xampp\htdocs\OVANIC\wp-content\themes\flatsome-child\woocommerce\single-product\layouts\product.php(30): do_action('woocommerce_sin...')
+#5 D:\xampp\htdocs\OVANIC\wp-includes\template.php(772): require('D:\\xampp\\htdocs...')
+#6 D:\xampp\htdocs\OVANIC\wp-content\plugins\woocommerce\includes\wc-core-functions.php(284): load_template('D:\\xampp\\htdocs...', false)
+#7 D:\xampp in D:\xampp\htdocs\OVANIC\wp-includes\category-template.php on line 1278
+
+2022-06-08T03:52:13+00:00 CRITICAL Uncaught Error: Cannot use object of type WP_Error as array in D:\xampp\htdocs\OVANIC\wp-content\themes\flatsome-child\functions\woo.php:16
+Stack trace:
+#0 D:\xampp\htdocs\OVANIC\wp-includes\class-wp-hook.php(307): shownotselling('')
+#1 D:\xampp\htdocs\OVANIC\wp-includes\class-wp-hook.php(331): WP_Hook->apply_filters(NULL, Array)
+#2 D:\xampp\htdocs\OVANIC\wp-includes\plugin.php(476): WP_Hook->do_action(Array)
+#3 D:\xampp\htdocs\OVANIC\wp-content\themes\flatsome-child\woocommerce\single-product\layouts\product.php(30): do_action('woocommerce_sin...')
+#4 D:\xampp\htdocs\OVANIC\wp-includes\template.php(772): require('D:\\xampp\\htdocs...')
+#5 D:\xampp\htdocs\OVANIC\wp-content\plugins\woocommerce\includes\wc-core-functions.php(284): load_template('D:\\xampp\\htdocs...', false)
+#6 D:\xampp\htdocs\OVANIC\wp-content\themes\flatsome-child\woocommerce\content-single-product.php(41): wc_get_template_part('single-product/...', 'right-sidebar-s...')
+#7 D:\xampp\htdocs\OVANIC\wp-includes\template.php(772): require('D:\\xa in D:\xampp\htdocs\OVANIC\wp-content\themes\flatsome-child\functions\woo.php on line 16
+

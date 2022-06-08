@@ -47,7 +47,10 @@ remove_action( 'flatsome_product_box_actions', 'flatsome_product_box_actions_add
 if(flatsome_option('catalog_mode_prices')) remove_action( 'woocommerce_after_shop_loop_item_title', 'woocommerce_template_loop_price', 10 );
 
 /* Renove prices from product page */
-if(flatsome_option('catalog_mode_prices')) remove_action( 'woocommerce_single_product_summary', 'woocommerce_template_single_price', 10 );
+if(flatsome_option('catalog_mode_prices')) remove_action( '\ư
+
+
+', 'woocommerce_template_single_price', 10 );
 
 /* Remove prices from lightbox */
 if(flatsome_option('catalog_mode_prices')) remove_action( 'woocommerce_single_product_lightbox_summary', 'woocommerce_template_single_price', 10 );
