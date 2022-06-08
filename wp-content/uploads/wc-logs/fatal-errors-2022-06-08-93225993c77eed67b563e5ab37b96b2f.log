@@ -85,3 +85,5 @@ Stack trace:
 #6 D:\xampp\htdocs\OVANIC\wp-content\themes\flatsome-child\woocommerce\content-single-product.php(41): wc_get_template_part('single-product/...', 'right-sidebar-s...')
 #7 D:\xampp\htdocs\OVANIC\wp-includes\template.php(772): require('D:\\xa in D:\xampp\htdocs\OVANIC\wp-content\themes\flatsome-child\functions\woo.php on line 16
 
+2022-06-08T05:58:09+00:00 CRITICAL syntax error, unexpected '}' in D:\xampp\htdocs\OVANIC\wp-content\themes\flatsome-child\functions\woo.php on line 20
+

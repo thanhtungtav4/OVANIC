@@ -9,7 +9,7 @@ function add_brand_product_singer() {
 };
 add_action( 'woocommerce_single_product_summary', 'add_brand_product_singer', 6 );
 
-// notselling product is check
+// notselling product detail product is check
 function shownotselling() {
   if (function_exists('get_field')){
     if(get_field('stop_selling') == true){
@@ -19,3 +19,17 @@ function shownotselling() {
     }
 }};
 add_action( 'woocommerce_single_product_summary', 'shownotselling', 7 );
+// !notselling product detail product is check
+
+// notselling product is quick view
+function hideCart() {
+  global $post;
+  if(get_field('stop_selling') == true){
+    remove_action( 'woocommerce_simple_add_to_cart', 'woocommerce_simple_add_to_cart', 30 );
+    echo '<p class="m-status"><strong>Sản phẩm ngừng kinh doanh</strong></p>';
+  }
+};
+add_action( 'woocommerce_simple_add_to_cart', 'hideCart', 6 );
+// !notselling product is quick view
+
+
