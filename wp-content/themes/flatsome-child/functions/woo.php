@@ -26,10 +26,18 @@ function hideCart() {
   global $post;
   if(get_field('stop_selling') == true){
     remove_action( 'woocommerce_simple_add_to_cart', 'woocommerce_simple_add_to_cart', 30 );
+    remove_action( 'woocommerce_shop_loop_item_title', 'woocommerce_shop_loop_item_title', 30 );
     echo '<p class="m-status"><strong>Sản phẩm ngừng kinh doanh</strong></p>';
   }
 };
 add_action( 'woocommerce_simple_add_to_cart', 'hideCart', 6 );
 // !notselling product is quick view
 
+function add_noti(){
+  global $post;
+  if(get_field('stop_selling') == true){
+   echo '<span class="badge-container absolute right top z-1">Hết Hàng</span>';
+  }
+}
+add_action( 'woocommerce_before_shop_loop_item', 'add_noti', 9 );
 
