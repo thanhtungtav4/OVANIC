@@ -14,14 +14,14 @@
 	Font
 ------------------------------------------------------------*/
 @mixin styleNormal() {
-	font-family: 'Arial' ,sans-serif;
+	font-family: 'League Spartan', sans-serif;
 	font-style: normal;
 	font-weight: 400;
 	font-size: 1.5rem;
 	line-height: 1.2;
 }
 @mixin styleDt() {
-	font-family: 'Arial' ,sans-serif;
+	font-family: 'League Spartan', sans-serif;
 	font-style: normal;
 	font-weight: 400;
 	font-size: 2rem;
