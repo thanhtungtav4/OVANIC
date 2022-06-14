@@ -49,3 +49,15 @@ body{
 		overflow-y: hidden;
 	}
 }
+.only-pc{
+	display: block;
+	@include sp{
+		display: none !important;
+	}
+}
+.only-sp{
+	display: none;
+	@include sp{
+		display: block;
+	}
+}

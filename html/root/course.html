@@ -7,7 +7,7 @@
     <title>Top</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
-    <link href="https://fonts.googleapis.com/css2?family=League+Spartan:wght@400;500;700&amp;display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;700&amp;display=swap" rel="stylesheet">
     <link rel="stylesheet" href="assets/css/style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css">
   </head>
@@ -33,55 +33,86 @@
         </div>
         <div class="c-header__med">
           <div class="l-container">
-            <div class="logo"> 
-              <picture> 
-                <source srcset="assets/images/logo.webp" type="image/webp"><img src="assets/images/logo.png" data-src="assets/images/logo.png" alt="Logo" width="161" height="124">
+            <div class="logo">
+              <picture>
+                <source srcset="assets/images/logo.jpg" type="image/jpg"><img src="assets/images/logo.jpg" data-src="assets/images/logo.jpg" alt="Logo" width="199" height="76">
               </picture>
             </div>
-            <ol> 
-              <li> 
-                <div class="iconbox"><img src="https://chiaki.vn/frontend/images/shopping.svg" alt="" srcset="" width="24" height="24"></div>
-                <p>Mua hàng 
-                  <smail> Cam Kết Chất Lượng      </smail>
-                </p>
-              </li>
-              <li> 
-                <div class="iconbox"><img src="https://chiaki.vn/frontend/images/shopping.svg" alt="" srcset="" width="24" height="24"></div>
-                <p>Thanh toán
-                  <smail> Giao hàng & thanh toán tại nhà                </smail>
-                </p>
-              </li>
-              <li> 
-                <div class="iconbox"><img src="https://chiaki.vn/frontend/images/shopping.svg" alt="" srcset="" width="24" height="24"></div>
-                <p>Đổi trả hàng
-                  <smail> Trong vòng 05 ngày(*)    </smail>
-                </p>
-              </li>
-              <li> 
-                <div class="iconbox"><img src="https://chiaki.vn/frontend/images/shopping.svg" alt="" srcset="" width="24" height="24"></div>
-                <p>Giờ mở cửa
-                  <smail> TP. HCM             </smail>
-                </p>
-              </li>
-            </ol>
+            <div class="navbar__left">
+              <form class="seach">
+                <div class="seach_inner">
+                  <input type="search" name="q" placeholder="Tìm kiếm Sản phẩm">
+                  <button>Tìm kiếm</button>
+                </div>
+                <div class="seach_list"><a href="#" taget="_blank">Collagen</a><a href="#" taget="_blank">Kem chống nắng</a><a href="#" taget="_blank">Collagen</a><a href="#" taget="_blank">Kem chống nắng</a><a href="#" taget="_blank">Collagen</a></div>
+              </form>
+              <ul class="icon">
+                <li class="navbar only-sp" onclick="toggleMenu()">
+                  <svg width="28" height="18" viewBox="0 0 28 18" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path fill-rule="evenodd" clip-rule="evenodd" d="M0.5 3V0H27.5V3H0.5ZM0.5 10.5H27.5V7.5H0.5V10.5ZM0.5 18H27.5V15H0.5V18Z" fill="#2B2929"></path>
+                  </svg>
+                </li>
+                <li class="user c-menu_dropdown"><a class="icon_inner" href="#">
+                    <svg width="38" height="38" viewBox="0 0 38 38" fill="none" xmlns="http://www.w3.org/2000/svg">
+                      <path fill-rule="evenodd" clip-rule="evenodd" d="M19 6.33325C15.5008 6.33325 12.6666 9.16742 12.6666 12.6666C12.6666 16.1658 15.5008 18.9999 19 18.9999C22.4991 18.9999 25.3333 16.1658 25.3333 12.6666C25.3333 9.16742 22.4991 6.33325 19 6.33325ZM22.1666 12.6666C22.1666 10.9249 20.7416 9.49992 19 9.49992C17.2583 9.49992 15.8333 10.9249 15.8333 12.6666C15.8333 14.4083 17.2583 15.8333 19 15.8333C20.7416 15.8333 22.1666 14.4083 22.1666 12.6666ZM28.5 26.9166C28.1833 25.7924 23.275 23.7499 19 23.7499C14.725 23.7499 9.81665 25.7924 9.49998 26.9324V28.4999H28.5V26.9166ZM6.33331 26.9166C6.33331 22.7049 14.7725 20.5833 19 20.5833C23.2275 20.5833 31.6666 22.7049 31.6666 26.9166V31.6666H6.33331V26.9166Z"></path>
+                    </svg></a>
+                  <div class="c-menu_sub">
+                    <div class="c-menu_subinner">
+                      <ol>
+                        <li><a href="http://"><strong>Đăng Nhập</strong></a></li>
+                        <li><a href="http://"><strong>Đăng Ký</strong></a></li>
+                        <li><a href="http://"><strong>Tra Cứu Đơn Hàng</strong></a></li>
+                      </ol>
+                    </div>
+                  </div>
+                </li>
+                <li class="cart c-menu_dropdown"><a class="icon_inner" href="#">
+                    <svg width="35" height="36" viewBox="0 0 35 36" fill="none" xmlns="http://www.w3.org/2000/svg">
+                      <path fill-rule="evenodd" clip-rule="evenodd" d="M26.6821 17.9563C26.1863 18.8605 25.2238 19.4584 24.13 19.4584H13.2654L11.6613 22.3751H29.1613V25.2917H11.6613C9.44459 25.2917 8.04459 22.9147 9.10917 20.9605L11.0779 17.4022L5.82792 6.33341H2.91125V3.41675H7.68001L9.05084 6.33341H30.6342C31.7425 6.33341 32.4425 7.52925 31.9029 8.49175L26.6821 17.9563ZM28.155 9.25008H10.4363L13.8925 16.5417H24.13L28.155 9.25008ZM11.6613 26.7501C10.0571 26.7501 8.75917 28.0626 8.75917 29.6667C8.75917 31.2709 10.0571 32.5834 11.6613 32.5834C13.2654 32.5834 14.5779 31.2709 14.5779 29.6667C14.5779 28.0626 13.2654 26.7501 11.6613 26.7501ZM23.3425 29.6667C23.3425 28.0626 24.6404 26.7501 26.2446 26.7501C27.8488 26.7501 29.1613 28.0626 29.1613 29.6667C29.1613 31.2709 27.8488 32.5834 26.2446 32.5834C24.6404 32.5834 23.3425 31.2709 23.3425 29.6667Z"></path>
+                    </svg><span>2</span></a>
+                  <div class="c-menu_sub">
+                    <div class="c-menu_subinner">
+                      <ul class="cart_inner">
+                        <li><a class="cart_img" href="#"><img class="lazyload" src="assets/images/item-cart.jpg" data-src="assets/images/item-cart.jpg" alt="Logo" loading="lazy" width="80" height="80"></a>
+                          <div class="cart_content">
+                            <div class="cart_content_top"><a href="#"><strong>LAVIER BROWN</strong>
+                                <p>8h/ngày | 3 tháng</p>
+                                <p>Độ cận: 0.5</p></a>
+                              <div class="btn_area"><a class="btn_area__add" href="#"><img class="lazyload" src="assets/images/note_add.svg" data-src="assets/images/note_add.svg" alt="Logo" loading="lazy" width="16" height="20"></a><a class="btn_area__del" href="#"><img class="lazyload" src="assets/images/remove_shopping_cart.svg" data-src="assets/images/remove_shopping_cart.svg" alt="Logo" loading="lazy" width="22" height="22"></a></div>
+                            </div>
+                            <div class="cart_content_bottom">
+                              <p>x 1</p>
+                              <p>400.000VND</p>
+                            </div>
+                          </div>
+                        </li>
+                        <li><a class="cart_img" href="#"><img class="lazyload" src="assets/images/item-cart.jpg" data-src="assets/images/item-cart.jpg" alt="Logo" loading="lazy" width="80" height="80"></a>
+                          <div class="cart_content">
+                            <div class="cart_content_top"><a href="#"><strong>LAVIER BROWN</strong>
+                                <p>8h/ngày | 3 tháng</p>
+                                <p>Độ cận: 0.5</p></a>
+                              <div class="btn_area"><a class="btn_area__add" href="#"><img class="lazyload" src="assets/images/note_add.svg" data-src="assets/images/note_add.svg" alt="Logo" loading="lazy" width="16" height="20"></a><a class="btn_area__del" href="#"><img class="lazyload" src="assets/images/remove_shopping_cart.svg" data-src="assets/images/remove_shopping_cart.svg" alt="Logo" loading="lazy" width="22" height="22"></a></div>
+                            </div>
+                            <div class="cart_content_bottom">
+                              <p>x 1</p>
+                              <p>400.000VND</p>
+                            </div>
+                          </div>
+                        </li>
+                      </ul>
+                    </div>
+                  </div>
+                </li>
+              </ul>
+            </div>
           </div>
         </div>
         <div class="c-header__bottom">
           <div class="l-container">
-            <div class="navbar dropdown-toggle"><a href=""> Danh mục sản phẩm</a>
-              <ul class="dropdown-menu"> 
-                <li><a href=""> <i class="gg-apple-watch"> </i>Hàng Hiệu Cao Cấp </a></li>
+            <div class="navbar dropdown-toggle"><a href=""><span></span>Danh mục sản phẩm<i class="gg-chevron-down"></i></a>
+              <ul class="dropdown-menu">
+                <li><a href=""><i class="gg-apple-watch"></i>Hàng Hiệu Cao Cấp</a></li>
               </ul>
-            </div>
-            <div class="navbar__left">        
-              <form class="seach"> 
-                <div class="seach_inner">
-                  <input type="text" name="q" placeholder="Tìm kiếm hàng nghìn Sản phẩm, Thương hiệu ...">
-                  <button>Tìm kiếm</button>
-                </div>
-                <div class="seach_list"><a href="#" taget="_blank">Collagen</a><a href="#" taget="_blank">Kem chống nắng</a><a href="#" taget="_blank">Collagen</a><a href="#" taget="_blank">Kem chống nắng</a><a href="#" taget="_blank">Collagen</a><a href="#" taget="_blank">Kem chống nắng</a></div>
-              </form><a class="m-btn"><i class="gg-notes"></i>Tra cứu đơn hàng</a><a class="m-btn" href="tel:0369.309.569"><i class="gg-phone"></i>0369.309.569</a><a class="m-btn">
-                <div class="cart"> <img src="assets/images/header-nav-cart.svg" alt="cart" width="24" height="24"><span>2</span></div></a>
             </div>
           </div>
         </div>
