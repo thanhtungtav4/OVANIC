@@ -11,6 +11,11 @@ function dev_product_thuong_hieu_permalink( $url, $term, $taxonomy ){
               if(strpos($url, $taxonomy_slug) === FALSE) break;
               $url = str_replace('/' . $taxonomy_slug, '', $url);
               break;
+        case 'category':
+        $taxonomy_slug = 'category'; //Thay bằng slug hiện tại của bạn. Mặc định là thuong-hieu
+        if(strpos($url, $taxonomy_slug) === FALSE) break;
+        $url = str_replace('/' . $taxonomy_slug, '', $url);
+        break;
     endswitch;
     return $url;
 }
@@ -35,10 +40,32 @@ function dev_thuong_hieu_rewrite_rules($flash = false) {
       flush_rewrite_rules(false);
 }
 add_action('init', 'dev_thuong_hieu_rewrite_rules');
+// Add our custom category rewrite rules
+function dev_category_rewrite_rules($flash = false) {
+    $terms = get_terms( array(
+        'taxonomy' => 'category',
+        'post_type' => 'post',
+        'hide_empty' => false,
+    ));
+    if($terms && !is_wp_error($terms)){
+        $siteurl = esc_url(home_url('/'));
+        foreach ($terms as $term){
+            $term_slug = $term->slug;
+            $baseterm = str_replace($siteurl,'',get_term_link($term->term_id,'category'));
+            add_rewrite_rule($baseterm.'?$','index.php?category='.$term_slug,'top');
+            add_rewrite_rule($baseterm.'page/([0-9]{1,})/?$', 'index.php?category='.$term_slug.'&paged=$matches[1]','top');
+            add_rewrite_rule($baseterm.'(?:feed/)?(feed|rdf|rss|rss2|atom)/?$', 'index.php?category='.$term_slug.'&feed=$matches[1]','top');
+        }
+    }
+    if ($flash == true)
+        flush_rewrite_rules(false);
+  }
+add_action('init', 'dev_category_rewrite_rules');
 /*Sửa lỗi khi tạo mới taxomony bị 404*/
 add_action( 'create_term', 'new_thuong_hieu_cat_edit_success', 10, 2 );
 function new_thuong_hieu_cat_edit_success( $term_id, $taxonomy ) {
     dev_thuong_hieu_rewrite_rules(true);
+    dev_category_rewrite_rules(true);
 }
 
 /*
