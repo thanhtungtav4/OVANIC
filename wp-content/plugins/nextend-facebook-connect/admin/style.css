@@ -29,24 +29,6 @@
     font-size: 13px;
 }
 
-#nsl-admin .nsl-admin-embed-youtube {
-    position: relative;
-    max-width: 1280px;
-    margin-top: 40px;
-}
-
-#nsl-admin .nsl-admin-embed-youtube div {
-    padding-bottom: 56.25%;
-}
-
-#nsl-admin .nsl-admin-embed-youtube iframe {
-    position: absolute;
-    left: 0;
-    top: 0;
-    width: 100%;
-    height: 100%;
-}
-
 #nsl-admin .form-table th em {
     font-weight: normal;
 }

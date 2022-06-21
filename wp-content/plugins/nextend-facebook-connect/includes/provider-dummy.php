@@ -21,7 +21,7 @@ abstract class NextendSocialProviderDummy {
      *
      * @var string
      */
-    public $oauthRedirectBehavior = "default";
+    public $authRedirectBehavior = "default";
 
     protected $color = '#fff';
 

@@ -197,6 +197,22 @@ NextendSocialLoginAdmin::showProBox();
     </tr>
 
     <tr>
+        <th scope="row"><?php _e('Social accounts tab', 'nextend-facebook-connect'); ?></th>
+        <td>
+            <fieldset>
+                <label><input type="radio" name="buddypress_social_accounts_tab"
+                              value="" <?php if ($settings->get('buddypress_social_accounts_tab') == '') : ?> checked="checked" <?php endif; ?><?php echo $attr; ?>>
+                    <span><?php _e('Hide', 'nextend-facebook-connect'); ?></span></label><br>
+                <label><input type="radio" name="buddypress_social_accounts_tab"
+                              value="show" <?php if ($settings->get('buddypress_social_accounts_tab') == 'show') : ?> checked="checked" <?php endif; ?><?php echo $attr; ?>>
+                    <span><?php _e('Show', 'nextend-facebook-connect'); ?></span></label><br>
+                <p class="description" id="tagline-buddypress_social_accounts_tab"><?php printf(__('Creates a new tab called %s, where the Link and Unlink buttons will be displayed.', 'nextend-facebook-connect'), __('Social Accounts', 'nextend-facebook-connect')); ?></p>
+            </fieldset>
+        </td>
+
+    </tr>
+
+    <tr>
         <th scope="row"><?php _e('Button alignment', 'nextend-facebook-connect'); ?></th>
         <td>
             <fieldset>

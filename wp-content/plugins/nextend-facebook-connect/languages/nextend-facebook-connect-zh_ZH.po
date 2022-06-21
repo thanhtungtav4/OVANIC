@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: nextend-facebook-connect\n"
-"POT-Creation-Date: 2022-02-14 08:32+0100\n"
-"PO-Revision-Date: 2022-02-14 08:32+0100\n"
+"POT-Creation-Date: 2022-06-13 13:55+0200\n"
+"PO-Revision-Date: 2022-06-13 13:55+0200\n"
 "Last-Translator: \n"
 "Language-Team: nextend-facebook-connect\n"
 "Language: zh_CN\n"
@@ -99,6 +99,9 @@ msgstr ""
 
 msgid "User"
 msgstr "用户"
+
+msgid "This provider doesn't support REST API calls!"
+msgstr ""
 
 #, php-format
 msgid "%s needs json_decode function."
@@ -469,6 +472,18 @@ msgstr "无法使用"
 #, fuzzy, php-format
 #| msgid "Please update %1$s to version %2$s or newer."
 msgid ""
+"%1$s and %2$s are not compatible. Please update %1$s to version %3$s or "
+"newer."
+msgstr "请更新 %1$s 到 %2$s 版本."
+
+#, fuzzy, php-format
+#| msgid "Update now!"
+msgid "Update %s"
+msgstr "现在更新！"
+
+#, fuzzy, php-format
+#| msgid "Please update %1$s to version %2$s or newer."
+msgid ""
 "%1$s and %2$s are not compatible. Please update %2$s to version %3$s or "
 "newer."
 msgstr "请更新 %1$s 到 %2$s 版本."
@@ -702,6 +717,26 @@ msgid "Login layout"
 msgstr "登录界面布局"
 
 #, fuzzy
+#| msgid "Social accounts"
+msgid "Social accounts tab"
+msgstr "社交账号"
+
+msgid "Hide"
+msgstr "隐藏"
+
+msgid "Show"
+msgstr "显示"
+
+#, php-format
+msgid ""
+"Creates a new tab called %s, where the Link and Unlink buttons will be "
+"displayed."
+msgstr ""
+
+msgid "Social Accounts"
+msgstr "社交账号"
+
+#, fuzzy
 #| msgid "Buttons"
 msgid "Button alignment"
 msgstr "按钮"
@@ -719,12 +754,6 @@ msgstr ""
 #| msgid "Icon button"
 msgid "Login button"
 msgstr "图标按钮"
-
-msgid "Show"
-msgstr "显示"
-
-msgid "Hide"
-msgstr "隐藏"
 
 #, php-format
 msgid "You need to turn on the ' %1$s > %2$s > %3$s ' for this feature to work"
@@ -1353,9 +1382,6 @@ msgstr ""
 
 msgid "Social Login"
 msgstr "社交登录"
-
-msgid "Social Accounts"
-msgstr "社交账号"
 
 #, fuzzy
 #| msgid "Buttons"
@@ -2078,6 +2104,23 @@ msgid ""
 "This email is already registered, please login in to your account to link "
 "with %1$s."
 msgstr "这个电子邮件已经注册过，请登录到您的帐户以链接到Facebook。"
+
+msgid "Unexpected response: The provider didn't return the Authorization URL!"
+msgstr ""
+
+msgid "Unexpected response: Authentication has been cancelled!"
+msgstr ""
+
+msgid "Unexpected response: Immediate request failed - Setup Needed!"
+msgstr ""
+
+msgid ""
+"Unexpected response: The targeted OpenID server is not authorized to verify "
+"this request!"
+msgstr ""
+
+msgid "Unexpected response: OpenID Verification failed!"
+msgstr ""
 
 #, php-format
 msgid "Please install and activate %1$s to use the %2$s"
@@ -2871,6 +2914,28 @@ msgid ""
 "authorize your App. %1$sLearn more%2$s."
 msgstr ""
 
+msgid "Initial Login method"
+msgstr ""
+
+msgid "Email and Password"
+msgstr ""
+
+msgid "QR code"
+msgstr ""
+
+msgid ""
+"The selected value defines whether the Email and Password or the QR code "
+"login option will be presented in the LINE authentication screen by default."
+msgstr ""
+
+msgid "Force initial login method"
+msgstr ""
+
+msgid ""
+"Enable, if you want to offer only the selected Initial Login method in the "
+"LINE authentication screen."
+msgstr ""
+
 #, fuzzy
 #| msgid "Continue with <b>LinkedIn</b>"
 msgid "Continue with <b>Line</b>"
@@ -3020,6 +3085,19 @@ msgid ""
 "strong> On our Settings tab, you will need to select the Audience depending "
 "on the selected value! If you are not sure what to choose, then %1$shere%2$s "
 "you can learn more."
+msgstr ""
+
+#, php-format
+msgid ""
+"%1$s It seems the suggested %2$s contains query string(s), that %3$s doesn't "
+"allow in the URLs. Please check the structure of your %4$s, as you might use "
+"one with query strings in it!"
+msgstr ""
+
+msgid "Warning:"
+msgstr ""
+
+msgid "Permalinks"
 msgstr ""
 
 #, fuzzy
@@ -3191,9 +3269,8 @@ msgid ""
 "with PayPal</b>\"."
 msgstr ""
 
-msgid ""
-"Click \"<b>Advanced Options</b>\" which can be found at the end of text "
-"after \"<b>Connect with PayPal (formerly Log In with PayPal)</b>\"."
+#, php-format
+msgid "Click %1$s that appears after the %2$s text."
 msgstr ""
 
 #, fuzzy
@@ -3201,13 +3278,17 @@ msgstr ""
 msgid "Tick \"<b>Full name</b>\"."
 msgstr "请输入电子邮箱."
 
+#, php-format
 msgid ""
-"\"<b>Email address</b>\" now requires an App Review by PayPal. To get the "
-"email address as well, <b>please submit your App for a review</b> after your "
-"App configuration is finished. Once the App review is successful, you need "
-"to pick \"Email address\" here to retrieve the email of the user. Until then "
-"make sure the Email scope is not \"Enabled\" in our PayPal Settings tab."
+"If you want to get the email address as well, then don't forget to tick %1$s "
+"option. In this case you should also enable the %2$s setting in our %3$s "
+"%4$s tab."
 msgstr ""
+
+#, fuzzy
+#| msgid "Email"
+msgid "Email scope"
+msgstr "Email"
 
 msgid "Fill \"<b>Privacy policy URL</b>\" and  \"<b>User agreement URL</b>\"."
 msgstr ""
@@ -3218,15 +3299,23 @@ msgid ""
 "\"<b>Live</b>\" mode and not \"Sandbox\". )"
 msgstr ""
 
+#, php-format
+msgid ""
+"%1$s Before you could start using the App, it requires an App review, which "
+"might take up to 7 business days to process. Below the %2$s field you can "
+"check the %3$s. Once your App got approved, you could continue with the "
+"provider verification in our %4$s tab."
+msgstr ""
+
+#, fuzzy
+#| msgid "Import"
+msgid "Important note:"
+msgstr "导入"
+
 #, fuzzy
 #| msgid "App Secret"
 msgid "Secret"
 msgstr "App 密匙"
-
-#, fuzzy
-#| msgid "Email"
-msgid "Email scope"
-msgstr "Email"
 
 msgid "Disable, when you have no rights for email address."
 msgstr ""
@@ -3415,6 +3504,80 @@ msgid "Unlink account from <b>Slack</b>"
 msgstr "解除关联 <b>Facebook</b> 账号"
 
 #, fuzzy, php-format
+#| msgid ""
+#| "To allow your visitors to log in with their %1$s account, first you must "
+#| "create a %1$s App. The following guide will help you through the %1$s App "
+#| "creation process. After you have created your %1$s App, head over to "
+#| "\"Settings\" and configure the given \"%2$s\" and \"%3$s\" according to "
+#| "your %1$s App."
+msgid ""
+"To allow your visitors to log in with their %1$s account, first you must "
+"create a %1$s %2$s. The following guide will help you through the %1$s %2$s "
+"creation process. After you have created your %1$s %2$s, head over to "
+"\"Settings\" and configure the given \"%2$s\" field according to your %1$s "
+"%2$s."
+msgstr ""
+"要想允许你的访问者使用 %1$s 账号登录，你首先要建立一个 %1$s 应用。下面的导航"
+"将帮助你了解 %1$s 应用建立的过程，然后你可以建立一个你自己的 %1$s App。转到"
+"\"设置“，然后根据你的 %1$s 配置，给予 \"%2$s\" and \"%3$s\"。"
+
+#, php-format
+msgid "To be able to create a %1$s, you need to spend at least $5 in the %2$s."
+msgstr ""
+
+#, fuzzy, php-format
+#| msgid "Enter your domain name to the App Domains"
+msgid "Enter your domain name to the %1$s field, probably: %2$s"
+msgstr "填写你的域名到 应用域名"
+
+#, fuzzy, php-format
+#| msgid "Click on the Create button"
+msgid "Check the %1$s option."
+msgstr "点击创建按钮"
+
+#, php-format
+msgid "Press the %1$s button."
+msgstr ""
+
+#, php-format
+msgid ""
+"Copy the necessary %1$s value under the %2$s section, you will need this on "
+"our %3$s tab."
+msgstr ""
+
+#, php-format
+msgid ""
+"<b>WARNING:</b> The %1$s API can not return any email address! %2$sLearn more"
+"%3$s."
+msgstr ""
+
+msgid "Web API Key"
+msgstr ""
+
+#, fuzzy
+#| msgid "Continue with <b>LinkedIn</b>"
+msgid "Continue with <b>Steam</b>"
+msgstr "通过 <b>LinkedIn</b>"
+
+#, fuzzy
+#| msgid "Continue with <b>Facebook</b>"
+msgid "Sign up with <b>Steam</b>"
+msgstr "通过 <b>Facebook</b>"
+
+#, fuzzy
+#| msgid "Link account with <b>Facebook</b>"
+msgid "Link account with <b>Steam</b>"
+msgstr "关联 <b>Facebook</b> 账号"
+
+#, fuzzy
+#| msgid "Unlink account from <b>Facebook</b>"
+msgid "Unlink account from <b>Steam</b>"
+msgstr "解除关联 <b>Facebook</b> 账号"
+
+msgid "Error: The 64-bit SteamID can not be retrieved for this user!"
+msgstr ""
+
+#, fuzzy, php-format
 #| msgid "Log in with your %s credentials if you are not logged in"
 msgid "Log in to your %s developer account, if you are not logged in yet."
 msgstr "如果您未登录，请使用您的 %s 凭据登录"
@@ -3458,10 +3621,6 @@ msgid ""
 "name into the %2$s field."
 msgstr ""
 
-#, php-format
-msgid "Press the %1$s button."
-msgstr ""
-
 #, fuzzy, php-format
 #| msgid "Click on the Create button"
 msgid "For %1$s choose the %2$s option."
@@ -3470,11 +3629,6 @@ msgstr "点击创建按钮"
 #, php-format
 msgid "Under the %s section you should fill all of the required fields."
 msgstr ""
-
-#, fuzzy, php-format
-#| msgid "Enter your domain name to the App Domains"
-msgid "Enter your domain name to the %1$s field, probably: %2$s"
-msgstr "填写你的域名到 应用域名"
 
 #, php-format
 msgid ""
@@ -3684,10 +3838,10 @@ msgstr ""
 msgid "Click on the \"<b>Create an App</b>\" button on the top right corner."
 msgstr "点击\"创建新应用\"按钮"
 
-msgid ""
-"Fill the \"<b>Application Name</b>\" and select \"<b>Web Application</b>\" "
-"at \"<b>Application Type</b>\"."
-msgstr ""
+#, fuzzy
+#| msgid "Click on the \"Create New App\" button"
+msgid "Fill the \"<b>Application Name</b>\" field."
+msgstr "点击\"创建新应用\"按钮"
 
 msgid "Enter a \"<b>Description</b>\" for your app!"
 msgstr ""
@@ -3699,6 +3853,11 @@ msgstr ""
 msgid ""
 "Enter the URL of your site to the \"<b>Home Page URL</b>\" field: <b>%s</b>"
 msgstr "将以下网址添加到“授权重定向网址”字段中：<b>%s</b>"
+
+#, fuzzy, php-format
+#| msgid "Click on the Create button"
+msgid "At %1$s choose the %2$s option."
+msgstr "点击创建按钮"
 
 msgid ""
 "Under the \"<b>API Permissions</b>\" you should select \"<b>OpenID Connect "

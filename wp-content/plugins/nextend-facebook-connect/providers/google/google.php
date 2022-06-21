@@ -2,7 +2,7 @@
 
 use NSL\Notices;
 
-class NextendSocialProviderGoogle extends NextendSocialProvider {
+class NextendSocialProviderGoogle extends NextendSocialProviderOAuth {
 
     /** @var NextendSocialProviderGoogleClient */
     protected $client;
@@ -186,7 +186,7 @@ class NextendSocialProviderGoogle extends NextendSocialProvider {
 
             $this->client->setClientId($this->settings->get('client_id'));
             $this->client->setClientSecret($this->settings->get('client_secret'));
-            $this->client->setRedirectUri($this->getRedirectUriForOAuthFlow());
+            $this->client->setRedirectUri($this->getRedirectUriForAuthFlow());
 
             if (!$this->settings->get('select_account')) {
                 $this->client->setPrompt('');
@@ -260,12 +260,14 @@ class NextendSocialProviderGoogle extends NextendSocialProvider {
         return parent::getAuthUserData($key);
     }
 
-    public function syncProfile($user_id, $provider, $access_token) {
+    public function syncProfile($user_id, $provider, $data) {
         if ($this->needUpdateAvatar($user_id)) {
             $this->updateAvatar($user_id, $this->getAuthUserData('picture'));
         }
 
-        $this->storeAccessToken($user_id, $access_token);
+        if (!empty($data['access_token_data'])) {
+            $this->storeAccessToken($user_id, $data['access_token_data']);
+        }
     }
 
     public function deleteLoginPersistentData() {

@@ -56,10 +56,4 @@ $provider = $this->getProvider();
         <a href="<?php echo $this->getUrl('settings'); ?>"
            class="button button-primary"><?php printf(__('I am done setting up my %s', 'nextend-facebook-connect'), 'Google App'); ?></a>
     </div>
-
-    <br>
-    <div class="nsl-admin-embed-youtube">
-        <div></div>
-        <iframe src="https://www.youtube.com/embed/i01nbsbNMmw?rel=0" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
-    </div>
 </div>

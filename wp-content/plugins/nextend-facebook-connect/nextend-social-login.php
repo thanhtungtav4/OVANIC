@@ -12,16 +12,17 @@ require_once dirname(__FILE__) . '/NSL/REST.php';
 require_once dirname(__FILE__) . '/NSL/GDPR.php';
 
 require_once(NSL_PATH . '/class-settings.php');
-require_once(NSL_PATH . '/includes/provider.php');
+require_once(NSL_PATH . '/includes/provider-oauth.php');
+require_once(NSL_PATH . '/includes/provider-openid.php');
 require_once(NSL_PATH . '/admin/admin.php');
 
 require_once(NSL_PATH . '/compat.php');
 
 class NextendSocialLogin {
 
-    public static $version = '3.1.4';
+    public static $version = '3.1.5';
 
-    public static $nslPROMinVersion = '3.1.4';
+    public static $nslPROMinVersion = '3.1.5';
 
     public static $proxyPage = false;
 
@@ -51,14 +52,24 @@ class NextendSocialLogin {
 
 
     public static function noticeUpdateFree() {
-        if (is_admin() && current_user_can('manage_options')) {
+        $showNotice = true;
+        if (isset($_GET['page']) && $_GET['page'] === 'nextend-social-login' && isset($_GET['view']) && $_GET['view'] === 'pro-addon') {
+            $showNotice = false;
+        }
+
+        if (is_admin() && current_user_can('manage_options') && $showNotice) {
             $file = 'nextend-facebook-connect/nextend-facebook-connect.php';
             Notices::addError(sprintf(__('Please update %1$s to version %2$s or newer.', 'nextend-facebook-connect'), "Nextend Social Login", NextendSocialLoginPRO::$nslMinVersion) . ' <a href="' . esc_url(wp_nonce_url(admin_url('update.php?action=upgrade-plugin&plugin=') . $file, 'upgrade-plugin_' . $file)) . '">' . __('Update now!', 'nextend-facebook-connect') . '</a>');
         }
     }
 
     public static function noticeUpdatePro() {
-        if (is_admin() && current_user_can('manage_options')) {
+        $showNotice = true;
+        if (isset($_GET['page']) && $_GET['page'] === 'nextend-social-login' && isset($_GET['view']) && $_GET['view'] === 'pro-addon') {
+            $showNotice = false;
+        }
+
+        if (is_admin() && current_user_can('manage_options') && $showNotice) {
             $file = 'nextend-social-login-pro/nextend-social-login-pro.php';
             Notices::addError(sprintf(__('Please update %1$s to version %2$s or newer.', 'nextend-facebook-connect'), "Nextend Social Login Pro Addon", self::$nslPROMinVersion) . ' <a href="' . esc_url(wp_nonce_url(admin_url('update.php?action=upgrade-plugin&plugin=') . $file, 'upgrade-plugin_' . $file)) . '">' . __('Update now!', 'nextend-facebook-connect') . '</a>');
         }
@@ -191,6 +202,7 @@ class NextendSocialLogin {
             'buddypress_login_form_layout'     => 'default',
             'buddypress_login_button_style'    => 'default',
             'buddypress_sidebar_login'         => 'show',
+            'buddypress_social_accounts_tab'   => 'show',
 
             'woocommerce_login'                => 'after',
             'woocommerce_login_form_layout'    => 'default',
@@ -255,8 +267,6 @@ class NextendSocialLogin {
         ));
 
         add_action('itsec_initialized', 'NextendSocialLogin::disable_better_wp_security_block_long_urls', -1);
-
-        add_action('bp_loaded', 'NextendSocialLogin::buddypress_loaded');
     }
 
     public static function plugins_loaded() {
@@ -373,6 +383,12 @@ class NextendSocialLogin {
                     break;
             }
 
+            switch (NextendSocialLogin::$settings->get('buddypress_social_accounts_tab')) {
+                case 'show':
+                    add_action('bp_settings_setup_nav', 'NextendSocialLogin::bp_settings_setup_nav', 999999);
+                    break;
+            }
+
             add_action('profile_personal_options', 'NextendSocialLogin::addLinkAndUnlinkButtons');
 
 
@@ -468,6 +484,43 @@ class NextendSocialLogin {
                     return 10000000;
                 });
             }
+
+            /**
+             * Fix: Jetpack Boost - Defer Non-Essential JavaScript opens an output buffer and stops our authentication with a blank page, when the OAuth redirect uri proxy page is used.
+             *
+             * @see NSLDEV-426
+             */
+            if (defined('JETPACK_BOOST_VERSION')) {
+                add_filter('jetpack_boost_should_defer_js', '__return_false');
+            }
+
+            /*
+             * Fix: WP 2FA
+             * @url https://wordpress.org/plugins/wp-2fa/
+             *
+             * It breaks our login with an empty form when 2FA is enforced and the user doesn't have any 2FA method selected yet.
+             * E.g. "Grace period" was set to "Users have to configure 2FA straight away."
+             *
+             * If our Support Login Restrictions feature is enabled and the user has any authentication method configured, then we should still allow the restriction.
+             */
+            if (defined('WP_2FA_VERSION')) {
+                if (self::$settings->get('login_restriction')) {
+                    add_filter('wp_2fa_skip_2fa_login_form', function ($skip, $user) {
+                        if (class_exists('WP2FA\Authenticator\Login', false)) {
+                            $is_user_using_two_factor = WP2FA\Authenticator\Login::is_user_using_two_factor($user->ID);
+                            if ($is_user_using_two_factor) {
+                                return $skip;
+                            }
+                        }
+
+                        return true;
+                    }, 10, 2);
+                } else {
+                    add_filter('wp_2fa_skip_2fa_login_form', '__return_true');
+                }
+
+            }
+
         }
     }
 
@@ -512,9 +565,17 @@ class NextendSocialLogin {
     public static function loginHead() {
         self::styles();
 
-        $template = self::get_template_part('login/' . sanitize_file_name(self::$settings->get('login_form_layout')) . '.php');
-        if (!empty($template) && file_exists($template)) {
-            require($template);
+        if (!self::isLostPasswordRequest()) {
+            /*
+             * The default lost password page doesn't fire any actions where we should display the social buttons
+             * so we shouldn't call in any templates there either!
+             * We should still call the styles in just in case if the buttons were rendered manually.
+             */
+
+            $template = self::get_template_part('login/' . sanitize_file_name(self::$settings->get('login_form_layout')) . '.php');
+            if (!empty($template) && file_exists($template)) {
+                require($template);
+            }
         }
 
         self::$loginHeadAdded = true;
@@ -1219,13 +1280,9 @@ el.setAttribute("href",href+"redirect="+encodeURIComponent(window.location.href)
         }
     }
 
-    public static function buddypress_loaded() {
-        add_action('bp_settings_setup_nav', 'NextendSocialLogin::bp_settings_setup_nav');
-    }
-
     public static function bp_settings_setup_nav() {
 
-        if (!bp_is_active('settings')) {
+        if (!bp_is_active('settings') || !bp_is_active('members')) {
             return;
         }
 
@@ -1239,13 +1296,21 @@ el.setAttribute("href",href+"redirect="+encodeURIComponent(window.location.href)
         // Get the settings slug.
         $settings_slug = bp_get_settings_slug();
 
+        $subnav_slug = apply_filters('nsl_bp_social_accounts_tab_slug', 'social');
+        if (buddypress()->members->nav->get($settings_slug . '/' . $subnav_slug)) {
+            /**
+             * If there is a sub-nav item with the used slug, then we should use "nsl-social" as a fallback.
+             */
+            $subnav_slug = 'nsl-social';
+        }
+
         bp_core_new_subnav_item(array(
             'name'            => __('Social Accounts', 'nextend-facebook-connect'),
-            'slug'            => 'social',
+            'slug'            => $subnav_slug,
             'parent_url'      => trailingslashit($user_domain . $settings_slug),
             'parent_slug'     => $settings_slug,
             'screen_function' => 'NextendSocialLogin::bp_display_account_link',
-            'position'        => 30,
+            'position'        => 29,
             'user_has_access' => bp_core_can_edit_settings()
         ), 'members');
 
@@ -1438,6 +1503,12 @@ el.setAttribute("href",href+"redirect="+encodeURIComponent(window.location.href)
         }
 
         return $url;
+    }
+
+    public static function isLostPasswordRequest() {
+        $action = isset($_REQUEST['action']) ? $_REQUEST['action'] : 'login';
+
+        return $action === 'lostpassword';
     }
 
 }

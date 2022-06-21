@@ -127,7 +127,7 @@ abstract class NextendSocialOauth2 extends NextendSocialAuth {
                 )
             );
 
-            $request = wp_remote_post($this->endpointAccessToken, $this->extendAllHttpArgs($http_args));
+            $request = wp_remote_post($this->endpointAccessToken, $this->extendAuthenticateHttpArgs($this->extendAllHttpArgs($http_args)));
 
             if (is_wp_error($request)) {
 
@@ -294,6 +294,44 @@ abstract class NextendSocialOauth2 extends NextendSocialAuth {
     }
 
     /**
+     * @param       $path
+     * @param array $data
+     * @param       $endpoint
+     *
+     * @return array
+     * @throws Exception
+     */
+    public function post($path, $data = array(), $endpoint = false) {
+
+        $http_args = array(
+            'timeout'    => 15,
+            'user-agent' => 'WordPress',
+            'body'       => array_merge($this->defaultRestParams, $data)
+        );
+        if (!$endpoint) {
+            $endpoint = $this->endpointRestAPI;
+        }
+
+
+        $request = wp_remote_post($endpoint . $path, $this->extendHttpArgs($this->extendAllHttpArgs($http_args)));
+
+        if (is_wp_error($request)) {
+
+            throw new Exception($request->get_error_message());
+        } else if (wp_remote_retrieve_response_code($request) !== 200) {
+            $this->errorFromResponse(json_decode(wp_remote_retrieve_body($request), true));
+        }
+
+        $result = json_decode(wp_remote_retrieve_body($request), true);
+
+        if (!is_array($result)) {
+            throw new Exception(sprintf(__('Unexpected response: %s', 'nextend-facebook-connect'), wp_remote_retrieve_body($request)));
+        }
+
+        return $result;
+    }
+
+    /**
      * @param $http_args
      * Puts additional data into the http header.
      * Used for getting access to the resources with a bearer token.
@@ -309,6 +347,19 @@ abstract class NextendSocialOauth2 extends NextendSocialAuth {
     }
 
     protected function extendAllHttpArgs($http_args) {
+
+        return $http_args;
+    }
+
+
+    /**
+     * @param $http_args
+     *
+     * Can be used for adding additional data into the authentication request arguments only.
+     *
+     * @return mixed
+     */
+    protected function extendAuthenticateHttpArgs($http_args) {
 
         return $http_args;
     }

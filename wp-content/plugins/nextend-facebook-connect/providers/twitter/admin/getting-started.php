@@ -51,10 +51,4 @@ $provider = $this->getProvider();
         <a href="<?php echo $this->getUrl('settings'); ?>"
            class="button button-primary"><?php printf(__('I am done setting up my %s', 'nextend-facebook-connect'), 'Twitter App'); ?></a>
     </div>
-
-    <br>
-    <div class="nsl-admin-embed-youtube">
-        <div></div>
-        <iframe src="https://www.youtube.com/embed/5m4kD11Ai2w?rel=0" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
-    </div>
 </div>

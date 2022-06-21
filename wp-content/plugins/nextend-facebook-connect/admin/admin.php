@@ -559,8 +559,10 @@ class NextendSocialLoginAdmin {
                 return 'activated';
             } else if (!current_user_can('install_plugins')) {
                 return 'no-capability';
+            } else if (class_exists('NextendSocialLoginPRO', false) && version_compare(NextendSocialLogin::$version, NextendSocialLoginPRO::$nslMinVersion, '<')) {
+                return 'free-not-compatible';
             } else if (class_exists('NextendSocialLoginPRO', false) && version_compare(NextendSocialLoginPRO::$version, NextendSocialLogin::$nslPROMinVersion, '<')) {
-                return 'not-compatible';
+                return 'pro-not-compatible';
             } else {
                 if (file_exists(WP_PLUGIN_DIR . '/nextend-social-login-pro/nextend-social-login-pro.php')) {
                     return 'installed';
@@ -597,7 +599,7 @@ class NextendSocialLoginAdmin {
 
     public static function show_oauth_uri_notice() {
         foreach (NextendSocialLogin::$enabledProviders as $provider) {
-            if (!$provider->checkOauthRedirectUrl()) {
+            if (!$provider->checkAuthRedirectUrl()) {
                 echo '<div class="error">
                         <p>' . sprintf(__('%s detected that your login url changed. You must update the Oauth redirect URIs in the related social applications.', 'nextend-facebook-connect'), '<b>Nextend Social Login</b>') . '</p>
                         <p class="submit"><a href="' . NextendSocialLoginAdmin::getAdminUrl('fix-redirect-uri') . '" class="button button-primary">' . __('Fix Error', 'nextend-facebook-connect') . ' - ' . __('Oauth Redirect URI', 'nextend-facebook-connect') . '</a></p>
@@ -803,7 +805,7 @@ class NextendSocialLoginAdmin {
     public static function WPML_override_provider_redirect_uris($redirectUrls, $provider) {
 
         $addArg = true;
-        if ($provider->oauthRedirectBehavior !== 'default') {
+        if ($provider->authRedirectBehavior !== 'default') {
             /**
              * We shouldn't add any query parameters into the redirect url if:
              * -query parameters are not supported in the redirect uri
@@ -825,7 +827,7 @@ class NextendSocialLoginAdmin {
                 $args           = array('loginSocial' => $provider->getId());
 
 
-                if ($provider->oauthRedirectBehavior !== 'rest_redirect') {
+                if ($provider->authRedirectBehavior !== 'rest_redirect') {
                     $proxyPage = NextendSocialLogin::getProxyPage();
 
                     if ($proxyPage) {

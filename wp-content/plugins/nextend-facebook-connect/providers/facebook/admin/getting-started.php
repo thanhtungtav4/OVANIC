@@ -79,11 +79,5 @@ If Facebook displays the "%1$s" modal for your App, then in our %2$sdocumentatio
             <a href="<?php echo $this->getUrl('settings'); ?>"
                class="button button-primary"><?php printf(__('I am done setting up my %s', 'nextend-facebook-connect'), 'Facebook App'); ?></a>
         </div>
-
-        <br>
-        <div class="nsl-admin-embed-youtube">
-            <div></div>
-            <iframe src="https://www.youtube.com/embed/giHaGhjuh2A?rel=0" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
-        </div>
     <?php endif; ?>
 </div>

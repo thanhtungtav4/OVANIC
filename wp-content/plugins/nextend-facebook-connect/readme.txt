@@ -3,8 +3,8 @@ Contributors: nextendweb
 Tags: social login, facebook, google, twitter, linkedin, register, login, social, nextend facebook connect, social sign in
 Donate link: https://www.facebook.com/nextendweb
 Requires at least: 4.9
-Tested up to: 5.9
-Stable tag: 3.1.4
+Tested up to: 6.0
+Stable tag: 3.1.5
 Requires PHP: 7.0
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
@@ -124,6 +124,29 @@ Using the Pro Addon you can set where the login buttons should appear on the Reg
 4. The Settings page of the Facebook provider.
 
 == Changelog ==
+
+= 3.1.5 =
+* Fix:  The Jetpack Boost plugin stopped our authentication flow
+* Fix:  The "WP 2FA" plugin could prevent the login with social login even if our "Support login restrictions" feature was disabled
+* Fix:  PHP error when other plugins tried to force WordPress to update the plugin update transients ( update_plugins ) with null parameter
+* Fix:  The "Page Transitions" feature of Elementor Pro opened our links in the opener window, causing a redirect in both the popup and the popup opener window
+* Improvement: Introducing the "nsl_connect_button_custom_attributes", "nsl_unlink_button_custom_attributes", "nsl_link_button_custom_attributes" filters to add extra attributes on our button links
+* Improvement: Avatar storing - We won't try to copy the avatar into our avatar folder if the same file is already there
+* Improvement: Avatar storing - If the earlier stored avatar file doesn't exist, we will delete the associated attachment data the next time the user logs in
+* Improvement: Facebook provider - Graph API version of the used endpoints have been updated from v7.0 to v13.0
+
+* PRO: Fix: There was a JavaScript error on the WordPress default Lost Password page when separator layouts were used
+* PRO: Fix: We didn't display the intended warning when the Free version was not compatible with the Pro Addon.
+* PRO: Fix: Apple provider - PHP warning when verifying the provider settings for the first time
+* PRO: Fix: WebView - we will no longer display the separator either, if we can not display any social buttons because of the embedded browser environment.
+* PRO: Fix: TikTok provider - the registration and login didn't work as TikTok modified their endpoints, the request method and the response of their API.
+* PRO: Improvement: Yahoo provider - Getting Started Update
+* PRO: Improvement: PayPal provider - Getting Started Update
+* PRO: Feature: BuddyPress - option to show/hide the [Social Accounts tab](https://nextendweb.com/nextend-social-login-docs/global-settings-buddypress/#social-accounts-tab)
+* PRO: Feature: BuddyPress - Introducing "nsl_bp_social_accounts_tab_slug" filter to modify the slug of the BuddyPress - Social Accounts tab.
+* PRO: Feature: Line - [Initial Login method](https://nextendweb.com/nextend-social-login-docs/provider-line/#initial-login-method) and [Force initial login method](https://nextendweb.com/nextend-social-login-docs/provider-line/#force-initial-login-method) settings.
+* PRO: New provider: [Steam](https://nextendweb.com/nextend-social-login-docs/provider-steam/)
+
 
 = 3.1.4 =
 * Fix: PHP Warning on redirects, when the "Host" header is not sent by the browser ( e.g when an action happens with CLI )

@@ -332,9 +332,12 @@ class NextendSocialProviderAdmin {
      * Displays message if Oauth Redirect URI has changed.
      */
     public function renderOauthChangedInstruction() {
-        echo '<h2>' . $this->provider->getLabel() . '</h2>';
+        $path = $this->path . '/fix-redirect-uri.php';
+        if (file_exists($path)) {
+            echo '<h2>' . $this->provider->getLabel() . '</h2>';
 
-        include($this->path . '/fix-redirect-uri.php');
+            include($path);
+        }
     }
 }
 

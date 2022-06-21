@@ -182,6 +182,10 @@ class NextendSocialLoginAvatar {
             if ($original_attachment_id) {
                 $attached_file = get_attached_file($original_attachment_id);
                 if (($attached_file && !file_exists($attached_file)) || !$attached_file) {
+                    if ($attached_file && !file_exists($attached_file)) {
+                        self::deleteAvatarData($original_attachment_id, $user_id);
+                    }
+
                     $original_attachment_id = false;
                 } else {
                     /**
@@ -264,21 +268,22 @@ class NextendSocialLoginAvatar {
                             $filename = wp_unique_filename($nslUploadDir, $filename);
 
                             $newAvatarPath = trailingslashit($nslUploadDir) . $filename;
-                            $newFile       = @copy($avatarTempPath, $newAvatarPath);
-                            @unlink($avatarTempPath);
 
-                            if (false !== $newFile) {
-                                $url          = $wp_upload_dir['baseurl'] . '/' . $nslUploadDirName . '/' . basename($filename);
-                                $newAvatarMD5 = md5_file($newAvatarPath);
+                            $newAvatarMD5 = md5_file($avatarTempPath);
 
-                                if ($overwriteAttachment) {
-                                    $originalAvatarImage = get_attached_file($original_attachment_id);
+                            if ($overwriteAttachment) {
+                                // we got the same image, so we do not want to store it
+                                if ($original_attachment_md5 === $newAvatarMD5) {
+                                    @unlink($avatarTempPath);
+                                } else {
+                                    // Store the new avatar
+                                    $newFile = @copy($avatarTempPath, $newAvatarPath);
+                                    @unlink($avatarTempPath);
 
-                                    // we got the same image, so we do not want to store it
-                                    if ($original_attachment_md5 === $newAvatarMD5) {
-                                        @unlink($newAvatarPath);
-                                    } else {
-                                        // Store the new avatar and remove the old one
+                                    if (false !== $newFile) {
+                                        //and remove the old one
+                                        $originalAvatarImage = get_attached_file($original_attachment_id);
+
                                         @unlink($originalAvatarImage);
 
                                         foreach (get_intermediate_image_sizes() as $size) {
@@ -303,8 +308,17 @@ class NextendSocialLoginAvatar {
 
                                         update_user_meta($user_id, $wpdb->get_blog_prefix($blog_id) . 'user_avatar', $original_attachment_id);
                                         update_user_meta($user_id, 'nsl_user_avatar_md5', $newAvatarMD5);
+
                                     }
-                                } else {
+                                }
+                            } else {
+                                // Store the avatar
+                                $newFile = @copy($avatarTempPath, $newAvatarPath);
+                                @unlink($avatarTempPath);
+
+                                if (false !== $newFile) {
+                                    $url = $wp_upload_dir['baseurl'] . '/' . $nslUploadDirName . '/' . basename($filename);
+
                                     $attachment = array(
                                         'guid'           => $url,
                                         'post_mime_type' => $mime,
@@ -333,6 +347,14 @@ class NextendSocialLoginAvatar {
                     }
                 }
             }
+        }
+    }
+
+    public static function deleteAvatarData($post_id, $user_id) {
+        global $blog_id, $wpdb;
+        if (wp_delete_post($post_id, true)) {
+            delete_user_meta($user_id, $wpdb->get_blog_prefix($blog_id) . 'user_avatar');
+            delete_user_meta($user_id, 'nsl_user_avatar_md5');
         }
     }
 

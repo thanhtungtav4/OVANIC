@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: nextend-facebook-connect\n"
-"POT-Creation-Date: 2022-02-14 08:32+0100\n"
-"PO-Revision-Date: 2022-02-14 08:32+0100\n"
+"POT-Creation-Date: 2022-06-13 13:55+0200\n"
+"PO-Revision-Date: 2022-06-13 13:55+0200\n"
 "Last-Translator: \n"
 "Language-Team: nextend-facebook-connect\n"
 "Language: ru\n"
@@ -92,6 +92,9 @@ msgid ""
 msgstr ""
 
 msgid "User"
+msgstr ""
+
+msgid "This provider doesn't support REST API calls!"
 msgstr ""
 
 #, php-format
@@ -427,6 +430,16 @@ msgstr ""
 
 #, php-format
 msgid ""
+"%1$s and %2$s are not compatible. Please update %1$s to version %3$s or "
+"newer."
+msgstr ""
+
+#, php-format
+msgid "Update %s"
+msgstr ""
+
+#, php-format
+msgid ""
 "%1$s and %2$s are not compatible. Please update %2$s to version %3$s or "
 "newer."
 msgstr ""
@@ -630,6 +643,26 @@ msgstr ""
 msgid "Login layout"
 msgstr ""
 
+#, fuzzy
+#| msgid "Social accounts"
+msgid "Social accounts tab"
+msgstr "Социальная сеть"
+
+msgid "Hide"
+msgstr ""
+
+msgid "Show"
+msgstr ""
+
+#, php-format
+msgid ""
+"Creates a new tab called %s, where the Link and Unlink buttons will be "
+"displayed."
+msgstr ""
+
+msgid "Social Accounts"
+msgstr ""
+
 msgid "Button alignment"
 msgstr ""
 
@@ -643,12 +676,6 @@ msgid "Right"
 msgstr ""
 
 msgid "Login button"
-msgstr ""
-
-msgid "Show"
-msgstr ""
-
-msgid "Hide"
 msgstr ""
 
 #, php-format
@@ -1181,9 +1208,6 @@ msgid "You are being redirected to another page,<br>it may take a few seconds."
 msgstr ""
 
 msgid "Social Login"
-msgstr ""
-
-msgid "Social Accounts"
 msgstr ""
 
 msgid "Button skin"
@@ -1806,6 +1830,23 @@ msgstr ""
 msgid ""
 "This email is already registered, please login in to your account to link "
 "with %1$s."
+msgstr ""
+
+msgid "Unexpected response: The provider didn't return the Authorization URL!"
+msgstr ""
+
+msgid "Unexpected response: Authentication has been cancelled!"
+msgstr ""
+
+msgid "Unexpected response: Immediate request failed - Setup Needed!"
+msgstr ""
+
+msgid ""
+"Unexpected response: The targeted OpenID server is not authorized to verify "
+"this request!"
+msgstr ""
+
+msgid "Unexpected response: OpenID Verification failed!"
 msgstr ""
 
 #, php-format
@@ -2470,6 +2511,28 @@ msgid ""
 "authorize your App. %1$sLearn more%2$s."
 msgstr ""
 
+msgid "Initial Login method"
+msgstr ""
+
+msgid "Email and Password"
+msgstr ""
+
+msgid "QR code"
+msgstr ""
+
+msgid ""
+"The selected value defines whether the Email and Password or the QR code "
+"login option will be presented in the LINE authentication screen by default."
+msgstr ""
+
+msgid "Force initial login method"
+msgstr ""
+
+msgid ""
+"Enable, if you want to offer only the selected Initial Login method in the "
+"LINE authentication screen."
+msgstr ""
+
 #, fuzzy
 #| msgid "Continue with <b>LinkedIn</b>"
 msgid "Continue with <b>Line</b>"
@@ -2588,6 +2651,19 @@ msgid ""
 "strong> On our Settings tab, you will need to select the Audience depending "
 "on the selected value! If you are not sure what to choose, then %1$shere%2$s "
 "you can learn more."
+msgstr ""
+
+#, php-format
+msgid ""
+"%1$s It seems the suggested %2$s contains query string(s), that %3$s doesn't "
+"allow in the URLs. Please check the structure of your %4$s, as you might use "
+"one with query strings in it!"
+msgstr ""
+
+msgid "Warning:"
+msgstr ""
+
+msgid "Permalinks"
 msgstr ""
 
 msgid "Create your App with the \"<b>Register</b>\" button."
@@ -2735,20 +2811,21 @@ msgid ""
 "with PayPal</b>\"."
 msgstr ""
 
-msgid ""
-"Click \"<b>Advanced Options</b>\" which can be found at the end of text "
-"after \"<b>Connect with PayPal (formerly Log In with PayPal)</b>\"."
+#, php-format
+msgid "Click %1$s that appears after the %2$s text."
 msgstr ""
 
 msgid "Tick \"<b>Full name</b>\"."
 msgstr ""
 
+#, php-format
 msgid ""
-"\"<b>Email address</b>\" now requires an App Review by PayPal. To get the "
-"email address as well, <b>please submit your App for a review</b> after your "
-"App configuration is finished. Once the App review is successful, you need "
-"to pick \"Email address\" here to retrieve the email of the user. Until then "
-"make sure the Email scope is not \"Enabled\" in our PayPal Settings tab."
+"If you want to get the email address as well, then don't forget to tick %1$s "
+"option. In this case you should also enable the %2$s setting in our %3$s "
+"%4$s tab."
+msgstr ""
+
+msgid "Email scope"
 msgstr ""
 
 msgid "Fill \"<b>Privacy policy URL</b>\" and  \"<b>User agreement URL</b>\"."
@@ -2760,10 +2837,18 @@ msgid ""
 "\"<b>Live</b>\" mode and not \"Sandbox\". )"
 msgstr ""
 
-msgid "Secret"
+#, php-format
+msgid ""
+"%1$s Before you could start using the App, it requires an App review, which "
+"might take up to 7 business days to process. Below the %2$s field you can "
+"check the %3$s. Once your App got approved, you could continue with the "
+"provider verification in our %4$s tab."
 msgstr ""
 
-msgid "Email scope"
+msgid "Important note:"
+msgstr ""
+
+msgid "Secret"
 msgstr ""
 
 msgid "Disable, when you have no rights for email address."
@@ -2911,6 +2996,69 @@ msgid "Unlink account from <b>Slack</b>"
 msgstr "Отвязать аккаунты от <b>Facebook</b>"
 
 #, php-format
+msgid ""
+"To allow your visitors to log in with their %1$s account, first you must "
+"create a %1$s %2$s. The following guide will help you through the %1$s %2$s "
+"creation process. After you have created your %1$s %2$s, head over to "
+"\"Settings\" and configure the given \"%2$s\" field according to your %1$s "
+"%2$s."
+msgstr ""
+
+#, php-format
+msgid "To be able to create a %1$s, you need to spend at least $5 in the %2$s."
+msgstr ""
+
+#, php-format
+msgid "Enter your domain name to the %1$s field, probably: %2$s"
+msgstr ""
+
+#, php-format
+msgid "Check the %1$s option."
+msgstr ""
+
+#, php-format
+msgid "Press the %1$s button."
+msgstr ""
+
+#, php-format
+msgid ""
+"Copy the necessary %1$s value under the %2$s section, you will need this on "
+"our %3$s tab."
+msgstr ""
+
+#, php-format
+msgid ""
+"<b>WARNING:</b> The %1$s API can not return any email address! %2$sLearn more"
+"%3$s."
+msgstr ""
+
+msgid "Web API Key"
+msgstr ""
+
+#, fuzzy
+#| msgid "Continue with <b>LinkedIn</b>"
+msgid "Continue with <b>Steam</b>"
+msgstr "Войти через <b>LinkedIn</b>"
+
+#, fuzzy
+#| msgid "Continue with <b>Facebook</b>"
+msgid "Sign up with <b>Steam</b>"
+msgstr "Войти через <b>Facebook</b>"
+
+#, fuzzy
+#| msgid "Link account with <b>Facebook</b>"
+msgid "Link account with <b>Steam</b>"
+msgstr "Связать аккаунты с <b>Facebook</b>"
+
+#, fuzzy
+#| msgid "Unlink account from <b>Facebook</b>"
+msgid "Unlink account from <b>Steam</b>"
+msgstr "Отвязать аккаунты от <b>Facebook</b>"
+
+msgid "Error: The 64-bit SteamID can not be retrieved for this user!"
+msgstr ""
+
+#, php-format
 msgid "Log in to your %s developer account, if you are not logged in yet."
 msgstr ""
 
@@ -2952,19 +3100,11 @@ msgid ""
 msgstr ""
 
 #, php-format
-msgid "Press the %1$s button."
-msgstr ""
-
-#, php-format
 msgid "For %1$s choose the %2$s option."
 msgstr ""
 
 #, php-format
 msgid "Under the %s section you should fill all of the required fields."
-msgstr ""
-
-#, php-format
-msgid "Enter your domain name to the %1$s field, probably: %2$s"
 msgstr ""
 
 #, php-format
@@ -3137,9 +3277,7 @@ msgstr ""
 msgid "Click on the \"<b>Create an App</b>\" button on the top right corner."
 msgstr ""
 
-msgid ""
-"Fill the \"<b>Application Name</b>\" and select \"<b>Web Application</b>\" "
-"at \"<b>Application Type</b>\"."
+msgid "Fill the \"<b>Application Name</b>\" field."
 msgstr ""
 
 msgid "Enter a \"<b>Description</b>\" for your app!"
@@ -3148,6 +3286,10 @@ msgstr ""
 #, php-format
 msgid ""
 "Enter the URL of your site to the \"<b>Home Page URL</b>\" field: <b>%s</b>"
+msgstr ""
+
+#, php-format
+msgid "At %1$s choose the %2$s option."
 msgstr ""
 
 msgid ""

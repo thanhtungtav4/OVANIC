@@ -3,7 +3,7 @@ require_once NSL_PATH . '/includes/oauth2.php';
 
 class NextendSocialProviderFacebookClient extends NextendSocialOauth2 {
 
-    const DEFAULT_GRAPH_VERSION = 'v7.0';
+    const DEFAULT_GRAPH_VERSION = 'v13.0';
 
     private $isTest = false;
 

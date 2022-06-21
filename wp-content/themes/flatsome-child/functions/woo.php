@@ -4,7 +4,7 @@ function add_brand_product_singer() {
   global $post;
   $brand = get_the_terms( $post->ID , array( 'thuong-hieu') );
   if(!empty($brand[0]->name)){
-   echo '<p class="m-brand">Thương Hiệu:  <a href="#"> '. $brand[0]->name .' </a></p>';
+   echo '<p class="m-brand">Thương Hiệu:  <a href='. $brand[0]->slug .'> '. $brand[0]->name .' </a></p>';
   }
 };
 add_action( 'woocommerce_single_product_summary', 'add_brand_product_singer', 6 );

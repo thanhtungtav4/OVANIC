@@ -2,7 +2,7 @@
 
 use NSL\Notices;
 
-class NextendSocialProviderTwitter extends NextendSocialProvider {
+class NextendSocialProviderTwitter extends NextendSocialProviderOAuth {
 
     /** @var NextendSocialProviderTwitterClient */
     protected $client;
@@ -55,7 +55,7 @@ class NextendSocialProviderTwitter extends NextendSocialProvider {
             'consumer_secret' => 'API Key Secret'
         );
 
-        $this->oauthRedirectBehavior = 'default_redirect_but_app_has_restriction';
+        $this->authRedirectBehavior = 'default_redirect_but_app_has_restriction';
 
         parent::__construct(array(
             'consumer_key'       => '',
@@ -118,7 +118,7 @@ class NextendSocialProviderTwitter extends NextendSocialProvider {
 
             $this->client = new NextendSocialProviderTwitterClient($this->id, $this->settings->get('consumer_key'), $this->settings->get('consumer_secret'));
 
-            $this->client->setRedirectUri($this->getRedirectUriForOAuthFlow());
+            $this->client->setRedirectUri($this->getRedirectUriForAuthFlow());
         }
 
         return $this->client;
@@ -200,7 +200,7 @@ class NextendSocialProviderTwitter extends NextendSocialProvider {
         return parent::getAuthUserData($key);
     }
 
-    public function syncProfile($user_id, $provider, $access_token) {
+    public function syncProfile($user_id, $provider, $data) {
 
         if ($this->needUpdateAvatar($user_id)) {
             if ($this->getAuthUserData('picture')) {
@@ -208,7 +208,9 @@ class NextendSocialProviderTwitter extends NextendSocialProvider {
             }
         }
 
-        $this->storeAccessToken($user_id, $access_token);
+        if (!empty($data['access_token_data'])) {
+            $this->storeAccessToken($user_id, $data['access_token_data']);
+        }
     }
 
     public function deleteLoginPersistentData() {

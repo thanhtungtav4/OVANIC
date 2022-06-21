@@ -2,7 +2,7 @@
 
 use NSL\Notices;
 
-class NextendSocialProviderFacebook extends NextendSocialProvider {
+class NextendSocialProviderFacebook extends NextendSocialProviderOAuth {
 
     protected $dbID = 'fb';
 
@@ -163,7 +163,7 @@ class NextendSocialProviderFacebook extends NextendSocialProvider {
 
             $this->client->setClientId($this->settings->get('appid'));
             $this->client->setClientSecret($this->settings->get('secret'));
-            $this->client->setRedirectUri($this->getRedirectUriForOAuthFlow());
+            $this->client->setRedirectUri($this->getRedirectUriForAuthFlow());
         }
 
         return $this->client;
@@ -269,7 +269,7 @@ class NextendSocialProviderFacebook extends NextendSocialProvider {
         return parent::getAuthUserData($key);
     }
 
-    public function syncProfile($user_id, $provider, $access_token) {
+    public function syncProfile($user_id, $provider, $data) {
         if ($this->needUpdateAvatar($user_id)) {
 
             if ($this->getAuthUserData('picture')) {
@@ -277,7 +277,9 @@ class NextendSocialProviderFacebook extends NextendSocialProvider {
             }
         }
 
-        $this->storeAccessToken($user_id, $access_token);
+        if (!empty($data['access_token_data'])) {
+            $this->storeAccessToken($user_id, $data['access_token_data']);
+        }
     }
 
     protected function saveUserData($user_id, $key, $data) {

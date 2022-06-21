@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: nextend-facebook-connect\n"
-"POT-Creation-Date: 2022-02-14 08:32+0100\n"
-"PO-Revision-Date: 2022-02-14 08:32+0100\n"
+"POT-Creation-Date: 2022-06-13 13:55+0200\n"
+"PO-Revision-Date: 2022-06-13 13:55+0200\n"
 "Last-Translator: Erik Molenaar <info@erikmolenaar.nl>\n"
 "Language-Team: nextend-facebook-connect\n"
 "Language: nl_NL\n"
@@ -116,6 +116,9 @@ msgstr ""
 
 msgid "User"
 msgstr "Gebruiker"
+
+msgid "This provider doesn't support REST API calls!"
+msgstr ""
 
 #, php-format
 msgid "%s needs json_decode function."
@@ -478,6 +481,22 @@ msgstr "Activeren..."
 msgid "Not compatible!"
 msgstr "Niet compatibel!"
 
+#, fuzzy, php-format
+#| msgid ""
+#| "%1$s and %2$s are not compatible. Please update %2$s to version %3$s or "
+#| "newer."
+msgid ""
+"%1$s and %2$s are not compatible. Please update %1$s to version %3$s or "
+"newer."
+msgstr ""
+"%1$s en %2$s zijn niet compatibel. Gelieve %2$s bij te werken naar versie "
+"%3$s of nieuwer."
+
+#, fuzzy, php-format
+#| msgid "Update now!"
+msgid "Update %s"
+msgstr "Update nu!"
+
 #, php-format
 msgid ""
 "%1$s and %2$s are not compatible. Please update %2$s to version %3$s or "
@@ -706,6 +725,26 @@ msgstr "Inlogknop stijl"
 msgid "Login layout"
 msgstr "Inlog-layout"
 
+#, fuzzy
+#| msgid "Social accounts"
+msgid "Social accounts tab"
+msgstr "Social accounts"
+
+msgid "Hide"
+msgstr "Verberg"
+
+msgid "Show"
+msgstr "Toon"
+
+#, php-format
+msgid ""
+"Creates a new tab called %s, where the Link and Unlink buttons will be "
+"displayed."
+msgstr ""
+
+msgid "Social Accounts"
+msgstr "Social Accounts"
+
 msgid "Button alignment"
 msgstr "Knoppen uitlijning"
 
@@ -720,12 +759,6 @@ msgstr "Rechts"
 
 msgid "Login button"
 msgstr "Loginknop"
-
-msgid "Show"
-msgstr "Toon"
-
-msgid "Hide"
-msgstr "Verberg"
 
 #, php-format
 msgid "You need to turn on the ' %1$s > %2$s > %3$s ' for this feature to work"
@@ -1332,9 +1365,6 @@ msgstr ""
 
 msgid "Social Login"
 msgstr "Social Login"
-
-msgid "Social Accounts"
-msgstr "Social Accounts"
 
 msgid "Button skin"
 msgstr "Knop skin"
@@ -2104,6 +2134,23 @@ msgid ""
 msgstr ""
 "Dit e-mailadres is al geregistreerd, log in op je account om te koppelen met "
 "%1$s."
+
+msgid "Unexpected response: The provider didn't return the Authorization URL!"
+msgstr ""
+
+msgid "Unexpected response: Authentication has been cancelled!"
+msgstr ""
+
+msgid "Unexpected response: Immediate request failed - Setup Needed!"
+msgstr ""
+
+msgid ""
+"Unexpected response: The targeted OpenID server is not authorized to verify "
+"this request!"
+msgstr ""
+
+msgid "Unexpected response: OpenID Verification failed!"
+msgstr ""
 
 #, php-format
 msgid "Please install and activate %1$s to use the %2$s"
@@ -2958,6 +3005,30 @@ msgid ""
 "authorize your App. %1$sLearn more%2$s."
 msgstr ""
 
+msgid "Initial Login method"
+msgstr ""
+
+#, fuzzy
+#| msgid "Password"
+msgid "Email and Password"
+msgstr "Wachtwoord"
+
+msgid "QR code"
+msgstr ""
+
+msgid ""
+"The selected value defines whether the Email and Password or the QR code "
+"login option will be presented in the LINE authentication screen by default."
+msgstr ""
+
+msgid "Force initial login method"
+msgstr ""
+
+msgid ""
+"Enable, if you want to offer only the selected Initial Login method in the "
+"LINE authentication screen."
+msgstr ""
+
 #, fuzzy
 #| msgid "Continue with <b>LinkedIn</b>"
 msgid "Continue with <b>Line</b>"
@@ -3115,6 +3186,19 @@ msgid ""
 "strong> On our Settings tab, you will need to select the Audience depending "
 "on the selected value! If you are not sure what to choose, then %1$shere%2$s "
 "you can learn more."
+msgstr ""
+
+#, php-format
+msgid ""
+"%1$s It seems the suggested %2$s contains query string(s), that %3$s doesn't "
+"allow in the URLs. Please check the structure of your %4$s, as you might use "
+"one with query strings in it!"
+msgstr ""
+
+msgid "Warning:"
+msgstr ""
+
+msgid "Permalinks"
 msgstr ""
 
 #, fuzzy
@@ -3308,42 +3392,24 @@ msgstr ""
 "Scroll naar beneden naar de sectie \"App functieopties\" en vink \"Aanmelden "
 "met PayPal\" aan."
 
-#, fuzzy
-#| msgid ""
-#| "Click \"Advanced Options\" which can be found at the end of text after "
-#| "\"Connect with PayPal (formerly Log In with PayPal)\"."
-msgid ""
-"Click \"<b>Advanced Options</b>\" which can be found at the end of text "
-"after \"<b>Connect with PayPal (formerly Log In with PayPal)</b>\"."
+#, php-format
+msgid "Click %1$s that appears after the %2$s text."
 msgstr ""
-"Klik op \"Geavanceerde Opties\" die je kunt vinden aan het einde van de "
-"tekst na \"Verbinding maken met PayPal (voorheen ingelogd met PayPal)\"."
 
 #, fuzzy
 #| msgid "Tick \"Full name\"."
 msgid "Tick \"<b>Full name</b>\"."
 msgstr "Vink \"Volledige naam\" aan."
 
-#, fuzzy
-#| msgid ""
-#| "\"Email address\" now requires an App Review by PayPal. To get the email "
-#| "address as well, please submit your App for a review after your App "
-#| "configuration is finished. Once the App review is succesfull, you need to "
-#| "pick \"Email address\" here to retrieve the email of the user. Until then "
-#| "make sure the Email scope is not \"Enabled\" in our PayPal Settings tab."
+#, php-format
 msgid ""
-"\"<b>Email address</b>\" now requires an App Review by PayPal. To get the "
-"email address as well, <b>please submit your App for a review</b> after your "
-"App configuration is finished. Once the App review is successful, you need "
-"to pick \"Email address\" here to retrieve the email of the user. Until then "
-"make sure the Email scope is not \"Enabled\" in our PayPal Settings tab."
+"If you want to get the email address as well, then don't forget to tick %1$s "
+"option. In this case you should also enable the %2$s setting in our %3$s "
+"%4$s tab."
 msgstr ""
-"\"E-mailadres\" vereist nu een App Review door PayPal. Om ook het e-"
-"mailadres te verkrijgen, dient je je App in voor een beoordeling nadat de "
-"configuratie van je App is voltooid. Zodra de App review succesvol is, moet "
-"je hier \"E-mailadres\" kiezen om de e-mail van de gebruiker op te halen. "
-"Zorg er tot dan voor dat de e-mailscope niet is \"Ingeschakeld\" in ons "
-"PayPal-instellingen-tabblad."
+
+msgid "Email scope"
+msgstr "E-mail scope"
 
 #, fuzzy
 #| msgid "Fill \"Privacy policy URL\" and  \"User agreement URL\"."
@@ -3364,11 +3430,21 @@ msgstr ""
 "\" en \"Geheim\"! ( Zorg ervoor dat je in \"Live\" modus bent en niet in "
 "\"Sandbox\". )"
 
+#, php-format
+msgid ""
+"%1$s Before you could start using the App, it requires an App review, which "
+"might take up to 7 business days to process. Below the %2$s field you can "
+"check the %3$s. Once your App got approved, you could continue with the "
+"provider verification in our %4$s tab."
+msgstr ""
+
+#, fuzzy
+#| msgid "Important:"
+msgid "Important note:"
+msgstr "Let op:"
+
 msgid "Secret"
 msgstr "Geheim"
-
-msgid "Email scope"
-msgstr "E-mail scope"
 
 msgid "Disable, when you have no rights for email address."
 msgstr "Uitschakelen, wanneer je geen rechten hebt voor e-mailadres."
@@ -3552,6 +3628,84 @@ msgid "Unlink account from <b>Slack</b>"
 msgstr "Ontkoppel van <b>Facebook</b>"
 
 #, fuzzy, php-format
+#| msgid ""
+#| "To allow your visitors to log in with their %1$s account, first you must "
+#| "create a %1$s App. The following guide will help you through the %1$s App "
+#| "creation process. After you have created your %1$s App, head over to "
+#| "\"Settings\" and configure the given \"%2$s\" and \"%3$s\" according to "
+#| "your %1$s App."
+msgid ""
+"To allow your visitors to log in with their %1$s account, first you must "
+"create a %1$s %2$s. The following guide will help you through the %1$s %2$s "
+"creation process. After you have created your %1$s %2$s, head over to "
+"\"Settings\" and configure the given \"%2$s\" field according to your %1$s "
+"%2$s."
+msgstr ""
+"Om je bezoekers in te laten loggen met hun %1$s account, moet je eerst een "
+"%1$s App aanmaken. De volgende gids helpt je door het %1$s App "
+"creatieproces. Nadat je je %1$s App heeft aangemaakt, ga je naar "
+"\"Instellingen\" en configureer je de gegeven \"%2$s\" en \"%3$s\" volgens "
+"je %1$s App."
+
+#, php-format
+msgid "To be able to create a %1$s, you need to spend at least $5 in the %2$s."
+msgstr ""
+
+#, fuzzy, php-format
+#| msgid "Enter your domain name to the App Domains"
+msgid "Enter your domain name to the %1$s field, probably: %2$s"
+msgstr "Voer je domeinnaam in bij de App Domeinen"
+
+#, fuzzy, php-format
+#| msgid "Click on the Create button"
+msgid "Check the %1$s option."
+msgstr "Klik op de knop Aanmaken"
+
+#, php-format
+msgid "Press the %1$s button."
+msgstr ""
+
+#, php-format
+msgid ""
+"Copy the necessary %1$s value under the %2$s section, you will need this on "
+"our %3$s tab."
+msgstr ""
+
+#, php-format
+msgid ""
+"<b>WARNING:</b> The %1$s API can not return any email address! %2$sLearn more"
+"%3$s."
+msgstr ""
+
+#, fuzzy
+#| msgid "API Key"
+msgid "Web API Key"
+msgstr "API Sleutel"
+
+#, fuzzy
+#| msgid "Continue with <b>LinkedIn</b>"
+msgid "Continue with <b>Steam</b>"
+msgstr "Doorgaan met <b>LinkedIn</b>"
+
+#, fuzzy
+#| msgid "Continue with <b>Facebook</b>"
+msgid "Sign up with <b>Steam</b>"
+msgstr "Doorgaan met <b>Facebook</b>"
+
+#, fuzzy
+#| msgid "Link account with <b>Facebook</b>"
+msgid "Link account with <b>Steam</b>"
+msgstr "Koppel met <b>Facebook</b>"
+
+#, fuzzy
+#| msgid "Unlink account from <b>Facebook</b>"
+msgid "Unlink account from <b>Steam</b>"
+msgstr "Ontkoppel van <b>Facebook</b>"
+
+msgid "Error: The 64-bit SteamID can not be retrieved for this user!"
+msgstr ""
+
+#, fuzzy, php-format
 #| msgid "Log in with your %s credentials if you are not logged in yet"
 msgid "Log in to your %s developer account, if you are not logged in yet."
 msgstr "Log in met je %s inloggegevens als je nog niet ingelogd bent"
@@ -3595,10 +3749,6 @@ msgid ""
 "name into the %2$s field."
 msgstr ""
 
-#, php-format
-msgid "Press the %1$s button."
-msgstr ""
-
 #, fuzzy, php-format
 #| msgid "Click on the Create button"
 msgid "For %1$s choose the %2$s option."
@@ -3607,11 +3757,6 @@ msgstr "Klik op de knop Aanmaken"
 #, php-format
 msgid "Under the %s section you should fill all of the required fields."
 msgstr ""
-
-#, fuzzy, php-format
-#| msgid "Enter your domain name to the App Domains"
-msgid "Enter your domain name to the %1$s field, probably: %2$s"
-msgstr "Voer je domeinnaam in bij de App Domeinen"
 
 #, php-format
 msgid ""
@@ -3843,15 +3988,9 @@ msgid "Click on the \"<b>Create an App</b>\" button on the top right corner."
 msgstr "Klik op de knop \"Maak een App\" in de rechterbovenhoek."
 
 #, fuzzy
-#| msgid ""
-#| "Fill the \"Application Name\" and select \"Web Application\" at "
-#| "\"Application Type\"."
-msgid ""
-"Fill the \"<b>Application Name</b>\" and select \"<b>Web Application</b>\" "
-"at \"<b>Application Type</b>\"."
-msgstr ""
-"Vul de \"Applicatie Naam\" in en selecteer \"Web Applicatie\" bij "
-"\"Applicatie Type\"."
+#| msgid "Enter a \"Description\" for your app!"
+msgid "Fill the \"<b>Application Name</b>\" field."
+msgstr "Vul een \"Beschrijving\" in voor je app!"
 
 #, fuzzy
 #| msgid "Enter a \"Description\" for your app!"
@@ -3863,6 +4002,11 @@ msgstr "Vul een \"Beschrijving\" in voor je app!"
 msgid ""
 "Enter the URL of your site to the \"<b>Home Page URL</b>\" field: <b>%s</b>"
 msgstr "Voer de URL van je site in het veld \"Home Page URL\" in: <b>%s</b>"
+
+#, fuzzy, php-format
+#| msgid "Click on the Create button"
+msgid "At %1$s choose the %2$s option."
+msgstr "Klik op de knop Aanmaken"
 
 msgid ""
 "Under the \"<b>API Permissions</b>\" you should select \"<b>OpenID Connect "
@@ -3908,6 +4052,51 @@ msgstr "OF"
 
 msgid "Social accounts"
 msgstr "Social accounts"
+
+#, fuzzy
+#~| msgid ""
+#~| "Click \"Advanced Options\" which can be found at the end of text after "
+#~| "\"Connect with PayPal (formerly Log In with PayPal)\"."
+#~ msgid ""
+#~ "Click \"<b>Advanced Options</b>\" which can be found at the end of text "
+#~ "after \"<b>Connect with PayPal (formerly Log In with PayPal)</b>\"."
+#~ msgstr ""
+#~ "Klik op \"Geavanceerde Opties\" die je kunt vinden aan het einde van de "
+#~ "tekst na \"Verbinding maken met PayPal (voorheen ingelogd met PayPal)\"."
+
+#, fuzzy
+#~| msgid ""
+#~| "\"Email address\" now requires an App Review by PayPal. To get the email "
+#~| "address as well, please submit your App for a review after your App "
+#~| "configuration is finished. Once the App review is succesfull, you need "
+#~| "to pick \"Email address\" here to retrieve the email of the user. Until "
+#~| "then make sure the Email scope is not \"Enabled\" in our PayPal Settings "
+#~| "tab."
+#~ msgid ""
+#~ "\"<b>Email address</b>\" now requires an App Review by PayPal. To get the "
+#~ "email address as well, <b>please submit your App for a review</b> after "
+#~ "your App configuration is finished. Once the App review is successful, "
+#~ "you need to pick \"Email address\" here to retrieve the email of the "
+#~ "user. Until then make sure the Email scope is not \"Enabled\" in our "
+#~ "PayPal Settings tab."
+#~ msgstr ""
+#~ "\"E-mailadres\" vereist nu een App Review door PayPal. Om ook het e-"
+#~ "mailadres te verkrijgen, dient je je App in voor een beoordeling nadat de "
+#~ "configuratie van je App is voltooid. Zodra de App review succesvol is, "
+#~ "moet je hier \"E-mailadres\" kiezen om de e-mail van de gebruiker op te "
+#~ "halen. Zorg er tot dan voor dat de e-mailscope niet is \"Ingeschakeld\" "
+#~ "in ons PayPal-instellingen-tabblad."
+
+#, fuzzy
+#~| msgid ""
+#~| "Fill the \"Application Name\" and select \"Web Application\" at "
+#~| "\"Application Type\"."
+#~ msgid ""
+#~ "Fill the \"<b>Application Name</b>\" and select \"<b>Web Application</b>"
+#~ "\" at \"<b>Application Type</b>\"."
+#~ msgstr ""
+#~ "Vul de \"Applicatie Naam\" in en selecteer \"Web Applicatie\" bij "
+#~ "\"Applicatie Type\"."
 
 #, fuzzy
 #~| msgid ""

@@ -10,7 +10,7 @@ class NextendSocialUser {
     /** @var NextendSocialProvider */
     protected $provider;
 
-    protected $access_token;
+    protected $data;
 
     private $userExtraData;
 
@@ -22,11 +22,11 @@ class NextendSocialUser {
      * NextendSocialUser constructor.
      *
      * @param NextendSocialProvider $provider
-     * @param                       $access_token
+     * @param                       $data
      */
-    public function __construct($provider, $access_token) {
-        $this->provider     = $provider;
-        $this->access_token = $access_token;
+    public function __construct($provider, $data) {
+        $this->provider = $provider;
+        $this->data     = $data;
     }
 
     /**
@@ -47,7 +47,7 @@ class NextendSocialUser {
      * - but if has linked social data, log them in.
      * If the user is logged in, retrieve the user data,
      * - if the user has no linked social data with the selected provider and there is no other user who linked that id
-     * , link them and sync the access_token.
+     * , link them and sync the access_token if it is available.
      */
     public function liveConnectGetUserProfile() {
 
@@ -71,7 +71,7 @@ class NextendSocialUser {
 
                 if ($this->provider->linkUserToProviderIdentifier($current_user->ID, $this->getAuthUserData('id'))) {
 
-                    $this->provider->syncProfile($current_user->ID, $this->provider, $this->access_token);
+                    $this->provider->syncProfile($current_user->ID, $this->provider, $this->data);
 
                     Notices::addSuccess(sprintf(__('Your %1$s account is successfully linked with your account. Now you can sign in with %2$s easily.', 'nextend-facebook-connect'), $this->provider->getLabel(), $this->provider->getLabel()));
                 } else {
@@ -120,8 +120,7 @@ class NextendSocialUser {
                 $this->register($providerUserID, $email);
             } else {
                 //unset the persistent data, so if an error happened, the user can re-authenticate with providers (Google) that offer account selector screen
-                Persistent::delete($this->provider->getId() . '_at');
-                Persistent::delete($this->provider->getId() . '_state');
+                $this->provider->deleteTokenPersistentData();
 
                 $registerDisabledMessage     = apply_filters('nsl_disabled_register_error_message', '');
                 $registerDisabledRedirectURL = apply_filters('nsl_disabled_register_redirect_url', '');
@@ -318,8 +317,7 @@ class NextendSocialUser {
 
             if ($errors->get_error_code()) {
                 //unset the persistent data, so if an error happened, the user can re-authenticate with providers (Google) that offer account selector screen
-                Persistent::delete($this->provider->getId() . '_at');
-                Persistent::delete($this->provider->getId() . '_state');
+                $this->provider->deleteTokenPersistentData();
 
                 Notices::addError($errors);
                 $this->redirectToLastLocationLogin(true);
@@ -625,7 +623,7 @@ class NextendSocialUser {
     protected function finishLogin() {
 
         do_action('nsl_login', $this->user_id, $this->provider);
-        do_action('nsl_' . $this->provider->getId() . '_login', $this->user_id, $this->provider, $this->access_token);
+        do_action('nsl_' . $this->provider->getId() . '_login', $this->user_id, $this->provider, $this->data);
 
         $this->redirectToLastLocationLogin();
     }
@@ -738,7 +736,7 @@ class NextendSocialUser {
     }
 
     public function syncProfileUser($user_id) {
-        $this->provider->syncProfile($user_id, $this->provider, $this->access_token);
+        $this->provider->syncProfile($user_id, $this->provider, $this->data);
     }
 
     public function um_get_loginpage($page_url) {
