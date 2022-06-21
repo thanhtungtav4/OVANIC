@@ -43,3 +43,20 @@ function add_noti(){
 }};
 add_action( 'woocommerce_before_shop_loop_item', 'add_noti', 9 );
 
+
+
+// sản phẩm bán chạy
+remove_action( 'woocommerce_single_product_summary', 'woocommerce_template_single_title', 5 );
+function woocommerce_template_single_title_custome() {
+  global $post;
+  if (function_exists('get_field')){
+  if(get_field('is_product_top_selling') == true){
+    echo '<h1 class="product-title product_title entry-title">' . get_the_title() . '<span> Bán Chạy</span></h1>';
+  }
+  else{
+    echo '<h1 class="product-title product_title entry-title">' . get_the_title() . '</h1>';
+  }
+}};
+add_action( 'woocommerce_single_product_summary', 'woocommerce_template_single_title_custome', 5);
+// !sản phẩm bán chạy
+
