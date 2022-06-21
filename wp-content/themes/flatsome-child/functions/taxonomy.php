@@ -1,16 +1,12 @@
 <?php
  function cptui_register_my_taxes() {
-
 	/**
 	 * Taxonomy: Thương Hiệu.
 	 */
-
 	$labels = [
 		"name" => __( "Thương Hiệu", "custom-post-type-ui" ),
 		"singular_name" => __( "Thương Hiệu", "custom-post-type-ui" ),
 	];
-
-
 	$args = [
 		"label" => __( "Thương Hiệu", "custom-post-type-ui" ),
 		"labels" => $labels,

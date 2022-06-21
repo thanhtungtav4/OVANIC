@@ -3,8 +3,8 @@
 * Remove thuong_hieu in URL
 * Thay thuong_hieu bằng slug hiện tại của bạn. Mặc định là thuong_hieu
 */
-add_filter( 'term_link', 'devvn_product_thuong_hieu_permalink', 10, 3 );
-function devvn_product_thuong_hieu_permalink( $url, $term, $taxonomy ){
+add_filter( 'term_link', 'dev_product_thuong_hieu_permalink', 10, 3 );
+function dev_product_thuong_hieu_permalink( $url, $term, $taxonomy ){
     switch ($taxonomy):
         case 'thuong-hieu':
               $taxonomy_slug = 'thuong-hieu'; //Thay bằng slug hiện tại của bạn. Mặc định là thuong-hieu
@@ -15,7 +15,7 @@ function devvn_product_thuong_hieu_permalink( $url, $term, $taxonomy ){
     return $url;
 }
 // Add our custom thuong-hieu rewrite rules
-function devvn_thuong_hieu_rewrite_rules($flash = false) {
+function dev_thuong_hieu_rewrite_rules($flash = false) {
   $terms = get_terms( array(
       'taxonomy' => 'thuong-hieu',
       'post_type' => 'product',
@@ -34,11 +34,11 @@ function devvn_thuong_hieu_rewrite_rules($flash = false) {
   if ($flash == true)
       flush_rewrite_rules(false);
 }
-add_action('init', 'devvn_thuong_hieu_rewrite_rules');
+add_action('init', 'dev_thuong_hieu_rewrite_rules');
 /*Sửa lỗi khi tạo mới taxomony bị 404*/
 add_action( 'create_term', 'new_thuong_hieu_cat_edit_success', 10, 2 );
 function new_thuong_hieu_cat_edit_success( $term_id, $taxonomy ) {
-    devvn_thuong_hieu_rewrite_rules(true);
+    dev_thuong_hieu_rewrite_rules(true);
 }
 
 /*
@@ -50,8 +50,8 @@ function new_thuong_hieu_cat_edit_success( $term_id, $taxonomy ) {
  * Xóa bỏ product-category và toàn bộ slug của danh mục cha khỏi đường dẫn của Woocommerce
  */
 // Add our custom product cat rewrite rules
-add_filter('term_link', 'devvn_no_term_parents', 1000, 3);
-function devvn_no_term_parents($url, $term, $taxonomy) {
+add_filter('term_link', 'dev_no_term_parents', 1000, 3);
+function dev_no_term_parents($url, $term, $taxonomy) {
     if($taxonomy == 'product_cat'){
         $term_nicename = $term->slug;
         $url = trailingslashit(get_option( 'home' )) . user_trailingslashit( $term_nicename, 'category' );
@@ -60,7 +60,7 @@ function devvn_no_term_parents($url, $term, $taxonomy) {
 }
 
 // Add our custom product cat rewrite rules
-function devvn_no_product_cat_parents_rewrite_rules($flash = false) {
+function dev_no_product_cat_parents_rewrite_rules($flash = false) {
     $terms = get_terms( array(
         'taxonomy' => 'product_cat',
         'post_type' => 'product',
@@ -77,14 +77,14 @@ function devvn_no_product_cat_parents_rewrite_rules($flash = false) {
     if ($flash == true)
         flush_rewrite_rules(false);
 }
-add_action('init', 'devvn_no_product_cat_parents_rewrite_rules');
+add_action('init', 'dev_no_product_cat_parents_rewrite_rules');
 
 /*Sửa lỗi khi tạo mới taxomony bị 404*/
-add_action( 'create_term', 'devvn_new_product_cat_edit_success', 10);
-add_action( 'edit_terms', 'devvn_new_product_cat_edit_success', 10);
-add_action( 'delete_term', 'devvn_new_product_cat_edit_success', 10);
-function devvn_new_product_cat_edit_success( ) {
-    devvn_no_product_cat_parents_rewrite_rules(true);
+add_action( 'create_term', 'dev_new_product_cat_edit_success', 10);
+add_action( 'edit_terms', 'dev_new_product_cat_edit_success', 10);
+add_action( 'delete_term', 'dev_new_product_cat_edit_success', 10);
+function dev_new_product_cat_edit_success( ) {
+    dev_no_product_cat_parents_rewrite_rules(true);
 }
 /***
  * Xóa bỏ product-category và toàn bộ slug của danh mục cha khỏi đường dẫn của Woocommerce
@@ -94,7 +94,7 @@ function devvn_new_product_cat_edit_success( ) {
 * Code Bỏ /product/ hoặc /cua-hang/ hoặc /shop/ ... có hỗ trợ dạng %product_cat%
 * Thay /cua-hang/ bằng slug hiện tại của bạn
 */
-function devvn_remove_slug( $post_link, $post ) {
+function dev_remove_slug( $post_link, $post ) {
   if ( !in_array( get_post_type($post), array( 'product' ) ) || 'publish' != $post->post_status ) {
       return $post_link;
   }
@@ -105,9 +105,9 @@ function devvn_remove_slug( $post_link, $post ) {
   }
   return $post_link;
 }
-add_filter( 'post_type_link', 'devvn_remove_slug', 10, 2 );
+add_filter( 'post_type_link', 'dev_remove_slug', 10, 2 );
 /*Sửa lỗi 404 sau khi đã remove slug product hoặc cua-hang*/
-function devvn_woo_product_rewrite_rules($flash = false) {
+function dev_woo_product_rewrite_rules($flash = false) {
   global $wp_post_types, $wpdb;
   $siteLink = esc_url(home_url('/'));
   foreach ($wp_post_types as $type=>$custom_post) {
@@ -131,15 +131,15 @@ function devvn_woo_product_rewrite_rules($flash = false) {
   if ($flash == true)
       flush_rewrite_rules(false);
 }
-add_action('init', 'devvn_woo_product_rewrite_rules');
+add_action('init', 'dev_woo_product_rewrite_rules');
 /*Fix lỗi khi tạo sản phẩm mới bị 404*/
-function devvn_woo_new_product_post_save($post_id){
+function dev_woo_new_product_post_save($post_id){
   global $wp_post_types;
   $post_type = get_post_type($post_id);
   foreach ($wp_post_types as $type=>$custom_post) {
       if ($custom_post->_builtin == false && $type == $post_type) {
-          devvn_woo_product_rewrite_rules(true);
+          dev_woo_product_rewrite_rules(true);
       }
   }
 }
-add_action('wp_insert_post', 'devvn_woo_new_product_post_save');
+add_action('wp_insert_post', 'dev_woo_new_product_post_save');
