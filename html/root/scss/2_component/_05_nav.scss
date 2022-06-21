@@ -20,9 +20,6 @@
 		@include flex;
 		li{
 			height: 100%;
-			&:nth-last-child(){
-				border-right: 0;
-			}
 			a{
 				font-size: 1.5rem;
 				color: #1b1919;
@@ -31,11 +28,12 @@
 				height: 100%;
 				padding: 2.4rem 1.7rem;
 				border-right: 1px solid #ebebeb;
-
-
-
 			}
-
+			&:last-of-type{
+				a{
+					border-right: 0;
+				}
+			}
 		}
 	}
 
