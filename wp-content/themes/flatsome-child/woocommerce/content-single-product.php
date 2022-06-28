@@ -38,8 +38,7 @@ global $product;
 <div id="product-<?php the_ID(); ?>" <?php wc_product_class( '', $product ); ?>>
 	<?php
 	// Get product page layout.
-	wc_get_template_part( 'single-product/layouts/product', flatsome_option( 'product_layout' ) );
-
-	do_action( 'woocommerce_after_single_product' );
+	 wc_get_template_part( 'single-product/layouts/product', flatsome_option( 'product_layout' ) );
+	 do_action( 'woocommerce_after_single_product' );
 	?>
 </div>

@@ -52,6 +52,11 @@
     	</div>
 
     </div>
+		<div class="container">
+			<?php
+				do_action( 'woocommerce_upsell_display_custome' );
+			?>
+		</div>
   </div>
 
   <div class="product-footer">

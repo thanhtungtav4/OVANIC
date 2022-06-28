@@ -7,8 +7,27 @@ Version: 3.0
 */
 
 /*************** ADD CUSTOM CSS HERE.   ***************/
-
-
+.brand-block{
+  display: flex;
+  font-size: 14px;
+}
+.brand-block .item{
+  margin-right: 8px;
+  display: flex;
+}
+.m-topsale{
+  border-radius: 3px;
+  background: #ff2114;
+  margin-left: 10px;
+  padding: 5px 10px;
+  color: white;
+  font-size: 21px;
+}
+@media only screen and (max-width: 768px) {
+  .brand-block{
+    font-size: 10px;
+  }
+}
 @media only screen and (max-width: 48em) {
 /*************** ADD MOBILE ONLY CSS HERE  ***************/
 

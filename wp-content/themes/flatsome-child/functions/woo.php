@@ -3,8 +3,18 @@
 function add_brand_product_singer() {
   global $post;
   $brand = get_the_terms( $post->ID , array( 'thuong-hieu') );
+  $product = new WC_Product($post->ID);
+  $made = array_shift(woocommerce_get_product_terms($post->ID, 'pa_xuat-xu', 'names'));
   if(!empty($brand[0]->name)){
-   echo '<p class="m-brand">Thương Hiệu:  <a href='. $brand[0]->slug .'> '. $brand[0]->name .' </a></p>';
+   echo '<div class="brand-block">';
+   echo '<div class="item item-brand">Thương hiệu:&nbsp;<a href='. $brand[0]->slug .'>  ' . $brand[0]->name .' </a></div>';
+   if(!empty($product->get_sku())){
+    echo '<div class="item item-sku">Mã sản phẩm:&nbsp; <span>'. $product->get_sku() .'</span> </div>';
+   }
+   if(!empty($made)){
+    echo '<div class="item item-made">Xuất xứ thương hiệu: '. $made .' </div>';
+   }
+   echo '</div>';
   }
 };
 add_action( 'woocommerce_single_product_summary', 'add_brand_product_singer', 6 );
@@ -45,13 +55,13 @@ add_action( 'woocommerce_before_shop_loop_item', 'add_noti', 9 );
 
 
 
-// sản phẩm bán chạy
+// add text sản phẩm bán chạy
 remove_action( 'woocommerce_single_product_summary', 'woocommerce_template_single_title', 5 );
 function woocommerce_template_single_title_custome() {
   global $post;
   if (function_exists('get_field')){
   if(get_field('is_product_top_selling') == true){
-    echo '<h1 class="product-title product_title entry-title">' . get_the_title() . '<span> Bán Chạy</span></h1>';
+    echo '<h1 class="product-title product_title entry-title">' . get_the_title() . '<span class="m-topsale"> Bán Chạy</span></h1>';
   }
   else{
     echo '<h1 class="product-title product_title entry-title">' . get_the_title() . '</h1>';
@@ -60,3 +70,10 @@ function woocommerce_template_single_title_custome() {
 add_action( 'woocommerce_single_product_summary', 'woocommerce_template_single_title_custome', 5);
 // !sản phẩm bán chạy
 
+//Move of UP-Sells in page detail
+add_action('woocommerce_upsell_display_custome', 'upsell_display');
+function upsell_display(){
+  woocommerce_upsell_display();
+}
+remove_action( 'woocommerce_after_single_product_summary', 'woocommerce_upsell_display', 15);
+//Move of UP-Sells in page detail
