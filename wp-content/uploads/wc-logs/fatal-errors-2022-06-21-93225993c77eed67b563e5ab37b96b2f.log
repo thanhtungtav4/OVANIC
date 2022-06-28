@@ -1,0 +1,29 @@
+2022-06-21T06:30:32+00:00 CRITICAL Uncaught Automattic\WooCommerce\Vendor\League\Container\Exception\NotFoundException: Alias (Automattic\WooCommerce\Internal\Settings\OptionSanitizer) is not being managed by the container or delegates in /home/customer/www/ovanic.vn/public_html/wp-content/plugins/woocommerce/lib/packages/League/Container/Container.php:188
+Stack trace:
+#0 /home/customer/www/ovanic.vn/public_html/wp-content/plugins/woocommerce/src/Internal/DependencyManagement/ExtendedContainer.php(116): Automattic\WooCommerce\Vendor\League\Container\Container->get('Automattic\\WooC...', false)
+#1 /home/customer/www/ovanic.vn/public_html/wp-content/plugins/woocommerce/src/Container.php(88): Automattic\WooCommerce\Internal\DependencyManagement\ExtendedContainer->get('Automattic\\WooC...')
+#2 /home/customer/www/ovanic.vn/public_html/wp-content/plugins/woocommerce/includes/class-woocommerce.php(224): Automattic\WooCommerce\Container->get('Automattic\\WooC...')
+#3 /home/customer/www/ovanic.vn/public_html/wp-content/plugins/woocommerce/includes/clas in /home/customer/www/ovanic.vn/public_html/wp-content/plugins/woocommerce/lib/packages/League/Container/Container.php on line 188
+
+2022-06-21T06:40:42+00:00 CRITICAL Uncaught Error: Call to undefined function fixedtoc_get_field_data() in /home/customer/www/ovanic.vn/public_html/wp-content/plugins/fixed-toc/inc/functions.php:26
+Stack trace:
+#0 /home/customer/www/ovanic.vn/public_html/wp-content/plugins/fixed-toc/inc/functions.php(67): fixedtoc_get_option('general_post_ty...')
+#1 /home/customer/www/ovanic.vn/public_html/wp-content/plugins/fixed-toc/inc/class-conditions.php(35): fixedtoc_get_val('general_post_ty...')
+#2 /home/customer/www/ovanic.vn/public_html/wp-content/plugins/fixed-toc/inc/class-conditions.php(317): Fixedtoc_Conditions::toc_page()
+#3 /home/customer/www/ovanic.vn/public_html/wp-content/plugins/fixed-toc/frontend/class-frontend-control.php(61): fixedtoc_is_true('toc_page')
+#4 /home/customer/www/ovanic.vn/public_html/wp-includes/class-wp-hook.php(307): Fixedtoc_Frontend_Control->create_data('')
+#5 /home/customer/www/ovanic.vn/public_html/wp-includes/class-wp-hook.php(331): WP_Hook->apply_filters(NULL, Array)
+#6 /home/customer/www/ovanic.vn/public_html/wp-inc in /home/customer/www/ovanic.vn/public_html/wp-content/plugins/fixed-toc/inc/functions.php on line 26
+
+2022-06-21T06:41:54+00:00 CRITICAL Uncaught Error: Call to undefined function acf_prepare_field_group_for_import() in /home/customer/www/ovanic.vn/public_html/wp-content/plugins/advanced-custom-fields-pro/includes/local-fields.php:175
+Stack trace:
+#0 /home/customer/www/ovanic.vn/public_html/wp-content/themes/flatsome-child/functions/acf.php(16): acf_add_local_field_group(Array)
+#1 /home/customer/www/ovanic.vn/public_html/wp-content/themes/flatsome-child/functions.php(4): require_once('/home/customer/...')
+#2 /home/customer/www/ovanic.vn/public_html/wp-settings.php(566): include('/home/customer/...')
+#3 /home/customer/www/ovanic.vn/public_html/wp-config.php(96): require_once('/home/customer/...')
+#4 /home/customer/www/ovanic.vn/public_html/wp-load.php(50): require_once('/home/customer/...')
+#5 /home/customer/www/ovanic.vn/public_html/wp-blog-header.php(13): require_once('/home/customer/...')
+#6 /home/customer/www/ovanic.vn/public_html/index.php(17): require('/home/customer/...')
+#7 {main}
+  thrown in /home/customer/www/ovanic.vn/public_html/wp-content/plugins/advanced-custom-fields-pro/includes/local-fields.php on line 175
+
