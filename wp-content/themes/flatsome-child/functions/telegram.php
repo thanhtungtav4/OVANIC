@@ -15,11 +15,12 @@ function notfi_telegram($order_id) {
   $msg = "<b>Đơn hàng mới </b>: Đơn hàng số [$order_id]  -  <b>Từ khách Hàng </b>: $last_name $first_name - $phone - $email";
   $botToken= '5440381056:AAGG0St5-y8cVBItKBHl2JHAAqu9pVbqDFY';
   $website = "https://api.telegram.org/bot".$botToken;
-  $chatId = '1334149635';
+  $chatId = '-737404282';
   $params=[
       'chat_id'=>$chatId,
       'text'=>$msg,
       'parse_mode'=>'html',
+      'type'=>'group'
   ];
   $ch = curl_init($website . '/sendMessage');
   curl_setopt($ch, CURLOPT_HEADER, false);
