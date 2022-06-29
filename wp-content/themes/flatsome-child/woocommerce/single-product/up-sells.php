@@ -48,7 +48,7 @@ if ( $upsells ) : ?>
 		?>
 		<div class="up-sells upsells products upsells-wrapper product-section">
 			<?php
-			$heading = apply_filters( 'woocommerce_product_upsells_products_heading', __( 'Sản phẩm tương tự', 'woocommerce' ) );
+			$heading = apply_filters( 'woocommerce_product_upsells_products_heading', __( 'Có thể bạn yêu thích', 'woocommerce' ) );
 
 			if ( $heading ) :
 				?>

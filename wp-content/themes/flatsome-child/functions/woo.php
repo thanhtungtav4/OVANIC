@@ -72,11 +72,11 @@ add_action( 'woocommerce_single_product_summary', 'woocommerce_template_single_t
 // !sản phẩm bán chạy
 
 //Move of UP-Sells in page detail
-add_action('woocommerce_upsell_display_custome', 'upsell_display');
-function upsell_display(){
-  woocommerce_upsell_display();
-}
-remove_action( 'woocommerce_after_single_product_summary', 'woocommerce_upsell_display', 15);
+// add_action('woocommerce_upsell_display_custome', 'upsell_display');
+// function upsell_display(){
+//   woocommerce_upsell_display();
+// }
+// remove_action( 'woocommerce_after_single_product_summary', 'woocommerce_upsell_display', 15);
 //Move of UP-Sells in page detail
 
 //Move rating

@@ -6,7 +6,11 @@ function my_custom_translations( $strings ) {
   'CHECKOUT DETAILS' => 'Thanh toán',
   'ORDER COMPLETE' => 'Hoàn thành',
   'Accept' => 'Chấp nhận',
-  'Add to cart' => 'Thêm vào giỏ hàng'
+  'Add to cart' => 'Thêm vào giỏ hàng',
+  'Related products' => 'Sản phẩm tương tự',
+  'Description' => 'Thông tin chi tiết',
+  'Additional information' =>'Thông tin bổ sung',
+  'Reviews' => 'Đánh giá'
 
   );
   $strings = str_ireplace( array_keys( $text ), $text, $strings );
