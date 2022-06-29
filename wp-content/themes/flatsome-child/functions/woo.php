@@ -12,7 +12,7 @@ function add_brand_product_singer() {
     echo '<div class="item item-sku">Mã sản phẩm:&nbsp; <span>'. $product->get_sku() .'</span> </div>';
    }
    if(!empty($made)){
-    echo '<div class="item item-made">Xuất xứ: '. $made .' </div>';
+    echo '<div class="item item-made">Xuất xứ: &nbsp; <span>'. $made .'</span> </div>';
    }
   do_action( 'woocommerce_rating_custome' );
   echo '</div>';
@@ -86,3 +86,38 @@ function single_rating_display(){
 }
 remove_action( 'woocommerce_single_product_summary', 'woocommerce_template_single_rating', 10);
 //Move rating
+
+//Move excerpt
+remove_action( 'woocommerce_single_product_summary', 'woocommerce_template_single_excerpt', 20 );
+add_action( 'woocommerce_single_product_summary', 'woocommerce_template_single_excerpt', 51 );
+//Move excerpt
+/***
+ * Add quickbuy button go to cart after click
+ */
+add_action('woocommerce_after_add_to_cart_button','devvn_quickbuy_after_addtocart_button');
+function devvn_quickbuy_after_addtocart_button(){
+   global $product;
+   ?>
+   <button type="submit" name="add-to-cart" value="<?php echo esc_attr($product->get_id()); ?>" class="single_add_to_cart_button button alt" id="buy_now_button">
+       <?php _e('Mua ngay', 'devvn'); ?>
+   </button>
+   <input type="hidden" name="is_buy_now" id="is_buy_now" value="0" />
+   <script>
+       jQuery(document).ready(function(){
+           jQuery('body').on('click', '#buy_now_button', function(){
+               if(jQuery(this).hasClass('disabled')) return;
+               var thisParent = jQuery(this).closest('form.cart');
+               jQuery('#is_buy_now', thisParent).val('1');
+               thisParent.submit();
+           });
+       });
+   </script>
+   <?php
+}
+add_filter('woocommerce_add_to_cart_redirect', 'redirect_to_checkout');
+function redirect_to_checkout($redirect_url) {
+   if (isset($_REQUEST['is_buy_now']) && $_REQUEST['is_buy_now']) {
+       $redirect_url = wc_get_checkout_url();
+   }
+   return $redirect_url;
+}
