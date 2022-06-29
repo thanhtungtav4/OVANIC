@@ -12,9 +12,10 @@ function add_brand_product_singer() {
     echo '<div class="item item-sku">Mã sản phẩm:&nbsp; <span>'. $product->get_sku() .'</span> </div>';
    }
    if(!empty($made)){
-    echo '<div class="item item-made">Xuất xứ thương hiệu: '. $made .' </div>';
+    echo '<div class="item item-made">Xuất xứ: '. $made .' </div>';
    }
-   echo '</div>';
+  do_action( 'woocommerce_rating_custome' );
+  echo '</div>';
   }
 };
 add_action( 'woocommerce_single_product_summary', 'add_brand_product_singer', 6 );
@@ -77,3 +78,11 @@ function upsell_display(){
 }
 remove_action( 'woocommerce_after_single_product_summary', 'woocommerce_upsell_display', 15);
 //Move of UP-Sells in page detail
+
+//Move rating
+add_action('woocommerce_rating_custome', 'single_rating_display');
+function single_rating_display(){
+  woocommerce_template_single_rating();
+}
+remove_action( 'woocommerce_single_product_summary', 'woocommerce_template_single_rating', 10);
+//Move rating

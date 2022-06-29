@@ -1,0 +1,36 @@
+.page-title-inner{
+  padding-top: 0 !important;
+}
+.brand-block{
+  display: flex;
+  font-size: 13px;
+  align-items: center;
+  padding-bottom: 0.6rem;
+  border-bottom: 1px solid #ececec;
+}
+.brand-block .item{
+  margin-right: 10px;
+  display: flex;
+}
+.brand-block .item-sku span{
+  color: #189eff;
+  font-weight: 600;
+}
+.m-topsale{
+  border-radius: 3px;
+  background: #ff2114;
+  margin-left: 8px;
+  padding: 5px 10px;
+  color: white;
+  font-size: 13px;
+  position: relative;
+  top: -7px;
+}
+.single-product h1{
+  font-size: 20px;
+}
+@media only screen and (max-width: 768px) {
+  .brand-block{
+    font-size: 10px;
+  }
+}
