@@ -18,7 +18,22 @@ function add_brand_product_singer() {
   echo '</div>';
   }
 };
-add_action( 'woocommerce_single_product_summary', 'add_brand_product_singer', 6 );
+add_action('woocommerce_single_title_module', 'add_brand_product_singer');
+
+// add text sản phẩm bán chạy ttl
+remove_action( 'woocommerce_single_product_summary', 'woocommerce_template_single_title', 5 );
+function woocommerce_template_single_title_custome() {
+  global $post;
+  if (function_exists('get_field')){
+  if(get_field('is_product_top_selling') == true){
+    echo '<h1 class="product-title product_title entry-title">' . get_the_title() . '<span class="m-topsale"> Bán Chạy</span></h1>';
+  }
+  else{
+    echo '<h1 class="product-title product_title entry-title">' . get_the_title() . '</h1>';
+  }
+}};
+add_action( 'woocommerce_single_title_module', 'woocommerce_template_single_title_custome', 5);
+// !add text sản phẩm bán chạy ttl
 
 // notselling product detail product is check
 function shownotselling() {
@@ -54,23 +69,6 @@ function add_noti(){
 }};
 add_action( 'woocommerce_before_shop_loop_item', 'add_noti', 9 );
 
-
-
-// add text sản phẩm bán chạy
-remove_action( 'woocommerce_single_product_summary', 'woocommerce_template_single_title', 5 );
-function woocommerce_template_single_title_custome() {
-  global $post;
-  if (function_exists('get_field')){
-  if(get_field('is_product_top_selling') == true){
-    echo '<h1 class="product-title product_title entry-title">' . get_the_title() . '<span class="m-topsale"> Bán Chạy</span></h1>';
-  }
-  else{
-    echo '<h1 class="product-title product_title entry-title">' . get_the_title() . '</h1>';
-  }
-}};
-add_action( 'woocommerce_single_product_summary', 'woocommerce_template_single_title_custome', 5);
-// !sản phẩm bán chạy
-
 //Move of UP-Sells in page detail
 // add_action('woocommerce_upsell_display_custome', 'upsell_display');
 // function upsell_display(){
@@ -89,7 +87,7 @@ remove_action( 'woocommerce_single_product_summary', 'woocommerce_template_singl
 
 //Move excerpt
 remove_action( 'woocommerce_single_product_summary', 'woocommerce_template_single_excerpt', 20 );
-add_action( 'woocommerce_single_product_summary', 'woocommerce_template_single_excerpt', 51 );
+add_action( 'woocommerce_single_product_summary', 'woocommerce_template_single_excerpt', 45 );
 //Move excerpt
 /***
  * Add quickbuy button go to cart after click

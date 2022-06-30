@@ -15,48 +15,70 @@
     	</div>
 
     	<div class="product-info summary col-fit col entry-summary <?php flatsome_product_summary_classes();?>">
-
-    		<?php
-    			/**
-    			 * woocommerce_single_product_summary hook
-    			 *
-    			 * @hooked woocommerce_template_single_title - 5
-    			 * @hooked woocommerce_template_single_rating - 10
-    			 * @hooked woocommerce_template_single_price - 10
-    			 * @hooked woocommerce_template_single_excerpt - 20
-    			 * @hooked woocommerce_template_single_add_to_cart - 30
-    			 * @hooked woocommerce_template_single_meta - 40
-    			 * @hooked woocommerce_template_single_sharing - 50
-    			 */
-    			do_action( 'woocommerce_single_product_summary' );
+				<?php
+					do_action( 'woocommerce_single_title_module' );
     		?>
+				<div class="shop_row">
+					<div class="info">
+						<?php
+							/**
+							 * woocommerce_single_product_summary hook
+							 *
+							 * @hooked woocommerce_template_single_title - 5
+							 * @hooked woocommerce_template_single_rating - 10
+							 * @hooked woocommerce_template_single_price - 10
+							 * @hooked woocommerce_template_single_excerpt - 20
+							 * @hooked woocommerce_template_single_add_to_cart - 30
+							 * @hooked woocommerce_template_single_meta - 40
+							 * @hooked woocommerce_template_single_sharing - 50
+							 */
+							do_action( 'woocommerce_single_product_summary' );
+						?>
+					</div>
+					<div class="shop_info">
+						<ul>
+							<li>
+									<img src="<?php echo get_stylesheet_directory_uri() .'/assets/images/guarantee.png'?>">
+									<p> Cam kết chính hãng 100% </p>
+							</li>
+							<li>
+									<img src="<?php echo get_stylesheet_directory_uri() .'/assets/images/refund.png'?>">
+									<p> Hoàn tiền 200% nếu phát hiện hàng giả </p>
+							</li>
+							<li>
+									<img src="<?php echo get_stylesheet_directory_uri() .'/assets/images/box.png'?>">
+									<p> Free ship đơn hàng từ 500k trở lên </p>
+							</li>
+						</ul>
+					</div>
+				</div>
 
-    	</div>
-
-    	<div id="product-sidebar" class="mfp-hide">
-    		<div class="sidebar-inner">
-    			<?php
-    				do_action('flatsome_before_product_sidebar');
-    				/**
-    				 * woocommerce_sidebar hook
-    				 *
-    				 * @hooked woocommerce_get_sidebar - 10
-    				 */
-    				if (is_active_sidebar( 'product-sidebar' ) ) {
-    					dynamic_sidebar('product-sidebar');
-    				} else if(is_active_sidebar( 'shop-sidebar' )) {
-    					dynamic_sidebar('shop-sidebar');
-    				}
-    			?>
+				<div id="product-sidebar" class="">
+					<div class="sidebar-inner">
+						<?php
+						//	do_action('flatsome_before_product_sidebar');
+							/**
+							 * woocommerce_sidebar hook
+							 *
+							 * @hooked woocommerce_get_sidebar - 10
+							 */
+							if (is_active_sidebar( 'product-sidebar' ) ) {
+							//	dynamic_sidebar('product-sidebar');
+							} else if(is_active_sidebar( 'shop-sidebar' )) {
+							//	dynamic_sidebar('shop-sidebar');
+							}
+						?>
+					</div>
     		</div>
     	</div>
 
+
     </div>
-		<div class="container">
+		<!-- <div class="container">
 			<?php
-				do_action( 'woocommerce_upsell_display_custome' );
+				//do_action( 'woocommerce_upsell_display_custome' );
 			?>
-		</div>
+		</div> -->
   </div>
 
   <div class="product-footer">

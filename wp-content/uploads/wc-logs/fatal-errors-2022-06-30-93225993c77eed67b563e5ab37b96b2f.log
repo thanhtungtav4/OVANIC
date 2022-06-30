@@ -1,0 +1,24 @@
+2022-06-30T01:17:07+00:00 CRITICAL Uncaught ArgumentCountError: Too few arguments to function add_action(), 1 passed in D:\xampp\htdocs\OVANIC\wp-content\themes\flatsome-child\functions\woo.php on line 21 and at least 2 expected in D:\xampp\htdocs\OVANIC\wp-includes\plugin.php:400
+Stack trace:
+#0 D:\xampp\htdocs\OVANIC\wp-content\themes\flatsome-child\functions\woo.php(21): add_action('add_brand_produ...')
+#1 D:\xampp\htdocs\OVANIC\wp-content\themes\flatsome-child\functions.php(5): require_once('D:\\xampp\\htdocs...')
+#2 D:\xampp\htdocs\OVANIC\wp-settings.php(566): include('D:\\xampp\\htdocs...')
+#3 D:\xampp\htdocs\OVANIC\wp-config.php(96): require_once('D:\\xampp\\htdocs...')
+#4 D:\xampp\htdocs\OVANIC\wp-load.php(50): require_once('D:\\xampp\\htdocs...')
+#5 D:\xampp\htdocs\OVANIC\wp-blog-header.php(13): require_once('D:\\xampp\\htdocs...')
+#6 D:\xampp\htdocs\OVANIC\index.php(17): require('D:\\xampp\\htdocs...')
+#7 {main}
+  thrown in D:\xampp\htdocs\OVANIC\wp-includes\plugin.php on line 400
+
+2022-06-30T01:17:08+00:00 CRITICAL Uncaught ArgumentCountError: Too few arguments to function add_action(), 1 passed in D:\xampp\htdocs\OVANIC\wp-content\themes\flatsome-child\functions\woo.php on line 21 and at least 2 expected in D:\xampp\htdocs\OVANIC\wp-includes\plugin.php:400
+Stack trace:
+#0 D:\xampp\htdocs\OVANIC\wp-content\themes\flatsome-child\functions\woo.php(21): add_action('add_brand_produ...')
+#1 D:\xampp\htdocs\OVANIC\wp-content\themes\flatsome-child\functions.php(5): require_once('D:\\xampp\\htdocs...')
+#2 D:\xampp\htdocs\OVANIC\wp-settings.php(566): include('D:\\xampp\\htdocs...')
+#3 D:\xampp\htdocs\OVANIC\wp-config.php(96): require_once('D:\\xampp\\htdocs...')
+#4 D:\xampp\htdocs\OVANIC\wp-load.php(50): require_once('D:\\xampp\\htdocs...')
+#5 D:\xampp\htdocs\OVANIC\wp-blog-header.php(13): require_once('D:\\xampp\\htdocs...')
+#6 D:\xampp\htdocs\OVANIC\index.php(17): require('D:\\xampp\\htdocs...')
+#7 {main}
+  thrown in D:\xampp\htdocs\OVANIC\wp-includes\plugin.php on line 400
+
