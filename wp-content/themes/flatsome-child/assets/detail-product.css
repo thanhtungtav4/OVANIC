@@ -81,10 +81,11 @@
 .shop_info ul li p{
   margin-bottom: 0;
   font-weight: 600;
+  font-size: 14px;
 }
 .shop_info ul li img{
-  width: 35px;
-  height: 35px;
+  width: 30px;
+  height: 30px;
   margin-right: 10px;
 }
 .shop_row{
