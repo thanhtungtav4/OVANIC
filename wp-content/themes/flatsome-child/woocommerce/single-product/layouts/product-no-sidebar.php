@@ -52,42 +52,33 @@
 						</ul>
 					</div>
 				</div>
-
-				<div id="product-sidebar" class="">
-					<div class="sidebar-inner">
-						<?php
-						//	do_action('flatsome_before_product_sidebar');
-							/**
-							 * woocommerce_sidebar hook
-							 *
-							 * @hooked woocommerce_get_sidebar - 10
-							 */
-							if (is_active_sidebar( 'product-sidebar' ) ) {
-							//	dynamic_sidebar('product-sidebar');
-							} else if(is_active_sidebar( 'shop-sidebar' )) {
-							//	dynamic_sidebar('shop-sidebar');
-							}
-						?>
-					</div>
-    		</div>
     	</div>
-
-
     </div>
-		<!-- <div class="container">
-			<?php
-				//do_action( 'woocommerce_upsell_display_custome' );
-			?>
-		</div> -->
   </div>
 
   <div class="product-footer">
+		<div class="container">
+			<div class="row mb-0 content-row">
+					<div class="large-9 col">
+					<?php
+    			/**
+    			 * woocommerce_after_single_product_summary hook
+    			 *
+    			 * @hooked woocommerce_output_product_data_tabs
+    			 */
+    			do_action( 'woocommerce_tabs_display_custome' );
+    		?>
+					</div>
+					<div class="large-4 col">
+
+					</div>
+			</div>
+		</div>
   	<div class="container">
     		<?php
     			/**
     			 * woocommerce_after_single_product_summary hook
     			 *
-    			 * @hooked woocommerce_output_product_data_tabs - 10
     			 * @hooked woocommerce_upsell_display - 15
     			 * @hooked woocommerce_output_related_products - 20
     			 */

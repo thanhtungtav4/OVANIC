@@ -111,3 +111,14 @@ function redirect_to_checkout($redirect_url) {
    }
    return $redirect_url;
 }
+/***
+ * !Add quickbuy button go to cart after click
+ */
+
+//Data Tab
+remove_action('woocommerce_after_single_product_summary', 'woocommerce_output_product_data_tabs', 10);
+add_action('woocommerce_tabs_display_custome', 'data_tabs_display');
+function data_tabs_display(){
+  woocommerce_output_product_data_tabs();
+}
+//Data Tab
