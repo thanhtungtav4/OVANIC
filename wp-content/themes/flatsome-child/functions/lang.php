@@ -7,6 +7,7 @@ function my_custom_translations( $strings ) {
   'ORDER COMPLETE' => 'Hoàn thành',
   'Accept' => 'Chấp nhận',
   'Add to cart' => 'Cho vào giỏ',
+  'Thêm vào giỏ hàng' => 'Cho vào giỏ',
   'Related products' => 'Sản phẩm tương tự',
   'Description' => 'Thông tin chi tiết',
   'Additional information' =>'Thông tin bổ sung',

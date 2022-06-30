@@ -69,14 +69,6 @@ function add_noti(){
 }};
 add_action( 'woocommerce_before_shop_loop_item', 'add_noti', 9 );
 
-//Move of UP-Sells in page detail
-// add_action('woocommerce_upsell_display_custome', 'upsell_display');
-// function upsell_display(){
-//   woocommerce_upsell_display();
-// }
-// remove_action( 'woocommerce_after_single_product_summary', 'woocommerce_upsell_display', 15);
-//Move of UP-Sells in page detail
-
 //Move rating
 add_action('woocommerce_rating_custome', 'single_rating_display');
 function single_rating_display(){

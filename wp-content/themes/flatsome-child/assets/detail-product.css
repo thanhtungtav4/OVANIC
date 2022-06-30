@@ -1,8 +1,9 @@
 .product-main {
-  padding: 10px 0 !important;
+  padding: 0 0 10px 0!important;
 }
 .page-title-inner{
   padding-top: 0 !important;
+  min-height: 40px !important;
 }
 .brand-block{
   display: flex;
@@ -101,6 +102,9 @@
   border-radius: 4px 4px 0 0;
   height: fit-content;
   padding: 15px;
+}
+.quantity{
+  margin-right: 0 !important;
 }
 @media only screen and (max-width: 768px) {
   .brand-block{
