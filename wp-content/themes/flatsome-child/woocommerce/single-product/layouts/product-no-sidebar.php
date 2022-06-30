@@ -17,7 +17,7 @@
     	<div class="product-info summary col-fit col entry-summary <?php flatsome_product_summary_classes();?>">
 				<?php
 					do_action( 'woocommerce_single_title_module' );
-    		?>
+    			?>
 				<div class="shop_row">
 					<div class="info">
 						<?php
@@ -61,16 +61,20 @@
 			<div class="row mb-0 content-row">
 					<div class="large-9 col">
 					<?php
-    			/**
-    			 * woocommerce_after_single_product_summary hook
-    			 *
-    			 * @hooked woocommerce_output_product_data_tabs
-    			 */
-    			do_action( 'woocommerce_tabs_display_custome' );
-    		?>
+					/**
+					 *
+					 * @hooked woocommerce_output_product_data_tabs
+					 */
+					do_action( 'woocommerce_tabs_display_custome' );
+					?>
 					</div>
 					<div class="large-4 col">
-
+						<div class="box_product">
+							<p class="ttl"><?php echo get_the_title(); ?></p>
+							<div class="box_product_inner">
+								<?php do_action('get_brand_name') ?>
+							</div>
+						</div>
 					</div>
 			</div>
 		</div>

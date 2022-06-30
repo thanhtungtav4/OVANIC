@@ -20,6 +20,27 @@ function add_brand_product_singer() {
 };
 add_action('woocommerce_single_title_module', 'add_brand_product_singer');
 
+
+// show thuong hieu
+function show_info(){
+  global $post;
+  global $product;
+  $brand = get_the_terms( $post->ID , 'thuong-hieu' );
+  $made = array_shift(woocommerce_get_product_terms($post->ID, 'pa_xuat-xu', 'names'));
+  $percentage = round( ( ( $product->regular_price - $product->sale_price ) / $product->regular_price ) * 100 );
+  $price_save =  $product->regular_price - $product->sale_price ;
+  if(!empty($brand[0]->name)){
+    echo '<div>Thương hiệu:&nbsp;<a href='. $brand[0]->slug .'>  ' . $brand[0]->name .' </a></div>';
+  }
+  if(!empty($made)){
+    echo '<div class="item item-made">Xuất xứ: &nbsp; <span>'. $made .'</span> </div>';
+   }
+    echo '<div class="item item-made">Giá: &nbsp;' . number_format($product->get_sale_price()) .'<sup>đ<sup> </span> </div>';
+    woocommerce_simple_add_to_cart();
+};
+add_action('get_brand_name', 'show_info');
+// show thuong hieu
+//
 // add text sản phẩm bán chạy ttl
 remove_action( 'woocommerce_single_product_summary', 'woocommerce_template_single_title', 5 );
 function woocommerce_template_single_title_custome() {

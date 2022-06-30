@@ -107,6 +107,10 @@
 .quantity{
   margin-right: 0 !important;
 }
+.box_product{
+  position: sticky;
+  top: 10px;
+}
 @media only screen and (max-width: 768px) {
   .brand-block{
     font-size: 12px;
