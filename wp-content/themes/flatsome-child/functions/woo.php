@@ -33,9 +33,9 @@ function show_info(){
     echo '<div>Thương hiệu:&nbsp;<a href='. $brand[0]->slug .'>  ' . $brand[0]->name .' </a></div>';
   }
   if(!empty($made)){
-    echo '<div class="item item-made">Xuất xứ: &nbsp; <span>'. $made .'</span> </div>';
+    echo '<div>Xuất xứ: &nbsp; <span>'. $made .'</span> </div>';
    }
-    echo '<div class="item item-made">Giá: &nbsp;' . number_format($product->get_sale_price()) .'<sup>đ<sup> </span> </div>';
+    echo '<div>Giá: &nbsp;' . number_format($product->get_sale_price()) .'<sup>đ<sup> </span> </div>';
     woocommerce_simple_add_to_cart();
 };
 add_action('get_brand_name', 'show_info');

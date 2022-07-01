@@ -62,7 +62,7 @@
 .single_add_to_cart_button{
   border-radius: 3px !important;
 }
-.sticky-add-to-cart-wrapper button.single_add_to_cart_button:nth-of-type(1) {
+button.single_add_to_cart_button:nth-of-type(1) {
   background-color: #74be43 !important;
 }
 .sticky-add-to-cart--active .price-block .is_percentage, .sticky-add-to-cart--active .price-block .is_sale{
@@ -107,9 +107,47 @@
 .quantity{
   margin-right: 0 !important;
 }
-.box_product{
+.stickybox{
   position: sticky;
-  top: 10px;
+  top: 8rem;
+  margin-top: 30px;
+}
+.stickybox ul {
+  list-style: none;
+  margin-top: 15px;
+}
+.stickybox ul li{
+  border-top: 1px solid #f1f1f1;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 8px 0;
+  margin-bottom: 0;
+}
+.stickybox ul li a{
+  padding-left: 15px;
+  width: 100%;
+}
+.box_product{
+  border: 1px solid rgba(111, 111, 111, 0.1);
+  box-shadow: 0 0 5px rgb(111 111 111 / 10%);
+  border-radius: 3px;
+  padding: 15px;
+}
+.box_product .ttl{
+  margin-bottom: 8px;
+  color: #333;
+  font-size: 19px;
+  font-weight: 500;
+}
+.box_product .quantity .button.minus, .box_product .quantity .button.plus{
+  display: none;
+}
+.box_product form{
+  margin-bottom: 0;
+}
+.product-footer > .container{
+  border-top: 1px solid #ececec;
 }
 @media only screen and (max-width: 768px) {
   .brand-block{
@@ -121,5 +159,8 @@
   }
   .shop_row .info, .shop_row  .shop_info{
     width: 100% ;
+  }
+  .stickybox{
+    position: static;
   }
 }

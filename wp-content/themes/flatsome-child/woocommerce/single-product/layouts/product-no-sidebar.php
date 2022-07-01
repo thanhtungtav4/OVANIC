@@ -59,7 +59,7 @@
   <div class="product-footer">
 		<div class="container">
 			<div class="row mb-0 content-row">
-					<div class="large-9 col">
+					<div class="large-8 col">
 					<?php
 					/**
 					 *
@@ -69,11 +69,26 @@
 					?>
 					</div>
 					<div class="large-4 col">
-						<div class="box_product">
-							<p class="ttl"><?php echo get_the_title(); ?></p>
-							<div class="box_product_inner">
-								<?php do_action('get_brand_name') ?>
+						<div class="stickybox">
+							<div class="box_product">
+								<p class="ttl"><?php echo get_the_title(); ?></p>
+								<div class="box_product_inner">
+									<?php do_action('get_brand_name') ?>
+								</div>
 							</div>
+							<?php if( have_rows('post_increase_purchase_rate') ): ?>
+							<ul>
+							<?php while( have_rows('post_increase_purchase_rate') ): the_row();
+								$name = get_sub_field('title');
+								$url = get_sub_field('url');
+								?>
+									<li>
+											<a href="<?php echo $url ?>" title="<?php echo $name ?>" target="_blank"><?php echo $name ?></a>
+											<svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"> <path d="M10.5858 6.34317L12 4.92896L19.0711 12L12 19.0711L10.5858 17.6569L16.2427 12L10.5858 6.34317Z" fill="currentColor"/></svg>
+									</li>
+								<?php  endwhile; ?>
+							</ul>
+							<?php endif; ?>
 						</div>
 					</div>
 			</div>

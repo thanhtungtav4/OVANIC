@@ -243,62 +243,6 @@ if( function_exists('acf_add_local_field_group') ):
   ));
 
   acf_add_local_field_group(array(
-    'key' => 'group_62aab345dbca7',
-    'title' => 'Product Suggest',
-    'fields' => array(
-      array(
-        'key' => 'field_62aab372741a1',
-        'label' => 'List Product Suggest',
-        'name' => 'list_product_suggest',
-        'type' => 'relationship',
-        'instructions' => '',
-        'required' => 0,
-        'conditional_logic' => 0,
-        'wrapper' => array(
-          'width' => '',
-          'class' => '',
-          'id' => '',
-        ),
-        'post_type' => array(
-          0 => 'product',
-        ),
-        'taxonomy' => '',
-        'filters' => array(
-          0 => 'search',
-          1 => 'post_type',
-          2 => 'taxonomy',
-        ),
-        'elements' => array(
-          0 => 'featured_image',
-        ),
-        'min' => '',
-        'max' => '',
-        'return_format' => 'id',
-      ),
-    ),
-    'location' => array(
-      array(
-        array(
-          'param' => 'post_type',
-          'operator' => '==',
-          'value' => 'product',
-        ),
-      ),
-    ),
-    'menu_order' => 0,
-    'position' => 'normal',
-    'style' => 'default',
-    'label_placement' => 'top',
-    'instruction_placement' => 'label',
-    'hide_on_screen' => array(
-      0 => 'send-trackbacks',
-    ),
-    'active' => true,
-    'description' => '',
-    'show_in_rest' => 0,
-  ));
-
-  acf_add_local_field_group(array(
     'key' => 'group_62b16ac9b0b76',
     'title' => 'Bán Chạy',
     'fields' => array(
@@ -320,6 +264,90 @@ if( function_exists('acf_add_local_field_group') ):
         'ui' => 0,
         'ui_on_text' => '',
         'ui_off_text' => '',
+      ),
+    ),
+    'location' => array(
+      array(
+        array(
+          'param' => 'post_type',
+          'operator' => '==',
+          'value' => 'product',
+        ),
+      ),
+    ),
+    'menu_order' => 0,
+    'position' => 'normal',
+    'style' => 'default',
+    'label_placement' => 'top',
+    'instruction_placement' => 'label',
+    'hide_on_screen' => '',
+    'active' => true,
+    'description' => '',
+    'show_in_rest' => 0,
+  ));
+
+  acf_add_local_field_group(array(
+    'key' => 'group_62be56c2085a2',
+    'title' => 'Post increase purchase rate',
+    'fields' => array(
+      array(
+        'key' => 'field_62be5726baa58',
+        'label' => 'Post increase purchase rate',
+        'name' => 'post_increase_purchase_rate',
+        'type' => 'repeater',
+        'instructions' => '',
+        'required' => 0,
+        'conditional_logic' => 0,
+        'wrapper' => array(
+          'width' => '',
+          'class' => '',
+          'id' => '',
+        ),
+        'collapsed' => '',
+        'min' => 0,
+        'max' => 0,
+        'layout' => 'row',
+        'button_label' => '',
+        'sub_fields' => array(
+          array(
+            'key' => 'field_62be5768baa59',
+            'label' => 'Title',
+            'name' => 'title',
+            'type' => 'text',
+            'instructions' => '',
+            'required' => 0,
+            'conditional_logic' => 0,
+            'wrapper' => array(
+              'width' => '',
+              'class' => '',
+              'id' => '',
+            ),
+            'default_value' => '',
+            'placeholder' => '',
+            'prepend' => '',
+            'append' => '',
+            'maxlength' => '',
+          ),
+          array(
+            'key' => 'field_62be57bbbaa5a',
+            'label' => 'Url',
+            'name' => 'url',
+            'type' => 'text',
+            'instructions' => '',
+            'required' => 0,
+            'conditional_logic' => 0,
+            'wrapper' => array(
+              'width' => '',
+              'class' => '',
+              'id' => '',
+            ),
+            'default_value' => '',
+            'placeholder' => '',
+            'prepend' => '',
+            'append' => '',
+            'maxlength' => '',
+          ),
+        ),
       ),
     ),
     'location' => array(
