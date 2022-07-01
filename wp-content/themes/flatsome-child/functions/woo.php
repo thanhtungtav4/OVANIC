@@ -97,7 +97,13 @@ function single_rating_display(){
 }
 remove_action( 'woocommerce_single_product_summary', 'woocommerce_template_single_rating', 10);
 //Move rating
-
+//Move of UP-Sells in page detail
+add_action('woocommerce_upsell_display_custome', 'upsell_display');
+function upsell_display(){
+  woocommerce_upsell_display();
+}
+remove_action( 'woocommerce_after_single_product_summary', 'woocommerce_upsell_display', 15);
+//Move of UP-Sells in page detail
 //Move excerpt
 remove_action( 'woocommerce_single_product_summary', 'woocommerce_template_single_excerpt', 20 );
 add_action( 'woocommerce_single_product_summary', 'woocommerce_template_single_excerpt', 45 );

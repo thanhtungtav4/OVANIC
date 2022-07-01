@@ -58,6 +58,11 @@
 
   <div class="product-footer">
 		<div class="container">
+			<?php
+				do_action('woocommerce_upsell_display_custome');
+			?>
+		<div>
+		<div class="container">
 			<div class="row mb-0 content-row">
 					<div class="large-8 col">
 					<?php
