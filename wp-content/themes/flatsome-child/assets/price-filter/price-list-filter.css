@@ -1,0 +1,63 @@
+.devvn_woo_price_filter, .devvn_woo_price_filter * {
+
+    box-sizing: border-box;
+
+    -moz-box-sizing: border-box;
+
+    -webkit-box-sizing: border-box;
+
+}
+
+.devvn_woo_price_filter table {
+
+    width: 100%;
+
+}
+
+.devvn_woo_price_filter table {
+
+    border: 1px solid #ccc;
+
+    border-collapse: collapse;
+
+}
+
+.devvn_woo_price_filter table th {
+
+    text-align: left;
+
+}
+
+.devvn_woo_price_filter table th, .devvn_woo_price_filter table td {
+
+    border: 1px solid #ccc;
+
+    padding: 5px 10px;
+
+}
+
+.devvn_woo_price_filter {
+
+    margin: 0 0 10px 0;
+
+}
+
+.devvn_woo_price_filter input {
+
+    width: 100%;
+
+}
+
+.devvn_td_delete{
+
+    width: 30px; text-align: center;
+
+}
+
+a.devvn_delete_price_list {
+
+    text-decoration: none;
+
+    color: red;
+
+}
