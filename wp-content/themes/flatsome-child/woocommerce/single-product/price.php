@@ -28,7 +28,7 @@ $price_save =  $product->regular_price - $product->sale_price ;
 <div class="price-wrapper price-block">
 	<p class="price_item is_price"> <strong>Giá:</strong> <span class="red"><?php echo(number_format($product->get_sale_price()) .'<sup>đ<sup>') ?></span> </p>
 	<?php if($product->is_on_sale()) :?>
-		<p class="price_item is_percentage"><strong> Tiết kiệm: </strong><span><span class="red"><?php print $percentage . '%' ?> </span> <span class="sale_value">(<?php echo $price_save .'<sup>đ<sup>' ?></span>)</span> </p>
+		<p class="price_item is_percentage"><strong> Tiết kiệm: </strong><span><span class="red"><?php print $percentage . '%' ?> </span> <span class="sale_value">(<?php echo number_format($price_save) .'<sup>đ<sup>' ?></span>)</span> </p>
 		<p class="price_item is_sale "><strong> Giá thị trường: </strong><span class="price-on-sale"><?php echo(number_format($product->get_regular_price()) .'<sup>đ<sup>') ?> </span> </p>
 	<?php endif ; ?>
 </div>
