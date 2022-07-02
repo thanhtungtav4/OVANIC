@@ -58,9 +58,7 @@
 
   <div class="product-footer">
 		<div class="container">
-			<?php
-				do_action('woocommerce_upsell_display_custome');
-			?>
+			
 		<div>
 		<div class="container">
 			<div class="row mb-0 content-row">
@@ -74,6 +72,11 @@
 					?>
 					</div>
 					<div class="large-4 col">
+						<div class="box_upsell">
+						<?php
+							do_action('woocommerce_upsell_display_custome');
+						?>
+						</div>
 						<div class="stickybox">
 							<div class="box_product">
 								<p class="ttl"><?php echo get_the_title(); ?></p>

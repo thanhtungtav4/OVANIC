@@ -83,11 +83,6 @@ remove_action( 'wp_head', 'wp_generator' ) ;
 // Remove WLManifest Link
 remove_action( 'wp_head', 'wlwmanifest_link' ) ;
 // !Remove WLManifest Link
-
-// To limit  post revisions
-	define('WP_POST_REVISIONS', 2);
-// !To limit  post revisions
-
 // Disable Heartbeat
 add_action( 'init', 'stop_heartbeat', 1 );
 function stop_heartbeat() {

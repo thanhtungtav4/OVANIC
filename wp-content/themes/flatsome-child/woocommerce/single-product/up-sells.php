@@ -34,10 +34,10 @@ if ( $upsells ) : ?>
 		if ( get_theme_mod('category_force_image_height' ) ) $repeater_classes[] = 'has-equal-box-heights';
 		if ( get_theme_mod('equalize_product_box' ) ) $repeater_classes[] = 'equalize-box';
 
-		$repeater['type']         = $type;
-		$repeater['columns']      = get_theme_mod( 'related_products_pr_row', 4 );
-		$repeater['columns__md']  = get_theme_mod( 'related_products_pr_row_tablet', 3 );
-		$repeater['columns__sm']  = get_theme_mod( 'related_products_pr_row_mobile', 2 );
+		$repeater['type']         = 'sidebar';
+		$repeater['columns']      = get_theme_mod( 'related_products_pr_row', 1 );
+		$repeater['columns__md']  = get_theme_mod( 'related_products_pr_row_tablet', 1);
+		$repeater['columns__sm']  = get_theme_mod( 'related_products_pr_row_mobile', 1 );
 		$repeater['class']        = implode( ' ', $repeater_classes );
 		$repeater['slider_style'] = 'reveal';
 		$repeater['row_spacing']  = 'small';
@@ -46,32 +46,32 @@ if ( $upsells ) : ?>
 			$repeater['type'] = 'row';
 		}
 		?>
-		<div class="up-sells upsells products upsells-wrapper product-section">
+		<aside class="widget widget-upsell">
 			<?php
-			$heading = apply_filters( 'woocommerce_product_upsells_products_heading', __( 'Có thể bạn yêu thích', 'woocommerce' ) );
+			$heading = apply_filters( 'woocommerce_product_upsells_products_heading', __( 'CÓ THỂ BẠN YÊU THÍCH', 'woocommerce' ) );
 
 			if ( $heading ) :
 				?>
-				<h3 class="product-section-title product-section-title-upsell pt-half pb-half uppercase">
+				<h3 class="widget-title shop-sidebar">
 					<?php echo esc_html( $heading ); ?>
 				</h3>
 			<?php endif; ?>
+			<!-- Upsell List style -->
+			<ul class="product_list_widget">
+				<?php foreach ( $upsells as $upsell ) : ?>
 
-			<?php get_flatsome_repeater_start( $repeater ); ?>
+					<?php
+					$post_object = get_post( $upsell->get_id() );
 
-			<?php foreach ( $upsells as $upsell ) :
-				$post_object = get_post( $upsell->get_id() );
+					setup_postdata( $GLOBALS['post'] =& $post_object ); // phpcs:ignore WordPress.WP.GlobalVariablesOverride.Prohibited, Squiz.PHP.DisallowMultipleAssignments.Found
 
-				setup_postdata( $GLOBALS['post'] =& $post_object ); // phpcs:ignore WordPress.WP.GlobalVariablesOverride.Prohibited, Squiz.PHP.DisallowMultipleAssignments.Found
+					wc_get_template_part( 'content', 'product-small' );
+					?>
 
-				wc_get_template_part( 'content', 'product' );
-			endforeach;
-			?>
-
-			<?php get_flatsome_repeater_end( $repeater ); ?>
-		</div>
+				<?php endforeach; ?>
+			</ul>
+		</aside>
 	<?php else : ?>
-
 		<aside class="widget widget-upsell">
 			<?php
 			$heading = apply_filters( 'woocommerce_product_upsells_products_heading', __( 'You may also like&hellip;', 'woocommerce' ) );
