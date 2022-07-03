@@ -1,7 +1,7 @@
 <?php
 /*
 * Plugin Name: DevVN Woocommerce Reviews
-* Version: 1.1.2
+* Version: 1.2.6
 * Description: Thay đổi giao diện phần đánh giá và thêm phần thảo luận cho chi tiết sản phẩm trong Woocommerce
 * Author: Lê Văn Toản
 * Author URI: https://levantoan.com/
@@ -9,7 +9,7 @@
 * Text Domain: devvn-reviews
 * Domain Path: /languages
 * WC requires at least: 3.5.4
-* WC tested up to: 3.8.1
+* WC tested up to: 3.7.1
 */
 
 defined( 'ABSPATH' ) or die( 'No script kiddies please!' );
@@ -19,7 +19,7 @@ if ( !class_exists( 'DevVN_Reviews_Class' ) ) {
     {
 
         protected static $instance;
-        public $_version = '1.1.2';
+        public $_version = '1.2.6';
 
         public $_optionName = 'devvn_reviews_options';
         public $_optionGroup = 'devvn_reviews-options-group';
@@ -32,13 +32,13 @@ if ( !class_exists( 'DevVN_Reviews_Class' ) ) {
             'review_position_action'  =>  '',
             'review_priority'   =>  99,
             'recaptcha' =>  '',
-            'license_key'   =>  '',
+            'license_key'   =>  '121212121212121212',
 
             'show_date' =>  '1',
             'show_tcmt' =>  '1',
 
             'show_like' =>  '2',
-            'label_review'  =>  ''
+            'label_review'  =>  '1'
         );
 
         public static function init(){
@@ -94,8 +94,6 @@ if ( !class_exists( 'DevVN_Reviews_Class' ) ) {
 
             add_action( 'wp_enqueue_scripts', array($this, 'devvn_cmt_enqueue_style') );
 
-            include_once ('includes/updates.php');
-
             add_action( 'admin_notices', array($this, 'admin_notices') );
             if( is_admin() ) {
                 add_action('in_plugin_update_message-' . DEVVN_REVIEWS_BASENAME, array($this,'devvn_modify_plugin_update_message'), 10, 2 );
@@ -105,10 +103,8 @@ if ( !class_exists( 'DevVN_Reviews_Class' ) ) {
 
             add_action( 'admin_enqueue_scripts', array( $this, 'admin_enqueue_scripts' ) );
             add_action( 'wp_ajax_devvn_reviews_sync_cmt', array($this, 'devvn_reviews_sync_cmt_func') );
-
             add_action( 'wp_ajax_fake_reviews_bought', array($this, 'fake_reviews_bought_func') );
             add_action( 'wp_ajax_admin_fake_label', array($this, 'admin_fake_label_func') );
-            add_action( 'wp_ajax_open_comment_prod', array($this, 'open_comment_prod_func') );
 
             self::create_files();
 
@@ -120,98 +116,6 @@ if ( !class_exists( 'DevVN_Reviews_Class' ) ) {
             add_action( 'wp_ajax_devvn_like_cmt',  array($this, 'devvn_like_cmt_func') );
             add_action( 'wp_ajax_nopriv_devvn_like_cmt',  array($this, 'devvn_like_cmt_func') );
 
-            //1.1.1
-            $this->load_textdomain();
-
-            //1.1.2
-
-            add_action( 'add_meta_boxes', array($this, 'cmt_register_meta_boxes') );
-            add_filter( 'wp_update_comment_data', array($this, 'cmt_register_meta_boxes_save'), 1 );
-            add_action( 'devvn_approved_reviews_schedule', array($this, 'devvn_approved_reviews_schedule_func') );
-            add_action('wp_set_comment_status', array($this, 'devvn_approved_reviews_changestatus_func'), 10, 2 );
-
-        }
-
-        function cmt_register_meta_boxes() {
-            add_meta_box( 'devvn-reviews-metabox-id', __( 'Review Options', 'devvn-reviews' ), array($this, 'cmt_register_meta_boxes_display_callback'), 'comment', 'normal', 'high' );
-        }
-
-        function cmt_register_meta_boxes_display_callback($comment){
-            wp_nonce_field( 'devvn_cmt_save_data', 'devvn_cmt_save_data_nonce' );
-            $bydevvnimport = get_comment_meta( $comment->comment_ID, 'bydevvnimport', true );
-            ?>
-            <table class="form-table editcomment" role="presentation">
-                <tbody>
-                <tr>
-                    <td class="first"><label for="bydevvnimport"><?php _e( 'Schedule', 'devvn-reviews');?></label></td>
-                    <td><label><input type="checkbox" name="bydevvnimport" value="1" id="bydevvnimport" <?php checked($bydevvnimport, 1, true);?>> <?php _e( 'Wait to approved', 'devvn-reviews' )?></label></td>
-                </tr>
-                </tbody>
-            </table>
-            <?php
-        }
-
-        function cmt_register_meta_boxes_save($data){
-            if ( ! isset( $_POST['devvn_cmt_save_data_nonce']) || ! wp_verify_nonce( wp_unslash( $_POST['devvn_cmt_save_data_nonce'] ), 'devvn_cmt_save_data' ) ) {
-                return $data;
-            }
-
-            $comment_id = $data['comment_ID'];
-
-            if(isset($_POST['bydevvnimport']) && $_POST['bydevvnimport'] == 1){
-                $this->clear_review_schedule($comment_id);
-                $time = strtotime(get_gmt_from_date($data['comment_date']) . ' GMT');
-                if ( $time > time() && isset($data['comment_status']) && $data['comment_status'] == 0) {
-                    wp_schedule_single_event($time, 'devvn_approved_reviews_schedule', array( (int) $comment_id));
-                }
-                update_comment_meta( $comment_id, 'bydevvnimport', intval( wp_unslash( $_POST['bydevvnimport'] ) ) );
-            }else{
-                $this->clear_review_schedule($comment_id);
-                delete_comment_meta( $comment_id, 'bydevvnimport' );
-            }
-
-            // Return regular value after updating.
-            return $data;
-        }
-
-        function devvn_approved_reviews_schedule_func($comment_id){
-            if(!$this->set_review_schedule($comment_id)){
-                wp_set_comment_status($comment_id, 'approve');
-            }
-        }
-
-        function devvn_approved_reviews_changestatus_func($comment_id, $comment_status){
-            if(in_array($comment_status, array('approve', '1') ) ){
-                $this->clear_review_schedule($comment_id);
-            }else{
-                $this->set_review_schedule($comment_id);
-            }
-
-        }
-
-        function clear_review_schedule($comment_id){
-            wp_clear_scheduled_hook( 'devvn_approved_reviews_schedule', array( (int) $comment_id ) );
-        }
-        function set_review_schedule($comment_id){
-            $comment = get_comment( $comment_id );
-            if($comment && !is_wp_error($comment)) {
-                $bydevvnimport = get_comment_meta( $comment_id, 'bydevvnimport', true );
-                if ('0' == $comment->comment_approved && $bydevvnimport == 1) {
-                    $time = strtotime(get_gmt_from_date($comment->comment_date) . ' GMT');
-                    if ( $time > time() ) {
-                        wp_clear_scheduled_hook( 'devvn_approved_reviews_schedule', array( (int) $comment_id ) );
-                        wp_schedule_single_event( $time, 'devvn_approved_reviews_schedule', array( (int) $comment_id ) );
-                        return true;
-                    }
-                }
-            }
-            wp_clear_scheduled_hook( 'devvn_approved_reviews_schedule', array( (int) $comment_id ) );
-            return false;
-        }
-
-        function load_textdomain(){
-            load_textdomain('devvn-reviews', dirname(__FILE__) . '/languages/devvn-reviews-' . get_locale() . '.mo');
-            //load_plugin_textdomain( 'devvn-reviews', false, plugin_basename( dirname( __FILE__ ) ) . '/i18n/languages' );
         }
 
         function body_classs($classes){
@@ -365,13 +269,6 @@ if ( !class_exists( 'DevVN_Reviews_Class' ) ) {
                                     <strong>Chú ý:</strong> Nếu website của bạn có người dùng đánh giá thật thì không nên dùng nha</small>
                             </td>
                         </tr>
-                        <tr>
-                            <th scope="row"><label for="open_comment_prod"><?php _e('Mở comment','devvn-reviews');?></label></th>
-                            <td>
-                                <button type="button" class="button open_comment_prod"> Mở comment cho toàn bộ sản phẩm</button><span class="mess"></span><br>
-                                <small>Có thể hiện tại tất cả sản phẩm đang ở trạng thái đóng comment. Hãy ấn nút bên trên để cho phép comment.</small>
-                            </td>
-                        </tr>
                         </tbody>
                     </table>
                     <h2><?php _e('License','devvn-reviews');?></h2>
@@ -421,7 +318,7 @@ if ( !class_exists( 'DevVN_Reviews_Class' ) ) {
         }
 
         function devvn_get_product_reviews_by_rating($product_id, $rating = 0){
-            //if ( false === ( $comments = get_transient( 'devvn_add_cmt_count_review_' . $product_id . $rating ) ) ) {
+            if ( false === ( $comments = get_transient( 'devvn_add_cmt_count_review_' . $product_id . $rating ) ) ) {
                 $args = array(
                     'post_id' => $product_id,
                     'type' => 'review',
@@ -439,8 +336,8 @@ if ( !class_exists( 'DevVN_Reviews_Class' ) ) {
                 }
                 $comment_query = new WP_Comment_Query;
                 $comments = $comment_query->query( $args );
-                //set_transient( 'devvn_add_cmt_count_review_' . $product_id . $rating, $comments );
-            //}
+                set_transient( 'devvn_add_cmt_count_review_' . $product_id . $rating, $comments );
+            }
             return $comments;
         }
 
@@ -508,15 +405,15 @@ if ( !class_exists( 'DevVN_Reviews_Class' ) ) {
             }
 
             if(!is_admin() && !is_user_logged_in() && isset( $_POST['comment_post_ID'], $comment_data['comment_type'] ) && 'product' === get_post_type( absint( $_POST['comment_post_ID'] ) )) {
-                if (!isset($_POST['phone']))
-                    wp_die(__('Error: Phone number is required!', 'devvn-reviews'));
+                // if (!isset($_POST['phone']))
+                //     wp_die(__('Lỗi: Số điện thoại là bắt buộc'));
 
-                $phone = $_POST['phone'];
-                if (!(preg_match('/^0([0-9]{9,10})+$/D', $phone)) && apply_filters('devvn_woo_reviews_phone_format_vn', true)) {
-                    wp_die(__('Error: The phone number is not in the correct format!', 'devvn-reviews'));
-                }
+                // $phone = $_POST['phone'];
+                // if (!(preg_match('/^0([0-9]{9,10})+$/D', $phone))) {
+                //     wp_die(__('Lỗi: Số điện thoại không đúng định dạng'));
+                // }
                 if ($comment_data['comment_author'] == '')
-                    wp_die(__('Error: Your name is required!', 'devvn-reviews'));
+                    wp_die('Lỗi: Xin hãy nhập tên của bạn');
             }
 
             //since 1.0.3
@@ -535,7 +432,7 @@ if ( !class_exists( 'DevVN_Reviews_Class' ) ) {
             $minimalCommentLength = $devvn_review_settings['cmt_length'];
 
             if ( strlen( trim( remove_accents($comment_data['comment_content']) ) ) < $minimalCommentLength && $comment_data['comment_type'] == 'review'){
-                wp_die( sprintf(__('Nội dung đánh giá phải tối thiểu %s ký tự.', 'devvn-reviews') , $minimalCommentLength) );
+                wp_die( 'Nội dung đánh giá phải tối thiểu ' . $minimalCommentLength . ' ký tự.' );
             }
 
             //check file
@@ -555,10 +452,10 @@ if ( !class_exists( 'DevVN_Reviews_Class' ) ) {
                         }
 
                         if ( !in_array($fileType, $this->devvn_getImageMimeTypes()) || !in_array($fileExtension, $this->devvn_getAllowedFileExtensions()) ) {
-                            wp_die(sprintf(__('<strong>Error:</strong> The image is not in the correct format','devvn-reviews')));
+                            wp_die(sprintf(__('<strong>Lỗi:</strong> Ảnh không đúng định dạng','devvn-reviews')));
                         }
                         if ( $_FILES['attach']['size'][$key] > $devvn_review_settings['img_size'] ) {
-                            wp_die(sprintf(__('<strong>Error:</strong> The image is too big. Only images allowed to be loaded <= %s','devvn-reviews'), $this->formatSizeUnits($devvn_review_settings['img_size'])));
+                            wp_die(sprintf(__('<strong>Lỗi:</strong> Ảnh quá to. Chỉ cho phép tải ảnh < ' . $this->formatSizeUnits($devvn_review_settings['img_size']),'devvn-reviews')));
                         }
                     } elseif($_FILES['attach']['error'][$key] == 1) {
                         wp_die(__('<strong>ERROR:</strong> The uploaded file exceeds the upload_max_filesize directive in php.ini.','devvn-reviews'));
@@ -679,7 +576,7 @@ if ( !class_exists( 'DevVN_Reviews_Class' ) ) {
                 if(!$verified) {
                     $text = $text . '<br>' . '<a href="javascript:void(0)" class="admin_fake_label" data-id="' . $comment->comment_ID . '" data-nonce="'.$nonce.'">' . __('Fake đã mua hàng', 'devvn-reviews') . '</a>';
                 }else{
-                    $text = $text . '<br>' . __('Purchased', 'devvn-reviews');
+                    $text = $text . '<br>' . __('Đã mua hàng', 'devvn-reviews');
                 }
             }
 
@@ -840,7 +737,7 @@ if ( !class_exists( 'DevVN_Reviews_Class' ) ) {
                     $devvn_cmt = $this->query_all_tcomment($products);
                     $output = array(
                         'result' => true,
-                        'messages' => __('Comment successfully!','devvn-reviews'),
+                        'messages' => 'Bình luận thành công!',
                     );
                     if(count($devvn_cmt) > 1) {
                         $devvn_cmt_count = $this->get_tcomment_count($devvn_cmt);
@@ -858,19 +755,18 @@ if ( !class_exists( 'DevVN_Reviews_Class' ) ) {
                 }else {
                     $output = array(
                         'result'    =>  false,
-                        'messages'  =>  __('Sent comment successfully. Pending approval!','devvn-reviews'),
+                        'messages'  =>  'Đã gửi bình luận thành công. Đang chờ xét duyệt!',
                     );
                     wp_send_json_success($output);
                 }
             }else{
-                wp_send_json_error(__('Comment failed to post','devvn-reviews'));
+                wp_send_json_error('Lỗi khi thêm bình luận');
             }
             die();
         }
 
         function devvn_delete_transient_tcomment($comment_id) {
             $comment = get_comment($comment_id);
-            //wp_clear_scheduled_hook( 'devvn_approved_reviews_schedule', array( $comment_id ) );
             if(in_array($comment->comment_type, array('tcomment', 'review')) ) {
                 global $wpdb;
                 $menus = $wpdb->get_col('SELECT option_name FROM ' . $wpdb->prefix . 'options WHERE option_name LIKE "_transient_devvn_add_cmt_%" ');
@@ -911,7 +807,7 @@ if ( !class_exists( 'DevVN_Reviews_Class' ) ) {
 
         function get_tcomment_count($devvn_cmt){
             $total_comment = count($devvn_cmt);
-            return sprintf(_n('%s Comment','%s Comments', $total_comment,'devvn-reviews'), esc_html($total_comment));
+            return $total_comment .' Bình luận';
         }
 
         function get_list_tcomment($devvn_cmt, $product){
@@ -934,11 +830,11 @@ if ( !class_exists( 'DevVN_Reviews_Class' ) ) {
                             <strong><?php echo $comment_author;?></strong>
                             <div class="devvn_cmt_box_content"><?php echo $comment_content;?></div>
                             <div class="devvn_cmt_tool">
-                                <span><a href="javascript:void(0)" class="devvn_cmt_reply" data-cmtid="<?php echo $comment_ID;?>" data-authorname="<?php echo esc_attr($comment_author);?>"><?php _e('Reply','devvn-reviews');?></a></span>
+                                <span><a href="javascript:void(0)" class="devvn_cmt_reply" data-cmtid="<?php echo $comment_ID;?>" data-authorname="<?php echo esc_attr($comment_author);?>">Trả lời</a></span>
                                 <?php do_action('devvn_reviews_action', $cmt);?>
                                 <?php if($devvn_review_settings['show_date'] == "1"):?>
                                 <span> • </span>
-                                <span><?php echo human_time_diff(strtotime($comment_date), current_time( 'timestamp' )) . ' '.__('ago','devvn-reviews'); //echo date_i18n('d/m/Y', strtotime($comment_date));?></span>
+                                <span><?php echo human_time_diff(strtotime($comment_date), current_time( 'timestamp' )) . ' trước'; //echo date_i18n('d/m/Y', strtotime($comment_date));?></span>
                                 <?php endif;?>
                             </div>
                         </div>
@@ -981,15 +877,15 @@ if ( !class_exists( 'DevVN_Reviews_Class' ) ) {
                                             <span><?php echo $this->devvn_first_letter($comment_author);?></span>
                                             <strong><?php echo $comment_author;?></strong>
                                             <?php if ( $qtv && $user_roles) {?>
-                                                <b class="qtv"><?php _e('Administrator','devvn-reviews')?></b>
+                                                <b class="qtv">Quản trị viên</b>
                                             <?php }?>
                                             <div class="devvn_cmt_box_content"><?php echo $comment_content;?></div>
                                             <div class="devvn_cmt_tool">
-                                                <span><a href="javascript:void(0)" class="devvn_cmt_reply" data-cmtid="<?php echo $parent_cmt_ID;?>" data-authorname="<?php echo esc_attr($comment_author);?>"><?php _e('Reply','devvn-reviews');?></a></span>
+                                                <span><a href="javascript:void(0)" class="devvn_cmt_reply" data-cmtid="<?php echo $parent_cmt_ID;?>" data-authorname="<?php echo esc_attr($comment_author);?>">Trả lời</a></span>
                                                 <?php do_action('devvn_reviews_action', $cmt);?>
                                                 <?php if($devvn_review_settings['show_date'] == "1"):?>
                                                 <span> • </span>
-                                                <span><?php echo human_time_diff(strtotime($comment_date), current_time( 'timestamp' )) . ' '. __('ago','devvn-reviews');//echo date_i18n('d/m/Y', strtotime($comment_date));?></span>
+                                                <span><?php echo human_time_diff(strtotime($comment_date), current_time( 'timestamp' )) . ' trước';//echo date_i18n('d/m/Y', strtotime($comment_date));?></span>
                                                 <?php endif;?>
                                             </div>
                                         </div>
@@ -1016,9 +912,9 @@ if ( !class_exists( 'DevVN_Reviews_Class' ) ) {
                     <div class="devvn_cmt_lheader_right">
                         <div class="devvn_cmt_search_box">
                             <form action="" method="post" id="devvn_cmt_search_form">
-                                <input type="text" name="devvn_cmt_search" id="devvn_cmt_search" placeholder="<?php _e('Search by content','devvn-reviews');?>"/>
+                                <input type="text" name="devvn_cmt_search" id="devvn_cmt_search" placeholder="Tìm theo nội dung"/>
                                 <input type="hidden" value="<?php echo $product->get_id();?>" name="post_ID">
-                                <button type="submit devvn-icon-search"><?php _e('Search','devvn-reviews');?></button>
+                                <button type="submit devvn-icon-search"><?php _e('Tìm kiếm','devvn-reviews');?></button>
                             </form>
                         </div>
                     </div>
@@ -1036,22 +932,22 @@ if ( !class_exists( 'DevVN_Reviews_Class' ) ) {
                                 <div class="devvn_cmt_radio">
                                     <label>
                                         <input name="devvn_cmt_replygender" type="radio" value="male" checked/>
-                                        <span><?php _e('Male','devvn-reviews');?></span>
+                                        <span>Anh</span>
                                     </label>
                                     <label>
                                         <input name="devvn_cmt_replygender" type="radio" value="female"/>
-                                        <span><?php _e('Female','devvn-reviews');?></span>
+                                        <span>Chị</span>
                                     </label>
                                 </div>
                                 <div class="devvn_cmt_input">
-                                    <input name="devvn_cmt_replyname" type="text" id="devvn_cmt_replyname" placeholder="<?php _e('Your name (Required)','devvn-reviews');?>"/>
+                                    <input name="devvn_cmt_replyname" type="text" id="devvn_cmt_replyname" placeholder="Họ tên (bắt buộc)"/>
                                 </div>
                                 <div class="devvn_cmt_input">
-                                    <input name="devvn_cmt_replyemail" type="text" id="devvn_cmt_replyemail" placeholder="<?php _e('Email','devvn-reviews');?>"/>
+                                    <input name="devvn_cmt_replyemail" type="text" id="devvn_cmt_replyemail" placeholder="Email"/>
                                 </div>
                             <?php }?>
                             <div class="devvn_cmt_submit">
-                                <button type="submit" id="devvn_cmt_replysubmit"><?php _e('Post comment','devvn-reviews');?></button>
+                                <button type="submit" id="devvn_cmt_replysubmit">Gửi</button>
                                 <input type="hidden" value="<?php echo $product->get_id();?>" name="post_ID">
                                 <input type="hidden" value="{{{ data.parent_id }}}" name="cmt_parent_id">
                             </div>
@@ -1060,7 +956,7 @@ if ( !class_exists( 'DevVN_Reviews_Class' ) ) {
                     </form>
                 </script>
             <?php else:?>
-                <p><?php _e('No comments yet','devvn-reviews');?></p>
+                <p>Chưa có bình luận nào</p>
             <?php endif;?>
             <?php
             return ob_get_clean();
@@ -1076,9 +972,9 @@ if ( !class_exists( 'DevVN_Reviews_Class' ) ) {
 
             $search = isset($_POST['search']) ? wc_clean($_POST['search']) : '';
 
-            if($devvn_cmt_search != $search) wp_send_json_error(__('Error!','devvn-reviews'));
+            if($devvn_cmt_search != $search) wp_send_json_error('Lỗi dữ liệu!');
 
-            if('product' != get_post_type($post_ID)) wp_send_json_error(__('Error!','devvn-reviews'));
+            if('product' != get_post_type($post_ID)) wp_send_json_error('Lỗi dữ liệu!');
 
             $products = wc_get_product($post_ID);
 
@@ -1097,7 +993,7 @@ if ( !class_exists( 'DevVN_Reviews_Class' ) ) {
                 $devvn_cmt_list_box = $this->get_list_tcomment($devvn_cmt, $products);
                 $output = array(
                     'result'    =>  true,
-                    'messages'  =>  __('Comment successfully!','devvn-reviews'),
+                    'messages'  =>  'Bình luận thành công!',
                     'fragments' =>  array(
                         '.devvn_cmt_count' => $devvn_cmt_count,
                         '.devvn_cmt_list_box' => $devvn_cmt_list_box,
@@ -1107,7 +1003,7 @@ if ( !class_exists( 'DevVN_Reviews_Class' ) ) {
             }else{
                 $output = array(
                     'result' => true,
-                    'messages'  =>  __('No comments yet','devvn-reviews'),
+                    'messages'  =>  'Không có bình luận nào!',
                     'fragments' =>  array(
                         '.devvn_cmt_count' => $this->get_tcomment_count($devvn_cmt),
                         '.devvn_cmt_list_box' => '',
@@ -1133,24 +1029,6 @@ if ( !class_exists( 'DevVN_Reviews_Class' ) ) {
                     'img_size_text'  =>  $this->formatSizeUnits($devvn_review_settings['img_size']),
                     'cmt_length'  =>  $devvn_review_settings['cmt_length'],
                     'number_img_upload'  =>  $devvn_review_settings['number_img_upload'],
-
-                    'star_1' => esc_html__( 'Very poor', 'devvn-reviews' ),
-                    'star_2' => esc_html__( 'Not that bad', 'devvn-reviews' ),
-                    'star_3' => esc_html__( 'Average', 'devvn-reviews' ),
-                    'star_4' => esc_html__( 'Good', 'devvn-reviews' ),
-                    'star_5' => esc_html__( 'Perfect', 'devvn-reviews' ),
-
-                    'name_required_text' => esc_html__( 'Your name is required!', 'devvn-reviews' ),
-                    'email_required_text' => esc_html__( 'Email is required!', 'devvn-reviews' ),
-                    'phone_required_text' => esc_html__( 'Your phone is required!', 'devvn-reviews' ),
-                    'cmt_required_text' => esc_html__( 'Comments is required!', 'devvn-reviews' ),
-
-                    'minlength_text' => sprintf(__('Minimum of %s characters','devvn-reviews'), $devvn_review_settings['cmt_length']),
-                    'minlength_text2' => sprintf(__('character ( Minimum of %d)','devvn-reviews'), $devvn_review_settings['cmt_length']),
-
-                    'file_format_text' => __('The image is not in the correct format. Only accept jpg/png/gif','devvn-reviews'),
-                    'file_size_text' => sprintf(__('The image is too big. Only images allowed to be loaded <= %s','devvn-reviews'), $this->formatSizeUnits($devvn_review_settings['img_size'])),
-                    'file_length_text' => sprintf(__('Allow uploading only %d images','devvn-reviews'), $devvn_review_settings['number_img_upload'] ),
                 );
                 wp_localize_script('devvn-reviews-script', 'devvn_reviews', $array);
             }
@@ -1164,22 +1042,22 @@ if ( !class_exists( 'DevVN_Reviews_Class' ) ) {
             return $tabs;
         }
 
-        // function admin_notices(){
-        //     global $devvn_review_settings;
-        //     $class = 'notice notice-error';
-        //     $license_key = $devvn_review_settings['license_key'];
-        //     if(!$license_key) {
-        //         printf('<div class="%1$s"><p><strong>Plugin DevVN Woocommerce Reviews:</strong> Hãy điền <strong>License Key</strong> để tự động cập nhật khi có phiên bản mới. <a href="%2$s">Thêm tại đây</a></p></div>', esc_attr($class), esc_url(admin_url('admin.php?page=devvn-woocommerce-reviews')));
-        //     }
-        // }
+        function admin_notices(){
+            global $devvn_review_settings;
+            $class = 'notice notice-error';
+            $license_key = $devvn_review_settings['license_key'];
+            if(!$license_key) {
+                printf('<div class="%1$s"><p><strong>Plugin DevVN Woocommerce Reviews:</strong> Hãy điền <strong>License Key</strong> để tự động cập nhật khi có phiên bản mới. <a href="%2$s">Thêm tại đây</a></p></div>', esc_attr($class), esc_url(admin_url('admin.php?page=devvn-woocommerce-reviews')));
+            }
+        }
 
-        // function devvn_modify_plugin_update_message( $plugin_data, $response ) {
-        //     global $devvn_review_settings;
-        //     $license_key = sanitize_text_field($devvn_review_settings['license_key']);
-        //     if( $license_key && isset($plugin_data['package']) && $plugin_data['package']) return;
-        //     $PluginURI = isset($plugin_data['PluginURI']) ? $plugin_data['PluginURI'] : '';
-        //     echo '<br />' . sprintf( __('<strong>Mua bản quyền để được tự động update. <a href="%s" target="_blank">Xem thêm thông tin mua bản quyền</a></strong> hoặc liên hệ mua trực tiếp qua <a href="%s" target="_blank">facebook</a>', 'devvn-quickbuy'), $PluginURI, 'https://m.me/levantoan.wp');
-        // }
+        function devvn_modify_plugin_update_message( $plugin_data, $response ) {
+            global $devvn_review_settings;
+            $license_key = sanitize_text_field($devvn_review_settings['license_key']);
+            if( $license_key && isset($plugin_data['package']) && $plugin_data['package']) return;
+            $PluginURI = isset($plugin_data['PluginURI']) ? $plugin_data['PluginURI'] : '';
+            echo '<br />' . sprintf( __('<strong>Mua bản quyền để được tự động update. <a href="%s" target="_blank">Xem thêm thông tin mua bản quyền</a></strong> hoặc liên hệ mua trực tiếp qua <a href="%s" target="_blank">facebook</a>', 'devvn-quickbuy'), $PluginURI, 'https://m.me/levantoan.wp');
+        }
 
         public function admin_enqueue_scripts()
         {
@@ -1198,7 +1076,7 @@ if ( !class_exists( 'DevVN_Reviews_Class' ) ) {
         }
         function devvn_reviews_sync_cmt_func(){
             if ( !wp_verify_nonce( $_REQUEST['nonce'], "admin_devvn_reviews_nonce_action")) {
-                wp_send_json_error(__('Error!','devvn-reviews'));
+                wp_send_json_error('Lỗi kiểm tra mã bảo mật');
             }
             $comments = get_comments();
             $count = $count_error = 0;
@@ -1221,15 +1099,6 @@ if ( !class_exists( 'DevVN_Reviews_Class' ) ) {
             die();
         }
 
-        function open_comment_prod_func(){
-            if ( !wp_verify_nonce( $_REQUEST['nonce'], "admin_devvn_reviews_nonce_action")) {
-                wp_send_json_error('Lỗi kiểm tra mã bảo mật');
-            }
-            global $wpdb;
-            $wpdb->query("UPDATE {$wpdb->posts} SET comment_status = 'open' WHERE post_type = 'product'");
-            wp_send_json_success(__('Done!','devvn-reviews'));
-            die();
-        }
         function fake_reviews_bought_func(){
             if ( !wp_verify_nonce( $_REQUEST['nonce'], "admin_devvn_reviews_nonce_action")) {
                 wp_send_json_error('Lỗi kiểm tra mã bảo mật');
@@ -1329,7 +1198,7 @@ if ( !class_exists( 'DevVN_Reviews_Class' ) ) {
             $like_count = get_comment_meta($comment->comment_ID, 'devvn_like_cmt', true);
             ?>
             <span> • </span>
-            <a href="javascript:void(0)" class="cmtlike" data-like="<?php echo $like_count;?>" data-id="<?php echo $comment->comment_ID;?>" title=""><span class="cmt_count"><?php echo ($like_count) ? $like_count : '';?></span> <?php _e('like', 'devvn-reviews');?></a>
+            <a href="javascript:void(0)" class="cmtlike" data-like="<?php echo $like_count;?>" data-id="<?php echo $comment->comment_ID;?>" title=""><span class="cmt_count"><?php echo ($like_count) ? $like_count : '';?></span> <?php _e('thích', 'devvn-reviews');?></a>
             <?php
         }
         function devvn_like_cmt_func(){

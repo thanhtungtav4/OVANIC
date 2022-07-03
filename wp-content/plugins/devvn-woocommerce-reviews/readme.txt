@@ -5,17 +5,6 @@
 
 == Những thay đổi ==
 
-= V1.1.2 - 02.12.2019 =
-
-* Add: Thêm chức năng bật "cho phép đánh giá" cho toàn bộ sản phẩm
-* Add: Thêm chức năng hỗ trợ lên lịch đăng review khi import bằng csv. Theo hướng dẫn này https://www.youtube.com/watch?v=85l4Juyeu_s
-       Nghĩa là khi import mà ngày review lớn hơn ngày hiện tại thì review đó sẽ được lên lịch đăng mà không đăng ngay lúc import
-
-= V1.1.1 - 19.11.2019 =
-* Tắt transient cho bộ đếm số sao đánh giá
-* Thêm language cho plugin. Mặc định là tiếng anh, đã có sẵn tiếng việt và .pot
-* Sửa lỗi khi chọn nhiều ảnh quá dung lượng cho phép thì không hể up tiếp các ảnh sau
-
 = V1.1.0 - 29.10.2019 =
 * Fix: Sửa lỗi không up được ảnh khi sử dụng safari trên iphone
 * Update: Thêm option số lượng hình ảnh được up lên khi đánh giá. Mặc định là 3 hình

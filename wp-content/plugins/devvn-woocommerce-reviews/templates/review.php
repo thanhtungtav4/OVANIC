@@ -66,16 +66,16 @@ global $devvn_review_settings;
                             'max_depth' => $args['max_depth'],
                             'before'    => '<div class="reply">',
                             'after'     => '</div>',
-                            'reply_text'    =>  __('Reply','devvn-reviews')
+                            'reply_text'    =>  'Thảo luận'
                         )
                     )
                 );
                 ?>
                 <?php do_action('devvn_reviews_action', $comment);?>
-                <!-- <?php if($devvn_review_settings['show_date'] == "1"):?>
+                <?php if($devvn_review_settings['show_date'] == "1"):?>
                 <span> • </span>
                 <time class="woocommerce-review__published-date" datetime="<?php echo esc_attr( get_comment_date( 'c' ) ); ?>"><?php echo esc_html( get_comment_date( wc_date_format() ) ); ?></time>
-                <?php endif;?> -->
+                <?php endif;?>
             </div>
 
 		</div>

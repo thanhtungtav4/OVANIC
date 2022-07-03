@@ -33,10 +33,10 @@ if ( ! comments_open() ) {
 			$count = $product->get_review_count();
 			if ( $count && wc_review_ratings_enabled() ) {
 				/* translators: 1: reviews count 2: product name */
-				$reviews_title = sprintf( esc_html( _n( '%1$s review for %2$s', '%1$s reviews for %2$s', $count, 'devvn-reviews' ) ), esc_html( $count ), '<span>' . get_the_title() . '</span>' );
+				$reviews_title = sprintf( esc_html( _n( '%1$s đánh giá cho %2$s', '%1$s đánh giá cho %2$s', $count, 'woocommerce' ) ), esc_html( $count ), '<span>' . get_the_title() . '</span>' );
 				echo apply_filters( 'woocommerce_reviews_title', $reviews_title, $count, $product ); // WPCS: XSS ok.
 			} else {
-                echo sprintf(esc_html( 'Review %s', 'devvn-reviews' ), get_the_title());
+                echo sprintf(esc_html( 'Đánh giá %s', 'woocommerce' ), get_the_title());
 			}
 			?>
 		</h2>
@@ -80,20 +80,20 @@ if ( ! comments_open() ) {
                     $perc = ($review_stats['total'] == '0') ? 0 : floor($review_stats[$i] / $review_stats['total'] * 100);
                     ?>
                     <div class="devvn_review_row">
-                        <span class="devvn_stars_value"><?php printf(_n('%s', '%s', $i, 'devvn-reviews'), $i); ?><i class="devvn-star"></i></span>
+                        <span class="devvn_stars_value"><?php printf(_n('%s', '%s', $i, 'devvn'), $i); ?><i class="devvn-star"></i></span>
                         <span class="devvn_rating_bar">
                             <span style="background-color: #eee" class="devvn_scala_rating">
                                 <span class="devvn_perc_rating" style="width: <?php echo $perc; ?>%; background-color: #f5a623"></span>
                             </span>
                         </span>
-                        <span class="devvn_num_reviews"><b><?php echo $perc;?>%</b> | <?php ($review_stats[$i] == 0) ? _e('0 review','devvn-reviews') : printf( _n( '%s review', '%s reviews', $review_stats[$i], 'devvn-reviews' ), esc_html( $review_stats[$i] ) )?></span>
+                        <span class="devvn_num_reviews"><b><?php echo $perc;?>%</b> | <?php echo $review_stats[$i]; ?> đánh giá</span>
                     </div>
                     <?php endfor; ?>
                 </div>
             </div>
             <?php if ( get_option( 'woocommerce_review_rating_verification_required' ) === 'no' || wc_customer_bought_product( '', get_current_user_id(), $product->get_id() ) ) : ?>
             <div class="star_box_right">
-                <a href="javascript:void(0)" title="<?php _e('Write a review','devvn-reviews')?>" class="btn-reviews-now"><?php _e('Write a review','devvn-reviews')?></a>
+                <a href="javascript:void(0)" title="Đánh giá ngay" class="btn-reviews-now">Đánh giá ngay</a>
             </div>
             <?php endif;?>
         </div>
@@ -106,22 +106,21 @@ if ( ! comments_open() ) {
 
                     $comment_form = array(
                         /* translators: %s is product title */
-                        'title_reply'         => sprintf( __( 'Review %s', 'devvn-reviews' ), get_the_title()),
+                        'title_reply'         => sprintf( __( 'Đánh giá %s', 'devvn' ), get_the_title()),
                         /* translators: %s is product title */
-                        'title_reply_to'      => __( 'Leave a Reply to %s', 'devvn-reviews' ),
+                        'title_reply_to'      => __( 'Leave a Reply to %s', 'woocommerce' ),
                         'title_reply_before'  => '<span id="reply-title" class="comment-reply-title">',
                         'title_reply_after'   => '</span>',
                         'comment_notes_before' => '',
                         'comment_notes_after' => '',
                         'fields'              => array(
-                            'author' => '<div class="form_row_reviews"><p class="comment-form-author"><input id="author" name="author" type="text" value="' . esc_attr( $commenter['comment_author'] ) . '" size="30" required placeholder="'.__('Your name (Required)','devvn-reviews').'"/></p>',
-                            'phone' => '<p class="comment-form-phone"><input id="phone" name="phone" type="text" size="30" required placeholder="'.__('Your phone (Required)','devvn-reviews').'"/></p>',
-                            'email'  => '<p class="comment-form-email"><input id="email" name="email" type="email" value="' . esc_attr( $commenter['comment_author_email'] ) . '" size="30" placeholder="'.__('Email','devvn-reviews').'"/></p></div>',
+                            'author' => '<div class="form_row_reviews"><p class="comment-form-author"><input id="author" name="author" type="text" value="' . esc_attr( $commenter['comment_author'] ) . '" size="30" required placeholder="Họ tên (Bắt buộc)"/></p>',
+                            'email'  => '<p class="comment-form-email"><input id="email" name="email" type="email" value="' . esc_attr( $commenter['comment_author_email'] ) . '" size="30" placeholder="Email (Không bắt buộc)"/></p></div>',
                         ),
-                        'label_submit'        => __( 'Submit a review', 'devvn-reviews' ),
+                        'label_submit'        => __( 'Gửi đánh giá ngay', 'devvn' ),
                         'logged_in_as'        => '',
                         'comment_field'       => '',
-                        'cancel_reply_link'    => __( 'Cancel', 'devvn-reviews' ),
+                        'cancel_reply_link'    => __( 'Hủy', 'devvn-reviews' ),
                     );
 
                     $account_page_url = wc_get_page_permalink( 'myaccount' );
@@ -130,7 +129,7 @@ if ( ! comments_open() ) {
                         $comment_form['must_log_in'] = '<p class="must-log-in">' . sprintf( esc_html__( 'You must be %1$slogged in%2$s to post a review.', 'woocommerce' ), '<a href="' . esc_url( $account_page_url ) . '">', '</a>' ) . '</p>';
                     }
                     if(!$devvn_review_settings['disable_upload']) {
-                        $attach = '<span class="btn-attach devvn_insert_attach">'.__('Choose a image','devvn-reviews').'</span>';
+                        $attach = '<span class="btn-attach devvn_insert_attach">Gửi ảnh chụp thực tế</span>';
                         //$attach .= '<input type="file" name="files" id="files" accept="image/jpeg, image/png, image/gif, image/x-png">';
 
                         $list_attach = '<div class="list_attach">';
@@ -140,12 +139,12 @@ if ( ! comments_open() ) {
                         $attach = $list_attach = '';
                     }
 
-                    $comment_form['comment_field'] .= '<div class="comment-form-comment"><textarea id="comment" name="comment" cols="45" rows="8" minlength="10" required placeholder="'.__('Please share some comments...','devvn-reviews').'"></textarea></div>';
-                    $comment_form['comment_field'] .= '<div class="wrap-attaddsend"><div class="review-attach">'.$attach.'</div><span id="countContent">'.sprintf(__('0 character ( Minimum of %d)','devvn-reviews'), $devvn_review_settings['cmt_length']).'</span></div>';
+                    $comment_form['comment_field'] .= '<div class="comment-form-comment"><textarea id="comment" name="comment" cols="45" rows="8" minlength="10" required placeholder="Mời bạn chia sẻ thêm một số cảm nhận..."></textarea></div>';
+                    $comment_form['comment_field'] .= '<div class="wrap-attaddsend"><div class="review-attach">'.$attach.'</div><span id="countContent">0 ký tự (tối thiểu 10)</span></div>';
                     $comment_form['comment_field'] .= $list_attach;
 
                     if ( wc_review_ratings_enabled() ) {
-                        $comment_form['comment_field'] .= '<div class="comment-form-rating"><label for="rating">' . esc_html__( 'How do you feel about the product? ( Select star)', 'devvn-reviews' ) . '</label><select name="rating" id="rating" required>
+                        $comment_form['comment_field'] .= '<div class="comment-form-rating"><label for="rating">' . esc_html__( 'Bạn cảm thấy sản phẩm như thế nào?(chọn sao nhé):', 'devvn' ) . '</label><select name="rating" id="rating" required>
 						<option value="">' . esc_html__( 'Rate&hellip;', 'woocommerce' ) . '</option>
 						<option value="5">' . esc_html__( 'Perfect', 'woocommerce' ) . '</option>
 						<option value="4">' . esc_html__( 'Good', 'woocommerce' ) . '</option>
@@ -165,7 +164,7 @@ if ( ! comments_open() ) {
                         }
                     }
                     if($page_quy_dinh_danh_gia){
-                        printf(__('<div class="note_review"><u>Note:</u> for review to be approved, please refer to %s</div>','devvn-reviews'), '<a href="'.get_permalink($page_quy_dinh_danh_gia).'" title="" target="_blank">'.get_the_title($page_quy_dinh_danh_gia).'</a>');
+                        printf(__('<div class="note_review"><u>Lưu ý:</u> Để đánh giá được duyệt, quý khách vui lòng tham khảo %s</div>','devvn'), '<a href="'.get_permalink($page_quy_dinh_danh_gia).'" title="" target="_blank">'.get_the_title($page_quy_dinh_danh_gia).'</a>');
                     }
                     ?>
                 </div>
@@ -175,70 +174,7 @@ if ( ! comments_open() ) {
             <p class="woocommerce-verification-required"><?php esc_html_e( 'Only logged in customers who have purchased this product may leave a review.', 'woocommerce' ); ?></p>
         <?php endif; ?>
 
-		<?php if ( have_comments() ) : ?>
-			<ol class="commentlist">
-				<?php wp_list_comments( apply_filters( 'woocommerce_product_review_list_args', array( 'callback' => 'woocommerce_comments', 'type'=>'review' ) ) ); ?>
-			</ol>
-
-			<?php
-			if ( get_comment_pages_count() > 1 && get_option( 'page_comments' ) ) :
-				echo '<nav class="woocommerce-pagination">';
-				paginate_comments_links(
-					apply_filters(
-						'woocommerce_comment_pagination_args',
-						array(
-							'prev_text' => '&larr;',
-							'next_text' => '&rarr;',
-							'type'      => 'list',
-						)
-					)
-				);
-				echo '</nav>';
-			endif;
-			?>
-		<?php else : ?>
-			<p class="woocommerce-noreviews"><?php esc_html_e( 'There are no reviews yet.', 'woocommerce' ); ?></p>
-		<?php endif; ?>
 	</div>
 
 	<div class="clear"></div>
 </div>
-<?php if($devvn_review_settings['show_tcmt'] == 1):?>
-<div class="devvn_prod_cmt">
-    <div class="devvn_cmt_form">
-        <form action="" method="post" id="devvn_cmt">
-        <div class="devvn_cmt_input">
-            <textarea placeholder="<?php _e('Type your comments...','devvn-reviews');?>" name="devvn_cmt_content" id="devvn_cmt_content" minlength="20"></textarea>
-        </div>
-        <div class="devvn_cmt_form_bottom <?php echo (!is_user_logged_in()) ? '' : 'no-infor';?>">
-            <?php if(!is_user_logged_in()):?>
-            <div class="devvn_cmt_radio">
-                <label>
-                    <input name="devvn_cmt_gender" type="radio" value="male" checked/>
-                    <span><?php _e('Male','devvn-reviews');?></span>
-                </label>
-                <label>
-                    <input name="devvn_cmt_gender" type="radio" value="female"/>
-                    <span><?php _e('Female','devvn-reviews');?></span>
-                </label>
-            </div>
-            <div class="devvn_cmt_input">
-                <input name="devvn_cmt_name" type="text" id="devvn_cmt_name" placeholder="<?php _e('Your name (Required)','devvn-reviews');?>"/>
-            </div>
-            <div class="devvn_cmt_input">
-                <input name="devvn_cmt_email" type="text" id="devvn_cmt_email" placeholder="<?php _e('Email','devvn-reviews');?>"/>
-            </div>
-            <?php endif;?>
-            <div class="devvn_cmt_submit">
-                <button type="submit" id="devvn_cmt_submit"><?php _e('Post comment','devvn-reviews');?></button>
-                <input type="hidden" value="<?php echo $product->get_id();?>" name="post_ID">
-                <input type="hidden" value="" name="cmt_parent_id">
-            </div>
-        </div>
-        </form>
-    </div>
-    <div class="devvn_cmt_list">
-        <?php echo devvn_reviews()->devvn_list_all_tcomment($product);?>
-    </div>
-</div>
-<?php endif;?>

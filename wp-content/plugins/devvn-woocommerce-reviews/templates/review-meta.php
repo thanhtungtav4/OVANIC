@@ -41,7 +41,7 @@ if ( '0' === $comment->comment_approved ) { ?>
 		    if($label_review){
                 echo '<em class="woocommerce-review__verified verified">' . $label_review . '</em> ';
             }else {
-                echo '<em class="woocommerce-review__verified verified">' . sprintf(esc_attr__('Bought at %s', 'devvn-reviews'), $_SERVER['SERVER_NAME']) . '</em> ';
+                echo '<em class="woocommerce-review__verified verified">' . sprintf(esc_attr__('Đã mua tại %s', 'devvn'), $_SERVER['SERVER_NAME']) . '</em> ';
             }
 		}
 		$user_roles = array();
@@ -51,7 +51,7 @@ if ( '0' === $comment->comment_approved ) { ?>
             $user_roles = $user->roles;
             $qtv = devv_check_reviews_admin($user_roles);
             if ( $qtv && $comment->comment_parent != 0) {?>
-            <span class="review_qtv"><?php _e('Administrator','devvn-reviews')?></span>
+            <span class="review_qtv"><?php _e('Quản trị viên','devvn-reviews')?></span>
             <?php }
         }
 		?>
