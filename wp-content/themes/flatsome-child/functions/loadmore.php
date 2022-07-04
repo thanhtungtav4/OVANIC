@@ -55,7 +55,7 @@ function devvn_readmore_flatsome(){
                     if($('.single-product div#tab-description').length > 0){
                         var wrap = $('.single-product div#tab-description');
                         var current_height = wrap.height();
-                        var your_height = 500;
+                        var your_height = 350;
                         if(current_height > your_height){
                             wrap.css('height', your_height+'px');
                             wrap.append(function(){
