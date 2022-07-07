@@ -42,7 +42,7 @@
   margin-bottom: 5px;
   font-size: 17px
 }
-.price-block .red{
+.price-block .red , .woocommerce-Price-currencySymbol{
   color: #ff0000;
 }
 .price-block .is_price span{
@@ -182,5 +182,8 @@ button.single_add_to_cart_button:nth-of-type(1) {
   }
   .stickybox{
     position: static;
+  }
+  .m-topsale{
+    top: 0;
   }
 }

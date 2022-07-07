@@ -4,15 +4,16 @@ function add_brand_product_singer() {
   global $post;
   $brand = get_the_terms( $post->ID , array( 'thuong-hieu') );
   $product = new WC_Product($post->ID);
-  $made = array_shift(woocommerce_get_product_terms($post->ID, 'pa_xuat-xu', 'names'));
+  $made = wc_get_product_terms($post->ID, 'pa_xuat-xu', 'names');
+
   if(!empty($brand[0]->name)){
    echo '<div class="brand-block">';
    echo '<div class="item item-brand">Thương hiệu:&nbsp;<a href='. $brand[0]->slug .'>  ' . $brand[0]->name .' </a></div>';
    if(!empty($product->get_sku())){
     echo '<div class="item item-sku">Mã sản phẩm:&nbsp; <span>'. $product->get_sku() .'</span> </div>';
    }
-   if(!empty($made)){
-    echo '<div class="item item-made">Xuất xứ: &nbsp; <span>'. $made .'</span> </div>';
+   if(!empty($made[0]->name)){
+    echo '<div class="item item-made">Xuất xứ: &nbsp; <span>'. $made[0]->name .'</span> </div>';
    }
   do_action( 'woocommerce_rating_custome' );
   echo '</div>';
@@ -25,17 +26,21 @@ add_action('woocommerce_single_title_module', 'add_brand_product_singer');
 function show_info(){
   global $post;
   global $product;
-  $brand = get_the_terms( $post->ID , 'thuong-hieu' );
-  $made = array_shift(woocommerce_get_product_terms($post->ID, 'pa_xuat-xu', 'names'));
-  $percentage = round( ( ( $product->regular_price - $product->sale_price ) / $product->regular_price ) * 100 );
-  $price_save =  $product->regular_price - $product->sale_price ;
+  $brand = get_the_terms( $post->ID, 'thuong-hieu' );
+  $made = wc_get_product_terms($post->ID, 'pa_xuat-xu', 'names');
+  $price = wc_price($product->get_sale_price());
+  if($product->is_on_sale() ){
+    $percentage = round( ( ( $product->regular_price - $product->sale_price ) / $product->regular_price ) * 100 );
+    $price_save =  $product->regular_price - $product->sale_price ;
+  }
+
   if(!empty($brand[0]->name)){
     echo '<div>Thương hiệu:&nbsp;<a href='. $brand[0]->slug .'>  ' . $brand[0]->name .' </a></div>';
   }
-  if(!empty($made)){
-    echo '<div>Xuất xứ: &nbsp; <span>'. $made .'</span> </div>';
+  if(!empty($made[0]->name)){
+    echo '<div>Xuất xứ: &nbsp; <span>'. $made[0]->name .'</span> </div>';
    }
-    echo '<div>Giá: &nbsp;' . number_format($product->get_sale_price()) .'<sup>đ<sup> </span> </div>';
+    echo '<div>Giá: &nbsp;' . $price .'<sup>đ<sup> </span> </div>';
     woocommerce_simple_add_to_cart();
 };
 add_action('get_brand_name', 'show_info');

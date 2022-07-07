@@ -1,0 +1,311 @@
+2022-07-07T03:05:45+00:00 CRITICAL Uncaught Error: Call to undefined method WC_Product_Simple::regular_price() in D:\xampp\htdocs\OVANIC\wp-content\themes\flatsome-child\woocommerce\single-product\price.php:25
+Stack trace:
+#0 D:\xampp\htdocs\OVANIC\wp-content\plugins\woocommerce\includes\wc-core-functions.php(345): include()
+#1 D:\xampp\htdocs\OVANIC\wp-content\plugins\woocommerce\includes\wc-template-functions.php(1628): wc_get_template('single-product/...')
+#2 D:\xampp\htdocs\OVANIC\wp-includes\class-wp-hook.php(307): woocommerce_template_single_price('')
+#3 D:\xampp\htdocs\OVANIC\wp-includes\class-wp-hook.php(331): WP_Hook->apply_filters(NULL, Array)
+#4 D:\xampp\htdocs\OVANIC\wp-includes\plugin.php(476): WP_Hook->do_action(Array)
+#5 D:\xampp\htdocs\OVANIC\wp-content\themes\flatsome-child\woocommerce\single-product\layouts\product-no-sidebar.php(35): do_action('woocommerce_sin...')
+#6 D:\xampp\htdocs\OVANIC\wp-includes\template.php(772): require('D:\\xampp\\htdocs...')
+#7 D:\xampp\htdocs\OVANIC\wp-content\plugins\woocommerce\includes\wc-core in D:\xampp\htdocs\OVANIC\wp-content\themes\flatsome-child\woocommerce\single-product\price.php on line 25
+
+2022-07-07T03:06:03+00:00 CRITICAL Uncaught Error: Call to undefined method WC_Product_Simple::regular_price() in D:\xampp\htdocs\OVANIC\wp-content\themes\flatsome-child\woocommerce\single-product\price.php:25
+Stack trace:
+#0 D:\xampp\htdocs\OVANIC\wp-content\plugins\woocommerce\includes\wc-core-functions.php(345): include()
+#1 D:\xampp\htdocs\OVANIC\wp-content\plugins\woocommerce\includes\wc-template-functions.php(1628): wc_get_template('single-product/...')
+#2 D:\xampp\htdocs\OVANIC\wp-includes\class-wp-hook.php(307): woocommerce_template_single_price('')
+#3 D:\xampp\htdocs\OVANIC\wp-includes\class-wp-hook.php(331): WP_Hook->apply_filters(NULL, Array)
+#4 D:\xampp\htdocs\OVANIC\wp-includes\plugin.php(476): WP_Hook->do_action(Array)
+#5 D:\xampp\htdocs\OVANIC\wp-content\themes\flatsome-child\woocommerce\single-product\layouts\product-no-sidebar.php(35): do_action('woocommerce_sin...')
+#6 D:\xampp\htdocs\OVANIC\wp-includes\template.php(772): require('D:\\xampp\\htdocs...')
+#7 D:\xampp\htdocs\OVANIC\wp-content\plugins\woocommerce\includes\wc-core in D:\xampp\htdocs\OVANIC\wp-content\themes\flatsome-child\woocommerce\single-product\price.php on line 25
+
+2022-07-07T03:06:16+00:00 CRITICAL Uncaught Error: Call to undefined method WC_Product_Simple::regular_price() in D:\xampp\htdocs\OVANIC\wp-content\themes\flatsome-child\woocommerce\single-product\price.php:25
+Stack trace:
+#0 D:\xampp\htdocs\OVANIC\wp-content\plugins\woocommerce\includes\wc-core-functions.php(345): include()
+#1 D:\xampp\htdocs\OVANIC\wp-content\plugins\woocommerce\includes\wc-template-functions.php(1628): wc_get_template('single-product/...')
+#2 D:\xampp\htdocs\OVANIC\wp-includes\class-wp-hook.php(307): woocommerce_template_single_price('')
+#3 D:\xampp\htdocs\OVANIC\wp-includes\class-wp-hook.php(331): WP_Hook->apply_filters(NULL, Array)
+#4 D:\xampp\htdocs\OVANIC\wp-includes\plugin.php(476): WP_Hook->do_action(Array)
+#5 D:\xampp\htdocs\OVANIC\wp-content\themes\flatsome-child\woocommerce\single-product\layouts\product-no-sidebar.php(35): do_action('woocommerce_sin...')
+#6 D:\xampp\htdocs\OVANIC\wp-includes\template.php(772): require('D:\\xampp\\htdocs...')
+#7 D:\xampp\htdocs\OVANIC\wp-content\plugins\woocommerce\includes\wc-core in D:\xampp\htdocs\OVANIC\wp-content\themes\flatsome-child\woocommerce\single-product\price.php on line 25
+
+2022-07-07T03:06:43+00:00 CRITICAL Uncaught Error: Call to undefined method WC_Product_Simple::regular_price() in D:\xampp\htdocs\OVANIC\wp-content\themes\flatsome-child\woocommerce\single-product\price.php:24
+Stack trace:
+#0 D:\xampp\htdocs\OVANIC\wp-content\plugins\woocommerce\includes\wc-core-functions.php(345): include()
+#1 D:\xampp\htdocs\OVANIC\wp-content\plugins\woocommerce\includes\wc-template-functions.php(1628): wc_get_template('single-product/...')
+#2 D:\xampp\htdocs\OVANIC\wp-includes\class-wp-hook.php(307): woocommerce_template_single_price('')
+#3 D:\xampp\htdocs\OVANIC\wp-includes\class-wp-hook.php(331): WP_Hook->apply_filters(NULL, Array)
+#4 D:\xampp\htdocs\OVANIC\wp-includes\plugin.php(476): WP_Hook->do_action(Array)
+#5 D:\xampp\htdocs\OVANIC\wp-content\themes\flatsome-child\woocommerce\single-product\layouts\product-no-sidebar.php(35): do_action('woocommerce_sin...')
+#6 D:\xampp\htdocs\OVANIC\wp-includes\template.php(772): require('D:\\xampp\\htdocs...')
+#7 D:\xampp\htdocs\OVANIC\wp-content\plugins\woocommerce\includes\wc-core in D:\xampp\htdocs\OVANIC\wp-content\themes\flatsome-child\woocommerce\single-product\price.php on line 24
+
+2022-07-07T03:10:06+00:00 CRITICAL Object of class WP_Term could not be converted to string in D:\xampp\htdocs\OVANIC\wp-content\themes\flatsome-child\functions\woo.php on line 39
+
+2022-07-07T03:10:18+00:00 CRITICAL Object of class WP_Term could not be converted to string in D:\xampp\htdocs\OVANIC\wp-content\themes\flatsome-child\functions\woo.php on line 39
+
+2022-07-07T03:13:21+00:00 CRITICAL Object of class WP_Term could not be converted to string in D:\xampp\htdocs\OVANIC\wp-content\themes\flatsome-child\functions\woo.php on line 39
+
+2022-07-07T03:13:59+00:00 CRITICAL Object of class WP_Term could not be converted to string in D:\xampp\htdocs\OVANIC\wp-content\themes\flatsome-child\functions\woo.php on line 15
+
+2022-07-07T03:18:00+00:00 CRITICAL Object of class WP_Term could not be converted to string in D:\xampp\htdocs\OVANIC\wp-content\themes\flatsome-child\functions\woo.php on line 39
+
+2022-07-07T03:18:08+00:00 CRITICAL Object of class WP_Term could not be converted to string in D:\xampp\htdocs\OVANIC\wp-content\themes\flatsome-child\functions\woo.php on line 15
+
+2022-07-07T03:18:29+00:00 CRITICAL Object of class WP_Term could not be converted to string in D:\xampp\htdocs\OVANIC\wp-content\themes\flatsome-child\functions\woo.php on line 39
+
+2022-07-07T03:19:20+00:00 CRITICAL Object of class WP_Term could not be converted to string in D:\xampp\htdocs\OVANIC\wp-content\themes\flatsome-child\functions\woo.php on line 40
+
+2022-07-07T03:19:47+00:00 CRITICAL Uncaught Error: Cannot use object of type WP_Term as array in D:\xampp\htdocs\OVANIC\wp-content\themes\flatsome-child\functions\woo.php:16
+Stack trace:
+#0 D:\xampp\htdocs\OVANIC\wp-includes\class-wp-hook.php(307): add_brand_product_singer('')
+#1 D:\xampp\htdocs\OVANIC\wp-includes\class-wp-hook.php(331): WP_Hook->apply_filters(NULL, Array)
+#2 D:\xampp\htdocs\OVANIC\wp-includes\plugin.php(476): WP_Hook->do_action(Array)
+#3 D:\xampp\htdocs\OVANIC\wp-content\themes\flatsome-child\woocommerce\single-product\layouts\product-no-sidebar.php(19): do_action('woocommerce_sin...')
+#4 D:\xampp\htdocs\OVANIC\wp-includes\template.php(772): require('D:\\xampp\\htdocs...')
+#5 D:\xampp\htdocs\OVANIC\wp-content\plugins\woocommerce\includes\wc-core-functions.php(284): load_template('D:\\xampp\\htdocs...', false)
+#6 D:\xampp\htdocs\OVANIC\wp-content\themes\flatsome-child\woocommerce\content-single-product.php(41): wc_get_template_part('single-product/...', 'no-sidebar')
+#7 D:\xampp\htdocs\OVANIC\wp-includes\template.php(772): req in D:\xampp\htdocs\OVANIC\wp-content\themes\flatsome-child\functions\woo.php on line 16
+
+2022-07-07T03:20:02+00:00 CRITICAL Object of class WP_Term could not be converted to string in D:\xampp\htdocs\OVANIC\wp-content\themes\flatsome-child\functions\woo.php on line 40
+
+2022-07-07T03:20:33+00:00 CRITICAL Uncaught Error: Cannot use object of type WP_Term as array in D:\xampp\htdocs\OVANIC\wp-content\themes\flatsome-child\functions\woo.php:15
+Stack trace:
+#0 D:\xampp\htdocs\OVANIC\wp-includes\class-wp-hook.php(307): add_brand_product_singer('')
+#1 D:\xampp\htdocs\OVANIC\wp-includes\class-wp-hook.php(331): WP_Hook->apply_filters(NULL, Array)
+#2 D:\xampp\htdocs\OVANIC\wp-includes\plugin.php(476): WP_Hook->do_action(Array)
+#3 D:\xampp\htdocs\OVANIC\wp-content\themes\flatsome-child\woocommerce\single-product\layouts\product-no-sidebar.php(19): do_action('woocommerce_sin...')
+#4 D:\xampp\htdocs\OVANIC\wp-includes\template.php(772): require('D:\\xampp\\htdocs...')
+#5 D:\xampp\htdocs\OVANIC\wp-content\plugins\woocommerce\includes\wc-core-functions.php(284): load_template('D:\\xampp\\htdocs...', false)
+#6 D:\xampp\htdocs\OVANIC\wp-content\themes\flatsome-child\woocommerce\content-single-product.php(41): wc_get_template_part('single-product/...', 'no-sidebar')
+#7 D:\xampp\htdocs\OVANIC\wp-includes\template.php(772): req in D:\xampp\htdocs\OVANIC\wp-content\themes\flatsome-child\functions\woo.php on line 15
+
+2022-07-07T03:20:40+00:00 CRITICAL Uncaught Error: Cannot use object of type WP_Term as array in D:\xampp\htdocs\OVANIC\wp-content\themes\flatsome-child\functions\woo.php:14
+Stack trace:
+#0 D:\xampp\htdocs\OVANIC\wp-includes\class-wp-hook.php(307): add_brand_product_singer('')
+#1 D:\xampp\htdocs\OVANIC\wp-includes\class-wp-hook.php(331): WP_Hook->apply_filters(NULL, Array)
+#2 D:\xampp\htdocs\OVANIC\wp-includes\plugin.php(476): WP_Hook->do_action(Array)
+#3 D:\xampp\htdocs\OVANIC\wp-content\themes\flatsome-child\woocommerce\single-product\layouts\product-no-sidebar.php(19): do_action('woocommerce_sin...')
+#4 D:\xampp\htdocs\OVANIC\wp-includes\template.php(772): require('D:\\xampp\\htdocs...')
+#5 D:\xampp\htdocs\OVANIC\wp-content\plugins\woocommerce\includes\wc-core-functions.php(284): load_template('D:\\xampp\\htdocs...', false)
+#6 D:\xampp\htdocs\OVANIC\wp-content\themes\flatsome-child\woocommerce\content-single-product.php(41): wc_get_template_part('single-product/...', 'no-sidebar')
+#7 D:\xampp\htdocs\OVANIC\wp-includes\template.php(772): req in D:\xampp\htdocs\OVANIC\wp-content\themes\flatsome-child\functions\woo.php on line 14
+
+2022-07-07T03:46:58+00:00 CRITICAL Uncaught Error: Cannot use object of type WP_Term as array in D:\xampp\htdocs\OVANIC\wp-content\themes\flatsome-child\functions\woo.php:14
+Stack trace:
+#0 D:\xampp\htdocs\OVANIC\wp-includes\class-wp-hook.php(307): add_brand_product_singer('')
+#1 D:\xampp\htdocs\OVANIC\wp-includes\class-wp-hook.php(331): WP_Hook->apply_filters(NULL, Array)
+#2 D:\xampp\htdocs\OVANIC\wp-includes\plugin.php(476): WP_Hook->do_action(Array)
+#3 D:\xampp\htdocs\OVANIC\wp-content\themes\flatsome-child\woocommerce\single-product\layouts\product-no-sidebar.php(19): do_action('woocommerce_sin...')
+#4 D:\xampp\htdocs\OVANIC\wp-includes\template.php(772): require('D:\\xampp\\htdocs...')
+#5 D:\xampp\htdocs\OVANIC\wp-content\plugins\woocommerce\includes\wc-core-functions.php(284): load_template('D:\\xampp\\htdocs...', false)
+#6 D:\xampp\htdocs\OVANIC\wp-content\themes\flatsome-child\woocommerce\content-single-product.php(41): wc_get_template_part('single-product/...', 'no-sidebar')
+#7 D:\xampp\htdocs\OVANIC\wp-includes\template.php(772): req in D:\xampp\htdocs\OVANIC\wp-content\themes\flatsome-child\functions\woo.php on line 14
+
+2022-07-07T03:47:28+00:00 CRITICAL Object of class WP_Term could not be converted to string in D:\xampp\htdocs\OVANIC\wp-content\themes\flatsome-child\functions\woo.php on line 39
+
+2022-07-07T04:10:06+00:00 CRITICAL Object of class WP_Term could not be converted to string in D:\xampp\htdocs\OVANIC\wp-content\themes\flatsome-child\functions\woo.php on line 39
+
+2022-07-07T04:10:19+00:00 CRITICAL Uncaught Error: Cannot use object of type WP_Term as array in D:\xampp\htdocs\OVANIC\wp-content\themes\flatsome-child\functions\woo.php:14
+Stack trace:
+#0 D:\xampp\htdocs\OVANIC\wp-includes\class-wp-hook.php(307): add_brand_product_singer('')
+#1 D:\xampp\htdocs\OVANIC\wp-includes\class-wp-hook.php(331): WP_Hook->apply_filters(NULL, Array)
+#2 D:\xampp\htdocs\OVANIC\wp-includes\plugin.php(476): WP_Hook->do_action(Array)
+#3 D:\xampp\htdocs\OVANIC\wp-content\themes\flatsome-child\woocommerce\single-product\layouts\product-no-sidebar.php(19): do_action('woocommerce_sin...')
+#4 D:\xampp\htdocs\OVANIC\wp-includes\template.php(772): require('D:\\xampp\\htdocs...')
+#5 D:\xampp\htdocs\OVANIC\wp-content\plugins\woocommerce\includes\wc-core-functions.php(284): load_template('D:\\xampp\\htdocs...', false)
+#6 D:\xampp\htdocs\OVANIC\wp-content\themes\flatsome-child\woocommerce\content-single-product.php(41): wc_get_template_part('single-product/...', 'no-sidebar')
+#7 D:\xampp\htdocs\OVANIC\wp-includes\template.php(772): req in D:\xampp\htdocs\OVANIC\wp-content\themes\flatsome-child\functions\woo.php on line 14
+
+2022-07-07T04:10:29+00:00 CRITICAL Uncaught Error: Cannot use object of type WP_Term as array in D:\xampp\htdocs\OVANIC\wp-content\themes\flatsome-child\functions\woo.php:15
+Stack trace:
+#0 D:\xampp\htdocs\OVANIC\wp-includes\class-wp-hook.php(307): add_brand_product_singer('')
+#1 D:\xampp\htdocs\OVANIC\wp-includes\class-wp-hook.php(331): WP_Hook->apply_filters(NULL, Array)
+#2 D:\xampp\htdocs\OVANIC\wp-includes\plugin.php(476): WP_Hook->do_action(Array)
+#3 D:\xampp\htdocs\OVANIC\wp-content\themes\flatsome-child\woocommerce\single-product\layouts\product-no-sidebar.php(19): do_action('woocommerce_sin...')
+#4 D:\xampp\htdocs\OVANIC\wp-includes\template.php(772): require('D:\\xampp\\htdocs...')
+#5 D:\xampp\htdocs\OVANIC\wp-content\plugins\woocommerce\includes\wc-core-functions.php(284): load_template('D:\\xampp\\htdocs...', false)
+#6 D:\xampp\htdocs\OVANIC\wp-content\themes\flatsome-child\woocommerce\content-single-product.php(41): wc_get_template_part('single-product/...', 'no-sidebar')
+#7 D:\xampp\htdocs\OVANIC\wp-includes\template.php(772): req in D:\xampp\htdocs\OVANIC\wp-content\themes\flatsome-child\functions\woo.php on line 15
+
+2022-07-07T04:10:43+00:00 CRITICAL Uncaught Error: Cannot use object of type WP_Term as array in D:\xampp\htdocs\OVANIC\wp-content\themes\flatsome-child\functions\woo.php:15
+Stack trace:
+#0 D:\xampp\htdocs\OVANIC\wp-includes\class-wp-hook.php(307): add_brand_product_singer('')
+#1 D:\xampp\htdocs\OVANIC\wp-includes\class-wp-hook.php(331): WP_Hook->apply_filters(NULL, Array)
+#2 D:\xampp\htdocs\OVANIC\wp-includes\plugin.php(476): WP_Hook->do_action(Array)
+#3 D:\xampp\htdocs\OVANIC\wp-content\themes\flatsome-child\woocommerce\single-product\layouts\product-no-sidebar.php(19): do_action('woocommerce_sin...')
+#4 D:\xampp\htdocs\OVANIC\wp-includes\template.php(772): require('D:\\xampp\\htdocs...')
+#5 D:\xampp\htdocs\OVANIC\wp-content\plugins\woocommerce\includes\wc-core-functions.php(284): load_template('D:\\xampp\\htdocs...', false)
+#6 D:\xampp\htdocs\OVANIC\wp-content\themes\flatsome-child\woocommerce\content-single-product.php(41): wc_get_template_part('single-product/...', 'no-sidebar')
+#7 D:\xampp\htdocs\OVANIC\wp-includes\template.php(772): req in D:\xampp\htdocs\OVANIC\wp-content\themes\flatsome-child\functions\woo.php on line 15
+
+2022-07-07T04:11:06+00:00 CRITICAL Object of class WP_Term could not be converted to string in D:\xampp\htdocs\OVANIC\wp-content\themes\flatsome-child\functions\woo.php on line 40
+
+2022-07-07T04:12:40+00:00 CRITICAL Object of class WP_Term could not be converted to string in D:\xampp\htdocs\OVANIC\wp-content\themes\flatsome-child\functions\woo.php on line 40
+
+2022-07-07T04:13:13+00:00 CRITICAL Object of class WP_Term could not be converted to string in D:\xampp\htdocs\OVANIC\wp-content\themes\flatsome-child\functions\woo.php on line 40
+
+2022-07-07T04:13:43+00:00 CRITICAL Object of class WP_Term could not be converted to string in D:\xampp\htdocs\OVANIC\wp-content\themes\flatsome-child\functions\woo.php on line 40
+
+2022-07-07T04:16:05+00:00 CRITICAL Object of class WP_Term could not be converted to string in D:\xampp\htdocs\OVANIC\wp-content\themes\flatsome-child\functions\woo.php on line 40
+
+2022-07-07T04:16:16+00:00 CRITICAL Object of class WP_Term could not be converted to string in D:\xampp\htdocs\OVANIC\wp-content\themes\flatsome-child\functions\woo.php on line 40
+
+2022-07-07T04:18:16+00:00 CRITICAL Object of class WP_Term could not be converted to string in D:\xampp\htdocs\OVANIC\wp-content\themes\flatsome-child\functions\woo.php on line 41
+
+2022-07-07T04:19:37+00:00 CRITICAL Object of class WP_Term could not be converted to string in D:\xampp\htdocs\OVANIC\wp-content\themes\flatsome-child\functions\woo.php on line 41
+
+2022-07-07T04:20:41+00:00 CRITICAL syntax error, unexpected end of file, expecting elseif (T_ELSEIF) or else (T_ELSE) or endif (T_ENDIF) in D:\xampp\htdocs\OVANIC\wp-content\themes\flatsome-child\woocommerce\single-product\price.php on line 39
+
+2022-07-07T04:20:57+00:00 CRITICAL Object of class WP_Term could not be converted to string in D:\xampp\htdocs\OVANIC\wp-content\themes\flatsome-child\functions\woo.php on line 41
+
+2022-07-07T04:21:24+00:00 CRITICAL Object of class WP_Term could not be converted to string in D:\xampp\htdocs\OVANIC\wp-content\themes\flatsome-child\functions\woo.php on line 41
+
+2022-07-07T04:21:26+00:00 CRITICAL Object of class WP_Term could not be converted to string in D:\xampp\htdocs\OVANIC\wp-content\themes\flatsome-child\functions\woo.php on line 41
+
+2022-07-07T04:21:52+00:00 CRITICAL Object of class WP_Term could not be converted to string in D:\xampp\htdocs\OVANIC\wp-content\themes\flatsome-child\functions\woo.php on line 41
+
+2022-07-07T04:22:48+00:00 CRITICAL Object of class WP_Term could not be converted to string in D:\xampp\htdocs\OVANIC\wp-content\themes\flatsome-child\functions\woo.php on line 41
+
+2022-07-07T04:23:13+00:00 CRITICAL Object of class WP_Term could not be converted to string in D:\xampp\htdocs\OVANIC\wp-content\themes\flatsome-child\functions\woo.php on line 41
+
+2022-07-07T04:23:38+00:00 CRITICAL Object of class WP_Term could not be converted to string in D:\xampp\htdocs\OVANIC\wp-content\themes\flatsome-child\functions\woo.php on line 41
+
+2022-07-07T04:24:03+00:00 CRITICAL Object of class WP_Term could not be converted to string in D:\xampp\htdocs\OVANIC\wp-content\themes\flatsome-child\functions\woo.php on line 41
+
+2022-07-07T04:25:22+00:00 CRITICAL Object of class WP_Term could not be converted to string in D:\xampp\htdocs\OVANIC\wp-content\themes\flatsome-child\functions\woo.php on line 41
+
+2022-07-07T05:44:54+00:00 CRITICAL Uncaught Error: Call to undefined method WC_Product_Simple::sale_price() in D:\xampp\htdocs\OVANIC\wp-content\themes\flatsome-child\functions\woo.php:31
+Stack trace:
+#0 D:\xampp\htdocs\OVANIC\wp-includes\class-wp-hook.php(307): show_info('')
+#1 D:\xampp\htdocs\OVANIC\wp-includes\class-wp-hook.php(331): WP_Hook->apply_filters('', Array)
+#2 D:\xampp\htdocs\OVANIC\wp-includes\plugin.php(476): WP_Hook->do_action(Array)
+#3 D:\xampp\htdocs\OVANIC\wp-content\themes\flatsome-child\woocommerce\single-product\layouts\product-no-sidebar.php(84): do_action('get_brand_name')
+#4 D:\xampp\htdocs\OVANIC\wp-includes\template.php(772): require('D:\\xampp\\htdocs...')
+#5 D:\xampp\htdocs\OVANIC\wp-content\plugins\woocommerce\includes\wc-core-functions.php(284): load_template('D:\\xampp\\htdocs...', false)
+#6 D:\xampp\htdocs\OVANIC\wp-content\themes\flatsome-child\woocommerce\content-single-product.php(41): wc_get_template_part('single-product/...', 'no-sidebar')
+#7 D:\xampp\htdocs\OVANIC\wp-includes\template.php(772): require('D in D:\xampp\htdocs\OVANIC\wp-content\themes\flatsome-child\functions\woo.php on line 31
+
+2022-07-07T05:45:43+00:00 CRITICAL Uncaught Error: Call to undefined method WC_Product_Simple::sale_price() in D:\xampp\htdocs\OVANIC\wp-content\themes\flatsome-child\functions\woo.php:31
+Stack trace:
+#0 D:\xampp\htdocs\OVANIC\wp-includes\class-wp-hook.php(307): show_info('')
+#1 D:\xampp\htdocs\OVANIC\wp-includes\class-wp-hook.php(331): WP_Hook->apply_filters('', Array)
+#2 D:\xampp\htdocs\OVANIC\wp-includes\plugin.php(476): WP_Hook->do_action(Array)
+#3 D:\xampp\htdocs\OVANIC\wp-content\themes\flatsome-child\woocommerce\single-product\layouts\product-no-sidebar.php(84): do_action('get_brand_name')
+#4 D:\xampp\htdocs\OVANIC\wp-includes\template.php(772): require('D:\\xampp\\htdocs...')
+#5 D:\xampp\htdocs\OVANIC\wp-content\plugins\woocommerce\includes\wc-core-functions.php(284): load_template('D:\\xampp\\htdocs...', false)
+#6 D:\xampp\htdocs\OVANIC\wp-content\themes\flatsome-child\woocommerce\content-single-product.php(41): wc_get_template_part('single-product/...', 'no-sidebar')
+#7 D:\xampp\htdocs\OVANIC\wp-includes\template.php(772): require('D in D:\xampp\htdocs\OVANIC\wp-content\themes\flatsome-child\functions\woo.php on line 31
+
+2022-07-07T05:46:01+00:00 CRITICAL Uncaught Error: Call to undefined method WC_Product_Simple::sale_price() in D:\xampp\htdocs\OVANIC\wp-content\themes\flatsome-child\functions\woo.php:31
+Stack trace:
+#0 D:\xampp\htdocs\OVANIC\wp-includes\class-wp-hook.php(307): show_info('')
+#1 D:\xampp\htdocs\OVANIC\wp-includes\class-wp-hook.php(331): WP_Hook->apply_filters('', Array)
+#2 D:\xampp\htdocs\OVANIC\wp-includes\plugin.php(476): WP_Hook->do_action(Array)
+#3 D:\xampp\htdocs\OVANIC\wp-content\themes\flatsome-child\woocommerce\single-product\layouts\product-no-sidebar.php(84): do_action('get_brand_name')
+#4 D:\xampp\htdocs\OVANIC\wp-includes\template.php(772): require('D:\\xampp\\htdocs...')
+#5 D:\xampp\htdocs\OVANIC\wp-content\plugins\woocommerce\includes\wc-core-functions.php(284): load_template('D:\\xampp\\htdocs...', false)
+#6 D:\xampp\htdocs\OVANIC\wp-content\themes\flatsome-child\woocommerce\content-single-product.php(41): wc_get_template_part('single-product/...', 'no-sidebar')
+#7 D:\xampp\htdocs\OVANIC\wp-includes\template.php(772): require('D in D:\xampp\htdocs\OVANIC\wp-content\themes\flatsome-child\functions\woo.php on line 31
+
+2022-07-07T05:46:55+00:00 CRITICAL Uncaught Error: Call to undefined method WC_Product_Simple::sale_price() in D:\xampp\htdocs\OVANIC\wp-content\themes\flatsome-child\functions\woo.php:31
+Stack trace:
+#0 D:\xampp\htdocs\OVANIC\wp-includes\class-wp-hook.php(307): show_info('')
+#1 D:\xampp\htdocs\OVANIC\wp-includes\class-wp-hook.php(331): WP_Hook->apply_filters('', Array)
+#2 D:\xampp\htdocs\OVANIC\wp-includes\plugin.php(476): WP_Hook->do_action(Array)
+#3 D:\xampp\htdocs\OVANIC\wp-content\themes\flatsome-child\woocommerce\single-product\layouts\product-no-sidebar.php(84): do_action('get_brand_name')
+#4 D:\xampp\htdocs\OVANIC\wp-includes\template.php(772): require('D:\\xampp\\htdocs...')
+#5 D:\xampp\htdocs\OVANIC\wp-content\plugins\woocommerce\includes\wc-core-functions.php(284): load_template('D:\\xampp\\htdocs...', false)
+#6 D:\xampp\htdocs\OVANIC\wp-content\themes\flatsome-child\woocommerce\content-single-product.php(41): wc_get_template_part('single-product/...', 'no-sidebar')
+#7 D:\xampp\htdocs\OVANIC\wp-includes\template.php(772): require('D in D:\xampp\htdocs\OVANIC\wp-content\themes\flatsome-child\functions\woo.php on line 31
+
+2022-07-07T05:47:19+00:00 CRITICAL Uncaught Error: Call to undefined method WC_Product_Simple::sale_price() in D:\xampp\htdocs\OVANIC\wp-content\themes\flatsome-child\functions\woo.php:31
+Stack trace:
+#0 D:\xampp\htdocs\OVANIC\wp-includes\class-wp-hook.php(307): show_info('')
+#1 D:\xampp\htdocs\OVANIC\wp-includes\class-wp-hook.php(331): WP_Hook->apply_filters('', Array)
+#2 D:\xampp\htdocs\OVANIC\wp-includes\plugin.php(476): WP_Hook->do_action(Array)
+#3 D:\xampp\htdocs\OVANIC\wp-content\themes\flatsome-child\woocommerce\single-product\layouts\product-no-sidebar.php(84): do_action('get_brand_name')
+#4 D:\xampp\htdocs\OVANIC\wp-includes\template.php(772): require('D:\\xampp\\htdocs...')
+#5 D:\xampp\htdocs\OVANIC\wp-content\plugins\woocommerce\includes\wc-core-functions.php(284): load_template('D:\\xampp\\htdocs...', false)
+#6 D:\xampp\htdocs\OVANIC\wp-content\themes\flatsome-child\woocommerce\content-single-product.php(41): wc_get_template_part('single-product/...', 'no-sidebar')
+#7 D:\xampp\htdocs\OVANIC\wp-includes\template.php(772): require('D in D:\xampp\htdocs\OVANIC\wp-content\themes\flatsome-child\functions\woo.php on line 31
+
+2022-07-07T05:47:44+00:00 CRITICAL Uncaught Error: Call to undefined method WC_Product_Simple::sale_price() in D:\xampp\htdocs\OVANIC\wp-content\themes\flatsome-child\functions\woo.php:31
+Stack trace:
+#0 D:\xampp\htdocs\OVANIC\wp-includes\class-wp-hook.php(307): show_info('')
+#1 D:\xampp\htdocs\OVANIC\wp-includes\class-wp-hook.php(331): WP_Hook->apply_filters('', Array)
+#2 D:\xampp\htdocs\OVANIC\wp-includes\plugin.php(476): WP_Hook->do_action(Array)
+#3 D:\xampp\htdocs\OVANIC\wp-content\themes\flatsome-child\woocommerce\single-product\layouts\product-no-sidebar.php(84): do_action('get_brand_name')
+#4 D:\xampp\htdocs\OVANIC\wp-includes\template.php(772): require('D:\\xampp\\htdocs...')
+#5 D:\xampp\htdocs\OVANIC\wp-content\plugins\woocommerce\includes\wc-core-functions.php(284): load_template('D:\\xampp\\htdocs...', false)
+#6 D:\xampp\htdocs\OVANIC\wp-content\themes\flatsome-child\woocommerce\content-single-product.php(41): wc_get_template_part('single-product/...', 'no-sidebar')
+#7 D:\xampp\htdocs\OVANIC\wp-includes\template.php(772): require('D in D:\xampp\htdocs\OVANIC\wp-content\themes\flatsome-child\functions\woo.php on line 31
+
+2022-07-07T05:49:45+00:00 CRITICAL Uncaught Error: Call to undefined method WC_Product_Simple::sale_price() in D:\xampp\htdocs\OVANIC\wp-content\themes\flatsome-child\functions\woo.php:31
+Stack trace:
+#0 D:\xampp\htdocs\OVANIC\wp-includes\class-wp-hook.php(307): show_info('')
+#1 D:\xampp\htdocs\OVANIC\wp-includes\class-wp-hook.php(331): WP_Hook->apply_filters('', Array)
+#2 D:\xampp\htdocs\OVANIC\wp-includes\plugin.php(476): WP_Hook->do_action(Array)
+#3 D:\xampp\htdocs\OVANIC\wp-content\themes\flatsome-child\woocommerce\single-product\layouts\product-no-sidebar.php(84): do_action('get_brand_name')
+#4 D:\xampp\htdocs\OVANIC\wp-includes\template.php(772): require('D:\\xampp\\htdocs...')
+#5 D:\xampp\htdocs\OVANIC\wp-content\plugins\woocommerce\includes\wc-core-functions.php(284): load_template('D:\\xampp\\htdocs...', false)
+#6 D:\xampp\htdocs\OVANIC\wp-content\themes\flatsome-child\woocommerce\content-single-product.php(41): wc_get_template_part('single-product/...', 'no-sidebar')
+#7 D:\xampp\htdocs\OVANIC\wp-includes\template.php(772): require('D in D:\xampp\htdocs\OVANIC\wp-content\themes\flatsome-child\functions\woo.php on line 31
+
+2022-07-07T05:50:31+00:00 CRITICAL Uncaught Error: Call to undefined method WC_Product_Simple::sale_price() in D:\xampp\htdocs\OVANIC\wp-content\themes\flatsome-child\functions\woo.php:31
+Stack trace:
+#0 D:\xampp\htdocs\OVANIC\wp-includes\class-wp-hook.php(307): show_info('')
+#1 D:\xampp\htdocs\OVANIC\wp-includes\class-wp-hook.php(331): WP_Hook->apply_filters('', Array)
+#2 D:\xampp\htdocs\OVANIC\wp-includes\plugin.php(476): WP_Hook->do_action(Array)
+#3 D:\xampp\htdocs\OVANIC\wp-content\themes\flatsome-child\woocommerce\single-product\layouts\product-no-sidebar.php(84): do_action('get_brand_name')
+#4 D:\xampp\htdocs\OVANIC\wp-includes\template.php(772): require('D:\\xampp\\htdocs...')
+#5 D:\xampp\htdocs\OVANIC\wp-content\plugins\woocommerce\includes\wc-core-functions.php(284): load_template('D:\\xampp\\htdocs...', false)
+#6 D:\xampp\htdocs\OVANIC\wp-content\themes\flatsome-child\woocommerce\content-single-product.php(41): wc_get_template_part('single-product/...', 'no-sidebar')
+#7 D:\xampp\htdocs\OVANIC\wp-includes\template.php(772): require('D in D:\xampp\htdocs\OVANIC\wp-content\themes\flatsome-child\functions\woo.php on line 31
+
+2022-07-07T05:53:27+00:00 CRITICAL Uncaught Error: Call to undefined method WC_Product_Simple::sale_price() in D:\xampp\htdocs\OVANIC\wp-content\themes\flatsome-child\woocommerce\single-product\price.php:24
+Stack trace:
+#0 D:\xampp\htdocs\OVANIC\wp-content\plugins\woocommerce\includes\wc-core-functions.php(345): include()
+#1 D:\xampp\htdocs\OVANIC\wp-content\plugins\woocommerce\includes\wc-template-functions.php(1628): wc_get_template('single-product/...')
+#2 D:\xampp\htdocs\OVANIC\wp-includes\class-wp-hook.php(307): woocommerce_template_single_price('')
+#3 D:\xampp\htdocs\OVANIC\wp-includes\class-wp-hook.php(331): WP_Hook->apply_filters(NULL, Array)
+#4 D:\xampp\htdocs\OVANIC\wp-includes\plugin.php(476): WP_Hook->do_action(Array)
+#5 D:\xampp\htdocs\OVANIC\wp-content\themes\flatsome-child\woocommerce\single-product\layouts\product-no-sidebar.php(35): do_action('woocommerce_sin...')
+#6 D:\xampp\htdocs\OVANIC\wp-includes\template.php(772): require('D:\\xampp\\htdocs...')
+#7 D:\xampp\htdocs\OVANIC\wp-content\plugins\woocommerce\includes\wc-core-fu in D:\xampp\htdocs\OVANIC\wp-content\themes\flatsome-child\woocommerce\single-product\price.php on line 24
+
+2022-07-07T05:56:03+00:00 CRITICAL Uncaught Error: Call to undefined method WC_Product_Simple::sale_price() in D:\xampp\htdocs\OVANIC\wp-content\themes\flatsome-child\woocommerce\single-product\price.php:24
+Stack trace:
+#0 D:\xampp\htdocs\OVANIC\wp-content\plugins\woocommerce\includes\wc-core-functions.php(345): include()
+#1 D:\xampp\htdocs\OVANIC\wp-content\plugins\woocommerce\includes\wc-template-functions.php(1628): wc_get_template('single-product/...')
+#2 D:\xampp\htdocs\OVANIC\wp-includes\class-wp-hook.php(307): woocommerce_template_single_price('')
+#3 D:\xampp\htdocs\OVANIC\wp-includes\class-wp-hook.php(331): WP_Hook->apply_filters(NULL, Array)
+#4 D:\xampp\htdocs\OVANIC\wp-includes\plugin.php(476): WP_Hook->do_action(Array)
+#5 D:\xampp\htdocs\OVANIC\wp-content\themes\flatsome-child\woocommerce\single-product\layouts\product-no-sidebar.php(35): do_action('woocommerce_sin...')
+#6 D:\xampp\htdocs\OVANIC\wp-includes\template.php(772): require('D:\\xampp\\htdocs...')
+#7 D:\xampp\htdocs\OVANIC\wp-content\plugins\woocommerce\includes\wc-core-fu in D:\xampp\htdocs\OVANIC\wp-content\themes\flatsome-child\woocommerce\single-product\price.php on line 24
+
+2022-07-07T05:56:23+00:00 CRITICAL Uncaught Error: Call to undefined method WC_Product_Simple::sale_price() in D:\xampp\htdocs\OVANIC\wp-content\themes\flatsome-child\woocommerce\single-product\price.php:28
+Stack trace:
+#0 D:\xampp\htdocs\OVANIC\wp-content\plugins\woocommerce\includes\wc-core-functions.php(345): include()
+#1 D:\xampp\htdocs\OVANIC\wp-content\plugins\woocommerce\includes\wc-template-functions.php(1628): wc_get_template('single-product/...')
+#2 D:\xampp\htdocs\OVANIC\wp-includes\class-wp-hook.php(307): woocommerce_template_single_price('')
+#3 D:\xampp\htdocs\OVANIC\wp-includes\class-wp-hook.php(331): WP_Hook->apply_filters(NULL, Array)
+#4 D:\xampp\htdocs\OVANIC\wp-includes\plugin.php(476): WP_Hook->do_action(Array)
+#5 D:\xampp\htdocs\OVANIC\wp-content\themes\flatsome-child\woocommerce\single-product\layouts\product-no-sidebar.php(35): do_action('woocommerce_sin...')
+#6 D:\xampp\htdocs\OVANIC\wp-includes\template.php(772): require('D:\\xampp\\htdocs...')
+#7 D:\xampp\htdocs\OVANIC\wp-content\plugins\woocommerce\includes\wc-core-fu in D:\xampp\htdocs\OVANIC\wp-content\themes\flatsome-child\woocommerce\single-product\price.php on line 28
+
+2022-07-07T06:20:41+00:00 CRITICAL Uncaught Error: Call to undefined method WC_Product_Simple::sale_price() in D:\xampp\htdocs\OVANIC\wp-content\themes\flatsome-child\woocommerce\single-product\price.php:28
+Stack trace:
+#0 D:\xampp\htdocs\OVANIC\wp-content\plugins\woocommerce\includes\wc-core-functions.php(345): include()
+#1 D:\xampp\htdocs\OVANIC\wp-content\plugins\woocommerce\includes\wc-template-functions.php(1628): wc_get_template('single-product/...')
+#2 D:\xampp\htdocs\OVANIC\wp-includes\class-wp-hook.php(307): woocommerce_template_single_price('')
+#3 D:\xampp\htdocs\OVANIC\wp-includes\class-wp-hook.php(331): WP_Hook->apply_filters(NULL, Array)
+#4 D:\xampp\htdocs\OVANIC\wp-includes\plugin.php(476): WP_Hook->do_action(Array)
+#5 D:\xampp\htdocs\OVANIC\wp-content\themes\flatsome-child\woocommerce\single-product\layouts\product-no-sidebar.php(35): do_action('woocommerce_sin...')
+#6 D:\xampp\htdocs\OVANIC\wp-includes\template.php(772): require('D:\\xampp\\htdocs...')
+#7 D:\xampp\htdocs\OVANIC\wp-content\plugins\woocommerce\includes\wc-core-fu in D:\xampp\htdocs\OVANIC\wp-content\themes\flatsome-child\woocommerce\single-product\price.php on line 28
+
