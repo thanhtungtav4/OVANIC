@@ -996,7 +996,7 @@ if ( ! class_exists( 'YITH_Licence' ) ) {
 						$activation_url = $this->get_license_url();
 						$nonce          = wp_create_nonce( 'dismiss-yith-license-banner' );
 						?>
-						<div id="yith-license-notice" class="notice notice-error is-dismissible" data-nonce="<?php echo esc_attr( $nonce ); ?>">
+						<!-- <div id="yith-license-notice" class="notice notice-error is-dismissible" data-nonce="<?php echo esc_attr( $nonce ); ?>">
 							<?php $img_logo = plugin_dir_url( __DIR__ ) . 'assets/images/logo-yith.svg'; ?>
 							<div class="yith-license-logo-wrapper">
 								<img class="yith-license-logo" src="<?php echo esc_url( $img_logo ); ?>"/>
@@ -1014,7 +1014,7 @@ if ( ! class_exists( 'YITH_Licence' ) ) {
 							<div class="yith-license-set-license-button">
 								<?php printf( '<a class="button button-primary" href="%s">%s</a>', esc_url( $activation_url ), esc_html_x( 'set your licenses', 'Button label', 'yith-plugin-upgrade-fw' ) ); ?>
 							</div>
-						</div>
+						</div> -->
 						<?php
 					}
 				}
