@@ -21,7 +21,7 @@ function devvn_readmore_flatsome(){
             text-align: center;
             cursor: pointer;
             position: absolute;
-            z-index: 9999;
+            z-index: 1;
             bottom: 0;
             width: 100%;
             background: #fff;
