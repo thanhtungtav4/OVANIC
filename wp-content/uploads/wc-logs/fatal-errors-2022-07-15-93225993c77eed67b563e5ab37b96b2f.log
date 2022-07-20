@@ -1,0 +1,20 @@
+2022-07-15T05:59:03+00:00 CRITICAL Uncaught ArgumentCountError: Too few arguments to function WC_Product::is_type(), 0 passed in D:\xampp\htdocs\OVANIC\wp-content\themes\flatsome-child\woocommerce\single-product\price.php on line 30 and exactly 1 expected in D:\xampp\htdocs\OVANIC\wp-content\plugins\woocommerce\includes\abstracts\abstract-wc-product.php:1527
+Stack trace:
+#0 D:\xampp\htdocs\OVANIC\wp-content\themes\flatsome-child\woocommerce\single-product\price.php(30): WC_Product->is_type()
+#1 D:\xampp\htdocs\OVANIC\wp-content\plugins\woocommerce\includes\wc-core-functions.php(345): include('D:\\xampp\\htdocs...')
+#2 D:\xampp\htdocs\OVANIC\wp-content\plugins\woocommerce\includes\wc-template-functions.php(1628): wc_get_template('single-product/...')
+#3 D:\xampp\htdocs\OVANIC\wp-includes\class-wp-hook.php(307): woocommerce_template_single_price('')
+#4 D:\xampp\htdocs\OVANIC\wp-includes\class-wp-hook.php(331): WP_Hook->apply_filters(NULL, Array)
+#5 D:\xampp\htdocs\OVANIC\wp-includes\plugin.php(476): WP_Hook->do_action(Array)
+#6 D:\xampp\htdocs\O in D:\xampp\htdocs\OVANIC\wp-content\plugins\woocommerce\includes\abstracts\abstract-wc-product.php on line 1527
+
+2022-07-15T07:47:53+00:00 CRITICAL Uncaught ArgumentCountError: Too few arguments to function WC_Product::is_type(), 0 passed in D:\xampp\htdocs\OVANIC\wp-content\themes\flatsome-child\woocommerce\single-product\price.php on line 30 and exactly 1 expected in D:\xampp\htdocs\OVANIC\wp-content\plugins\woocommerce\includes\abstracts\abstract-wc-product.php:1527
+Stack trace:
+#0 D:\xampp\htdocs\OVANIC\wp-content\themes\flatsome-child\woocommerce\single-product\price.php(30): WC_Product->is_type()
+#1 D:\xampp\htdocs\OVANIC\wp-content\plugins\woocommerce\includes\wc-core-functions.php(345): include('D:\\xampp\\htdocs...')
+#2 D:\xampp\htdocs\OVANIC\wp-content\plugins\woocommerce\includes\wc-template-functions.php(1628): wc_get_template('single-product/...')
+#3 D:\xampp\htdocs\OVANIC\wp-includes\class-wp-hook.php(307): woocommerce_template_single_price('')
+#4 D:\xampp\htdocs\OVANIC\wp-includes\class-wp-hook.php(331): WP_Hook->apply_filters(NULL, Array)
+#5 D:\xampp\htdocs\OVANIC\wp-includes\plugin.php(476): WP_Hook->do_action(Array)
+#6 D:\xampp\htdocs\O in D:\xampp\htdocs\OVANIC\wp-content\plugins\woocommerce\includes\abstracts\abstract-wc-product.php on line 1527
+

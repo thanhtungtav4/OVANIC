@@ -7,7 +7,9 @@ Version: 3.0
 */
 
 /*************** ADD CUSTOM CSS HERE.   ***************/
-
+.yith-wcan-filters .yith-wcan-filter .filter-items .filter-item .star-rating{
+  height: 1.5rem;
+}
 @media only screen and (max-width: 48em) {
 /*************** ADD MOBILE ONLY CSS HERE  ***************/
 

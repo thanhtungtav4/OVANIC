@@ -27,7 +27,10 @@ global $product;
 			<?php if($product->get_price()) : ?>
 				<p class="price_item is_price"> <strong>Giá:</strong> <?php echo wc_price($product->get_price()); ?> </p>
 			<?php endif ; ?>
-			<?php if($product->is_on_sale()) :?>
+			<!-- <?php //if(get_the_terms( get_the_ID() ,'product_type')[0]->slug == 'wooco') : ?>
+				<p class="price_item is_price"> <?php// echo $product->get_price_html(); ?> </p>
+			<?php //endif ; ?> -->
+			<?php if($product->is_on_sale() && $product->get_price()) :?>
 				<?php
 				$percentage = round( ( ( $product->regular_price - $product->sale_price ) / $product->regular_price ) * 100 );
 				$price_save =  $product->regular_price - $product->sale_price ;
