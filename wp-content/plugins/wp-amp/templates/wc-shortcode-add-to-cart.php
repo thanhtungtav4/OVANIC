@@ -1,0 +1,1 @@
+<?php AMPHTML_WC()->get_add_to_cart_button( false ); ?>
