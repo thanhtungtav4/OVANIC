@@ -42,19 +42,19 @@
 
 /** The name of the database for WordPress */
 
-define( 'DB_NAME', 'dbrz0aiqow6d1s' );
+define( 'DB_NAME', 'ovanic2' );
 
 
 
 /** Database username */
 
-define( 'DB_USER', 'uposhggvlgm5h' );
+define( 'DB_USER', 'root' );
 
 
 
 /** Database password */
 
-define( 'DB_PASSWORD', 'dch2kunax661' );
+define( 'DB_PASSWORD', '' );
 
 
 
