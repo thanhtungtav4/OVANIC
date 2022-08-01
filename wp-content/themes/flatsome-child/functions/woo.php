@@ -40,7 +40,7 @@ function show_info(){
   if(!empty($made[0]->name)){
     echo '<div>Xuất xứ: &nbsp; <span>'. $made[0]->name .'</span> </div>';
    }
-    echo '<div>Giá: &nbsp;' . $price .'<sup>đ<sup> </span> </div>';
+    echo '<div>Giá: &nbsp;' . $price .'</span> </div>';
     woocommerce_simple_add_to_cart();
 };
 add_action('get_brand_name', 'show_info');

@@ -32,13 +32,13 @@ if ( !class_exists( 'DevVN_Reviews_Class' ) ) {
             'review_position_action'  =>  '',
             'review_priority'   =>  99,
             'recaptcha' =>  '',
-            'license_key'   =>  '121212121212121212',
+            'license_key'   =>  '',
 
             'show_date' =>  '1',
             'show_tcmt' =>  '1',
 
             'show_like' =>  '2',
-            'label_review'  =>  '1'
+            'label_review'  =>  ''
         );
 
         public static function init(){
@@ -405,13 +405,13 @@ if ( !class_exists( 'DevVN_Reviews_Class' ) ) {
             }
 
             if(!is_admin() && !is_user_logged_in() && isset( $_POST['comment_post_ID'], $comment_data['comment_type'] ) && 'product' === get_post_type( absint( $_POST['comment_post_ID'] ) )) {
-                // if (!isset($_POST['phone']))
-                //     wp_die(__('Lỗi: Số điện thoại là bắt buộc'));
+                if (!isset($_POST['phone']))
+                    wp_die(__('Lỗi: Số điện thoại là bắt buộc'));
 
-                // $phone = $_POST['phone'];
-                // if (!(preg_match('/^0([0-9]{9,10})+$/D', $phone))) {
-                //     wp_die(__('Lỗi: Số điện thoại không đúng định dạng'));
-                // }
+                $phone = $_POST['phone'];
+                if (!(preg_match('/^0([0-9]{9,10})+$/D', $phone))) {
+                    wp_die(__('Lỗi: Số điện thoại không đúng định dạng'));
+                }
                 if ($comment_data['comment_author'] == '')
                     wp_die('Lỗi: Xin hãy nhập tên của bạn');
             }

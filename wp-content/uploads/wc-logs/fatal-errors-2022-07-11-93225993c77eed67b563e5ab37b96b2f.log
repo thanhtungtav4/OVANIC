@@ -1,0 +1,30 @@
+2022-07-11T09:54:08+00:00 CRITICAL Uncaught Error: Object of class WP_Error could not be converted to string in /home/customer/www/ovanic.vn/public_html/wp-content/themes/flatsome-child/functions/price-filter.php:48
+Stack trace:
+#0 /home/customer/www/ovanic.vn/public_html/wp-content/themes/flatsome-child/functions/price-filter.php(48): preg_replace('%\\/page/[0-9]+%', '', Object(WP_Error))
+#1 /home/customer/www/ovanic.vn/public_html/wp-includes/class-wp-widget.php(393): DevVN_Widget_Price_List_Filter->widget(Array, Array)
+#2 /home/customer/www/ovanic.vn/public_html/wp-includes/widgets.php(835): WP_Widget->display_callback(Array, Array)
+#3 /home/customer/www/ovanic.vn/public_html/wp-content/themes/flatsome/woocommerce/layouts/category.php(8): dynamic_sidebar('shop-sidebar')
+#4 /home/customer/www/ovanic.vn/public_html/wp-includes/template.php(772): require('/home/customer/...')
+#5 /home/customer/www/ovanic.vn/public_html/wp-content/plugins/woocommerce/includes/wc-core-functions.php(284): load_template('/home/customer/...', false)
+#6 /home/custom in /home/customer/www/ovanic.vn/public_html/wp-content/themes/flatsome-child/functions/price-filter.php on line 48
+
+2022-07-11T09:55:30+00:00 CRITICAL Uncaught Error: Object of class WP_Error could not be converted to string in /home/customer/www/ovanic.vn/public_html/wp-content/themes/flatsome-child/functions/price-filter.php:48
+Stack trace:
+#0 /home/customer/www/ovanic.vn/public_html/wp-content/themes/flatsome-child/functions/price-filter.php(48): preg_replace('%\\/page/[0-9]+%', '', Object(WP_Error))
+#1 /home/customer/www/ovanic.vn/public_html/wp-includes/class-wp-widget.php(393): DevVN_Widget_Price_List_Filter->widget(Array, Array)
+#2 /home/customer/www/ovanic.vn/public_html/wp-includes/widgets.php(835): WP_Widget->display_callback(Array, Array)
+#3 /home/customer/www/ovanic.vn/public_html/wp-content/themes/flatsome/woocommerce/layouts/category.php(8): dynamic_sidebar('shop-sidebar')
+#4 /home/customer/www/ovanic.vn/public_html/wp-includes/template.php(772): require('/home/customer/...')
+#5 /home/customer/www/ovanic.vn/public_html/wp-content/plugins/woocommerce/includes/wc-core-functions.php(284): load_template('/home/customer/...', false)
+#6 /home/custom in /home/customer/www/ovanic.vn/public_html/wp-content/themes/flatsome-child/functions/price-filter.php on line 48
+
+2022-07-11T09:56:06+00:00 CRITICAL Uncaught Error: Object of class WP_Error could not be converted to string in /home/customer/www/ovanic.vn/public_html/wp-content/themes/flatsome-child/functions/price-filter.php:48
+Stack trace:
+#0 /home/customer/www/ovanic.vn/public_html/wp-content/themes/flatsome-child/functions/price-filter.php(48): preg_replace('%\\/page/[0-9]+%', '', Object(WP_Error))
+#1 /home/customer/www/ovanic.vn/public_html/wp-includes/class-wp-widget.php(393): DevVN_Widget_Price_List_Filter->widget(Array, Array)
+#2 /home/customer/www/ovanic.vn/public_html/wp-includes/widgets.php(835): WP_Widget->display_callback(Array, Array)
+#3 /home/customer/www/ovanic.vn/public_html/wp-content/themes/flatsome/woocommerce/layouts/category.php(8): dynamic_sidebar('shop-sidebar')
+#4 /home/customer/www/ovanic.vn/public_html/wp-includes/template.php(772): require('/home/customer/...')
+#5 /home/customer/www/ovanic.vn/public_html/wp-content/plugins/woocommerce/includes/wc-core-functions.php(284): load_template('/home/customer/...', false)
+#6 /home/custom in /home/customer/www/ovanic.vn/public_html/wp-content/themes/flatsome-child/functions/price-filter.php on line 48
+

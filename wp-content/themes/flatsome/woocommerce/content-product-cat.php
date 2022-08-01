@@ -93,6 +93,5 @@ $classes = array( 'product-category', 'col' );
 		 */
 		do_action( 'woocommerce_after_subcategory', $category );
 		?>
-		<?php echo('1121212') ?>
 	</div>
 </div>

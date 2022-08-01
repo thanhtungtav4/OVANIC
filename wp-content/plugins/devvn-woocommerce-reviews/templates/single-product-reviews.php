@@ -115,6 +115,7 @@ if ( ! comments_open() ) {
                         'comment_notes_after' => '',
                         'fields'              => array(
                             'author' => '<div class="form_row_reviews"><p class="comment-form-author"><input id="author" name="author" type="text" value="' . esc_attr( $commenter['comment_author'] ) . '" size="30" required placeholder="Họ tên (Bắt buộc)"/></p>',
+                            'phone' => '<p class="comment-form-phone"><input id="phone" name="phone" type="text" size="30" required placeholder="Số điện thoại (Bắt buộc)"/></p>',
                             'email'  => '<p class="comment-form-email"><input id="email" name="email" type="email" value="' . esc_attr( $commenter['comment_author_email'] ) . '" size="30" placeholder="Email (Không bắt buộc)"/></p></div>',
                         ),
                         'label_submit'        => __( 'Gửi đánh giá ngay', 'devvn' ),
