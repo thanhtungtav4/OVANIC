@@ -238,7 +238,9 @@ if ( ! class_exists( 'AMPHTML_Tab_Abstract' ) ) {
             if ( get_option( self::ORDER_OPT ) ) {
                 $blocks_order = maybe_unserialize( get_option( self::ORDER_OPT ) );
             }
-            $blocks_order[ $section ] = $_REQUEST[ 'positions' ];
+            if( isset( $_REQUEST[ 'positions' ] ) ) {
+                $blocks_order[ $section ] = $_REQUEST[ 'positions' ];
+            }
             update_option( self::ORDER_OPT, maybe_serialize( $blocks_order ) );
             exit();
         }

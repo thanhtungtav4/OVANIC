@@ -877,7 +877,10 @@ if ( ! class_exists( 'AMPHTML_Template' ) ) {
 
             $page = isset( $matches[ 3 ] ) ? $matches[ 3 ] : '';
 
-            $pagination_link = $pagination_link . $page . '/' . $matches[ 2 ] . '/' . $matches[ 4 ];
+            $pagination_link = $pagination_link . $page . '/' . $matches[ 2 ];
+            if( isset( $matches[ 4 ] ) ) {
+                $pagination_link .= '/' . $matches[ 4 ];
+            }
 
             return $pagination_link;
         }

@@ -27,7 +27,7 @@ class AMPHTML_License {
     public function __construct() {
         $this->product_id          = '7688E2EF';
         $this->api_url             = 'http://licensev2.custom4web.com/';
-        $this->current_version     = '9.3.31';
+        $this->current_version     = '9.3.32';
         $this->current_path        = realpath( __DIR__ );
         $this->root_path           = realpath( $this->current_path . '/..' );
         $this->verify_type         = 'envato';

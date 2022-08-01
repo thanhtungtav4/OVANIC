@@ -174,6 +174,8 @@ if(is_admin()){
     }
     add_action( 'edited_product_cat', 'fl_save_taxonomy_custom_meta', 10, 2 );
     add_action( 'edited_product_tag', 'fl_save_taxonomy_custom_meta', 10, 2 );
+    add_action( 'edited_thuong-hieu', 'fl_save_taxonomy_custom_meta', 10, 2 );
+
 
     }
 } // is_admin

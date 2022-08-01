@@ -9,11 +9,7 @@
 <?php
 global $product;
 
-if ( get_option( 'woocommerce_enable_review_rating' ) === 'no' ) {
-    return;
-}
 
-$rating_count = $product->get_rating_count();
 
 if ( $rating_count > 0 ) :
     $rating = round( $product->get_average_rating() );
@@ -24,5 +20,7 @@ if ( $rating_count > 0 ) :
             echo ( $rating >= $i ) ? '★' : '☆';
         endfor;
         ?>
+        <a href="#reviews" class="woocommerce-review-link" rel="nofollow"> (đánh giá)</a>
     </p>
+    
 <?php endif; ?>

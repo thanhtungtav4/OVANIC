@@ -2433,7 +2433,7 @@ nav.amp-social ul li a.amp-social-link svg {
     }
 }
 
-@media screen and (max-width: 380px) {
+@media screen and (max-width: 580px) {
     .products-grid .product-card .amphtml-title {
 	font-size: 0.9rem;
     }

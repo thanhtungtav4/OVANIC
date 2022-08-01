@@ -365,6 +365,9 @@ if ( ! class_exists( 'AMPHTML_WC' ) ) {
             $post_thumbnail_id = ( $image_id ) ? $image_id : get_post_thumbnail_id( $product_id );
 
             if ( $post_thumbnail_id ) {
+                if( empty( $this->options ) ) {
+                    $this->options = new AMPHTML_Options();
+                }
                 $size                    = apply_filters( 'amphtml_featured_image_size', 'amphtml-image', $this->options );
                 $featured_image          = wp_get_attachment_image_src( $post_thumbnail_id, $size );
                 $featured_image[ 'alt' ] = get_post_meta( $post_thumbnail_id, '_wp_attachment_image_alt', true );
@@ -439,7 +442,7 @@ if ( ! class_exists( 'AMPHTML_WC' ) ) {
                     '@context'         => 'http://schema.org',
                     '@type'            => $metadata[ '@type' ],
                     'name'             => $product->get_title(),
-                    'description'      => $metadata[ 'description' ],
+                    'description'      => ! empty( $metadata[ 'description' ] ) ? $metadata[ 'description' ] : '',
                     'mainEntityOfPage' => array(
                         '@type' => 'WebPage',
                         '@id'   => get_permalink( $product->get_id() ) ? get_permalink( $product->get_id() ) : get_bloginfo( 'url' ),
