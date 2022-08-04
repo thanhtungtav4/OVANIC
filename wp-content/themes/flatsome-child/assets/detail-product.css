@@ -72,7 +72,7 @@ button.single_add_to_cart_button:nth-of-type(1) {
 .shop_info ul{
   display: flex;
   flex-direction: column;
-  margin-top: 1rem;
+  margin-top: 0.5rem;
   margin-bottom: 0;
 }
 .shop_info ul li{
@@ -85,9 +85,9 @@ button.single_add_to_cart_button:nth-of-type(1) {
 .shop_info ul li:before {
   counter-increment: li;
   content: counter(li);
-  width: 16px;
-  height: 16px;
-  font-size: 12px;
+  width: 15px;
+  height: 15px;
+  font-size: 11px;
   background: #42b348;
   color: #fff;
   font-weight: 700;
@@ -102,6 +102,11 @@ button.single_add_to_cart_button:nth-of-type(1) {
 .shop_info ul li .title{
   color: #000;
   font-weight: 700;
+  font-size: 0.9rem;
+}
+.shop_info ul li p{
+  font-size: 0.8rem;
+  margin-bottom: 0.5rem;
 }
 .shop_info ul li:not(:last-child){
   border-bottom: 1px dashed #e3e3e3;
@@ -120,7 +125,7 @@ button.single_add_to_cart_button:nth-of-type(1) {
   height: fit-content;
   border: 1px solid #e3e3e3;
   border-radius: 10px;
-  margin-top: 15px;
+  margin-top: 0;
   padding: 10px 15px;
 }
 .shop_info_ttl{
@@ -201,6 +206,7 @@ button.single_add_to_cart_button:nth-of-type(1) {
   border-radius: 10px;
   font-size: 14px;
   line-height: 1.7;
+  margin: 10px 0 10px -10px;
 }
 .promotion-sale {
   padding: 10px 15px;
