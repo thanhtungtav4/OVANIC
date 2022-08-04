@@ -155,14 +155,8 @@ $table_prefix = 'wp_';
  * @link https://wordpress.org/support/article/debugging-in-wordpress/
 
  */
-<<<<<<< HEAD
-define( 'WP_DEBUG', true);
-=======
-
 define( 'WP_DEBUG', false );
 
-
->>>>>>> f33bc908a3affcb4f5c3cb8c6d15cd1cc10594c2
 
 /* Add any custom values between this line and the "stop editing" line. */
 
