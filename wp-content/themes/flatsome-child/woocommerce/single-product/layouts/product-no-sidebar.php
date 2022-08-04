@@ -13,9 +13,9 @@
     		do_action( 'woocommerce_before_single_product_summary' );
     	?>
 
-						<p class='detail_info'>
-							<?php echo the_field('cam_ket_san_pham', 'option'); ?>
-						</p>
+			<p class='detail_info'>
+				<?php echo the_field('cam_ket_san_pham', 'option'); ?>
+			</p>
 
     	</div>
 

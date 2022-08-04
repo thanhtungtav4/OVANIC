@@ -1,5 +1,5 @@
 <?php
-/** 
+/**
  * This template can be overridden by copying it to yourtheme/wp-amp/social-share.php.
  *
  * @var $this AMPHTML_Template
@@ -39,3 +39,4 @@ $like    = $this->options->get( 'social_like_button' );
         <?php endif; ?>
     </div>
 <?php endif; ?>
+<?php echo the_field('cam_ket_dich_vu', 'option'); ?>
