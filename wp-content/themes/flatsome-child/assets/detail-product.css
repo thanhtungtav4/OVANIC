@@ -72,22 +72,44 @@ button.single_add_to_cart_button:nth-of-type(1) {
 .shop_info ul{
   display: flex;
   flex-direction: column;
+  margin-top: 0.5rem;
+  margin-bottom: 0;
 }
 .shop_info ul li{
+  list-style: none;
+  position: relative;
+}
+:root {
+  counter-reset: li;
+}
+.shop_info ul li:before {
+  counter-increment: li;
+  content: counter(li);
+  width: 15px;
+  height: 15px;
+  font-size: 11px;
+  background: #42b348;
+  color: #fff;
+  font-weight: 700;
   display: flex;
+  justify-content: center;
   align-items: center;
-  justify-content: flex-start;
-  margin-left: 0 !important;
+  border-radius: 10px;
+  position: absolute;
+  left: -22px;
+  top: 4px;
+}
+.shop_info ul li .title{
+  color: #000;
+  font-weight: 700;
+  font-size: 0.9rem;
 }
 .shop_info ul li p{
-  margin-bottom: 0;
-  font-weight: 600;
-  font-size: 14px;
+  font-size: 0.8rem;
+  margin-bottom: 0.5rem;
 }
-.shop_info ul li img{
-  width: 30px;
-  height: 30px;
-  margin-right: 10px;
+.shop_info ul li:not(:last-child){
+  border-bottom: 1px dashed #e3e3e3;
 }
 .shop_row{
   display: flex;
@@ -100,10 +122,19 @@ button.single_add_to_cart_button:nth-of-type(1) {
 }
 .shop_info{
   width: 250px;
-  border: 1px solid #ececec;
-  border-radius: 4px 4px 0 0;
   height: fit-content;
-  padding: 15px;
+  border: 1px solid #e3e3e3;
+  border-radius: 10px;
+  margin-top: 0;
+  padding: 10px 15px;
+}
+.shop_info_ttl{
+  font-size: 1.3rem;
+  margin-top: 1.5rem;
+  text-align: center;
+  font-weight: 700;
+  color: #42b348;
+  text-transform: uppercase;
 }
 .quantity{
   margin-right: 0 !important;
@@ -168,6 +199,51 @@ button.single_add_to_cart_button:nth-of-type(1) {
 }
 .btn-reviews-now{
   background-color: #f1821f !important;
+}
+.detail_info{
+  background: #f2f2f2;
+  padding: 10px 15px;
+  border-radius: 10px;
+  font-size: 14px;
+  line-height: 1.7;
+  margin: 10px 0 10px -10px;
+}
+.promotion-sale {
+  padding: 10px 15px;
+  border: 1px dashed #db0000;
+  border-radius: 10px;
+  margin-bottom: 15px;
+  margin-right: 10px;
+}
+.d-flex {
+  display: flex;
+}
+.promotion-sale p {
+  font-size: 12px;
+  margin-left: 10px;
+  margin-bottom: 0;
+}
+.list-privacy {
+  margin: 0;
+  margin-top: 10px;
+  list-style: none;
+  padding-left: 0;
+}
+.list-privacy li {
+  position: relative;
+  padding-left: 18px;
+  margin-bottom: 10px;
+  font-size: 12px;
+}
+.list-privacy li:before {
+  content: "";
+  display: block;
+  width: 13px;
+  height: 13px;
+  background: url(https://ovanic.vn/wp-content/themes/flatsome-child/assets/images/icon-check.svg) no-repeat;
+  position: absolute;
+  top: 1px;
+  left: 0;
 }
 @media only screen and (max-width: 768px) {
   .brand-block{

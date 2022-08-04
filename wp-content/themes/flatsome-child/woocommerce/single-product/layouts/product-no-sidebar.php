@@ -12,6 +12,11 @@
     		 */
     		do_action( 'woocommerce_before_single_product_summary' );
     	?>
+
+			<p class='detail_info'>
+				<?php echo the_field('cam_ket_san_pham', 'option'); ?>
+			</p>
+
     	</div>
 
     	<div class="product-info summary col-fit col entry-summary <?php flatsome_product_summary_classes();?>">
@@ -35,22 +40,7 @@
 							do_action( 'woocommerce_single_product_summary' );
 						?>
 					</div>
-					<div class="shop_info">
-						<ul>
-							<li>
-									<img src="<?php echo get_stylesheet_directory_uri() .'/assets/images/guarantee.png'?>">
-									<p> Cam kết chính hãng 100% </p>
-							</li>
-							<li>
-									<img src="<?php echo get_stylesheet_directory_uri() .'/assets/images/refund.png'?>">
-									<p> Hoàn tiền 200% nếu phát hiện hàng giả </p>
-							</li>
-							<li>
-									<img src="<?php echo get_stylesheet_directory_uri() .'/assets/images/box.png'?>">
-									<p> Free ship đơn hàng từ 500k trở lên </p>
-							</li>
-						</ul>
-					</div>
+					<?php echo the_field('cam_ket_dich_vu', 'option'); ?>
 				</div>
     	</div>
     </div>
@@ -58,7 +48,7 @@
 
   <div class="product-footer">
 		<div class="container">
-			
+
 		<div>
 		<div class="container">
 			<div class="row mb-0 content-row">

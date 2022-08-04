@@ -1,5 +1,5 @@
 <?php
-/** 
+/**
  * This template can be overridden by copying it to yourtheme/wp-amp/parts/title.php.
  *
  * @var $this AMPHTML_Template
@@ -14,19 +14,12 @@ if ( get_option( 'woocommerce_enable_review_rating' ) === 'no' ) {
 
 $rating_count = $product->get_rating_count();
 if(get_field('is_product_top_selling') == true){
-    $bestsale = "<span class='m-topsale' style='
-    border-radius: 3px;
-    background: #ff2114;
-    margin-left: 8px;
-    padding: 5px 10px;
-    color: white;
-    font-size: 13px;
-    position: relative;
-    top: -4px;
-'> Bán Chạy</span>";
+    $bestsale = "<span class='m-topsale' style='border-radius: 3px;background: #ff2114;margin-left: 8px;padding: 5px 10px;color: white;font-size: 13px;position: relative;top: -4px;'> Bán Chạy</span>";
 }
-
 ?>
+<p style="background: #f2f2f2;padding: 10px 15px; border-radius: 10px; font-size: 14px; line-height: 1.7;">
+    <?php echo the_field('cam_ket_san_pham', 'option'); ?>
+</p>
 <h1 class="amphtml-title" style="margin-bottom: 0"><?php echo $this->title ?> <?php echo $bestsale ?></h1>
 <div class="m-list">
     <dl style="display: flex; flex-wrap: wrap; margin-top: 0;">
@@ -39,12 +32,12 @@ if(get_field('is_product_top_selling') == true){
             <dt style="margin-right: 10px; font-size: .8rem;">
                 Mã sản phẩm : <span> <?php echo $product->get_sku() ?></span>
             </dt>
-        <?php endif ; ?> 
+        <?php endif ; ?>
         <?php if($pa_xuat_xu)  : ?>
             <dt style="margin-right: 10px; font-size: .8rem;">
                Xuất xứ : <span> <?php echo $pa_xuat_xu ?></span>
             </dt>
-        <?php endif ; ?> 
+        <?php endif ; ?>
         <?php if ( $rating_count > 0 ) :
         $rating = round( $product->get_average_rating() );
         ?>

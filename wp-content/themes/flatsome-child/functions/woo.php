@@ -154,3 +154,9 @@ function data_tabs_display(){
   woocommerce_output_product_data_tabs();
 }
 //Data Tab
+//show acf option
+add_action('woocommerce_single_product_summary', 'acf_get_info', 11);
+function acf_get_info(){
+  echo the_field('thong_tin_uu_dai', 'option');
+}
+//!show acf option

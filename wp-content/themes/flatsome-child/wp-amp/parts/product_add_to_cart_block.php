@@ -1,5 +1,5 @@
 <?php
-/** 
+/**
  * This template can be overridden by copying it to yourtheme/wp-amp/parts/product_add_to_cart_block.php.
  *
  * @var $this AMPHTML_Template
@@ -22,3 +22,4 @@
         </p>
     <?php endif; ?>
 </div>
+<?php echo the_field('thong_tin_uu_dai', 'option'); ?>
