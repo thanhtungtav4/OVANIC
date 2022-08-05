@@ -89,6 +89,9 @@ You can purchase our Premium version to get this feature..
 
 == Changelog ==
 
+= 2.3 =
+* Fixed updated discount issue for combo products
+
 = 2.2.0 =
 * Restore sub items for combo from cart when main item is restored
 

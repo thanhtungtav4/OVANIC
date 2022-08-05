@@ -42,9 +42,6 @@
   margin-bottom: 5px;
   font-size: 17px
 }
-.price-block .red , .woocommerce-Price-currencySymbol{
-  color: #ff0000;
-}
 .price-block .is_price span{
   font-size: 21px;
   font-weight: 600;
