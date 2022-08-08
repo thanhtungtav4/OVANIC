@@ -50,7 +50,7 @@ define( 'DB_USER', 'root' );
 
 
 /** Database password */
-define( 'DB_PASSWORD', '' );
+define( 'DB_PASSWORD', 'mysql' );
 
 
 
@@ -155,7 +155,8 @@ $table_prefix = 'wp_';
  * @link https://wordpress.org/support/article/debugging-in-wordpress/
 
  */
-define( 'WP_DEBUG', true);
+define( 'WP_DEBUG', false );
+
 
 /* Add any custom values between this line and the "stop editing" line. */
 

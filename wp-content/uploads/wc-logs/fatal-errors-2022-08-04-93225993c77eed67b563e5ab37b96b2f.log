@@ -1,0 +1,51 @@
+2022-08-04T03:03:42+00:00 CRITICAL Uncaught Error: Call to a member function get_attribute() on bool in /home/customer/www/ovanic.vn/public_html/wp-content/themes/flatsome-child/wp-amp/parts/title.php:10
+Stack trace:
+#0 /home/customer/www/ovanic.vn/public_html/wp-content/plugins/wp-amp/includes/class-amphtml-template-abstract.php(75): include()
+#1 /home/customer/www/ovanic.vn/public_html/wp-content/plugins/wp-amp/templates/single-content.php(21): AMPHTML_Template_Abstract->render('title')
+#2 /home/customer/www/ovanic.vn/public_html/wp-content/plugins/wp-amp/includes/class-amphtml-template-abstract.php(75): include('/home/customer/...')
+#3 /home/customer/www/ovanic.vn/public_html/wp-content/plugins/wp-amp/includes/class-amphtml-template.php(267): AMPHTML_Template_Abstract->render('single-content')
+#4 /home/customer/www/ovanic.vn/public_html/wp-includes/class-wp-hook.php(307): AMPHTML_Template->the_template_content('')
+#5 /home/customer/www/ovanic.vn/public_html/wp-includes/class-wp-hook.php(331): WP_Hook->apply_filters('', Array)
+#6 /home/custo in /home/customer/www/ovanic.vn/public_html/wp-content/themes/flatsome-child/wp-amp/parts/title.php on line 10
+
+2022-08-04T06:44:37+00:00 CRITICAL Uncaught Error: Call to undefined function flatsome_minify_css() in /home/customer/www/ovanic.vn/public_html/wp-content/themes/flatsome/inc/functions/function-custom-css.php:684
+Stack trace:
+#0 /home/customer/www/ovanic.vn/public_html/wp-includes/class-wp-hook.php(307): flatsome_custom_css('')
+#1 /home/customer/www/ovanic.vn/public_html/wp-includes/class-wp-hook.php(331): WP_Hook->apply_filters(NULL, Array)
+#2 /home/customer/www/ovanic.vn/public_html/wp-includes/plugin.php(476): WP_Hook->do_action(Array)
+#3 /home/customer/www/ovanic.vn/public_html/wp-includes/general-template.php(3042): do_action('wp_head')
+#4 /home/customer/www/ovanic.vn/public_html/wp-content/themes/flatsome/header.php(10): wp_head()
+#5 /home/customer/www/ovanic.vn/public_html/wp-includes/template.php(770): require_once('/home/customer/...')
+#6 /home/customer/www/ovanic.vn/public_html/wp-includes/template.php(716): load_template('/home/customer/...', true, Array)
+#7 /home/customer/www/ovanic.vn/public_html/wp-includes/general-template.php(4 in /home/customer/www/ovanic.vn/public_html/wp-content/themes/flatsome/inc/functions/function-custom-css.php on line 684
+
+2022-08-04T06:45:03+00:00 CRITICAL Uncaught Error: Call to a member function get_attribute() on bool in /home/customer/www/ovanic.vn/public_html/wp-content/themes/flatsome-child/wp-amp/parts/title.php:10
+Stack trace:
+#0 /home/customer/www/ovanic.vn/public_html/wp-content/plugins/wp-amp/includes/class-amphtml-template-abstract.php(75): include()
+#1 /home/customer/www/ovanic.vn/public_html/wp-content/plugins/wp-amp/templates/single-content.php(21): AMPHTML_Template_Abstract->render('title')
+#2 /home/customer/www/ovanic.vn/public_html/wp-content/plugins/wp-amp/includes/class-amphtml-template-abstract.php(75): include('/home/customer/...')
+#3 /home/customer/www/ovanic.vn/public_html/wp-content/plugins/wp-amp/includes/class-amphtml-template.php(267): AMPHTML_Template_Abstract->render('single-content')
+#4 /home/customer/www/ovanic.vn/public_html/wp-includes/class-wp-hook.php(307): AMPHTML_Template->the_template_content('')
+#5 /home/customer/www/ovanic.vn/public_html/wp-includes/class-wp-hook.php(331): WP_Hook->apply_filters('', Array)
+#6 /home/custo in /home/customer/www/ovanic.vn/public_html/wp-content/themes/flatsome-child/wp-amp/parts/title.php on line 10
+
+2022-08-04T10:02:07+00:00 CRITICAL Uncaught Error: Call to a member function get_attribute() on bool in /home/customer/www/ovanic.vn/public_html/wp-content/themes/flatsome-child/wp-amp/parts/title.php:10
+Stack trace:
+#0 /home/customer/www/ovanic.vn/public_html/wp-content/plugins/wp-amp/includes/class-amphtml-template-abstract.php(75): include()
+#1 /home/customer/www/ovanic.vn/public_html/wp-content/plugins/wp-amp/templates/single-content.php(21): AMPHTML_Template_Abstract->render('title')
+#2 /home/customer/www/ovanic.vn/public_html/wp-content/plugins/wp-amp/includes/class-amphtml-template-abstract.php(75): include('/home/customer/...')
+#3 /home/customer/www/ovanic.vn/public_html/wp-content/plugins/wp-amp/includes/class-amphtml-template.php(267): AMPHTML_Template_Abstract->render('single-content')
+#4 /home/customer/www/ovanic.vn/public_html/wp-includes/class-wp-hook.php(307): AMPHTML_Template->the_template_content('')
+#5 /home/customer/www/ovanic.vn/public_html/wp-includes/class-wp-hook.php(331): WP_Hook->apply_filters('', Array)
+#6 /home/custo in /home/customer/www/ovanic.vn/public_html/wp-content/themes/flatsome-child/wp-amp/parts/title.php on line 10
+
+2022-08-04T15:38:46+00:00 CRITICAL Uncaught Error: Call to a member function get_attribute() on bool in /home/customer/www/ovanic.vn/public_html/wp-content/themes/flatsome-child/wp-amp/parts/title.php:10
+Stack trace:
+#0 /home/customer/www/ovanic.vn/public_html/wp-content/plugins/wp-amp/includes/class-amphtml-template-abstract.php(75): include()
+#1 /home/customer/www/ovanic.vn/public_html/wp-content/plugins/wp-amp/templates/single-content.php(21): AMPHTML_Template_Abstract->render('title')
+#2 /home/customer/www/ovanic.vn/public_html/wp-content/plugins/wp-amp/includes/class-amphtml-template-abstract.php(75): include('/home/customer/...')
+#3 /home/customer/www/ovanic.vn/public_html/wp-content/plugins/wp-amp/includes/class-amphtml-template.php(267): AMPHTML_Template_Abstract->render('single-content')
+#4 /home/customer/www/ovanic.vn/public_html/wp-includes/class-wp-hook.php(307): AMPHTML_Template->the_template_content('')
+#5 /home/customer/www/ovanic.vn/public_html/wp-includes/class-wp-hook.php(331): WP_Hook->apply_filters('', Array)
+#6 /home/custo in /home/customer/www/ovanic.vn/public_html/wp-content/themes/flatsome-child/wp-amp/parts/title.php on line 10
+

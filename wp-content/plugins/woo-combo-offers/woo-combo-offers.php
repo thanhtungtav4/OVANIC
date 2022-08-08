@@ -3,7 +3,7 @@
  * Plugin Name: WooCommerce Combo Offers
  * Plugin URI: https://www.wooextend.com/
  * Description: WooCommerce Combo Offers enables administrator to offer combo deals on their product!
- * Version: 2.2.0
+ * Version: 2.3
  * Author: WooExtend
  * Author URI: https://www.wooextend.com
  * Text Domain: woo-combo-offers
@@ -15,7 +15,7 @@
 
 defined( 'ABSPATH' ) || exit;
 
-! defined( 'WOOCO_VERSION' ) && define( 'WOOCO_VERSION', '3.6.0' );
+! defined( 'WOOCO_VERSION' ) && define( 'WOOCO_VERSION', '2.3' );
 ! defined( 'WOOCO_URI' ) && define( 'WOOCO_URI', plugin_dir_url( __FILE__ ) );
 ! defined( 'WOOCO_REVIEWS' ) && define( 'WOOCO_REVIEWS', 'https://wordpress.org/support/plugin/woo-combo-offers/reviews/?filter=5' );
 ! defined( 'WOOCO_CHANGELOG' ) && define( 'WOOCO_CHANGELOG', 'https://wordpress.org/plugins/woo-combo-offers/#developers' );
@@ -1542,9 +1542,23 @@ if ( ! function_exists( 'wooco_init' ) ) {
 					if ( isset( $_POST['wooco_discount'] ) ) {
 						update_post_meta( $post_id, 'wooco_discount', sanitize_text_field( $_POST['wooco_discount'] ) );
 						delete_post_meta( $post_id, 'wooco_price_percent' );
+
+						if ( !isset( $_POST['wooco_disable_auto_price'] ) ) {
+
+							$rp = $_POST['_regular_price'];
+							$disc = $_POST['_regular_price'] * (100 - $_POST['wooco_discount']) / 100;
+							
+							update_post_meta( $post_id, '_sale_price', $disc);
+							update_post_meta( $post_id, '_price', $disc);
+						}
 					} else {
 						update_post_meta( $post_id, 'wooco_discount', 0 );
 						delete_post_meta( $post_id, 'wooco_price_percent' );
+						if ( !isset( $_POST['wooco_disable_auto_price'] ) ) {
+
+							update_post_meta( $post_id, '_sale_price', '');
+							update_post_meta( $post_id, '_price', $_POST['_regular_price']);
+						}
 					}
 					if ( isset( $_POST['wooco_shipping_fee'] ) ) {
 						update_post_meta( $post_id, 'wooco_shipping_fee', sanitize_text_field( $_POST['wooco_shipping_fee'] ) );
