@@ -160,3 +160,5 @@ function acf_get_info(){
   echo the_field('thong_tin_uu_dai', 'option');
 }
 //!show acf option
+remove_action( 'woocommerce_after_single_product_summary', 'add_bought_together_form', 3 );
+//remove_action( 'woocommerce_after_single_product_summary', 'add_bought_together_form', 2 );

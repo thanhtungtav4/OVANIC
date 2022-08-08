@@ -16,7 +16,6 @@
 			<p class='detail_info'>
 				<?php echo the_field('cam_ket_san_pham', 'option'); ?>
 			</p>
-
     	</div>
 
     	<div class="product-info summary col-fit col entry-summary <?php flatsome_product_summary_classes();?>">
@@ -45,7 +44,13 @@
     	</div>
     </div>
   </div>
-
+	<div class="product-main">
+		<div class="row content-row mb-0">
+		<?php
+			do_action( 'woocommerce_cross_sell_tungnt' );
+    ?>
+	</div>
+	</div>
   <div class="product-footer">
 		<div class="container">
 

@@ -1,0 +1,22 @@
+2022-08-08T06:51:56+00:00 CRITICAL Uncaught Error: Using $this when not in object context in D:\xampp\htdocs\OVANIC\wp-content\themes\flatsome-child\functions\woo.php:163
+Stack trace:
+#0 D:\xampp\htdocs\OVANIC\wp-content\themes\flatsome-child\functions.php(6): require_once()
+#1 D:\xampp\htdocs\OVANIC\wp-settings.php(566): include('D:\\xampp\\htdocs...')
+#2 D:\xampp\htdocs\OVANIC\wp-config.php(185): require_once('D:\\xampp\\htdocs...')
+#3 D:\xampp\htdocs\OVANIC\wp-load.php(50): require_once('D:\\xampp\\htdocs...')
+#4 D:\xampp\htdocs\OVANIC\wp-blog-header.php(13): require_once('D:\\xampp\\htdocs...')
+#5 D:\xampp\htdocs\OVANIC\index.php(17): require('D:\\xampp\\htdocs...')
+#6 {main}
+  thrown in D:\xampp\htdocs\OVANIC\wp-content\themes\flatsome-child\functions\woo.php on line 163
+
+2022-08-08T06:51:57+00:00 CRITICAL Uncaught Error: Using $this when not in object context in D:\xampp\htdocs\OVANIC\wp-content\themes\flatsome-child\functions\woo.php:163
+Stack trace:
+#0 D:\xampp\htdocs\OVANIC\wp-content\themes\flatsome-child\functions.php(6): require_once()
+#1 D:\xampp\htdocs\OVANIC\wp-settings.php(566): include('D:\\xampp\\htdocs...')
+#2 D:\xampp\htdocs\OVANIC\wp-config.php(185): require_once('D:\\xampp\\htdocs...')
+#3 D:\xampp\htdocs\OVANIC\wp-load.php(50): require_once('D:\\xampp\\htdocs...')
+#4 D:\xampp\htdocs\OVANIC\wp-blog-header.php(13): require_once('D:\\xampp\\htdocs...')
+#5 D:\xampp\htdocs\OVANIC\index.php(17): require('D:\\xampp\\htdocs...')
+#6 {main}
+  thrown in D:\xampp\htdocs\OVANIC\wp-content\themes\flatsome-child\functions\woo.php on line 163
+
