@@ -44,16 +44,17 @@
     	</div>
     </div>
   </div>
-	<div class="product-main">
-		<div class="row content-row mb-0">
-		<?php
-			do_action( 'woocommerce_cross_sell_tungnt' );
-    ?>
-	</div>
-	</div>
   <div class="product-footer">
 		<div class="container">
-
+			<?php
+    			/**
+    			 * woocommerce_after_single_product_summary hook
+    			 *
+    			 * @hooked woocommerce_upsell_display - 15
+    			 * @hooked woocommerce_output_related_products - 20
+    			 */
+    			do_action( 'woocommerce_after_single_product_summary' );
+    		?>
 		<div>
 		<div class="container">
 			<div class="row mb-0 content-row">
@@ -96,16 +97,15 @@
 					</div>
 			</div>
 		</div>
-  	<div class="container">
-    		<?php
+		<div class="container">
+			<?php
     			/**
     			 * woocommerce_after_single_product_summary hook
     			 *
     			 * @hooked woocommerce_upsell_display - 15
-    			 * @hooked woocommerce_output_related_products - 20
     			 */
-    			do_action( 'woocommerce_after_single_product_summary' );
+    			do_action( 'woocommerce_cross_sell_tungnt' );
     		?>
-    </div>
+		<div>
   </div>
 </div>

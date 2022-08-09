@@ -160,5 +160,14 @@ function acf_get_info(){
   echo the_field('thong_tin_uu_dai', 'option');
 }
 //!show acf option
-remove_action( 'woocommerce_after_single_product_summary', 'add_bought_together_form', 3 );
-//remove_action( 'woocommerce_after_single_product_summary', 'add_bought_together_form', 2 );
+function remove_woo_relate_products(){
+  remove_action( 'woocommerce_after_single_product_summary', 'woocommerce_output_related_products', 20);
+  //remove_action( 'woocommerce_after_single_product_summary', 'woocommerce_upsell_display', 15 );
+}
+
+add_action('init', 'remove_woo_relate_products', 10);
+
+add_action('woocommerce_cross_sell_tungnt', 'show_woocommerce_output_related_products', 20);
+function show_woocommerce_output_related_products(){
+  woocommerce_output_related_products();
+}
