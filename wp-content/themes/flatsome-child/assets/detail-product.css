@@ -267,3 +267,6 @@ button.single_add_to_cart_button:nth-of-type(1) {
 .yith-wfbt-item a{
   font-weight: 500;
 }
+.yith-wfbt-submit-block .yith-wfbt-submit-button {
+  border-radius: 3px;
+}
