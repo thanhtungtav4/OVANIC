@@ -22,4 +22,13 @@
         </p>
     <?php endif; ?>
 </div>
+<?php
+    /**
+     * woocommerce_after_single_product_summary hook
+     *
+     * @hooked woocommerce_upsell_display - 15
+     * @hooked woocommerce_output_related_products - 20
+     */
+    do_action( 'woocommerce_after_single_product_summary' );
+?>
 <?php echo the_field('thong_tin_uu_dai', 'option'); ?>
