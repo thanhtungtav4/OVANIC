@@ -11,7 +11,8 @@ function my_custom_translations( $strings ) {
   'Related products' => 'Sản phẩm tương tự',
   'Description' => 'Thông tin chi tiết',
   'Additional information' =>'Thông tin bổ sung',
-  'Reviews' => 'Đánh giá'
+  'Reviews' => 'Đánh giá',
+  'Save' => 'Tiết kiệm'
 
   );
   $strings = str_ireplace( array_keys( $text ), $text, $strings );

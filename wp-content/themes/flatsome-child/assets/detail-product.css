@@ -260,3 +260,10 @@ button.single_add_to_cart_button:nth-of-type(1) {
     top: 0;
   }
 }
+[data-rel="offeringID_0"] img {
+  width: 200px;
+  height: auto;
+}
+.yith-wfbt-item a{
+  font-weight: 500;
+}
