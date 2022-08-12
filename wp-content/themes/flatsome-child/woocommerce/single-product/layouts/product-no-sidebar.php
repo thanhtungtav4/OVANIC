@@ -16,6 +16,7 @@
 			<p class='detail_info'>
 				<?php echo the_field('cam_ket_san_pham', 'option'); ?>
 			</p>
+			<?php do_action('woocommerce_single_excerpt_tungnt') ?>
     	</div>
 
     	<div class="product-info summary col-fit col entry-summary <?php flatsome_product_summary_classes();?>">

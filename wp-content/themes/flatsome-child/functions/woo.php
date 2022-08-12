@@ -110,8 +110,13 @@ function upsell_display(){
 remove_action( 'woocommerce_after_single_product_summary', 'woocommerce_upsell_display', 15);
 //Move of UP-Sells in page detail
 //Move excerpt
-remove_action( 'woocommerce_single_product_summary', 'woocommerce_template_single_excerpt', 20 );
-add_action( 'woocommerce_single_product_summary', 'woocommerce_template_single_excerpt', 45 );
+// remove_action( 'woocommerce_single_product_summary', 'woocommerce_template_single_excerpt', 20 );
+// add_action( 'woocommerce_single_product_summary', 'woocommerce_template_single_excerpt', 45 );
+remove_action( 'woocommerce_single_product_summary', 'woocommerce_template_single_excerpt', 20);
+add_action('woocommerce_single_excerpt_tungnt', 'woocommerce_template_single_excerpt_show');
+function woocommerce_template_single_excerpt_show(){
+  woocommerce_template_single_excerpt();
+}
 //Move excerpt
 /***
  * Add quickbuy button go to cart after click
