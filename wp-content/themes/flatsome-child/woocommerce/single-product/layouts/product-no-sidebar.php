@@ -39,6 +39,7 @@
 							 */
 							do_action( 'woocommerce_single_product_summary' );
 						?>
+						<?php require_once( get_stylesheet_directory() . '/module/search_taget.php' ); ?>
 					</div>
 					<?php echo the_field('cam_ket_dich_vu', 'option'); ?>
 				</div>
