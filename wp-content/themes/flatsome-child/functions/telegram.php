@@ -90,8 +90,9 @@ function contact_telegram(){
     $fullname = $_POST['fullname'] ? $_POST['fullname'] : null;
     $phone = $_POST['numberphone'] ? $_POST['numberphone'] : null;
     $product_title = $_POST['product_title'] ? $_POST['product_title'] : null;
+    $date = date("Y-m-d h:i:sa");
     // in send telegram
-    $msg = "<b>Yêu cầu tư vấn </b>: Từ khách hàng [$fullname]\n <b>Có số điện thoại </b>: [$phone]\n<b>Cho sản phẩm : </b> [$product_title] ";
+    $msg = "<b>Yêu cầu tư vấn </b>: Từ khách hàng [$fullname]\n <b>Có số điện thoại </b>: [$phone]\n<b>Cho sản phẩm : </b> [$product_title]\n<b>Vào lúc : </b> [$date] ";
     $botToken= '5440381056:AAGG0St5-y8cVBItKBHl2JHAAqu9pVbqDFY';
     $website = "https://api.telegram.org/bot".$botToken;
     $chatId = '-737404282';
@@ -110,6 +111,10 @@ function contact_telegram(){
     $result = curl_exec($ch);
     curl_close($ch);
     // !in send telegram
+    // send to gmail
+    $msg_mail = "Yêu cầu tư vấn: Từ khách hàng [$fullname]\n Có số điện thoại : [$phone]\nCho sản phẩm : [$product_title] \n Vào lúc : [$date] ";
+    wp_mail(SMTP_FROM, "Yêu cầu tư vấn", $msg_mail);
+    // ! send to gmail
   }
 
 }
