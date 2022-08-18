@@ -63,7 +63,7 @@ function ajax_contact_javascript() {
                   })
 
                   .done( function( response ) { // response from the PHP action
-                      $(" #nds_form_feedback ").html( "The request was successful");
+                      $(" #nds_form_feedback ").html( "Chúng tôi đã nhận được yêu cầu tư vấn của bạn, Ovanic sẽ liên hệ sớm nhất cảm ơn.");
                   })
 
                   // something went wrong
