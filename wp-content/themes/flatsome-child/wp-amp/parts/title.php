@@ -17,12 +17,12 @@ if(get_field('is_product_top_selling') == true){
     $bestsale = "<span class='m-topsale' style='border-radius: 3px;background: #ff2114;margin-left: 8px;padding: 5px 10px;color: white;font-size: 13px;position: relative;top: -4px;'> Bán Chạy</span>";
 }
 ?>
-<p style="background: #f2f2f2;padding: 10px 15px; border-radius: 10px; font-size: 14px; line-height: 1.7;">
+<p style="margin: 0 auto;background: #f2f2f2;padding: 10px 15px; border-radius: 10px; font-size: 14px; line-height: 1.7;">
     <?php echo the_field('cam_ket_san_pham', 'option'); ?>
 </p>
-<h1 class="amphtml-title" style="margin-bottom: 0"><?php echo $this->title ?> <?php echo $bestsale ?></h1>
+<h1 class="amphtml-title" style="margin: 0.5rem auto"><?php echo $this->title ?> <?php echo $bestsale ?></h1>
 <div class="m-list">
-    <dl style="display: flex; flex-wrap: wrap; margin-top: 0;">
+    <dl style="display: flex; flex-wrap: wrap; margin: 0;">
         <?php if($term_thuonghieu)  : ?>
             <dt style="margin-right: 10px; font-size: .8rem;">
                 Thương hiệu : <a href="<?php echo site_url('/') .  $term_thuonghieu[0]->slug ?>"> <?php echo $term_thuonghieu[0]->name ?></a>

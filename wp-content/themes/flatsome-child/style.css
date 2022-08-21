@@ -10,8 +10,15 @@ Version: 3.0
 .yith-wcan-filters .yith-wcan-filter .filter-items .filter-item .star-rating{
   height: 1.5rem;
 }
-@media only screen and (max-width: 48em) {
-/*************** ADD MOBILE ONLY CSS HERE  ***************/
-
-
+.shop_attributes{
+  table-layout: fixed;
+  width: auto;
+}
+.shop_attributes th, td{
+  border-bottom: 0;
+}
+@media screen and (max-width: 849px){
+  #footer .col:not(.col-821728723) {
+    padding-bottom: 5px;
+  }
 }

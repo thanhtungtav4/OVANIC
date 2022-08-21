@@ -12,7 +12,9 @@ function my_custom_translations( $strings ) {
   'Description' => 'Thông tin chi tiết',
   'Additional information' =>'Thông tin bổ sung',
   'Reviews' => 'Đánh giá',
-  'Save' => 'Tiết kiệm'
+  'Save' => 'Tiết kiệm',
+  'This Product' =>'Sản phẩm chính',
+  'View more' => 'Xem thêm'
 
   );
   $strings = str_ireplace( array_keys( $text ), $text, $strings );
