@@ -46,6 +46,7 @@
     	</div>
     </div>
   </div>
+  <?php require_once( get_stylesheet_directory() . '/module/list_sell.php' ); ?>
   <div class="product-footer">
 		<div class="container">
 			<?php

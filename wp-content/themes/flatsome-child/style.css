@@ -17,8 +17,17 @@ Version: 3.0
 .shop_attributes th, td{
   border-bottom: 0;
 }
+.category-page-row {
+  padding-top: 10px;
+}
 @media screen and (max-width: 849px){
   #footer .col:not(.col-821728723) {
     padding-bottom: 5px;
   }
+  .category-page-row {
+    padding-top: 5px;
+  }
+  .category-filter-row {
+    padding: 10px 0 0;
+}
 }

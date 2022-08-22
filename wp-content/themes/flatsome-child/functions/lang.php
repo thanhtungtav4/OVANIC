@@ -14,7 +14,8 @@ function my_custom_translations( $strings ) {
   'Reviews' => 'Đánh giá',
   'Save' => 'Tiết kiệm',
   'This Product' =>'Sản phẩm chính',
-  'View more' => 'Xem thêm'
+  'View more' => 'Xem thêm',
+  'by' => 'Bởi'
 
   );
   $strings = str_ireplace( array_keys( $text ), $text, $strings );
