@@ -23,7 +23,6 @@
 				<?php
 					do_action( 'woocommerce_single_title_module' );
     			?>
-				<iframe src="https://www.facebook.com/plugins/like.php?href=https%3A%2F%2Fdevelopers.facebook.com%2Fdocs%2Fplugins%2F&width=120&layout=button&action=like&size=small&share=true&height=65&appId=2798815900224849" width="120" height="20" style="border:none;overflow:hidden" scrolling="no" frameborder="0" allowfullscreen="true" allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share" loading="lazy"></iframe>
 				<div class="shop_row">
 					<div class="info">
 						<?php
