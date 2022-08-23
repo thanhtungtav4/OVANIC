@@ -48,12 +48,11 @@ define( 'DB_NAME', 'ovanic2' );
 define( 'DB_USER', 'root' );
 
 /** Database password */
-define( 'DB_PASSWORD', 'mysql');
+define( 'DB_PASSWORD', '');
 
 /** Database hostname */
 
 define( 'DB_HOST', 'localhost' );
-
 
 
 /** Database charset to use in creating database tables. */
@@ -151,9 +150,10 @@ $table_prefix = 'wp_';
  * @link https://wordpress.org/support/article/debugging-in-wordpress/
 
  */
-define( 'WP_DEBUG', true );
+define('WP_DEBUG', true);
 
-
+error_reporting(E_ALL);
+ini_set('display_errors', 1);
 /* Add any custom values between this line and the "stop editing" line. */
 
 

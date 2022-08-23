@@ -1,0 +1,7 @@
+.flex-entry-meta{
+  display: flex;
+  justify-content: center;
+}
+.flex-entry-meta p {
+  padding: 0 5px;
+}

@@ -1,0 +1,124 @@
+2022-08-23T02:13:04+00:00 CRITICAL syntax error, unexpected ')' in D:\xampp\htdocs\OVANIC\wp-content\themes\flatsome-child\template-parts\posts\partials\entry-title.php on line 26
+
+2022-08-23T02:13:54+00:00 CRITICAL syntax error, unexpected ')' in D:\xampp\htdocs\OVANIC\wp-content\themes\flatsome-child\template-parts\posts\partials\entry-title.php on line 26
+
+2022-08-23T02:15:21+00:00 CRITICAL syntax error, unexpected ')' in D:\xampp\htdocs\OVANIC\wp-content\themes\flatsome-child\template-parts\posts\partials\entry-title.php on line 26
+
+2022-08-23T02:18:42+00:00 CRITICAL syntax error, unexpected ')' in D:\xampp\htdocs\OVANIC\wp-content\themes\flatsome-child\template-parts\posts\partials\entry-title.php on line 26
+
+2022-08-23T02:34:31+00:00 CRITICAL Object of class WP_User could not be converted to string in D:\xampp\htdocs\OVANIC\wp-content\plugins\advanced-custom-fields-pro\includes\api\api-template.php on line 85
+
+2022-08-23T02:35:19+00:00 CRITICAL Object of class WP_User could not be converted to string in D:\xampp\htdocs\OVANIC\wp-content\plugins\advanced-custom-fields-pro\includes\api\api-template.php on line 85
+
+2022-08-23T02:35:43+00:00 CRITICAL Object of class WP_User could not be converted to string in D:\xampp\htdocs\OVANIC\wp-content\plugins\advanced-custom-fields-pro\includes\api\api-template.php on line 85
+
+2022-08-23T02:39:57+00:00 CRITICAL Object of class WP_User could not be converted to string in D:\xampp\htdocs\OVANIC\wp-content\plugins\advanced-custom-fields-pro\includes\api\api-template.php on line 85
+
+2022-08-23T02:40:41+00:00 CRITICAL Object of class WP_User could not be converted to string in D:\xampp\htdocs\OVANIC\wp-content\plugins\advanced-custom-fields-pro\includes\api\api-template.php on line 85
+
+2022-08-23T02:41:10+00:00 CRITICAL Object of class WP_User could not be converted to string in D:\xampp\htdocs\OVANIC\wp-content\plugins\advanced-custom-fields-pro\includes\api\api-template.php on line 85
+
+2022-08-23T02:45:18+00:00 CRITICAL Object of class WP_User could not be converted to string in D:\xampp\htdocs\OVANIC\wp-content\plugins\advanced-custom-fields-pro\includes\api\api-template.php on line 85
+
+2022-08-23T02:45:29+00:00 CRITICAL Object of class WP_User could not be converted to string in D:\xampp\htdocs\OVANIC\wp-content\plugins\advanced-custom-fields-pro\includes\api\api-template.php on line 85
+
+2022-08-23T02:46:25+00:00 CRITICAL Object of class WP_User could not be converted to string in D:\xampp\htdocs\OVANIC\wp-content\plugins\advanced-custom-fields-pro\includes\api\api-template.php on line 85
+
+2022-08-23T02:46:31+00:00 CRITICAL Object of class WP_User could not be converted to string in D:\xampp\htdocs\OVANIC\wp-content\plugins\advanced-custom-fields-pro\includes\api\api-template.php on line 85
+
+2022-08-23T02:51:15+00:00 CRITICAL Object of class WP_User could not be converted to string in D:\xampp\htdocs\OVANIC\wp-content\plugins\advanced-custom-fields-pro\includes\api\api-template.php on line 85
+
+2022-08-23T02:58:21+00:00 CRITICAL Object of class WP_User could not be converted to string in D:\xampp\htdocs\OVANIC\wp-content\plugins\advanced-custom-fields-pro\includes\api\api-template.php on line 85
+
+2022-08-23T03:11:34+00:00 CRITICAL Object of class WP_User could not be converted to string in D:\xampp\htdocs\OVANIC\wp-content\plugins\advanced-custom-fields-pro\includes\api\api-template.php on line 85
+
+2022-08-23T03:15:44+00:00 CRITICAL Object of class WP_User could not be converted to string in D:\xampp\htdocs\OVANIC\wp-content\plugins\advanced-custom-fields-pro\includes\api\api-template.php on line 85
+
+2022-08-23T03:18:35+00:00 CRITICAL Uncaught ArgumentCountError: Too few arguments to function get_user_by(), 1 passed in D:\xampp\htdocs\OVANIC\wp-content\themes\flatsome-child\template-parts\posts\partials\entry-title.php on line 27 and exactly 2 expected in D:\xampp\htdocs\OVANIC\wp-includes\pluggable.php:102
+Stack trace:
+#0 D:\xampp\htdocs\OVANIC\wp-content\themes\flatsome-child\template-parts\posts\partials\entry-title.php(27): get_user_by('1')
+#1 D:\xampp\htdocs\OVANIC\wp-includes\template.php(772): require('D:\\xampp\\htdocs...')
+#2 D:\xampp\htdocs\OVANIC\wp-includes\template.php(716): load_template('D:\\xampp\\htdocs...', false, Array)
+#3 D:\xampp\htdocs\OVANIC\wp-includes\general-template.php(204): locate_template(Array, true, false, Array)
+#4 D:\xampp\htdocs\OVANIC\wp-content\themes\flatsome-child\template-parts\posts\partials\entry-header.php(3): get_template_part('template-parts/...', 'title')
+#5 D:\xampp\htdocs\OVANIC\wp-includes\template.php(772): require('D:\\xampp\\htdocs...')
+#6 D:\xampp\htdocs\OVANIC\wp-includes\template.php(7 in D:\xampp\htdocs\OVANIC\wp-includes\pluggable.php on line 102
+
+2022-08-23T03:21:18+00:00 CRITICAL Uncaught Error: Cannot use object of type WP_User as array in D:\xampp\htdocs\OVANIC\wp-content\themes\flatsome-child\template-parts\posts\partials\entry-title.php:27
+Stack trace:
+#0 D:\xampp\htdocs\OVANIC\wp-includes\template.php(772): require()
+#1 D:\xampp\htdocs\OVANIC\wp-includes\template.php(716): load_template('D:\\xampp\\htdocs...', false, Array)
+#2 D:\xampp\htdocs\OVANIC\wp-includes\general-template.php(204): locate_template(Array, true, false, Array)
+#3 D:\xampp\htdocs\OVANIC\wp-content\themes\flatsome-child\template-parts\posts\partials\entry-header.php(3): get_template_part('template-parts/...', 'title')
+#4 D:\xampp\htdocs\OVANIC\wp-includes\template.php(772): require('D:\\xampp\\htdocs...')
+#5 D:\xampp\htdocs\OVANIC\wp-includes\template.php(716): load_template('D:\\xampp\\htdocs...', false, Array)
+#6 D:\xampp\htdocs\OVANIC\wp-includes\general-template.php(204): locate_template(Array, true, false, Array)
+#7 D:\xampp\htdocs\OVANIC\wp-content\themes\flatsome-child\template-parts\posts\single.php(11): in D:\xampp\htdocs\OVANIC\wp-content\themes\flatsome-child\template-parts\posts\partials\entry-title.php on line 27
+
+2022-08-23T03:21:46+00:00 CRITICAL Uncaught Error: Cannot use object of type WP_User as array in D:\xampp\htdocs\OVANIC\wp-content\themes\flatsome-child\template-parts\posts\partials\entry-title.php:27
+Stack trace:
+#0 D:\xampp\htdocs\OVANIC\wp-includes\template.php(772): require()
+#1 D:\xampp\htdocs\OVANIC\wp-includes\template.php(716): load_template('D:\\xampp\\htdocs...', false, Array)
+#2 D:\xampp\htdocs\OVANIC\wp-includes\general-template.php(204): locate_template(Array, true, false, Array)
+#3 D:\xampp\htdocs\OVANIC\wp-content\themes\flatsome-child\template-parts\posts\partials\entry-header.php(3): get_template_part('template-parts/...', 'title')
+#4 D:\xampp\htdocs\OVANIC\wp-includes\template.php(772): require('D:\\xampp\\htdocs...')
+#5 D:\xampp\htdocs\OVANIC\wp-includes\template.php(716): load_template('D:\\xampp\\htdocs...', false, Array)
+#6 D:\xampp\htdocs\OVANIC\wp-includes\general-template.php(204): locate_template(Array, true, false, Array)
+#7 D:\xampp\htdocs\OVANIC\wp-content\themes\flatsome-child\template-parts\posts\single.php(11): in D:\xampp\htdocs\OVANIC\wp-content\themes\flatsome-child\template-parts\posts\partials\entry-title.php on line 27
+
+2022-08-23T03:21:54+00:00 CRITICAL Uncaught Error: Cannot use object of type WP_User as array in D:\xampp\htdocs\OVANIC\wp-content\themes\flatsome-child\template-parts\posts\partials\entry-title.php:27
+Stack trace:
+#0 D:\xampp\htdocs\OVANIC\wp-includes\template.php(772): require()
+#1 D:\xampp\htdocs\OVANIC\wp-includes\template.php(716): load_template('D:\\xampp\\htdocs...', false, Array)
+#2 D:\xampp\htdocs\OVANIC\wp-includes\general-template.php(204): locate_template(Array, true, false, Array)
+#3 D:\xampp\htdocs\OVANIC\wp-content\themes\flatsome-child\template-parts\posts\partials\entry-header.php(3): get_template_part('template-parts/...', 'title')
+#4 D:\xampp\htdocs\OVANIC\wp-includes\template.php(772): require('D:\\xampp\\htdocs...')
+#5 D:\xampp\htdocs\OVANIC\wp-includes\template.php(716): load_template('D:\\xampp\\htdocs...', false, Array)
+#6 D:\xampp\htdocs\OVANIC\wp-includes\general-template.php(204): locate_template(Array, true, false, Array)
+#7 D:\xampp\htdocs\OVANIC\wp-content\themes\flatsome-child\template-parts\posts\single.php(11): in D:\xampp\htdocs\OVANIC\wp-content\themes\flatsome-child\template-parts\posts\partials\entry-title.php on line 27
+
+2022-08-23T03:22:04+00:00 CRITICAL Uncaught Error: Cannot use object of type WP_User as array in D:\xampp\htdocs\OVANIC\wp-content\themes\flatsome-child\template-parts\posts\partials\entry-title.php:27
+Stack trace:
+#0 D:\xampp\htdocs\OVANIC\wp-includes\template.php(772): require()
+#1 D:\xampp\htdocs\OVANIC\wp-includes\template.php(716): load_template('D:\\xampp\\htdocs...', false, Array)
+#2 D:\xampp\htdocs\OVANIC\wp-includes\general-template.php(204): locate_template(Array, true, false, Array)
+#3 D:\xampp\htdocs\OVANIC\wp-content\themes\flatsome-child\template-parts\posts\partials\entry-header.php(3): get_template_part('template-parts/...', 'title')
+#4 D:\xampp\htdocs\OVANIC\wp-includes\template.php(772): require('D:\\xampp\\htdocs...')
+#5 D:\xampp\htdocs\OVANIC\wp-includes\template.php(716): load_template('D:\\xampp\\htdocs...', false, Array)
+#6 D:\xampp\htdocs\OVANIC\wp-includes\general-template.php(204): locate_template(Array, true, false, Array)
+#7 D:\xampp\htdocs\OVANIC\wp-content\themes\flatsome-child\template-parts\posts\single.php(11): in D:\xampp\htdocs\OVANIC\wp-content\themes\flatsome-child\template-parts\posts\partials\entry-title.php on line 27
+
+2022-08-23T03:22:17+00:00 CRITICAL Uncaught Error: Cannot use object of type WP_User as array in D:\xampp\htdocs\OVANIC\wp-content\themes\flatsome-child\template-parts\posts\partials\entry-title.php:35
+Stack trace:
+#0 D:\xampp\htdocs\OVANIC\wp-includes\template.php(772): require()
+#1 D:\xampp\htdocs\OVANIC\wp-includes\template.php(716): load_template('D:\\xampp\\htdocs...', false, Array)
+#2 D:\xampp\htdocs\OVANIC\wp-includes\general-template.php(204): locate_template(Array, true, false, Array)
+#3 D:\xampp\htdocs\OVANIC\wp-content\themes\flatsome-child\template-parts\posts\partials\entry-header.php(3): get_template_part('template-parts/...', 'title')
+#4 D:\xampp\htdocs\OVANIC\wp-includes\template.php(772): require('D:\\xampp\\htdocs...')
+#5 D:\xampp\htdocs\OVANIC\wp-includes\template.php(716): load_template('D:\\xampp\\htdocs...', false, Array)
+#6 D:\xampp\htdocs\OVANIC\wp-includes\general-template.php(204): locate_template(Array, true, false, Array)
+#7 D:\xampp\htdocs\OVANIC\wp-content\themes\flatsome-child\template-parts\posts\single.php(11): in D:\xampp\htdocs\OVANIC\wp-content\themes\flatsome-child\template-parts\posts\partials\entry-title.php on line 35
+
+2022-08-23T03:23:04+00:00 CRITICAL Object of class WP_User could not be converted to string in D:\xampp\htdocs\OVANIC\wp-content\themes\flatsome-child\template-parts\posts\partials\entry-title.php on line 35
+
+2022-08-23T03:24:52+00:00 CRITICAL Uncaught Error: Cannot use object of type stdClass as array in D:\xampp\htdocs\OVANIC\wp-content\themes\flatsome-child\template-parts\posts\partials\entry-title.php:35
+Stack trace:
+#0 D:\xampp\htdocs\OVANIC\wp-includes\template.php(772): require()
+#1 D:\xampp\htdocs\OVANIC\wp-includes\template.php(716): load_template('D:\\xampp\\htdocs...', false, Array)
+#2 D:\xampp\htdocs\OVANIC\wp-includes\general-template.php(204): locate_template(Array, true, false, Array)
+#3 D:\xampp\htdocs\OVANIC\wp-content\themes\flatsome-child\template-parts\posts\partials\entry-header.php(3): get_template_part('template-parts/...', 'title')
+#4 D:\xampp\htdocs\OVANIC\wp-includes\template.php(772): require('D:\\xampp\\htdocs...')
+#5 D:\xampp\htdocs\OVANIC\wp-includes\template.php(716): load_template('D:\\xampp\\htdocs...', false, Array)
+#6 D:\xampp\htdocs\OVANIC\wp-includes\general-template.php(204): locate_template(Array, true, false, Array)
+#7 D:\xampp\htdocs\OVANIC\wp-content\themes\flatsome-child\template-parts\posts\single.php(11) in D:\xampp\htdocs\OVANIC\wp-content\themes\flatsome-child\template-parts\posts\partials\entry-title.php on line 35
+
+2022-08-23T04:00:48+00:00 CRITICAL Uncaught ArgumentCountError: Too few arguments to function get_author_link(), 1 passed in D:\xampp\htdocs\OVANIC\wp-content\themes\flatsome-child\template-parts\posts\partials\entry-title.php on line 26 and at least 2 expected in D:\xampp\htdocs\OVANIC\wp-includes\deprecated.php:803
+Stack trace:
+#0 D:\xampp\htdocs\OVANIC\wp-content\themes\flatsome-child\template-parts\posts\partials\entry-title.php(26): get_author_link(1)
+#1 D:\xampp\htdocs\OVANIC\wp-includes\template.php(772): require('D:\\xampp\\htdocs...')
+#2 D:\xampp\htdocs\OVANIC\wp-includes\template.php(716): load_template('D:\\xampp\\htdocs...', false, Array)
+#3 D:\xampp\htdocs\OVANIC\wp-includes\general-template.php(204): locate_template(Array, true, false, Array)
+#4 D:\xampp\htdocs\OVANIC\wp-content\themes\flatsome-child\template-parts\posts\partials\entry-header.php(3): get_template_part('template-parts/...', 'title')
+#5 D:\xampp\htdocs\OVANIC\wp-includes\template.php(772): require('D:\\xampp\\htdocs...')
+#6 D:\xampp\htdocs\OVANIC\wp-includes\templa in D:\xampp\htdocs\OVANIC\wp-includes\deprecated.php on line 803
+
