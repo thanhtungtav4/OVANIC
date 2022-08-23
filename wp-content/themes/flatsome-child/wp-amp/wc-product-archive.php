@@ -9,7 +9,6 @@
  */
 $view = $this->options->get( 'wc_archives_view' );
 ?>
-<?php die(12121); ?>
 <header class="page-header">
     <?php if ( $this->options->get( 'wc_archives_breadcrumbs' ) ): ?>
         <?php echo $this->render( 'breadcrumb' ); ?>
