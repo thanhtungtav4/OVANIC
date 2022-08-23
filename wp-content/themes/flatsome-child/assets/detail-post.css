@@ -1,7 +1,15 @@
 .flex-entry-meta{
   display: flex;
   justify-content: center;
+  flex-wrap: wrap;
 }
 .flex-entry-meta p {
   padding: 0 5px;
+  font-size: 10px;
+}
+.entry-content {
+  padding-top: 0 !important;
+}
+.entry-header-text.text-center {
+  padding-bottom: 5px;
 }
