@@ -97,7 +97,7 @@ function flatsome_share($atts, $content = null) {
           <?php } if(in_array('telegram', $share)){ ?>
 		  <a href="https://telegram.me/share/url?url=<?php echo $link; ?>" onclick="window.open(this.href,this.title,'width=500,height=500,top=300px,left=300px');  return false;" rel="noopener noreferrer nofollow" target="_blank" class="<?php echo $classes;?> telegram" title="<?php _e('Share on Telegram','flatsome'); ?>" aria-label="<?php esc_attr_e( 'Share on Telegram', 'flatsome' ); ?>"><?php echo get_flatsome_icon('icon-telegram'); ?></a>
 		  <?php } ?>
-		  <iframe src="https://www.facebook.com/plugins/like.php?href=https%3A%2F%2Fdevelopers.facebook.com%2Fdocs%2Fplugins%2F&width=120&layout=button&action=like&size=small&share=true&height=65&appId=2798815900224849" width="120" height="20" style="border:none;overflow:hidden;margin-left: 5px;" scrolling="no" frameborder="0" allowfullscreen="true" allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share" loading="lazy"></iframe>
+		  <iframe src="https://www.facebook.com/plugins/like.php?href=<?php echo $link; ?>&width=120&layout=button&action=like&size=small&share=true&height=65&appId=2798815900224849" width="120" height="20" style="border:none;overflow:hidden;margin-left: 5px;" scrolling="no" frameborder="0" allowfullscreen="true" allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share" loading="lazy"></iframe>
     </div>
 
     <?php

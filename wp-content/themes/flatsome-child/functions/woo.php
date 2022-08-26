@@ -28,7 +28,7 @@ function show_info(){
   global $product;
   $brand = get_the_terms( $post->ID, 'thuong-hieu' );
   $made = wc_get_product_terms($post->ID, 'pa_xuat-xu', 'names');
-  $price = wc_price($product->get_sale_price());
+  $price = $product->get_sale_price() ? wc_price($product->get_sale_price()) : wc_price($product->get_price());
   if($product->is_on_sale() ){
     $percentage = round( ( ( $product->regular_price - $product->sale_price ) / $product->regular_price ) * 100 );
     $price_save =  $product->regular_price - $product->sale_price ;
