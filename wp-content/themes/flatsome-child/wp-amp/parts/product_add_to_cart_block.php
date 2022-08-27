@@ -6,13 +6,14 @@
  * @version 9.3.0
  */
 ?>
-<div class="clearfix" style="display: flex; align-items: center; justify-content: space-around;">
-    <p class="amphtml-price"style="">
+<div class="clearfix" >
+    <p class="amphtml-price">
         <?php if ( $this->get_option( 'product_price' ) ): ?>
-            <span class="price" style="font-size: 1.1rem;display: flex;flex-direction: column;text-align: right;"><?php echo $this->product->get_price_html(); ?></span>
+            <span class="price"><?php echo $this->product->get_price_html(); ?></span>
         <?php endif; ?>
     </p>
-
+</div>
+<div class="clearfix" style="display: flex;align-items: center;justify-content: space-around;position: fixed;bottom: 0;padding: 0 0 10px;background-color: white;z-index: 99;left: 0;right: 0;">
     <?php if ( $this->get_option( 'product_add_to' ) ): ?>
         <?php AMPHTML_WC()->get_add_to_cart_button( false ); ?>
     <?php endif; ?>
