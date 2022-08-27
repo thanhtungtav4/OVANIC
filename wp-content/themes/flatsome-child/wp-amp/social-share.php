@@ -39,5 +39,7 @@ $like    = $this->options->get( 'social_like_button' );
         <?php endif; ?>
     </div>
 <?php endif; ?>
+<?php if(is_product()) : ?>
 <?php echo the_field('cam_ket_dich_vu', 'option'); ?>
 <?php require_once( get_stylesheet_directory() . '/module/list_sell.php' ); ?>
+<?php endif; ?>

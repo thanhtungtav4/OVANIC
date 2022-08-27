@@ -5,6 +5,8 @@
  * @var $this AMPHTML_Template
  * @version 9.3.0
  */
+if(is_product()) : ?>
+<?php
 $product = wc_get_product($this->post->ID);
 $term_thuonghieu = get_the_terms( $this->post->ID, 'thuong-hieu' );
 $pa_xuat_xu =  $product->get_attribute( 'pa_xuat-xu');
@@ -53,3 +55,6 @@ if(get_field('is_product_top_selling') == true){
         <?php endif; ?>
         </dl>
 </div>
+<?php else :  ?>
+    <h1 class="amphtml-title"><?php echo $this->title ?></h1>
+<?php  endif;?>
