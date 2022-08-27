@@ -345,6 +345,10 @@ table tr td:first-child{
   background: #f1f1f1;
   white-space: nowrap;
   width: 30%;
+  padding-left: 15px;
+}
+th:first-child, td:first-child {
+  padding-left: 15px !important;
 }
 @media only screen and (min-width: 768px) {
   .seach_taget{

@@ -10,15 +10,14 @@ Version: 3.0
 .yith-wcan-filters .yith-wcan-filter .filter-items .filter-item .star-rating{
   height: 1.5rem;
 }
-.shop_attributes{
-  table-layout: fixed;
-  width: auto;
-}
 .shop_attributes th, td{
   border-bottom: 0;
 }
 .category-page-row {
   padding-top: 10px;
+}
+.woocommerce-product-attributes-item__label{
+  padding-left: 15px;
 }
 @media screen and (max-width: 849px){
   #footer .col:not(.col-821728723) {
