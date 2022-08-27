@@ -142,3 +142,7 @@ Stack trace:
 #7 D:\Ampps\www\OVANIC\wp-content\plugins\wp-amp\templates\base.php(11): do_action()
 #8 D:\Ampps\www\OVANIC\wp-content\plugins\wp in D:\Ampps\www\OVANIC\wp-content\themes\flatsome-child\wp-amp\parts\title.php on line 8
 
+2022-08-27T18:13:58+00:00 CRITICAL syntax error, unexpected 'elseif' (T_ELSEIF), expecting end of file in D:\Ampps\www\OVANIC\wp-content\themes\flatsome-child\template-parts\posts\partials\entry-title.php on line 45
+
+2022-08-27T18:14:08+00:00 CRITICAL syntax error, unexpected 'elseif' (T_ELSEIF), expecting end of file in D:\Ampps\www\OVANIC\wp-content\themes\flatsome-child\template-parts\posts\partials\entry-title.php on line 45
+
