@@ -26,12 +26,14 @@ add_action('woocommerce_single_title_module', 'add_brand_product_singer');
 function show_info(){
   global $post;
   global $product;
+ 
   $brand = get_the_terms( $post->ID, 'thuong-hieu' );
   $made = wc_get_product_terms($post->ID, 'pa_xuat-xu', 'names');
   $price = $product->get_sale_price() ? wc_price($product->get_sale_price()) : wc_price($product->get_price());
   if($product->is_on_sale() ){
     $percentage = round( ( ( $product->regular_price - $product->sale_price ) / $product->regular_price ) * 100 );
-    $price_save =  $product->regular_price - $product->sale_price ;
+    $price_save =  $product->regular_price - $product->sale_price;
+    $f_price_save = number_format($product->get_regular_price());
   }
 
   if(!empty($brand[0]->name)){
@@ -41,6 +43,9 @@ function show_info(){
     echo '<div>Xuất xứ: &nbsp; <span>'. $made[0]->name .'</span> </div>';
    }
     echo '<div>Giá: &nbsp;' . $price .'</span> </div>';
+  if(!empty($price_save)){
+    echo '<div>Giá thị trường: &nbsp; <span class="price-on-sale" style="text-decoration: line-through;"> ' . $f_price_save . '</span><sup>đ<sup> </div>';
+  }
     woocommerce_simple_add_to_cart();
 };
 add_action('get_brand_name', 'show_info');

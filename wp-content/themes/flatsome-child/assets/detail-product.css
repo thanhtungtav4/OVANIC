@@ -276,6 +276,8 @@ button.single_add_to_cart_button:nth-of-type(1) {
 }
 .yith-wfbt-submit-block .yith-wfbt-submit-button {
   border-radius: 3px;
+  background: #72BD42 !important;
+  border-color: #72BD42 !important;
 }
 ::-webkit-scrollbar {
   width: 2px;
