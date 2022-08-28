@@ -14,3 +14,4 @@ require_once( get_stylesheet_directory() . '/functions/price-filter.php' );
 require_once( get_stylesheet_directory() . '/functions/taxonomy-filter.php' );
 // require_once( get_stylesheet_directory() . '/functions/woo-address/woocommerce_checkout.php' );
 require_once( get_stylesheet_directory() . '/functions/smtp.php' );
+require_once( get_stylesheet_directory() . '/functions/schema.php' );
