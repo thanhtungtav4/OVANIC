@@ -223,3 +223,15 @@ Stack trace:
 [28-Aug-2022 13:30:48 UTC] PHP Notice:  Array to string conversion in D:\Ampps\www\OVANIC\wp-includes\category-template.php on line 1289
 [28-Aug-2022 13:30:48 UTC] PHP Warning:  Use of undefined constant php - assumed 'php' (this will throw an Error in a future version of PHP) in D:\Ampps\www\OVANIC\wp-content\themes\flatsome-child\woocommerce\single-product\price.php on line 31
 [28-Aug-2022 13:48:06 UTC] PHP Notice:  Undefined variable: color in D:\Ampps\www\OVANIC\wp-content\themes\flatsome-child\woocommerce\layouts\category.php on line 100
+[28-Aug-2022 15:25:32 UTC] PHP Notice:  Array to string conversion in D:\Ampps\www\OVANIC\wp-includes\taxonomy.php on line 3641
+[28-Aug-2022 15:25:32 UTC] PHP Notice:  Array to string conversion in D:\Ampps\www\OVANIC\wp-includes\taxonomy.php on line 3641
+[28-Aug-2022 15:25:32 UTC] PHP Notice:  Array to string conversion in D:\Ampps\www\OVANIC\wp-includes\category-template.php on line 1289
+[28-Aug-2022 15:25:32 UTC] PHP Notice:  Array to string conversion in D:\Ampps\www\OVANIC\wp-includes\category-template.php on line 1289
+[28-Aug-2022 15:25:32 UTC] PHP Warning:  Use of undefined constant php - assumed 'php' (this will throw an Error in a future version of PHP) in D:\Ampps\www\OVANIC\wp-content\themes\flatsome-child\woocommerce\single-product\price.php on line 31
+[28-Aug-2022 15:25:32 UTC] PHP Warning:  Use of undefined constant php - assumed 'php' (this will throw an Error in a future version of PHP) in D:\Ampps\www\OVANIC\wp-content\themes\flatsome-child\woocommerce\single-product\price.php on line 31
+[28-Aug-2022 15:25:33 UTC] PHP Notice:  Array to string conversion in D:\Ampps\www\OVANIC\wp-includes\taxonomy.php on line 3641
+[28-Aug-2022 15:25:33 UTC] PHP Notice:  Array to string conversion in D:\Ampps\www\OVANIC\wp-includes\category-template.php on line 1289
+[28-Aug-2022 15:25:33 UTC] PHP Warning:  Use of undefined constant php - assumed 'php' (this will throw an Error in a future version of PHP) in D:\Ampps\www\OVANIC\wp-content\themes\flatsome-child\woocommerce\single-product\price.php on line 31
+[28-Aug-2022 15:25:34 UTC] PHP Notice:  Array to string conversion in D:\Ampps\www\OVANIC\wp-includes\taxonomy.php on line 3641
+[28-Aug-2022 15:25:34 UTC] PHP Notice:  Array to string conversion in D:\Ampps\www\OVANIC\wp-includes\category-template.php on line 1289
+[28-Aug-2022 15:25:34 UTC] PHP Warning:  Use of undefined constant php - assumed 'php' (this will throw an Error in a future version of PHP) in D:\Ampps\www\OVANIC\wp-content\themes\flatsome-child\woocommerce\single-product\price.php on line 31

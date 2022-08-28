@@ -18,8 +18,9 @@ function my_custom_translations( $strings ) {
   'by' => 'Bởi',
   'Continue reading' => 'Đọc tiếp',
   'Leave a comment' => 'Để lại bình luận',
-  'Posted in' => 'Đã đăng trong'
-
+  'Posted in' => 'Đã đăng trong',
+  ' by ' => 'bởi',
+  'Posted on' => 'Cập nhật lúc'
   );
   $strings = str_ireplace( array_keys( $text ), $text, $strings );
   return $strings;
