@@ -352,6 +352,19 @@ table tr td:first-child{
 th:first-child, td:first-child {
   padding-left: 15px !important;
 }
+.product-footer .yith-wfbt-section > h3{
+  margin-bottom: 0;
+}
+.yith-wfbt-submit-block .price_text .total_price_label{
+  display: none;
+}
+.nt-price{
+  margin-top: -6px;
+}
+.nt-price bdi{
+  font-size: 1.1rem;
+  color: red;
+}
 @media only screen and (min-width: 768px) {
   .seach_taget{
     margin-bottom: 15px;

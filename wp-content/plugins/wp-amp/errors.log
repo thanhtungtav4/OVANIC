@@ -116,3 +116,36 @@ Stack trace:
 2022-08-27 15:04:41 16384 Function WC_Cart::get_checkout_url is <strong>deprecated</strong> since version 2.5! Use wc_get_checkout_url instead. D:\Ampps\www\OVANIC\wp-includes\functions.php 5379 70429
 2022-08-27 15:04:51 8 Undefined variable: bestsale D:\Ampps\www\OVANIC\wp-content\themes\flatsome-child\wp-amp\parts\title.php 25 70429
 2022-08-27 15:04:51 16384 Function WC_Cart::get_checkout_url is <strong>deprecated</strong> since version 2.5! Use wc_get_checkout_url instead. D:\Ampps\www\OVANIC\wp-includes\functions.php 5379 70429
+2022-08-28 02:37:24 8 Undefined variable: bestsale D:\Ampps\www\OVANIC\wp-content\themes\flatsome-child\wp-amp\parts\title.php 25 70429
+2022-08-28 02:37:25 16384 Function WC_Cart::get_checkout_url is <strong>deprecated</strong> since version 2.5! Use wc_get_checkout_url instead. D:\Ampps\www\OVANIC\wp-includes\functions.php 5379 70429
+2022-08-28 02:37:25 16384 Function WC_Product::list_attributes is <strong>deprecated</strong> since version 3.0! Use wc_display_product_attributes instead. D:\Ampps\www\OVANIC\wp-includes\functions.php 5379 70429
+2022-08-28 02:37:32 8 Undefined variable: bestsale D:\Ampps\www\OVANIC\wp-content\themes\flatsome-child\wp-amp\parts\title.php 25 70429
+2022-08-28 02:37:32 16384 Function WC_Cart::get_checkout_url is <strong>deprecated</strong> since version 2.5! Use wc_get_checkout_url instead. D:\Ampps\www\OVANIC\wp-includes\functions.php 5379 70429
+2022-08-28 02:37:32 16384 Function WC_Product::list_attributes is <strong>deprecated</strong> since version 3.0! Use wc_display_product_attributes instead. D:\Ampps\www\OVANIC\wp-includes\functions.php 5379 70429
+2022-08-28 02:37:38 8 Undefined variable: bestsale D:\Ampps\www\OVANIC\wp-content\themes\flatsome-child\wp-amp\parts\title.php 25 70429
+2022-08-28 02:37:38 16384 Function WC_Cart::get_checkout_url is <strong>deprecated</strong> since version 2.5! Use wc_get_checkout_url instead. D:\Ampps\www\OVANIC\wp-includes\functions.php 5379 70429
+2022-08-28 02:37:38 16384 Function WC_Product::list_attributes is <strong>deprecated</strong> since version 3.0! Use wc_display_product_attributes instead. D:\Ampps\www\OVANIC\wp-includes\functions.php 5379 70429
+2022-08-28 02:37:43 8 Undefined variable: bestsale D:\Ampps\www\OVANIC\wp-content\themes\flatsome-child\wp-amp\parts\title.php 25 70429
+2022-08-28 02:37:43 16384 Function WC_Cart::get_checkout_url is <strong>deprecated</strong> since version 2.5! Use wc_get_checkout_url instead. D:\Ampps\www\OVANIC\wp-includes\functions.php 5379 70429
+2022-08-28 02:37:43 16384 Function WC_Product::list_attributes is <strong>deprecated</strong> since version 3.0! Use wc_display_product_attributes instead. D:\Ampps\www\OVANIC\wp-includes\functions.php 5379 70429
+2022-08-28 02:37:48 8 Undefined variable: bestsale D:\Ampps\www\OVANIC\wp-content\themes\flatsome-child\wp-amp\parts\title.php 25 70429
+2022-08-28 02:37:49 16384 Function WC_Cart::get_checkout_url is <strong>deprecated</strong> since version 2.5! Use wc_get_checkout_url instead. D:\Ampps\www\OVANIC\wp-includes\functions.php 5379 70429
+2022-08-28 02:37:49 16384 Function WC_Product::list_attributes is <strong>deprecated</strong> since version 3.0! Use wc_display_product_attributes instead. D:\Ampps\www\OVANIC\wp-includes\functions.php 5379 70429
+2022-08-28 02:37:53 8 Undefined variable: bestsale D:\Ampps\www\OVANIC\wp-content\themes\flatsome-child\wp-amp\parts\title.php 25 70429
+2022-08-28 02:37:53 16384 Function WC_Cart::get_checkout_url is <strong>deprecated</strong> since version 2.5! Use wc_get_checkout_url instead. D:\Ampps\www\OVANIC\wp-includes\functions.php 5379 70429
+2022-08-28 02:37:53 16384 Function WC_Product::list_attributes is <strong>deprecated</strong> since version 3.0! Use wc_display_product_attributes instead. D:\Ampps\www\OVANIC\wp-includes\functions.php 5379 70429
+2022-08-28 02:45:55 8 Undefined variable: bestsale D:\Ampps\www\OVANIC\wp-content\themes\flatsome-child\wp-amp\parts\title.php 25 70429
+2022-08-28 02:45:55 16384 Function WC_Cart::get_checkout_url is <strong>deprecated</strong> since version 2.5! Use wc_get_checkout_url instead. D:\Ampps\www\OVANIC\wp-includes\functions.php 5379 70429
+2022-08-28 02:45:55 16384 Function WC_Product::list_attributes is <strong>deprecated</strong> since version 3.0! Use wc_display_product_attributes instead. D:\Ampps\www\OVANIC\wp-includes\functions.php 5379 70429
+2022-08-28 02:45:59 8 Undefined variable: bestsale D:\Ampps\www\OVANIC\wp-content\themes\flatsome-child\wp-amp\parts\title.php 25 70429
+2022-08-28 02:45:59 16384 Function WC_Cart::get_checkout_url is <strong>deprecated</strong> since version 2.5! Use wc_get_checkout_url instead. D:\Ampps\www\OVANIC\wp-includes\functions.php 5379 70429
+2022-08-28 02:45:59 16384 Function WC_Product::list_attributes is <strong>deprecated</strong> since version 3.0! Use wc_display_product_attributes instead. D:\Ampps\www\OVANIC\wp-includes\functions.php 5379 70429
+2022-08-28 02:46:02 8 Undefined variable: bestsale D:\Ampps\www\OVANIC\wp-content\themes\flatsome-child\wp-amp\parts\title.php 25 70429
+2022-08-28 02:46:02 16384 Function WC_Cart::get_checkout_url is <strong>deprecated</strong> since version 2.5! Use wc_get_checkout_url instead. D:\Ampps\www\OVANIC\wp-includes\functions.php 5379 70429
+2022-08-28 02:46:02 16384 Function WC_Product::list_attributes is <strong>deprecated</strong> since version 3.0! Use wc_display_product_attributes instead. D:\Ampps\www\OVANIC\wp-includes\functions.php 5379 70429
+2022-08-28 02:46:06 8 Undefined variable: bestsale D:\Ampps\www\OVANIC\wp-content\themes\flatsome-child\wp-amp\parts\title.php 25 70429
+2022-08-28 02:46:06 16384 Function WC_Cart::get_checkout_url is <strong>deprecated</strong> since version 2.5! Use wc_get_checkout_url instead. D:\Ampps\www\OVANIC\wp-includes\functions.php 5379 70429
+2022-08-28 02:46:06 16384 Function WC_Product::list_attributes is <strong>deprecated</strong> since version 3.0! Use wc_display_product_attributes instead. D:\Ampps\www\OVANIC\wp-includes\functions.php 5379 70429
+2022-08-28 02:46:09 8 Undefined variable: bestsale D:\Ampps\www\OVANIC\wp-content\themes\flatsome-child\wp-amp\parts\title.php 25 70429
+2022-08-28 02:46:09 16384 Function WC_Cart::get_checkout_url is <strong>deprecated</strong> since version 2.5! Use wc_get_checkout_url instead. D:\Ampps\www\OVANIC\wp-includes\functions.php 5379 70429
+2022-08-28 02:46:09 16384 Function WC_Product::list_attributes is <strong>deprecated</strong> since version 3.0! Use wc_display_product_attributes instead. D:\Ampps\www\OVANIC\wp-includes\functions.php 5379 70429

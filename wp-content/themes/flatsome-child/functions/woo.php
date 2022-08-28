@@ -42,10 +42,11 @@ function show_info(){
   if(!empty($made[0]->name)){
     echo '<div>Xuất xứ: &nbsp; <span>'. $made[0]->name .'</span> </div>';
    }
-    echo '<div>Giá: &nbsp;' . $price .'</span> </div>';
+    echo '<div class="nt-price">Giá: &nbsp;' . $price .'</span> ';
   if(!empty($price_save)){
-    echo '<div>Giá thị trường: &nbsp; <span class="price-on-sale" style="text-decoration: line-through;"> ' . $f_price_save . '</span><sup>đ<sup> </div>';
+    echo '<span class="price-on-sale" style="text-decoration: line-through;"> ' . $f_price_save . '</span><sup>đ<sup> ';
   }
+  echo '</div>';
     woocommerce_simple_add_to_cart();
 };
 add_action('get_brand_name', 'show_info');
