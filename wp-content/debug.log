@@ -235,3 +235,44 @@ Stack trace:
 [28-Aug-2022 15:25:34 UTC] PHP Notice:  Array to string conversion in D:\Ampps\www\OVANIC\wp-includes\taxonomy.php on line 3641
 [28-Aug-2022 15:25:34 UTC] PHP Notice:  Array to string conversion in D:\Ampps\www\OVANIC\wp-includes\category-template.php on line 1289
 [28-Aug-2022 15:25:34 UTC] PHP Warning:  Use of undefined constant php - assumed 'php' (this will throw an Error in a future version of PHP) in D:\Ampps\www\OVANIC\wp-content\themes\flatsome-child\woocommerce\single-product\price.php on line 31
+[28-Aug-2022 15:35:36 UTC] PHP Notice:  Array to string conversion in D:\Ampps\www\OVANIC\wp-includes\taxonomy.php on line 3641
+[28-Aug-2022 15:35:36 UTC] PHP Notice:  Array to string conversion in D:\Ampps\www\OVANIC\wp-includes\category-template.php on line 1289
+[28-Aug-2022 15:35:36 UTC] PHP Warning:  Use of undefined constant php - assumed 'php' (this will throw an Error in a future version of PHP) in D:\Ampps\www\OVANIC\wp-content\themes\flatsome-child\woocommerce\single-product\price.php on line 31
+[28-Aug-2022 15:35:37 UTC] PHP Notice:  Array to string conversion in D:\Ampps\www\OVANIC\wp-includes\taxonomy.php on line 3641
+[28-Aug-2022 15:35:37 UTC] PHP Notice:  Array to string conversion in D:\Ampps\www\OVANIC\wp-includes\category-template.php on line 1289
+[28-Aug-2022 15:35:37 UTC] PHP Warning:  Use of undefined constant php - assumed 'php' (this will throw an Error in a future version of PHP) in D:\Ampps\www\OVANIC\wp-content\themes\flatsome-child\woocommerce\single-product\price.php on line 31
+[28-Aug-2022 15:35:37 UTC] PHP Notice:  Array to string conversion in D:\Ampps\www\OVANIC\wp-includes\taxonomy.php on line 3641
+[28-Aug-2022 15:35:37 UTC] PHP Notice:  Array to string conversion in D:\Ampps\www\OVANIC\wp-includes\category-template.php on line 1289
+[28-Aug-2022 15:35:37 UTC] PHP Warning:  Use of undefined constant php - assumed 'php' (this will throw an Error in a future version of PHP) in D:\Ampps\www\OVANIC\wp-content\themes\flatsome-child\woocommerce\single-product\price.php on line 31
+[28-Aug-2022 15:35:38 UTC] PHP Notice:  Undefined variable: color in D:\Ampps\www\OVANIC\wp-content\themes\flatsome-child\woocommerce\layouts\category.php on line 100
+[28-Aug-2022 15:35:55 UTC] PHP Notice:  Undefined variable: color in D:\Ampps\www\OVANIC\wp-content\themes\flatsome-child\woocommerce\layouts\category.php on line 100
+[28-Aug-2022 15:36:03 UTC] PHP Notice:  Undefined variable: color in D:\Ampps\www\OVANIC\wp-content\themes\flatsome-child\woocommerce\layouts\category.php on line 100
+[28-Aug-2022 15:36:04 UTC] PHP Notice:  Undefined variable: color in D:\Ampps\www\OVANIC\wp-content\themes\flatsome-child\woocommerce\layouts\category.php on line 100
+[28-Aug-2022 15:37:52 UTC] PHP Notice:  Array to string conversion in D:\Ampps\www\OVANIC\wp-includes\taxonomy.php on line 3641
+[28-Aug-2022 15:37:52 UTC] PHP Notice:  Array to string conversion in D:\Ampps\www\OVANIC\wp-includes\category-template.php on line 1289
+[28-Aug-2022 15:37:52 UTC] PHP Warning:  Use of undefined constant php - assumed 'php' (this will throw an Error in a future version of PHP) in D:\Ampps\www\OVANIC\wp-content\themes\flatsome-child\woocommerce\single-product\price.php on line 31
+[28-Aug-2022 15:38:00 UTC] PHP Notice:  Undefined variable: color in D:\Ampps\www\OVANIC\wp-content\themes\flatsome-child\woocommerce\layouts\category.php on line 100
+[28-Aug-2022 15:39:58 UTC] PHP Notice:  Undefined variable: color in D:\Ampps\www\OVANIC\wp-content\themes\flatsome-child\woocommerce\layouts\category.php on line 100
+[28-Aug-2022 15:43:09 UTC] PHP Notice:  Array to string conversion in D:\Ampps\www\OVANIC\wp-includes\taxonomy.php on line 3641
+[28-Aug-2022 15:43:09 UTC] PHP Notice:  Array to string conversion in D:\Ampps\www\OVANIC\wp-includes\category-template.php on line 1289
+[28-Aug-2022 15:43:09 UTC] PHP Warning:  Use of undefined constant php - assumed 'php' (this will throw an Error in a future version of PHP) in D:\Ampps\www\OVANIC\wp-content\themes\flatsome-child\woocommerce\single-product\price.php on line 31
+[28-Aug-2022 15:44:06 UTC] PHP Notice:  Array to string conversion in D:\Ampps\www\OVANIC\wp-includes\taxonomy.php on line 3641
+[28-Aug-2022 15:44:06 UTC] PHP Notice:  Array to string conversion in D:\Ampps\www\OVANIC\wp-includes\category-template.php on line 1289
+[28-Aug-2022 15:44:06 UTC] PHP Warning:  Use of undefined constant php - assumed 'php' (this will throw an Error in a future version of PHP) in D:\Ampps\www\OVANIC\wp-content\themes\flatsome-child\woocommerce\single-product\price.php on line 31
+[28-Aug-2022 15:44:07 UTC] PHP Notice:  Array to string conversion in D:\Ampps\www\OVANIC\wp-includes\taxonomy.php on line 3641
+[28-Aug-2022 15:44:07 UTC] PHP Notice:  Array to string conversion in D:\Ampps\www\OVANIC\wp-includes\category-template.php on line 1289
+[28-Aug-2022 15:44:07 UTC] PHP Warning:  Use of undefined constant php - assumed 'php' (this will throw an Error in a future version of PHP) in D:\Ampps\www\OVANIC\wp-content\themes\flatsome-child\woocommerce\single-product\price.php on line 31
+[28-Aug-2022 15:44:09 UTC] PHP Notice:  Array to string conversion in D:\Ampps\www\OVANIC\wp-includes\taxonomy.php on line 3641
+[28-Aug-2022 15:44:09 UTC] PHP Notice:  Array to string conversion in D:\Ampps\www\OVANIC\wp-includes\category-template.php on line 1289
+[28-Aug-2022 15:44:09 UTC] PHP Warning:  Use of undefined constant php - assumed 'php' (this will throw an Error in a future version of PHP) in D:\Ampps\www\OVANIC\wp-content\themes\flatsome-child\woocommerce\single-product\price.php on line 31
+[28-Aug-2022 15:44:51 UTC] PHP Notice:  Array to string conversion in D:\Ampps\www\OVANIC\wp-includes\taxonomy.php on line 3641
+[28-Aug-2022 15:44:51 UTC] PHP Notice:  Array to string conversion in D:\Ampps\www\OVANIC\wp-includes\category-template.php on line 1289
+[28-Aug-2022 15:44:51 UTC] PHP Warning:  Use of undefined constant php - assumed 'php' (this will throw an Error in a future version of PHP) in D:\Ampps\www\OVANIC\wp-content\themes\flatsome-child\woocommerce\single-product\price.php on line 31
+[28-Aug-2022 15:44:53 UTC] PHP Notice:  Array to string conversion in D:\Ampps\www\OVANIC\wp-includes\taxonomy.php on line 3641
+[28-Aug-2022 15:44:53 UTC] PHP Notice:  Array to string conversion in D:\Ampps\www\OVANIC\wp-includes\category-template.php on line 1289
+[28-Aug-2022 15:44:53 UTC] PHP Warning:  Use of undefined constant php - assumed 'php' (this will throw an Error in a future version of PHP) in D:\Ampps\www\OVANIC\wp-content\themes\flatsome-child\woocommerce\single-product\price.php on line 31
+[28-Aug-2022 15:44:55 UTC] PHP Notice:  Undefined variable: color in D:\Ampps\www\OVANIC\wp-content\themes\flatsome-child\woocommerce\layouts\category.php on line 100
+[28-Aug-2022 15:45:00 UTC] PHP Notice:  Undefined variable: color in D:\Ampps\www\OVANIC\wp-content\themes\flatsome-child\woocommerce\layouts\category.php on line 100
+[28-Aug-2022 15:45:01 UTC] PHP Notice:  Array to string conversion in D:\Ampps\www\OVANIC\wp-includes\taxonomy.php on line 3641
+[28-Aug-2022 15:45:01 UTC] PHP Notice:  Array to string conversion in D:\Ampps\www\OVANIC\wp-includes\category-template.php on line 1289
+[28-Aug-2022 15:45:01 UTC] PHP Warning:  Use of undefined constant php - assumed 'php' (this will throw an Error in a future version of PHP) in D:\Ampps\www\OVANIC\wp-content\themes\flatsome-child\woocommerce\single-product\price.php on line 31
