@@ -16,7 +16,9 @@
 			<p class='detail_info'>
 				<?php echo the_field('cam_ket_san_pham', 'option'); ?>
 			</p>
-			<?php do_action('woocommerce_single_excerpt_tungnt') ?>
+			<div class="only_pc">
+				<?php require_once( get_stylesheet_directory() . '/module/search_taget.php' ); ?>
+			</div>
     	</div>
 
     	<div class="product-info summary col-fit col entry-summary <?php flatsome_product_summary_classes();?>">
@@ -39,7 +41,11 @@
 							 */
 							do_action( 'woocommerce_single_product_summary' );
 						?>
-						<?php require_once( get_stylesheet_directory() . '/module/search_taget.php' ); ?>
+						<?php do_action('woocommerce_single_excerpt_tungnt') ?>
+						<div class="only_sp">
+							<?php include( get_stylesheet_directory() . '/module/search_taget.php' ); ?>
+						</div>
+						
 					</div>
 					<?php echo the_field('cam_ket_dich_vu', 'option'); ?>
 				</div>

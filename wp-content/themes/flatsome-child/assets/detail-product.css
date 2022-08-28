@@ -366,22 +366,29 @@ th:first-child, td:first-child {
   color: red;
 }
 @media only screen and (min-width: 768px) {
-  .seach_taget{
-    margin-bottom: 15px;
-    margin-right: 10px;
+  .shop_info .detail_info.seach_taget{
+   margin: 0;
   }
   .featured-content{
-    margin-top: -41px;
     margin-bottom: 10px;
+  }
+  .only_sp{
+    display: none;
   }
 }
 @media only screen and (max-width: 768px) {
+  .only_pc{
+    display: none;
+  }
   .brand-block{
     font-size: 12px;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    margin-top: 5px;
   }
   .item {
-    width: 50%;
-    flex-wrap: wrap;
+    display: flex;
   }
   .shop_row .info, .shop_row  .shop_info{
     width: 100% ;

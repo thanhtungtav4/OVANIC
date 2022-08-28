@@ -9,6 +9,3 @@
   </form >
   <smail id="nds_form_feedback"></smail>
 </div>
-<p class="detail_info seach_taget">
-  🔎 Tìm trên Google <strong>"Tên sản phẩm + Ovanic"</strong> để mua sản phẩm chính hãng nhanh nhất nhé!
-</p>
