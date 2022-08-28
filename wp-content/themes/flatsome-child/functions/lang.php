@@ -15,7 +15,10 @@ function my_custom_translations( $strings ) {
   'Save' => 'Tiết kiệm',
   'This Product' =>'Sản phẩm chính',
   'View more' => 'Xem thêm',
-  'by' => 'Bởi'
+  'by' => 'Bởi',
+  'Continue reading' => 'Đọc tiếp',
+  'Leave a comment' => 'Để lại bình luận',
+  'Posted in' => 'Đã đăng trong'
 
   );
   $strings = str_ireplace( array_keys( $text ), $text, $strings );
