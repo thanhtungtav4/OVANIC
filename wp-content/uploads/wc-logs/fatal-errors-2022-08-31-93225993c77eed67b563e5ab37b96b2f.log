@@ -1,0 +1,44 @@
+2022-08-31T15:50:29+00:00 CRITICAL Uncaught Error: Call to undefined function ampforwp_is_amp_endpoint() in D:\Ampps\www\OVANIC\wp-content\themes\flatsome-child\woocommerce\yith-wfbt-form.php:21
+Stack trace:
+#0 D:\Ampps\www\OVANIC\wp-content\plugins\woocommerce\includes\wc-core-functions.php(345): include()
+#1 D:\Ampps\www\OVANIC\wp-content\plugins\yith-woocommerce-frequently-bought-together-premium\includes\class.yith-wfbt-frontend.php(419): wc_get_template()
+#2 D:\Ampps\www\OVANIC\wp-includes\class-wp-hook.php(307): YITH_WFBT_Frontend->add_bought_together_form()
+#3 D:\Ampps\www\OVANIC\wp-includes\class-wp-hook.php(331): WP_Hook->apply_filters()
+#4 D:\Ampps\www\OVANIC\wp-includes\plugin.php(476): WP_Hook->do_action()
+#5 D:\Ampps\www\OVANIC\wp-content\themes\flatsome-child\wp-amp\parts\product_add_to_cart_block.php(37): do_action()
+#6 D:\Ampps\www\OVANIC\wp-content\plugins\wp-amp\includes\class-amphtml-template-abstract.php(75): include('D:\\Ampps\\www\\OV...')
+#7 D:\Ampps\www\OVANIC\wp-content\plugins\wp-amp\templates\single-content.php(21):  in D:\Ampps\www\OVANIC\wp-content\themes\flatsome-child\woocommerce\yith-wfbt-form.php on line 21
+
+2022-08-31T15:50:56+00:00 CRITICAL Uncaught Error: Call to undefined function ampforwp_is_amp_endpoint() in D:\Ampps\www\OVANIC\wp-content\themes\flatsome-child\woocommerce\yith-wfbt-form.php:21
+Stack trace:
+#0 D:\Ampps\www\OVANIC\wp-content\plugins\woocommerce\includes\wc-core-functions.php(345): include()
+#1 D:\Ampps\www\OVANIC\wp-content\plugins\yith-woocommerce-frequently-bought-together-premium\includes\class.yith-wfbt-frontend.php(419): wc_get_template()
+#2 D:\Ampps\www\OVANIC\wp-includes\class-wp-hook.php(307): YITH_WFBT_Frontend->add_bought_together_form()
+#3 D:\Ampps\www\OVANIC\wp-includes\class-wp-hook.php(331): WP_Hook->apply_filters()
+#4 D:\Ampps\www\OVANIC\wp-includes\plugin.php(476): WP_Hook->do_action()
+#5 D:\Ampps\www\OVANIC\wp-content\themes\flatsome-child\wp-amp\parts\product_add_to_cart_block.php(37): do_action()
+#6 D:\Ampps\www\OVANIC\wp-content\plugins\wp-amp\includes\class-amphtml-template-abstract.php(75): include('D:\\Ampps\\www\\OV...')
+#7 D:\Ampps\www\OVANIC\wp-content\plugins\wp-amp\templates\single-content.php(21):  in D:\Ampps\www\OVANIC\wp-content\themes\flatsome-child\woocommerce\yith-wfbt-form.php on line 21
+
+2022-08-31T16:06:07+00:00 CRITICAL Uncaught Error: Call to undefined function amp_is_rquest() in D:\Ampps\www\OVANIC\wp-content\themes\flatsome-child\woocommerce\yith-wfbt-form.php:21
+Stack trace:
+#0 D:\Ampps\www\OVANIC\wp-content\plugins\woocommerce\includes\wc-core-functions.php(345): include()
+#1 D:\Ampps\www\OVANIC\wp-content\plugins\yith-woocommerce-frequently-bought-together-premium\includes\class.yith-wfbt-frontend.php(419): wc_get_template()
+#2 D:\Ampps\www\OVANIC\wp-includes\class-wp-hook.php(307): YITH_WFBT_Frontend->add_bought_together_form()
+#3 D:\Ampps\www\OVANIC\wp-includes\class-wp-hook.php(331): WP_Hook->apply_filters()
+#4 D:\Ampps\www\OVANIC\wp-includes\plugin.php(476): WP_Hook->do_action()
+#5 D:\Ampps\www\OVANIC\wp-content\themes\flatsome-child\wp-amp\parts\product_add_to_cart_block.php(37): do_action()
+#6 D:\Ampps\www\OVANIC\wp-content\plugins\wp-amp\includes\class-amphtml-template-abstract.php(75): include('D:\\Ampps\\www\\OV...')
+#7 D:\Ampps\www\OVANIC\wp-content\plugins\wp-amp\templates\single-content.php(21): AMPHTML_Tem in D:\Ampps\www\OVANIC\wp-content\themes\flatsome-child\woocommerce\yith-wfbt-form.php on line 21
+
+2022-08-31T16:07:05+00:00 CRITICAL Uncaught Error: Call to undefined function is_amp_endpoint() in D:\Ampps\www\OVANIC\wp-content\themes\flatsome-child\woocommerce\yith-wfbt-form.php:21
+Stack trace:
+#0 D:\Ampps\www\OVANIC\wp-content\plugins\woocommerce\includes\wc-core-functions.php(345): include()
+#1 D:\Ampps\www\OVANIC\wp-content\plugins\yith-woocommerce-frequently-bought-together-premium\includes\class.yith-wfbt-frontend.php(419): wc_get_template()
+#2 D:\Ampps\www\OVANIC\wp-includes\class-wp-hook.php(307): YITH_WFBT_Frontend->add_bought_together_form()
+#3 D:\Ampps\www\OVANIC\wp-includes\class-wp-hook.php(331): WP_Hook->apply_filters()
+#4 D:\Ampps\www\OVANIC\wp-includes\plugin.php(476): WP_Hook->do_action()
+#5 D:\Ampps\www\OVANIC\wp-content\themes\flatsome-child\wp-amp\parts\product_add_to_cart_block.php(37): do_action()
+#6 D:\Ampps\www\OVANIC\wp-content\plugins\wp-amp\includes\class-amphtml-template-abstract.php(75): include('D:\\Ampps\\www\\OV...')
+#7 D:\Ampps\www\OVANIC\wp-content\plugins\wp-amp\templates\single-content.php(21): AMPHTML_T in D:\Ampps\www\OVANIC\wp-content\themes\flatsome-child\woocommerce\yith-wfbt-form.php on line 21
+

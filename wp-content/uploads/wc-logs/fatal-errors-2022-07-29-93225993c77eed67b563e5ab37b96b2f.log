@@ -1,7 +1,0 @@
-2022-07-29T07:14:48+00:00 CRITICAL Uncaught RuntimeException: Lỗi lưu hành động: Lỗi lưu hành động: Table 'ovanic2.wp_actionscheduler_actions' doesn't exist in D:\xampp\htdocs\OVANIC\wp-content\plugins\woocommerce\packages\action-scheduler\classes\migration\ActionScheduler_DBStoreMigrator.php:44
-Stack trace:
-#0 D:\xampp\htdocs\OVANIC\wp-content\plugins\woocommerce\packages\action-scheduler\classes\data-stores\ActionScheduler_HybridStore.php(242): ActionScheduler_DBStoreMigrator->save_action(Object(ActionScheduler_Action), NULL)
-#1 D:\xampp\htdocs\OVANIC\wp-content\plugins\woocommerce\packages\action-scheduler\classes\ActionScheduler_ActionFactory.php(177): ActionScheduler_HybridStore->save_action(Object(ActionScheduler_Action))
-#2 D:\xampp\htdocs\OVANIC\wp-content\plugins\woocommerce\packages\action-scheduler\classes\ActionScheduler_ActionFactory.php(84): ActionScheduler_ActionFactory->store(Object(ActionScheduler_Action))
-#3 D:\xampp\htdocs\OVANIC\wp-content\plugins\woocommerce\packages\action-scheduler\functions.php(36): Action in D:\xampp\htdocs\OVANIC\wp-content\plugins\woocommerce\packages\action-scheduler\classes\migration\ActionScheduler_DBStoreMigrator.php on line 44
-

@@ -5,6 +5,10 @@
  * @var $this AMPHTML_Template
  * @version 9.3.0
  */
+$this->add_embedded_element( array(
+    'slug' => 'amp-form',
+    'src'  => 'https://cdn.ampproject.org/v0/amp-form-0.1.js'
+) );
 ?>
 <?php
 global $wp;
@@ -31,7 +35,7 @@ if ( $this->options->get( $section . '_price_desc' ) ) {
 }
 ?>
 
-<amp-form class="woocommerce-ordering" action="<?php echo $current_url; ?>" target="_top" method="get">
+<form class="woocommerce-ordering" action="<?php echo $current_url; ?>" target="_top" method="get">
     <select name="orderby" class="orderby">
         <?php foreach ( $catalog_orderby_options as $id => $name ) : ?>
             <option value="<?php echo esc_attr( $id ); ?>" <?php selected( $orderby, $id ); ?>><?php echo esc_html( $name ); ?></option>
@@ -40,5 +44,5 @@ if ( $this->options->get( $section . '_price_desc' ) ) {
     <input type="hidden" name="paged" value="1" />
     <input class="i-button" type="submit" value="<?php _e( 'Sort', 'amphtml' ); ?>"/>
     <?php wc_query_string_form_fields( null, array( 'orderby', 'submit', 'paged', 'product-page' ) ); ?>
-</amp-form>
+</form>
 

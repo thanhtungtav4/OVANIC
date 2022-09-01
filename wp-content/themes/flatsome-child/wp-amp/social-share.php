@@ -5,6 +5,10 @@
  * @var $this AMPHTML_Template
  * @version 9.3.0
  */
+$this->add_embedded_element( array(
+    'slug' => 'amp-form',
+    'src'  => 'https://cdn.ampproject.org/v0/amp-form-0.1.js'
+) );
 ?>
 <?php
 $buttons = $this->options->get( 'social_share_buttons' );
