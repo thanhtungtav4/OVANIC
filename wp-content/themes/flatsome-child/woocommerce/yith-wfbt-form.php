@@ -28,10 +28,127 @@ $url           = wp_nonce_url( $url, 'yith_bought_together' );
 
 $metas         = yith_wfbt_get_meta( $product );
 $meta_products = isset( $metas['products'] ) ? $metas['products'] : array();
-
 ?>
-
+<?php 
+global $wp;
+$check_url = basename(home_url($wp->request));
+if($check_url == 'amp') :?>
 <div class="yith-wfbt-section woocommerce">
+	<?php if ( $title ) {
+		echo '<h3>' . esc_html( $title ) . '</h3>';
+	}
+
+	if ( ! empty( $additional_text ) ) {
+		echo '<p class="additional-text">' . wp_kses_post( $additional_text ) . '</p>';
+	}
+	?>
+
+	<div class="yith-wfbt-form">
+		<?php if ( ! $show_unchecked ) : ?>
+			<table class="yith-wfbt-images">
+				<tbody>
+				<tr>
+					<?php $i = 0;
+					foreach ( $products as $product ) :
+						if ( in_array( $product->get_id(), $unchecked ) || $product instanceof WC_Product_Variable ) {
+							continue;
+						}
+						?>
+
+						<?php if ( $i > 0 ) : ?>
+						<td class="image_plus image_plus_<?php echo esc_attr( $i ); ?>" data-rel="offeringID_<?php echo esc_attr( $i ); ?>">+</td>
+						<?php endif; ?>
+						<td class="image-td" data-rel="offeringID_<?php echo esc_attr( $i ) ?>">
+							<a href="<?php echo esc_url( $product->get_permalink() ); ?>">
+								<?php echo $product->get_image( 'yith_wfbt_image_size' ); // phpcs:ignore WordPress.XSS.EscapeOutput.OutputNotEscaped ?>
+							</a>
+						</td>
+						<?php $i++; endforeach; ?>
+				</tr>
+				</tbody>
+			</table>
+		<?php endif; ?>
+
+		<?php if ( ! $is_empty ) : ?>
+			<div class="yith-wfbt-submit-block">
+				<div class="price_text">
+                    <span class="total_price_label">
+                        <?php echo esc_html( $label_total ); ?>:
+                    </span>
+					<span class="total_price">
+                        <?php echo $total; // phpcs:ignore WordPress.XSS.EscapeOutput.OutputNotEscaped ?>
+                    </span>
+					<?php if ( ! empty( $discount ) && 'yes' === get_option( 'yith-wfbt-show-discount-save', 'no' ) ) : ?>
+						<span class="save-amount">
+							<?php echo apply_filters( 'yith_wfbt_save_discount_text', sprintf( __( 'Save %s', 'yith-woocommerce-frequently-bought-together' ), wc_price( $discount ) ), $discount ); ?>
+						</span>
+					<?php endif; ?>
+				</div>
+				<?php 
+					$id_add =[];
+					foreach ( $products as $key => $product ) : 
+							$id_add[$key] = $product->get_id();
+
+					?>
+				<?php endforeach; ?>
+				<a class="yith-wfbt-submit-button button" style=" width: fit-content; text-decoration: blink; text-transform: uppercase;" href="<?php echo home_url('/checkout?add-to-cart=' . implode(',' ,$id_add)) ?>">
+					<?php echo esc_html( $label ); ?>
+					</a>
+			</div>
+		<?php endif; ?>
+
+		<ul class="yith-wfbt-items">
+			<?php $j                 = 0;
+			foreach ( $products as $product ) :
+				$product_id 			= $product->get_id();
+				$is_variable			= $product->is_type( 'variable' );
+				$is_variation			= $product->is_type( 'variation' );
+				$variable_product_id 	= $is_variable ? $product_id : $product->get_parent_id();
+
+				$variations_modal	= false;
+				if( $is_variable || ( $is_variation && in_array( $product->get_parent_id(), $meta_products ) ) ) {
+					$variations_modal = true;
+				}
+				?>
+				<li class="yith-wfbt-item <?php echo $is_variable ? 'choise-variation' : ''; ?>" >
+					<label for="offeringID_<?php echo esc_attr( $j ); ?>" style="pointer-events: none;">
+						<input type="checkbox" name="offeringID[]" id="offeringID_<?php echo esc_attr( $j ); ?>" class="active"
+							value="<?php echo esc_attr( $product_id ); ?>"
+							<?php echo ( ! in_array( $product_id, $unchecked ) && ! $show_unchecked && ! $is_variable ) ? 'checked="checked"' : ''; ?>
+							<?php echo $is_variable ? 'disabled' : ''; ?>
+							data-variable_product_id= <?php echo esc_attr( $variable_product_id ); ?>
+						>
+						<?php if ( $product_id != $main_product_id ) : ?>
+						<a href="<?php echo esc_url( $product->get_permalink() ); ?>">
+							<?php endif ?>
+
+							<span class="product-name">
+                            <?php
+							$this_product_label = apply_filters( 'yith_wfbt_this_product_label', __( 'This Product', 'yith-woocommerce-frequently-bought-together' ) . ': ' );
+							echo ( ( $product_id == $main_product_id ) ? esc_html( $this_product_label ) : '' ) . sprintf( '%1$s %2$s', $product->get_title(), wc_get_formatted_variation( $product, true ) ); ?>
+                        </span>
+
+							<?php if ( $product_id != $main_product_id ) : ?>
+						</a>
+					<?php endif; ?>
+
+						- <span class="price"><?php echo $product->get_price_html(); // phpcs:ignore WordPress.XSS.EscapeOutput.OutputNotEscaped ?></span>
+
+						<?php if ( $variations_modal ) : ?>
+							<a href="#" class="yith-wfbt-open-modal" data-product_id="<?php echo esc_attr( $variable_product_id ); ?>"><?php echo esc_html( $popup_button_label ); ?></a>
+						<?php endif; ?>
+
+					</label>
+					<?php do_action( 'yith_wfbt_end_item', $product ); ?>
+				</li>
+				<?php $j++; endforeach; ?>
+		</ul>
+
+		<input type="hidden" name="yith-wfbt-main-product" value="<?php echo esc_attr( $main_product_id ); ?>">
+						</div>
+</div>
+<?php else : ?>
+	<div class="yith-wfbt-section woocommerce">
 	<?php if ( $title ) {
 		echo '<h3>' . esc_html( $title ) . '</h3>';
 	}
@@ -139,3 +256,5 @@ $meta_products = isset( $metas['products'] ) ? $metas['products'] : array();
 		<input type="hidden" name="yith-wfbt-main-product" value="<?php echo esc_attr( $main_product_id ); ?>">
 	</form>
 </div>
+<?php endif; ?>
+
