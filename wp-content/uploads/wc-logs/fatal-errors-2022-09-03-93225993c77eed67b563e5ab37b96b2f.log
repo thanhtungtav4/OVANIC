@@ -1,0 +1,21 @@
+2022-09-03T05:19:16+00:00 CRITICAL Uncaught Error: Class 'WPSEO_WooCommerce_Abstract_Product_Availability_Presenter' not found in D:\Ampps\www\OVANIC\wp-content\plugins\wpseo-woocommerce\classes\presenters\woocommerce-pinterest-product-availability-presenter.php:11
+Stack trace:
+#0 D:\Ampps\www\OVANIC\wp-content\plugins\ewww-image-optimizer\vendor\composer\ClassLoader.php(571): include()
+#1 D:\Ampps\www\OVANIC\wp-content\plugins\ewww-image-optimizer\vendor\composer\ClassLoader.php(428): Composer\Autoload\includeFile()
+#2 [internal function]: Composer\Autoload\ClassLoader->loadClass()
+#3 D:\Ampps\www\OVANIC\wp-content\plugins\wpseo-woocommerce\classes\woocommerce-seo.php(178): spl_autoload_call()
+#4 D:\Ampps\www\OVANIC\wp-includes\class-wp-hook.php(307): Yoast_WooCommerce_SEO->add_frontend_presenter()
+#5 D:\Ampps\www\OVANIC\wp-includes\plugin.php(191): WP_Hook->apply_filters()
+#6 D:\Ampps\www\OVANIC\wp-content\plugins\wordpress-seo-premium\src\integrations\front-end-integration.php(307): apply_filters()
+#7 D:\Ampps\www\OVANIC\wp-content\plugins\ in D:\Ampps\www\OVANIC\wp-content\plugins\wpseo-woocommerce\classes\presenters\woocommerce-pinterest-product-availability-presenter.php on line 11
+
+2022-09-03T05:57:16+00:00 CRITICAL Uncaught Error: Class 'WC_Tax' not found in D:\Ampps\www\OVANIC\wp-content\plugins\woocommerce\includes\abstracts\abstract-wc-product.php:937
+Stack trace:
+#0 D:\Ampps\www\OVANIC\wp-content\plugins\woocommerce\includes\abstracts\abstract-wc-product.php(922): WC_Product->get_valid_tax_classes()
+#1 D:\Ampps\www\OVANIC\wp-content\plugins\woocommerce\includes\abstracts\abstract-wc-data.php(714): WC_Product->set_tax_class()
+#2 D:\Ampps\www\OVANIC\wp-content\plugins\woocommerce\includes\data-stores\class-wc-product-data-store-cpt.php(373): WC_Data->set_props()
+#3 D:\Ampps\www\OVANIC\wp-content\plugins\woocommerce\includes\data-stores\class-wc-product-data-store-cpt.php(189): WC_Product_Data_Store_CPT->read_product_data()
+#4 D:\Ampps\www\OVANIC\wp-content\plugins\woocommerce\includes\class-wc-data-store.php(159): WC_Product_Data_Store_CPT->read()
+#5 D:\Ampps\www\OVANIC\wp-content\plugins\woocommerce\includes\abstracts\abstract-wc-product.php(138): WC_Data_Store->read()
+#6 D:\Ampps\www\OVANIC\wp-content\plugins\woocom in D:\Ampps\www\OVANIC\wp-content\plugins\woocommerce\includes\abstracts\abstract-wc-product.php on line 937
+

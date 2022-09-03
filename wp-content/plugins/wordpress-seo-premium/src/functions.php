@@ -2,22 +2,11 @@
 /**
  * WPSEO plugin file.
  *
- * @package WPSEO\Internals
+ * @package Yoast\WP\SEO\Premium
  */
 
-if ( ! defined( 'WPSEO_VERSION' ) ) {
-	header( 'Status: 403 Forbidden' );
-	header( 'HTTP/1.1 403 Forbidden' );
-	exit();
-}
-
-use Yoast\WP\SEO\Main;
-
-if ( is_dir( WPSEO_PATH . YOAST_VENDOR_PREFIX_DIRECTORY ) ) {
-	require_once WPSEO_PATH . YOAST_VENDOR_PREFIX_DIRECTORY . '/guzzlehttp/guzzle/src/functions.php';
-	require_once WPSEO_PATH . YOAST_VENDOR_PREFIX_DIRECTORY . '/guzzlehttp/psr7/src/functions_include.php';
-	require_once WPSEO_PATH . YOAST_VENDOR_PREFIX_DIRECTORY . '/guzzlehttp/promises/src/functions_include.php';
-}
+use Yoast\WP\SEO\Premium\Addon_Installer;
+use Yoast\WP\SEO\Premium\Main;
 
 /**
  * Retrieves the main instance.
@@ -26,14 +15,21 @@ if ( is_dir( WPSEO_PATH . YOAST_VENDOR_PREFIX_DIRECTORY ) ) {
  *
  * @return Main The main instance.
  */
-function YoastSEO() {
+function YoastSEOPremium() {
 	// phpcs:enable
 
 	static $main;
-
-	if ( $main === null ) {
-		$main = new Main();
-		$main->load();
+	if ( did_action( 'wpseo_loaded' ) ) {
+		$should_load = Addon_Installer::is_yoast_seo_up_to_date();
+		if ( $main === null && $should_load ) {
+			// Ensure free is loaded as loading premium will fail without it.
+			YoastSEO();
+			$main = new Main();
+			$main->load();
+		}
+	}
+	else {
+		add_action( 'wpseo_loaded', 'YoastSEOPremium' );
 	}
 
 	return $main;

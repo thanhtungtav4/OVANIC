@@ -5,24 +5,25 @@
  * WPSEO Premium plugin file.
  *
  * @package   WPSEO\Main
- * @copyright Copyright (C) 2008-2019, Yoast BV - support@yoast.com
+ * @copyright Copyright (C) 2008-2022, Yoast BV - support@yoast.com
  * @license   http://www.gnu.org/licenses/gpl-3.0.html GNU General Public License, version 3 or higher
  *
  * @wordpress-plugin
  * Plugin Name: Yoast SEO Premium
- * Version:     15.6.2
+ * Version:     19.2
  * Plugin URI:  https://yoa.st/2jc
+ * Secret Key:  83a5bb0e2ad5164690bc7a42ae592cf5
  * Description: The first true all-in-one SEO solution for WordPress, including on-page content analysis, XML sitemaps and much more.
  * Author:      Team Yoast
  * Author URI:  https://yoa.st/2jc
- * Text Domain: wordpress-seo
+ * Text Domain: wordpress-seo-premium
  * Domain Path: /languages/
  * License:     GPL v3
- * Requires at least: 5.5
+ * Requires at least: 5.9
  * Requires PHP: 5.6.20
  *
  * WC requires at least: 3.0
- * WC tested up to: 4.8
+ * WC tested up to: 6.8
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -38,87 +39,85 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-if ( ! defined( 'WPSEO_FILE' ) ) {
-	define( 'WPSEO_FILE', __FILE__ );
+use Yoast\WP\SEO\Premium\Addon_Installer;
+
+$site_information = get_transient( 'wpseo_site_information' );
+if ( isset( $site_information->subscriptions ) && ( count( $site_information->subscriptions ) == 0 ) ) {
+    delete_transient( 'wpseo_site_information' );
+    delete_transient( 'wpseo_site_information_quick' );
 }
 
-if ( ! defined( 'WPSEO_PREMIUM_PLUGIN_FILE' ) ) {
-	define( 'WPSEO_PREMIUM_PLUGIN_FILE', __FILE__ );
+add_filter( 'pre_http_request', function( $pre, $parsed_args, $url ){
+    $site_information = (object) [
+        'subscriptions' => [
+            (object) [
+                'product' => (object) [ 'slug' => 'yoast-seo-wordpress-premium' ],
+                'expiryDate' => '+5 years'
+            ],
+
+            (object) [
+                'product' => (object) [ 'slug' => 'yoast-seo-news' ],
+                'expiryDate' => '+5 years'
+            ],
+            (object) [
+                'product' => (object) [ 'slug' => 'yoast-seo-woocommerce' ],
+                'expiryDate' => '+5 years'
+            ],
+            (object) [
+                'product' => (object) [ 'slug' => 'yoast-seo-video' ],
+                'expiryDate' => '+5 years'
+            ],
+            (object) [
+                'product' => (object) [ 'slug' => 'yoast-seo-local' ],
+                'expiryDate' => '+5 years'
+            ]
+        ],
+    ];
+
+    if ( strpos( $url, 'https://my.yoast.com/api/sites/current' ) !== false ) {
+        return [
+            'response' => [ 'code' => 200, 'message' => 'OK' ],
+            'body'     => json_encode( $site_information )
+        ];
+    } else {
+        return $pre;
+    }
+}, 10, 3 );
+
+if ( ! defined( 'WPSEO_PREMIUM_FILE' ) ) {
+	define( 'WPSEO_PREMIUM_FILE', __FILE__ );
 }
 
-$wpseo_premium_dir = plugin_dir_path( WPSEO_PREMIUM_PLUGIN_FILE ) . 'premium/';
+if ( ! defined( 'WPSEO_PREMIUM_PATH' ) ) {
+	define( 'WPSEO_PREMIUM_PATH', plugin_dir_path( WPSEO_PREMIUM_FILE ) );
+}
 
-// Run the redirects when frontend is being opened.
-if ( ! is_admin() ) {
-	require_once $wpseo_premium_dir . 'classes/redirect/redirect-util.php';
-	require_once $wpseo_premium_dir . 'classes/redirect/redirect-handler.php';
-
-	$wpseo_redirect_handler = new WPSEO_Redirect_Handler();
-	$wpseo_redirect_handler->load();
+if ( ! defined( 'WPSEO_PREMIUM_BASENAME' ) ) {
+	define( 'WPSEO_PREMIUM_BASENAME', plugin_basename( WPSEO_PREMIUM_FILE ) );
 }
 
 /**
- * Filters the defaults for the `wpseo` option.
- *
- * @param array $wpseo_defaults The defaults for the `wpseo` option.
- *
- * @return array
+ * {@internal Nobody should be able to overrule the real version number as this can cause
+ *            serious issues with the options, so no if ( ! defined() ).}}
  */
-function wpseo_premium_add_general_option_defaults( array $wpseo_defaults ) {
-	$premium_defaults = [
-		'enable_metabox_insights' => true,
-		'enable_link_suggestions' => true,
-	];
+define( 'WPSEO_PREMIUM_VERSION', '19.2' );
 
-	return array_merge( $wpseo_defaults, $premium_defaults );
-}
-add_filter( 'wpseo_option_wpseo_defaults', 'wpseo_premium_add_general_option_defaults' );
-
-// Load the WordPress SEO plugin.
-require_once dirname( WPSEO_FILE ) . '/wp-seo-main.php';
-
-$yoast_seo_premium_autoload_file = plugin_dir_path( WPSEO_PREMIUM_PLUGIN_FILE ) . 'vendor/autoload.php';
+// Initialize Premium autoloader.
+$wpseo_premium_dir               = WPSEO_PREMIUM_PATH;
+$yoast_seo_premium_autoload_file = $wpseo_premium_dir . 'vendor/autoload.php';
 
 if ( is_readable( $yoast_seo_premium_autoload_file ) ) {
 	require $yoast_seo_premium_autoload_file;
 }
-elseif ( ! class_exists( 'WPSEO_Options' ) ) { // Still checking since might be site-level autoload R.
-	add_action( 'admin_init', 'yoast_wpseo_missing_autoload', 1 );
 
-	return;
-}
+// This class has to exist outside of the container as the container requires Yoast SEO to exist.
+$wpseo_addon_installer = new Addon_Installer( __DIR__ );
+$wpseo_addon_installer->install_or_load_yoast_seo_from_vendor_directory();
 
-$wpseo_premium_capabilities = new WPSEO_Premium_Register_Capabilities();
-$wpseo_premium_capabilities->register_hooks();
-
-/**
- * Run the upgrade for Yoast SEO Premium.
- */
-function wpseo_premium_run_upgrade() {
-	$upgrade_manager = new WPSEO_Upgrade_Manager();
-	$upgrade_manager->run_upgrade( WPSEO_VERSION );
-}
-
-/*
- * If the user is admin, check for the upgrade manager.
- * Considered to use 'admin_init' but that is called too late in the process.
- */
-if ( is_admin() ) {
-	add_action( 'init', 'wpseo_premium_run_upgrade' );
-}
-
-/**
- * The premium setup
- */
-function wpseo_premium_init() {
-	new WPSEO_Premium();
-}
-
+// Load the container.
 if ( ! wp_installing() ) {
-	add_action( 'plugins_loaded', 'wpseo_premium_init', 14 );
+	require_once __DIR__ . '/src/functions.php';
+	YoastSEOPremium();
 }
 
-// Activation hook.
-if ( is_admin() ) {
-	register_activation_hook( __FILE__, [ 'WPSEO_Premium', 'install' ] );
-}
+\register_activation_hook( \WPSEO_PREMIUM_FILE, [ 'WPSEO_Premium', 'install' ] );
