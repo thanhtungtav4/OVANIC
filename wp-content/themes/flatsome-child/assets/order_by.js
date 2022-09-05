@@ -10,4 +10,4 @@
             .appendTo("#r");
         });
     });
-})(jQuery)    
+})(jQuery)
