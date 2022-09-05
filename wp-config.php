@@ -48,7 +48,7 @@ define( 'DB_NAME', 'ovanic2' );
 define( 'DB_USER', 'root' );
 
 /** Database password */
-define( 'DB_PASSWORD', 'mysql');
+define( 'DB_PASSWORD', '');
 
 /** Database hostname */
 
