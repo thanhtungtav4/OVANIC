@@ -240,4 +240,19 @@ function woocommerce_maybe_add_multiple_products_to_cart() {
   }
   
    // Fire before the WC_Form_Handler::add_to_cart_action callback.
-   add_action( 'wp_loaded',        'woocommerce_maybe_add_multiple_products_to_cart', 15 );
+add_action( 'wp_loaded',        'woocommerce_maybe_add_multiple_products_to_cart', 15 );
+
+
+add_filter('woocommerce_catalog_orderby', 'wc_customize_product_sorting');
+function wc_customize_product_sorting($sorting_options){
+    $sorting_options = array(
+        'menu_order' => __( 'Sorting', 'woocommerce' ),
+        'popularity' => __( 'popularity', 'woocommerce' ),
+        'rating'     => __( 'average rating', 'woocommerce' ),
+        'date'       => __( 'newness', 'woocommerce' ),
+        'price'      => __( 'low to high', 'woocommerce' ),
+        'price-desc' => __( 'high to low', 'woocommerce' ),
+    );
+
+    return $sorting_options;
+}
