@@ -256,3 +256,8 @@ function wc_customize_product_sorting($sorting_options){
 
     return $sorting_options;
 }
+function filter_woocommerce_attribute_value( $value ) { 
+  return preg_replace( '#<a.*?>([^>]*)</a>#i', '$1', $value );
+}
+
+add_filter( 'woocommerce_attribute', 'filter_woocommerce_attribute_value', 99 );

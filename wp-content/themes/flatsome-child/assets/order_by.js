@@ -9,5 +9,9 @@
             }).add($("<label>"+ this.textContent +"</label>")))
             .appendTo("#r");
         });
+        $('#woocommerce-ordering').on('change', function() {
+            alert(1121);
+            this.form.submit();
+        });
     });
 })(jQuery)
