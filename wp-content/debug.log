@@ -1996,3 +1996,56 @@ Stack trace:
 [05-Sep-2022 03:18:11 UTC] PHP Deprecated:  Function WC_Cart::get_checkout_url is <strong>deprecated</strong> since version 2.5! Use wc_get_checkout_url instead. in D:\xampp\htdocs\OVANIC\wp-includes\functions.php on line 5379
 [05-Sep-2022 03:18:14 UTC] PHP Notice:  Undefined variable: bestsale in D:\xampp\htdocs\OVANIC\wp-content\themes\flatsome-child\wp-amp\parts\title.php on line 25
 [05-Sep-2022 03:18:14 UTC] PHP Deprecated:  Function WC_Cart::get_checkout_url is <strong>deprecated</strong> since version 2.5! Use wc_get_checkout_url instead. in D:\xampp\htdocs\OVANIC\wp-includes\functions.php on line 5379
+[06-Sep-2022 06:03:50 UTC] PHP Deprecated:  Function WC_Cart::get_checkout_url is <strong>deprecated</strong> since version 2.5! Use wc_get_checkout_url instead. in D:\xampp\htdocs\OVANIC\wp-includes\functions.php on line 5379
+[06-Sep-2022 06:03:50 UTC] PHP Deprecated:  Function WC_Product::list_attributes is <strong>deprecated</strong> since version 3.0! Use wc_display_product_attributes instead. in D:\xampp\htdocs\OVANIC\wp-includes\functions.php on line 5379
+[06-Sep-2022 06:03:53 UTC] PHP Deprecated:  Function WC_Cart::get_checkout_url is <strong>deprecated</strong> since version 2.5! Use wc_get_checkout_url instead. in D:\xampp\htdocs\OVANIC\wp-includes\functions.php on line 5379
+[06-Sep-2022 06:03:53 UTC] PHP Deprecated:  Function WC_Product::list_attributes is <strong>deprecated</strong> since version 3.0! Use wc_display_product_attributes instead. in D:\xampp\htdocs\OVANIC\wp-includes\functions.php on line 5379
+[06-Sep-2022 06:03:56 UTC] PHP Deprecated:  Function WC_Cart::get_checkout_url is <strong>deprecated</strong> since version 2.5! Use wc_get_checkout_url instead. in D:\xampp\htdocs\OVANIC\wp-includes\functions.php on line 5379
+[06-Sep-2022 06:03:56 UTC] PHP Deprecated:  Function WC_Product::list_attributes is <strong>deprecated</strong> since version 3.0! Use wc_display_product_attributes instead. in D:\xampp\htdocs\OVANIC\wp-includes\functions.php on line 5379
+[06-Sep-2022 06:03:58 UTC] PHP Deprecated:  Function WC_Cart::get_checkout_url is <strong>deprecated</strong> since version 2.5! Use wc_get_checkout_url instead. in D:\xampp\htdocs\OVANIC\wp-includes\functions.php on line 5379
+[06-Sep-2022 06:03:58 UTC] PHP Deprecated:  Function WC_Product::list_attributes is <strong>deprecated</strong> since version 3.0! Use wc_display_product_attributes instead. in D:\xampp\htdocs\OVANIC\wp-includes\functions.php on line 5379
+[06-Sep-2022 06:04:01 UTC] PHP Deprecated:  Function WC_Cart::get_checkout_url is <strong>deprecated</strong> since version 2.5! Use wc_get_checkout_url instead. in D:\xampp\htdocs\OVANIC\wp-includes\functions.php on line 5379
+[06-Sep-2022 06:04:01 UTC] PHP Deprecated:  Function WC_Product::list_attributes is <strong>deprecated</strong> since version 3.0! Use wc_display_product_attributes instead. in D:\xampp\htdocs\OVANIC\wp-includes\functions.php on line 5379
+[06-Sep-2022 06:04:03 UTC] PHP Deprecated:  Function WC_Cart::get_checkout_url is <strong>deprecated</strong> since version 2.5! Use wc_get_checkout_url instead. in D:\xampp\htdocs\OVANIC\wp-includes\functions.php on line 5379
+[06-Sep-2022 06:04:03 UTC] PHP Deprecated:  Function WC_Product::list_attributes is <strong>deprecated</strong> since version 3.0! Use wc_display_product_attributes instead. in D:\xampp\htdocs\OVANIC\wp-includes\functions.php on line 5379
+[06-Sep-2022 06:04:06 UTC] PHP Notice:  Undefined property: stdClass::$url in D:\xampp\htdocs\OVANIC\wp-content\plugins\wordpress-seo\inc\class-addon-manager.php on line 766
+[06-Sep-2022 06:04:06 UTC] PHP Notice:  Undefined property: stdClass::$renewalUrl in D:\xampp\htdocs\OVANIC\wp-content\plugins\wordpress-seo\inc\class-addon-manager.php on line 781
+[06-Sep-2022 06:04:06 UTC] PHP Notice:  Undefined property: stdClass::$version in D:\xampp\htdocs\OVANIC\wp-content\plugins\wordpress-seo\inc\class-addon-manager.php on line 784
+[06-Sep-2022 06:04:06 UTC] PHP Notice:  Undefined property: stdClass::$name in D:\xampp\htdocs\OVANIC\wp-content\plugins\wordpress-seo\inc\class-addon-manager.php on line 785
+[06-Sep-2022 06:04:06 UTC] PHP Notice:  Undefined property: stdClass::$lastUpdated in D:\xampp\htdocs\OVANIC\wp-content\plugins\wordpress-seo\inc\class-addon-manager.php on line 787
+[06-Sep-2022 06:04:06 UTC] PHP Notice:  Undefined property: stdClass::$storeUrl in D:\xampp\htdocs\OVANIC\wp-content\plugins\wordpress-seo\inc\class-addon-manager.php on line 788
+[06-Sep-2022 06:04:06 UTC] PHP Notice:  Undefined property: stdClass::$changelog in D:\xampp\htdocs\OVANIC\wp-content\plugins\wordpress-seo\inc\class-addon-manager.php on line 791
+[06-Sep-2022 06:04:06 UTC] PHP Notice:  Undefined property: stdClass::$renewalUrl in D:\xampp\htdocs\OVANIC\wp-content\plugins\wordpress-seo\inc\class-addon-manager.php on line 781
+[06-Sep-2022 06:04:06 UTC] PHP Notice:  Undefined property: stdClass::$version in D:\xampp\htdocs\OVANIC\wp-content\plugins\wordpress-seo\inc\class-addon-manager.php on line 784
+[06-Sep-2022 06:04:06 UTC] PHP Notice:  Undefined property: stdClass::$name in D:\xampp\htdocs\OVANIC\wp-content\plugins\wordpress-seo\inc\class-addon-manager.php on line 785
+[06-Sep-2022 06:04:06 UTC] PHP Notice:  Undefined property: stdClass::$lastUpdated in D:\xampp\htdocs\OVANIC\wp-content\plugins\wordpress-seo\inc\class-addon-manager.php on line 787
+[06-Sep-2022 06:04:06 UTC] PHP Notice:  Undefined property: stdClass::$storeUrl in D:\xampp\htdocs\OVANIC\wp-content\plugins\wordpress-seo\inc\class-addon-manager.php on line 788
+[06-Sep-2022 06:04:06 UTC] PHP Notice:  Undefined property: stdClass::$changelog in D:\xampp\htdocs\OVANIC\wp-content\plugins\wordpress-seo\inc\class-addon-manager.php on line 791
+[06-Sep-2022 06:04:06 UTC] PHP Notice:  Undefined property: stdClass::$renewalUrl in D:\xampp\htdocs\OVANIC\wp-content\plugins\wordpress-seo\inc\class-addon-manager.php on line 781
+[06-Sep-2022 06:04:06 UTC] PHP Notice:  Undefined property: stdClass::$version in D:\xampp\htdocs\OVANIC\wp-content\plugins\wordpress-seo\inc\class-addon-manager.php on line 784
+[06-Sep-2022 06:04:06 UTC] PHP Notice:  Undefined property: stdClass::$name in D:\xampp\htdocs\OVANIC\wp-content\plugins\wordpress-seo\inc\class-addon-manager.php on line 785
+[06-Sep-2022 06:04:06 UTC] PHP Notice:  Undefined property: stdClass::$lastUpdated in D:\xampp\htdocs\OVANIC\wp-content\plugins\wordpress-seo\inc\class-addon-manager.php on line 787
+[06-Sep-2022 06:04:06 UTC] PHP Notice:  Undefined property: stdClass::$storeUrl in D:\xampp\htdocs\OVANIC\wp-content\plugins\wordpress-seo\inc\class-addon-manager.php on line 788
+[06-Sep-2022 06:04:06 UTC] PHP Notice:  Undefined property: stdClass::$changelog in D:\xampp\htdocs\OVANIC\wp-content\plugins\wordpress-seo\inc\class-addon-manager.php on line 791
+[06-Sep-2022 06:04:06 UTC] PHP Notice:  Undefined property: stdClass::$renewalUrl in D:\xampp\htdocs\OVANIC\wp-content\plugins\wordpress-seo\inc\class-addon-manager.php on line 781
+[06-Sep-2022 06:04:06 UTC] PHP Notice:  Undefined property: stdClass::$version in D:\xampp\htdocs\OVANIC\wp-content\plugins\wordpress-seo\inc\class-addon-manager.php on line 784
+[06-Sep-2022 06:04:06 UTC] PHP Notice:  Undefined property: stdClass::$name in D:\xampp\htdocs\OVANIC\wp-content\plugins\wordpress-seo\inc\class-addon-manager.php on line 785
+[06-Sep-2022 06:04:06 UTC] PHP Notice:  Undefined property: stdClass::$lastUpdated in D:\xampp\htdocs\OVANIC\wp-content\plugins\wordpress-seo\inc\class-addon-manager.php on line 787
+[06-Sep-2022 06:04:06 UTC] PHP Notice:  Undefined property: stdClass::$storeUrl in D:\xampp\htdocs\OVANIC\wp-content\plugins\wordpress-seo\inc\class-addon-manager.php on line 788
+[06-Sep-2022 06:04:06 UTC] PHP Notice:  Undefined property: stdClass::$changelog in D:\xampp\htdocs\OVANIC\wp-content\plugins\wordpress-seo\inc\class-addon-manager.php on line 791
+[06-Sep-2022 06:04:06 UTC] PHP Notice:  Undefined property: stdClass::$renewalUrl in D:\xampp\htdocs\OVANIC\wp-content\plugins\wordpress-seo\inc\class-addon-manager.php on line 781
+[06-Sep-2022 06:04:06 UTC] PHP Notice:  Undefined property: stdClass::$version in D:\xampp\htdocs\OVANIC\wp-content\plugins\wordpress-seo\inc\class-addon-manager.php on line 784
+[06-Sep-2022 06:04:06 UTC] PHP Notice:  Undefined property: stdClass::$name in D:\xampp\htdocs\OVANIC\wp-content\plugins\wordpress-seo\inc\class-addon-manager.php on line 785
+[06-Sep-2022 06:04:06 UTC] PHP Notice:  Undefined property: stdClass::$lastUpdated in D:\xampp\htdocs\OVANIC\wp-content\plugins\wordpress-seo\inc\class-addon-manager.php on line 787
+[06-Sep-2022 06:04:06 UTC] PHP Notice:  Undefined property: stdClass::$storeUrl in D:\xampp\htdocs\OVANIC\wp-content\plugins\wordpress-seo\inc\class-addon-manager.php on line 788
+[06-Sep-2022 06:04:06 UTC] PHP Notice:  Undefined property: stdClass::$changelog in D:\xampp\htdocs\OVANIC\wp-content\plugins\wordpress-seo\inc\class-addon-manager.php on line 791
+[06-Sep-2022 06:07:47 UTC] PHP Deprecated:  Function WC_Cart::get_checkout_url is <strong>deprecated</strong> since version 2.5! Use wc_get_checkout_url instead. in D:\xampp\htdocs\OVANIC\wp-includes\functions.php on line 5379
+[06-Sep-2022 06:07:47 UTC] PHP Deprecated:  Function WC_Product::list_attributes is <strong>deprecated</strong> since version 3.0! Use wc_display_product_attributes instead. in D:\xampp\htdocs\OVANIC\wp-includes\functions.php on line 5379
+[06-Sep-2022 06:07:50 UTC] PHP Deprecated:  Function WC_Cart::get_checkout_url is <strong>deprecated</strong> since version 2.5! Use wc_get_checkout_url instead. in D:\xampp\htdocs\OVANIC\wp-includes\functions.php on line 5379
+[06-Sep-2022 06:07:50 UTC] PHP Deprecated:  Function WC_Product::list_attributes is <strong>deprecated</strong> since version 3.0! Use wc_display_product_attributes instead. in D:\xampp\htdocs\OVANIC\wp-includes\functions.php on line 5379
+[06-Sep-2022 06:07:53 UTC] PHP Deprecated:  Function WC_Cart::get_checkout_url is <strong>deprecated</strong> since version 2.5! Use wc_get_checkout_url instead. in D:\xampp\htdocs\OVANIC\wp-includes\functions.php on line 5379
+[06-Sep-2022 06:07:53 UTC] PHP Deprecated:  Function WC_Product::list_attributes is <strong>deprecated</strong> since version 3.0! Use wc_display_product_attributes instead. in D:\xampp\htdocs\OVANIC\wp-includes\functions.php on line 5379
+[06-Sep-2022 06:07:56 UTC] PHP Deprecated:  Function WC_Cart::get_checkout_url is <strong>deprecated</strong> since version 2.5! Use wc_get_checkout_url instead. in D:\xampp\htdocs\OVANIC\wp-includes\functions.php on line 5379
+[06-Sep-2022 06:07:56 UTC] PHP Deprecated:  Function WC_Product::list_attributes is <strong>deprecated</strong> since version 3.0! Use wc_display_product_attributes instead. in D:\xampp\htdocs\OVANIC\wp-includes\functions.php on line 5379
+[06-Sep-2022 06:07:58 UTC] PHP Deprecated:  Function WC_Cart::get_checkout_url is <strong>deprecated</strong> since version 2.5! Use wc_get_checkout_url instead. in D:\xampp\htdocs\OVANIC\wp-includes\functions.php on line 5379
+[06-Sep-2022 06:07:58 UTC] PHP Deprecated:  Function WC_Product::list_attributes is <strong>deprecated</strong> since version 3.0! Use wc_display_product_attributes instead. in D:\xampp\htdocs\OVANIC\wp-includes\functions.php on line 5379

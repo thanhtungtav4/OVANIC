@@ -37,6 +37,3 @@ $this->add_embedded_element( array(
     do_action( 'woocommerce_after_single_product_summary' );
 ?>
 <?php echo the_field('thong_tin_uu_dai', 'option'); ?>
-<?php
-    do_action( 'woocommerce_upsell_display_custome' );
-?>
