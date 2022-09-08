@@ -83,7 +83,7 @@ add_action('delete_category','devvn_new_category_edit_success');
 add_action( 'create_term', 'new_thuong_hieu_cat_edit_success', 10, 2 );
 function new_thuong_hieu_cat_edit_success( $term_id, $taxonomy ) {
     dev_thuong_hieu_rewrite_rules(true);
-    dev_category_rewrite_rules(true);
+    // dev_category_rewrite_rules(true);
 }
 
 /*

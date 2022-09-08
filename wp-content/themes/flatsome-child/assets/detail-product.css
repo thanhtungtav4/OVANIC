@@ -320,7 +320,7 @@ button.single_add_to_cart_button:nth-of-type(1) {
 }
 table {
   margin: 0 0 1.5em;
-  width: 100%;
+  width: 100% !important;
   border-spacing: 0;
   border-width: 1px 0 0 1px;
   border: 1px solid rgba(0, 0, 0, .1);
@@ -345,7 +345,7 @@ table table, table th, table td {
 }
 table tr td:first-child{
   background: #f1f1f1;
-  white-space: nowrap;
+  white-space: wrap;
   width: 30%;
   padding-left: 15px;
 }

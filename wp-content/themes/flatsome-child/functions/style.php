@@ -16,9 +16,9 @@ function conditionally_enqueue_styles_scripts() {
         wp_enqueue_style('style_single');
     }
 }
-function collectiveray_theme_scripts_function() {
-    if(is_product_category()){
-        wp_enqueue_script( 'js-file', get_stylesheet_directory_uri() . '/assets/order_by.js');
-    }
-  }
-  add_action('wp_enqueue_scripts','collectiveray_theme_scripts_function');
+// function collectiveray_theme_scripts_function() {
+//     if(is_product_category()){
+//         wp_enqueue_script( 'js-file', get_stylesheet_directory_uri() . '/assets/order_by.js');
+//     }
+//   }
+//   add_action('wp_enqueue_scripts','collectiveray_theme_scripts_function');
