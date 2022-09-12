@@ -376,7 +376,7 @@ if( function_exists('acf_add_local_field_group') ):
   ));
   acf_add_local_field_group(array(
     'key' => 'group_62d7984921672',
-    'title' => 'Add Content Brand',
+    'title' => 'Add Content Brand/Category Product',
     'fields' => array(
       array(
         'key' => 'field_62d798df6e086',
@@ -404,6 +404,13 @@ if( function_exists('acf_add_local_field_group') ):
           'param' => 'taxonomy',
           'operator' => '==',
           'value' => 'thuong-hieu',
+        ),
+      ),
+      array(
+        array(
+          'param' => 'taxonomy',
+          'operator' => '==',
+          'value' => 'product_cat',
         ),
       ),
     ),

@@ -98,7 +98,7 @@
 			 */
 			do_action( 'woocommerce_after_main_content' );
 			echo 	$color;
-			if(is_tax('thuong-hieu')){
+			if(is_tax('thuong-hieu') || is_product_category() ){
 				$term = get_queried_object();
 				$bottom_content = get_field('bottom_content', $term);
 				if($bottom_content){
