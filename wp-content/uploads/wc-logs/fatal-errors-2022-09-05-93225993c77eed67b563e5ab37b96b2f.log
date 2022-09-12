@@ -1,0 +1,52 @@
+2022-09-05T02:56:31+00:00 CRITICAL Uncaught Error: Call to undefined function dev_category_rewrite_rules() in /home/customer/www/ovanic.vn/public_html/wp-content/themes/flatsome-child/functions/url.php:86
+Stack trace:
+#0 /home/customer/www/ovanic.vn/public_html/wp-includes/class-wp-hook.php(309): new_thuong_hieu_cat_edit_success(378, 378)
+#1 /home/customer/www/ovanic.vn/public_html/wp-includes/class-wp-hook.php(331): WP_Hook->apply_filters(NULL, Array)
+#2 /home/customer/www/ovanic.vn/public_html/wp-includes/plugin.php(476): WP_Hook->do_action(Array)
+#3 /home/customer/www/ovanic.vn/public_html/wp-includes/taxonomy.php(2582): do_action('create_term', 378, 378, 'product_cat')
+#4 /home/customer/www/ovanic.vn/public_html/wp-admin/includes/ajax-actions.php(593): wp_insert_term('Tinh d\xE1\xBA\xA7u th\xC3\xB4...', 'product_cat', Array)
+#5 /home/customer/www/ovanic.vn/public_html/wp-includes/class-wp-hook.php(307): _wp_ajax_add_hierarchical_term('')
+#6 /home/customer/www/ovanic.vn/public_html/wp-includes/class-wp-hook.php(331): WP_Hook->apply_filters( in /home/customer/www/ovanic.vn/public_html/wp-content/themes/flatsome-child/functions/url.php on line 86
+
+2022-09-05T02:58:06+00:00 CRITICAL Uncaught Error: Call to undefined function dev_category_rewrite_rules() in /home/customer/www/ovanic.vn/public_html/wp-content/themes/flatsome-child/functions/url.php:86
+Stack trace:
+#0 /home/customer/www/ovanic.vn/public_html/wp-includes/class-wp-hook.php(309): new_thuong_hieu_cat_edit_success(379, 379)
+#1 /home/customer/www/ovanic.vn/public_html/wp-includes/class-wp-hook.php(331): WP_Hook->apply_filters(NULL, Array)
+#2 /home/customer/www/ovanic.vn/public_html/wp-includes/plugin.php(476): WP_Hook->do_action(Array)
+#3 /home/customer/www/ovanic.vn/public_html/wp-includes/taxonomy.php(2582): do_action('create_term', 379, 379, 'product_cat')
+#4 /home/customer/www/ovanic.vn/public_html/wp-admin/includes/ajax-actions.php(593): wp_insert_term('Tinh d\xE1\xBA\xA7u th\xC3\xB4...', 'product_cat', Array)
+#5 /home/customer/www/ovanic.vn/public_html/wp-includes/class-wp-hook.php(307): _wp_ajax_add_hierarchical_term('')
+#6 /home/customer/www/ovanic.vn/public_html/wp-includes/class-wp-hook.php(331): WP_Hook->apply_filters( in /home/customer/www/ovanic.vn/public_html/wp-content/themes/flatsome-child/functions/url.php on line 86
+
+2022-09-05T03:41:24+00:00 CRITICAL Uncaught Error: Call to undefined function dev_category_rewrite_rules() in /home/customer/www/ovanic.vn/public_html/wp-content/themes/flatsome-child/functions/url.php:86
+Stack trace:
+#0 /home/customer/www/ovanic.vn/public_html/wp-includes/class-wp-hook.php(309): new_thuong_hieu_cat_edit_success(380, 380)
+#1 /home/customer/www/ovanic.vn/public_html/wp-includes/class-wp-hook.php(331): WP_Hook->apply_filters(NULL, Array)
+#2 /home/customer/www/ovanic.vn/public_html/wp-includes/plugin.php(476): WP_Hook->do_action(Array)
+#3 /home/customer/www/ovanic.vn/public_html/wp-includes/taxonomy.php(2582): do_action('create_term', 380, 380, 'product_cat')
+#4 /home/customer/www/ovanic.vn/public_html/wp-admin/includes/ajax-actions.php(593): wp_insert_term('Tinh d\xE1\xBA\xA7u t\xE1\xBB\x8F...', 'product_cat', Array)
+#5 /home/customer/www/ovanic.vn/public_html/wp-includes/class-wp-hook.php(307): _wp_ajax_add_hierarchical_term('')
+#6 /home/customer/www/ovanic.vn/public_html/wp-includes/class-wp-hook.php(331): WP_Hook->apply_filte in /home/customer/www/ovanic.vn/public_html/wp-content/themes/flatsome-child/functions/url.php on line 86
+
+2022-09-05T03:47:50+00:00 CRITICAL Uncaught Error: Call to undefined function dev_category_rewrite_rules() in /home/customer/www/ovanic.vn/public_html/wp-content/themes/flatsome-child/functions/url.php:86
+Stack trace:
+#0 /home/customer/www/ovanic.vn/public_html/wp-includes/class-wp-hook.php(309): new_thuong_hieu_cat_edit_success(381, 381)
+#1 /home/customer/www/ovanic.vn/public_html/wp-includes/class-wp-hook.php(331): WP_Hook->apply_filters(NULL, Array)
+#2 /home/customer/www/ovanic.vn/public_html/wp-includes/plugin.php(476): WP_Hook->do_action(Array)
+#3 /home/customer/www/ovanic.vn/public_html/wp-includes/taxonomy.php(2582): do_action('create_term', 381, 381, 'product_cat')
+#4 /home/customer/www/ovanic.vn/public_html/wp-admin/includes/ajax-actions.php(593): wp_insert_term('Collagen Trung', 'product_cat', Array)
+#5 /home/customer/www/ovanic.vn/public_html/wp-includes/class-wp-hook.php(307): _wp_ajax_add_hierarchical_term('')
+#6 /home/customer/www/ovanic.vn/public_html/wp-includes/class-wp-hook.php(331): WP_Hook->apply_filters('', Array)
+#7 /home in /home/customer/www/ovanic.vn/public_html/wp-content/themes/flatsome-child/functions/url.php on line 86
+
+2022-09-05T03:47:56+00:00 CRITICAL Uncaught Error: Call to undefined function dev_category_rewrite_rules() in /home/customer/www/ovanic.vn/public_html/wp-content/themes/flatsome-child/functions/url.php:86
+Stack trace:
+#0 /home/customer/www/ovanic.vn/public_html/wp-includes/class-wp-hook.php(309): new_thuong_hieu_cat_edit_success(382, 382)
+#1 /home/customer/www/ovanic.vn/public_html/wp-includes/class-wp-hook.php(331): WP_Hook->apply_filters(NULL, Array)
+#2 /home/customer/www/ovanic.vn/public_html/wp-includes/plugin.php(476): WP_Hook->do_action(Array)
+#3 /home/customer/www/ovanic.vn/public_html/wp-includes/taxonomy.php(2582): do_action('create_term', 382, 382, 'product_cat')
+#4 /home/customer/www/ovanic.vn/public_html/wp-admin/includes/ajax-actions.php(593): wp_insert_term('Collagen Trung', 'product_cat', Array)
+#5 /home/customer/www/ovanic.vn/public_html/wp-includes/class-wp-hook.php(307): _wp_ajax_add_hierarchical_term('')
+#6 /home/customer/www/ovanic.vn/public_html/wp-includes/class-wp-hook.php(331): WP_Hook->apply_filters('', Array)
+#7 /home in /home/customer/www/ovanic.vn/public_html/wp-content/themes/flatsome-child/functions/url.php on line 86
+

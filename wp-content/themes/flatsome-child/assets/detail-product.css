@@ -318,38 +318,38 @@ button.single_add_to_cart_button:nth-of-type(1) {
   font-size: 12px;
   line-height: 1.2;
 }
-table {
+.content-row table {
   margin: 0 0 1.5em;
   width: 100% !important;
   border-spacing: 0;
   border-width: 1px 0 0 1px;
   border: 1px solid rgba(0, 0, 0, .1);
 }
-table th, table td {
+.content-row table th, table td {
   padding: 12px;
   font-weight: 400;
   text-align: left;
 }
-table td {
+.content-row table td {
   border-width: 0 1px 1px 0;
   font-weight: 400;
   text-align: left;
 }
-table td ul li {
+.content-row table td ul li {
   line-height: 1.5;
   list-style-type: circle;
   margin-left: 2rem;
 }
-table table, table th, table td {
+.content-row table table, .content-row table th, .content-row table td {
   border: 1px solid rgba(0, 0, 0, .1);
 }
-table tr td:first-child{
+.content-row table tr td:first-child{
   background: #f1f1f1;
   white-space: wrap;
   width: 30%;
   padding-left: 15px;
 }
-th:first-child, td:first-child {
+.content-row th:first-child, .content-row td:first-child {
   padding-left: 15px !important;
 }
 .product-footer .yith-wfbt-section > h3{
@@ -364,6 +364,13 @@ th:first-child, td:first-child {
 .nt-price bdi{
   font-size: 1.1rem;
   color: red;
+}
+.woocommerce-product-rating{
+  display: flex;
+  align-items: center;
+}
+.woocommerce-product-rating .woocommerce-review-link{
+  padding: 0 10px;
 }
 @media only screen and (min-width: 768px) {
   .shop_info .detail_info.seach_taget{
@@ -380,6 +387,9 @@ th:first-child, td:first-child {
   }
   .product-short-description p{
     margin-bottom: 0;
+  }
+  .h1, h1 {
+    font-size: 1.4em;
   }
 }
 @media only screen and (max-width: 768px) {

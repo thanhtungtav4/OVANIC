@@ -1,202 +1,92 @@
-2022-09-02T12:44:54+00:00 CRITICAL Uncaught Error: Call to undefined function amp_is_request() in D:\Ampps\www\OVANIC\wp-content\themes\flatsome-child\woocommerce\yith-wfbt-form.php:31
+2022-09-02T15:34:55+00:00 CRITICAL Uncaught WP_Rocket\Dependencies\League\Container\Exception\NotFoundException: Alias (polygon) is not being managed by the container or delegates in /home/customer/www/ovanic.vn/public_html/wp-content/plugins/wp-rocket_tat/inc/Dependencies/League/Container/Container.php:188
 Stack trace:
-#0 D:\Ampps\www\OVANIC\wp-content\plugins\woocommerce\includes\wc-core-functions.php(345): include()
-#1 D:\Ampps\www\OVANIC\wp-content\plugins\yith-woocommerce-frequently-bought-together-premium\includes\class.yith-wfbt-frontend.php(419): wc_get_template()
-#2 D:\Ampps\www\OVANIC\wp-includes\class-wp-hook.php(307): YITH_WFBT_Frontend->add_bought_together_form()
-#3 D:\Ampps\www\OVANIC\wp-includes\class-wp-hook.php(331): WP_Hook->apply_filters()
-#4 D:\Ampps\www\OVANIC\wp-includes\plugin.php(476): WP_Hook->do_action()
-#5 D:\Ampps\www\OVANIC\wp-content\themes\flatsome-child\woocommerce\single-product\layouts\product-no-sidebar.php(68): do_action()
-#6 D:\Ampps\www\OVANIC\wp-includes\template.php(772): require('D:\\Ampps\\www\\OV...')
-#7 D:\Ampps\www\OVANIC\wp-content\plugins\woocommerce\includes\wc-core-functions.php(284): load_template()
-#8 D:\Ampps\www\ in D:\Ampps\www\OVANIC\wp-content\themes\flatsome-child\woocommerce\yith-wfbt-form.php on line 31
+#0 /home/customer/www/ovanic.vn/public_html/wp-content/plugins/wp-rocket_tat/inc/Plugin.php(143): WP_Rocket\Dependencies\League\Container\Container->get('polygon')
+#1 /home/customer/www/ovanic.vn/public_html/wp-content/plugins/wp-rocket_tat/inc/main.php(50): WP_Rocket\Plugin->load()
+#2 /home/customer/www/ovanic.vn/public_html/wp-includes/class-wp-hook.php(307): rocket_init('')
+#3 /home/customer/www/ovanic.vn/public_html/wp-includes/class-wp-hook.php(331): WP_Hook->apply_filters(NULL, Array)
+#4 /home/customer/www/ovanic.vn/public_html/wp-includes/plugin.php(476): WP_Hook->do_action(Array)
+#5 /home/customer/www/ovanic.vn/public_html/wp-settings.php(461): do_action('plugins_loaded')
+#6 /home/customer/www/ovanic.vn/public_html/wp-c in /home/customer/www/ovanic.vn/public_html/wp-content/plugins/wp-rocket_tat/inc/Dependencies/League/Container/Container.php on line 188
 
-2022-09-02T12:44:56+00:00 CRITICAL Uncaught Error: Call to undefined function amp_is_request() in D:\Ampps\www\OVANIC\wp-content\themes\flatsome-child\woocommerce\yith-wfbt-form.php:31
+2022-09-02T15:34:56+00:00 CRITICAL Uncaught WP_Rocket\Dependencies\League\Container\Exception\NotFoundException: Alias (polygon) is not being managed by the container or delegates in /home/customer/www/ovanic.vn/public_html/wp-content/plugins/wp-rocket_tat/inc/Dependencies/League/Container/Container.php:188
 Stack trace:
-#0 D:\Ampps\www\OVANIC\wp-content\plugins\woocommerce\includes\wc-core-functions.php(345): include()
-#1 D:\Ampps\www\OVANIC\wp-content\plugins\yith-woocommerce-frequently-bought-together-premium\includes\class.yith-wfbt-frontend.php(419): wc_get_template()
-#2 D:\Ampps\www\OVANIC\wp-includes\class-wp-hook.php(307): YITH_WFBT_Frontend->add_bought_together_form()
-#3 D:\Ampps\www\OVANIC\wp-includes\class-wp-hook.php(331): WP_Hook->apply_filters()
-#4 D:\Ampps\www\OVANIC\wp-includes\plugin.php(476): WP_Hook->do_action()
-#5 D:\Ampps\www\OVANIC\wp-content\themes\flatsome-child\woocommerce\single-product\layouts\product-no-sidebar.php(68): do_action()
-#6 D:\Ampps\www\OVANIC\wp-includes\template.php(772): require('D:\\Ampps\\www\\OV...')
-#7 D:\Ampps\www\OVANIC\wp-content\plugins\woocommerce\includes\wc-core-functions.php(284): load_template()
-#8 D:\Ampps\www\ in D:\Ampps\www\OVANIC\wp-content\themes\flatsome-child\woocommerce\yith-wfbt-form.php on line 31
+#0 /home/customer/www/ovanic.vn/public_html/wp-content/plugins/wp-rocket_tat/inc/Plugin.php(143): WP_Rocket\Dependencies\League\Container\Container->get('polygon')
+#1 /home/customer/www/ovanic.vn/public_html/wp-content/plugins/wp-rocket_tat/inc/main.php(50): WP_Rocket\Plugin->load()
+#2 /home/customer/www/ovanic.vn/public_html/wp-includes/class-wp-hook.php(307): rocket_init('')
+#3 /home/customer/www/ovanic.vn/public_html/wp-includes/class-wp-hook.php(331): WP_Hook->apply_filters(NULL, Array)
+#4 /home/customer/www/ovanic.vn/public_html/wp-includes/plugin.php(476): WP_Hook->do_action(Array)
+#5 /home/customer/www/ovanic.vn/public_html/wp-settings.php(461): do_action('plugins_loaded')
+#6 /home/customer/www/ovanic.vn/public_html/wp-c in /home/customer/www/ovanic.vn/public_html/wp-content/plugins/wp-rocket_tat/inc/Dependencies/League/Container/Container.php on line 188
 
-2022-09-02T12:44:56+00:00 CRITICAL Uncaught Error: Call to undefined function amp_is_request() in D:\Ampps\www\OVANIC\wp-content\themes\flatsome-child\woocommerce\yith-wfbt-form.php:31
+2022-09-02T15:35:06+00:00 CRITICAL Uncaught WP_Rocket\Dependencies\League\Container\Exception\NotFoundException: Alias (polygon) is not being managed by the container or delegates in /home/customer/www/ovanic.vn/public_html/wp-content/plugins/wp-rocket_tat/inc/Dependencies/League/Container/Container.php:188
 Stack trace:
-#0 D:\Ampps\www\OVANIC\wp-content\plugins\woocommerce\includes\wc-core-functions.php(345): include()
-#1 D:\Ampps\www\OVANIC\wp-content\plugins\yith-woocommerce-frequently-bought-together-premium\includes\class.yith-wfbt-frontend.php(419): wc_get_template()
-#2 D:\Ampps\www\OVANIC\wp-includes\class-wp-hook.php(307): YITH_WFBT_Frontend->add_bought_together_form()
-#3 D:\Ampps\www\OVANIC\wp-includes\class-wp-hook.php(331): WP_Hook->apply_filters()
-#4 D:\Ampps\www\OVANIC\wp-includes\plugin.php(476): WP_Hook->do_action()
-#5 D:\Ampps\www\OVANIC\wp-content\themes\flatsome-child\woocommerce\single-product\layouts\product-no-sidebar.php(68): do_action()
-#6 D:\Ampps\www\OVANIC\wp-includes\template.php(772): require('D:\\Ampps\\www\\OV...')
-#7 D:\Ampps\www\OVANIC\wp-content\plugins\woocommerce\includes\wc-core-functions.php(284): load_template()
-#8 D:\Ampps\www\ in D:\Ampps\www\OVANIC\wp-content\themes\flatsome-child\woocommerce\yith-wfbt-form.php on line 31
+#0 /home/customer/www/ovanic.vn/public_html/wp-content/plugins/wp-rocket_tat/inc/Plugin.php(143): WP_Rocket\Dependencies\League\Container\Container->get('polygon')
+#1 /home/customer/www/ovanic.vn/public_html/wp-content/plugins/wp-rocket_tat/inc/main.php(50): WP_Rocket\Plugin->load()
+#2 /home/customer/www/ovanic.vn/public_html/wp-includes/class-wp-hook.php(307): rocket_init('')
+#3 /home/customer/www/ovanic.vn/public_html/wp-includes/class-wp-hook.php(331): WP_Hook->apply_filters(NULL, Array)
+#4 /home/customer/www/ovanic.vn/public_html/wp-includes/plugin.php(476): WP_Hook->do_action(Array)
+#5 /home/customer/www/ovanic.vn/public_html/wp-settings.php(461): do_action('plugins_loaded')
+#6 /home/customer/www/ovanic.vn/public_html/wp-c in /home/customer/www/ovanic.vn/public_html/wp-content/plugins/wp-rocket_tat/inc/Dependencies/League/Container/Container.php on line 188
 
-2022-09-02T12:45:51+00:00 CRITICAL Uncaught Error: Call to undefined function amp_is_request() in D:\Ampps\www\OVANIC\wp-content\themes\flatsome-child\woocommerce\yith-wfbt-form.php:31
+2022-09-02T15:35:09+00:00 CRITICAL Uncaught WP_Rocket\Dependencies\League\Container\Exception\NotFoundException: Alias (polygon) is not being managed by the container or delegates in /home/customer/www/ovanic.vn/public_html/wp-content/plugins/wp-rocket_tat/inc/Dependencies/League/Container/Container.php:188
 Stack trace:
-#0 D:\Ampps\www\OVANIC\wp-content\plugins\woocommerce\includes\wc-core-functions.php(345): include()
-#1 D:\Ampps\www\OVANIC\wp-content\plugins\yith-woocommerce-frequently-bought-together-premium\includes\class.yith-wfbt-frontend.php(419): wc_get_template()
-#2 D:\Ampps\www\OVANIC\wp-includes\class-wp-hook.php(307): YITH_WFBT_Frontend->add_bought_together_form()
-#3 D:\Ampps\www\OVANIC\wp-includes\class-wp-hook.php(331): WP_Hook->apply_filters()
-#4 D:\Ampps\www\OVANIC\wp-includes\plugin.php(476): WP_Hook->do_action()
-#5 D:\Ampps\www\OVANIC\wp-content\themes\flatsome-child\woocommerce\single-product\layouts\product-no-sidebar.php(68): do_action()
-#6 D:\Ampps\www\OVANIC\wp-includes\template.php(772): require('D:\\Ampps\\www\\OV...')
-#7 D:\Ampps\www\OVANIC\wp-content\plugins\woocommerce\includes\wc-core-functions.php(284): load_template()
-#8 D:\Ampps\www\ in D:\Ampps\www\OVANIC\wp-content\themes\flatsome-child\woocommerce\yith-wfbt-form.php on line 31
+#0 /home/customer/www/ovanic.vn/public_html/wp-content/plugins/wp-rocket_tat/inc/Plugin.php(143): WP_Rocket\Dependencies\League\Container\Container->get('polygon')
+#1 /home/customer/www/ovanic.vn/public_html/wp-content/plugins/wp-rocket_tat/inc/main.php(50): WP_Rocket\Plugin->load()
+#2 /home/customer/www/ovanic.vn/public_html/wp-includes/class-wp-hook.php(307): rocket_init('')
+#3 /home/customer/www/ovanic.vn/public_html/wp-includes/class-wp-hook.php(331): WP_Hook->apply_filters(NULL, Array)
+#4 /home/customer/www/ovanic.vn/public_html/wp-includes/plugin.php(476): WP_Hook->do_action(Array)
+#5 /home/customer/www/ovanic.vn/public_html/wp-settings.php(461): do_action('plugins_loaded')
+#6 /home/customer/www/ovanic.vn/public_html/wp-c in /home/customer/www/ovanic.vn/public_html/wp-content/plugins/wp-rocket_tat/inc/Dependencies/League/Container/Container.php on line 188
 
-2022-09-02T12:46:25+00:00 CRITICAL Uncaught Error: Call to undefined function amp_is_request() in D:\Ampps\www\OVANIC\wp-content\themes\flatsome-child\woocommerce\yith-wfbt-form.php:31
+2022-09-02T15:35:10+00:00 CRITICAL Uncaught WP_Rocket\Dependencies\League\Container\Exception\NotFoundException: Alias (polygon) is not being managed by the container or delegates in /home/customer/www/ovanic.vn/public_html/wp-content/plugins/wp-rocket_tat/inc/Dependencies/League/Container/Container.php:188
 Stack trace:
-#0 D:\Ampps\www\OVANIC\wp-content\plugins\woocommerce\includes\wc-core-functions.php(345): include()
-#1 D:\Ampps\www\OVANIC\wp-content\plugins\yith-woocommerce-frequently-bought-together-premium\includes\class.yith-wfbt-frontend.php(419): wc_get_template()
-#2 D:\Ampps\www\OVANIC\wp-includes\class-wp-hook.php(307): YITH_WFBT_Frontend->add_bought_together_form()
-#3 D:\Ampps\www\OVANIC\wp-includes\class-wp-hook.php(331): WP_Hook->apply_filters()
-#4 D:\Ampps\www\OVANIC\wp-includes\plugin.php(476): WP_Hook->do_action()
-#5 D:\Ampps\www\OVANIC\wp-content\themes\flatsome-child\woocommerce\single-product\layouts\product-no-sidebar.php(68): do_action()
-#6 D:\Ampps\www\OVANIC\wp-includes\template.php(772): require('D:\\Ampps\\www\\OV...')
-#7 D:\Ampps\www\OVANIC\wp-content\plugins\woocommerce\includes\wc-core-functions.php(284): load_template()
-#8 D:\Ampps\www\ in D:\Ampps\www\OVANIC\wp-content\themes\flatsome-child\woocommerce\yith-wfbt-form.php on line 31
+#0 /home/customer/www/ovanic.vn/public_html/wp-content/plugins/wp-rocket_tat/inc/Plugin.php(143): WP_Rocket\Dependencies\League\Container\Container->get('polygon')
+#1 /home/customer/www/ovanic.vn/public_html/wp-content/plugins/wp-rocket_tat/inc/main.php(50): WP_Rocket\Plugin->load()
+#2 /home/customer/www/ovanic.vn/public_html/wp-includes/class-wp-hook.php(307): rocket_init('')
+#3 /home/customer/www/ovanic.vn/public_html/wp-includes/class-wp-hook.php(331): WP_Hook->apply_filters(NULL, Array)
+#4 /home/customer/www/ovanic.vn/public_html/wp-includes/plugin.php(476): WP_Hook->do_action(Array)
+#5 /home/customer/www/ovanic.vn/public_html/wp-settings.php(461): do_action('plugins_loaded')
+#6 /home/customer/www/ovanic.vn/public_html/wp-c in /home/customer/www/ovanic.vn/public_html/wp-content/plugins/wp-rocket_tat/inc/Dependencies/League/Container/Container.php on line 188
 
-2022-09-02T12:48:03+00:00 CRITICAL Uncaught Error: Call to undefined function amp_is_request() in D:\Ampps\www\OVANIC\wp-content\themes\flatsome-child\woocommerce\yith-wfbt-form.php:31
+2022-09-02T15:35:11+00:00 CRITICAL Uncaught WP_Rocket\Dependencies\League\Container\Exception\NotFoundException: Alias (polygon) is not being managed by the container or delegates in /home/customer/www/ovanic.vn/public_html/wp-content/plugins/wp-rocket_tat/inc/Dependencies/League/Container/Container.php:188
 Stack trace:
-#0 D:\Ampps\www\OVANIC\wp-content\plugins\woocommerce\includes\wc-core-functions.php(345): include()
-#1 D:\Ampps\www\OVANIC\wp-content\plugins\yith-woocommerce-frequently-bought-together-premium\includes\class.yith-wfbt-frontend.php(419): wc_get_template()
-#2 D:\Ampps\www\OVANIC\wp-includes\class-wp-hook.php(307): YITH_WFBT_Frontend->add_bought_together_form()
-#3 D:\Ampps\www\OVANIC\wp-includes\class-wp-hook.php(331): WP_Hook->apply_filters()
-#4 D:\Ampps\www\OVANIC\wp-includes\plugin.php(476): WP_Hook->do_action()
-#5 D:\Ampps\www\OVANIC\wp-content\themes\flatsome-child\woocommerce\single-product\layouts\product-no-sidebar.php(68): do_action()
-#6 D:\Ampps\www\OVANIC\wp-includes\template.php(772): require('D:\\Ampps\\www\\OV...')
-#7 D:\Ampps\www\OVANIC\wp-content\plugins\woocommerce\includes\wc-core-functions.php(284): load_template()
-#8 D:\Ampps\www\ in D:\Ampps\www\OVANIC\wp-content\themes\flatsome-child\woocommerce\yith-wfbt-form.php on line 31
+#0 /home/customer/www/ovanic.vn/public_html/wp-content/plugins/wp-rocket_tat/inc/Plugin.php(143): WP_Rocket\Dependencies\League\Container\Container->get('polygon')
+#1 /home/customer/www/ovanic.vn/public_html/wp-content/plugins/wp-rocket_tat/inc/main.php(50): WP_Rocket\Plugin->load()
+#2 /home/customer/www/ovanic.vn/public_html/wp-includes/class-wp-hook.php(307): rocket_init('')
+#3 /home/customer/www/ovanic.vn/public_html/wp-includes/class-wp-hook.php(331): WP_Hook->apply_filters(NULL, Array)
+#4 /home/customer/www/ovanic.vn/public_html/wp-includes/plugin.php(476): WP_Hook->do_action(Array)
+#5 /home/customer/www/ovanic.vn/public_html/wp-settings.php(461): do_action('plugins_loaded')
+#6 /home/customer/www/ovanic.vn/public_html/wp-c in /home/customer/www/ovanic.vn/public_html/wp-content/plugins/wp-rocket_tat/inc/Dependencies/League/Container/Container.php on line 188
 
-2022-09-02T12:48:50+00:00 CRITICAL Uncaught Error: Call to undefined function amp_is_request() in D:\Ampps\www\OVANIC\wp-content\themes\flatsome-child\woocommerce\yith-wfbt-form.php:31
+2022-09-02T15:35:12+00:00 CRITICAL Uncaught WP_Rocket\Dependencies\League\Container\Exception\NotFoundException: Alias (polygon) is not being managed by the container or delegates in /home/customer/www/ovanic.vn/public_html/wp-content/plugins/wp-rocket_tat/inc/Dependencies/League/Container/Container.php:188
 Stack trace:
-#0 D:\Ampps\www\OVANIC\wp-content\plugins\woocommerce\includes\wc-core-functions.php(345): include()
-#1 D:\Ampps\www\OVANIC\wp-content\plugins\yith-woocommerce-frequently-bought-together-premium\includes\class.yith-wfbt-frontend.php(419): wc_get_template()
-#2 D:\Ampps\www\OVANIC\wp-includes\class-wp-hook.php(307): YITH_WFBT_Frontend->add_bought_together_form()
-#3 D:\Ampps\www\OVANIC\wp-includes\class-wp-hook.php(331): WP_Hook->apply_filters()
-#4 D:\Ampps\www\OVANIC\wp-includes\plugin.php(476): WP_Hook->do_action()
-#5 D:\Ampps\www\OVANIC\wp-content\themes\flatsome-child\woocommerce\single-product\layouts\product-no-sidebar.php(68): do_action()
-#6 D:\Ampps\www\OVANIC\wp-includes\template.php(772): require('D:\\Ampps\\www\\OV...')
-#7 D:\Ampps\www\OVANIC\wp-content\plugins\woocommerce\includes\wc-core-functions.php(284): load_template()
-#8 D:\Ampps\www\ in D:\Ampps\www\OVANIC\wp-content\themes\flatsome-child\woocommerce\yith-wfbt-form.php on line 31
+#0 /home/customer/www/ovanic.vn/public_html/wp-content/plugins/wp-rocket_tat/inc/Plugin.php(143): WP_Rocket\Dependencies\League\Container\Container->get('polygon')
+#1 /home/customer/www/ovanic.vn/public_html/wp-content/plugins/wp-rocket_tat/inc/main.php(50): WP_Rocket\Plugin->load()
+#2 /home/customer/www/ovanic.vn/public_html/wp-includes/class-wp-hook.php(307): rocket_init('')
+#3 /home/customer/www/ovanic.vn/public_html/wp-includes/class-wp-hook.php(331): WP_Hook->apply_filters(NULL, Array)
+#4 /home/customer/www/ovanic.vn/public_html/wp-includes/plugin.php(476): WP_Hook->do_action(Array)
+#5 /home/customer/www/ovanic.vn/public_html/wp-settings.php(461): do_action('plugins_loaded')
+#6 /home/customer/www/ovanic.vn/public_html/wp-c in /home/customer/www/ovanic.vn/public_html/wp-content/plugins/wp-rocket_tat/inc/Dependencies/League/Container/Container.php on line 188
 
-2022-09-02T12:49:26+00:00 CRITICAL Uncaught Error: Call to undefined function amp_is_request() in D:\Ampps\www\OVANIC\wp-content\themes\flatsome-child\woocommerce\yith-wfbt-form.php:31
+2022-09-02T15:35:14+00:00 CRITICAL Uncaught WP_Rocket\Dependencies\League\Container\Exception\NotFoundException: Alias (polygon) is not being managed by the container or delegates in /home/customer/www/ovanic.vn/public_html/wp-content/plugins/wp-rocket_tat/inc/Dependencies/League/Container/Container.php:188
 Stack trace:
-#0 D:\Ampps\www\OVANIC\wp-content\plugins\woocommerce\includes\wc-core-functions.php(345): include()
-#1 D:\Ampps\www\OVANIC\wp-content\plugins\yith-woocommerce-frequently-bought-together-premium\includes\class.yith-wfbt-frontend.php(419): wc_get_template()
-#2 D:\Ampps\www\OVANIC\wp-includes\class-wp-hook.php(307): YITH_WFBT_Frontend->add_bought_together_form()
-#3 D:\Ampps\www\OVANIC\wp-includes\class-wp-hook.php(331): WP_Hook->apply_filters()
-#4 D:\Ampps\www\OVANIC\wp-includes\plugin.php(476): WP_Hook->do_action()
-#5 D:\Ampps\www\OVANIC\wp-content\themes\flatsome-child\woocommerce\single-product\layouts\product-no-sidebar.php(68): do_action()
-#6 D:\Ampps\www\OVANIC\wp-includes\template.php(772): require('D:\\Ampps\\www\\OV...')
-#7 D:\Ampps\www\OVANIC\wp-content\plugins\woocommerce\includes\wc-core-functions.php(284): load_template()
-#8 D:\Ampps\www\ in D:\Ampps\www\OVANIC\wp-content\themes\flatsome-child\woocommerce\yith-wfbt-form.php on line 31
+#0 /home/customer/www/ovanic.vn/public_html/wp-content/plugins/wp-rocket_tat/inc/Plugin.php(143): WP_Rocket\Dependencies\League\Container\Container->get('polygon')
+#1 /home/customer/www/ovanic.vn/public_html/wp-content/plugins/wp-rocket_tat/inc/main.php(50): WP_Rocket\Plugin->load()
+#2 /home/customer/www/ovanic.vn/public_html/wp-includes/class-wp-hook.php(307): rocket_init('')
+#3 /home/customer/www/ovanic.vn/public_html/wp-includes/class-wp-hook.php(331): WP_Hook->apply_filters(NULL, Array)
+#4 /home/customer/www/ovanic.vn/public_html/wp-includes/plugin.php(476): WP_Hook->do_action(Array)
+#5 /home/customer/www/ovanic.vn/public_html/wp-settings.php(461): do_action('plugins_loaded')
+#6 /home/customer/www/ovanic.vn/public_html/wp-c in /home/customer/www/ovanic.vn/public_html/wp-content/plugins/wp-rocket_tat/inc/Dependencies/League/Container/Container.php on line 188
 
-2022-09-02T12:49:50+00:00 CRITICAL Uncaught Error: Call to undefined function amp_is_request() in D:\Ampps\www\OVANIC\wp-content\themes\flatsome-child\woocommerce\yith-wfbt-form.php:32
+2022-09-02T15:35:14+00:00 CRITICAL Uncaught WP_Rocket\Dependencies\League\Container\Exception\NotFoundException: Alias (polygon) is not being managed by the container or delegates in /home/customer/www/ovanic.vn/public_html/wp-content/plugins/wp-rocket_tat/inc/Dependencies/League/Container/Container.php:188
 Stack trace:
-#0 D:\Ampps\www\OVANIC\wp-content\plugins\woocommerce\includes\wc-core-functions.php(345): include()
-#1 D:\Ampps\www\OVANIC\wp-content\plugins\yith-woocommerce-frequently-bought-together-premium\includes\class.yith-wfbt-frontend.php(419): wc_get_template()
-#2 D:\Ampps\www\OVANIC\wp-includes\class-wp-hook.php(307): YITH_WFBT_Frontend->add_bought_together_form()
-#3 D:\Ampps\www\OVANIC\wp-includes\class-wp-hook.php(331): WP_Hook->apply_filters()
-#4 D:\Ampps\www\OVANIC\wp-includes\plugin.php(476): WP_Hook->do_action()
-#5 D:\Ampps\www\OVANIC\wp-content\themes\flatsome-child\woocommerce\single-product\layouts\product-no-sidebar.php(68): do_action()
-#6 D:\Ampps\www\OVANIC\wp-includes\template.php(772): require('D:\\Ampps\\www\\OV...')
-#7 D:\Ampps\www\OVANIC\wp-content\plugins\woocommerce\includes\wc-core-functions.php(284): load_template()
-#8 D:\Ampps\www\ in D:\Ampps\www\OVANIC\wp-content\themes\flatsome-child\woocommerce\yith-wfbt-form.php on line 32
+#0 /home/customer/www/ovanic.vn/public_html/wp-content/plugins/wp-rocket_tat/inc/Plugin.php(143): WP_Rocket\Dependencies\League\Container\Container->get('polygon')
+#1 /home/customer/www/ovanic.vn/public_html/wp-content/plugins/wp-rocket_tat/inc/main.php(50): WP_Rocket\Plugin->load()
+#2 /home/customer/www/ovanic.vn/public_html/wp-includes/class-wp-hook.php(307): rocket_init('')
+#3 /home/customer/www/ovanic.vn/public_html/wp-includes/class-wp-hook.php(331): WP_Hook->apply_filters(NULL, Array)
+#4 /home/customer/www/ovanic.vn/public_html/wp-includes/plugin.php(476): WP_Hook->do_action(Array)
+#5 /home/customer/www/ovanic.vn/public_html/wp-settings.php(461): do_action('plugins_loaded')
+#6 /home/customer/www/ovanic.vn/public_html/wp-c in /home/customer/www/ovanic.vn/public_html/wp-content/plugins/wp-rocket_tat/inc/Dependencies/League/Container/Container.php on line 188
 
-2022-09-02T12:50:07+00:00 CRITICAL Uncaught Error: Call to undefined function is_amp_endpoint() in D:\Ampps\www\OVANIC\wp-content\themes\flatsome-child\woocommerce\yith-wfbt-form.php:32
-Stack trace:
-#0 D:\Ampps\www\OVANIC\wp-content\plugins\woocommerce\includes\wc-core-functions.php(345): include()
-#1 D:\Ampps\www\OVANIC\wp-content\plugins\yith-woocommerce-frequently-bought-together-premium\includes\class.yith-wfbt-frontend.php(419): wc_get_template()
-#2 D:\Ampps\www\OVANIC\wp-includes\class-wp-hook.php(307): YITH_WFBT_Frontend->add_bought_together_form()
-#3 D:\Ampps\www\OVANIC\wp-includes\class-wp-hook.php(331): WP_Hook->apply_filters()
-#4 D:\Ampps\www\OVANIC\wp-includes\plugin.php(476): WP_Hook->do_action()
-#5 D:\Ampps\www\OVANIC\wp-content\themes\flatsome-child\woocommerce\single-product\layouts\product-no-sidebar.php(68): do_action()
-#6 D:\Ampps\www\OVANIC\wp-includes\template.php(772): require('D:\\Ampps\\www\\OV...')
-#7 D:\Ampps\www\OVANIC\wp-content\plugins\woocommerce\includes\wc-core-functions.php(284): load_template()
-#8 D:\Ampps\www in D:\Ampps\www\OVANIC\wp-content\themes\flatsome-child\woocommerce\yith-wfbt-form.php on line 32
-
-2022-09-02T12:51:22+00:00 CRITICAL Uncaught Error: Call to undefined function is_amp() in D:\Ampps\www\OVANIC\wp-content\themes\flatsome-child\woocommerce\yith-wfbt-form.php:32
-Stack trace:
-#0 D:\Ampps\www\OVANIC\wp-content\plugins\woocommerce\includes\wc-core-functions.php(345): include()
-#1 D:\Ampps\www\OVANIC\wp-content\plugins\yith-woocommerce-frequently-bought-together-premium\includes\class.yith-wfbt-frontend.php(419): wc_get_template()
-#2 D:\Ampps\www\OVANIC\wp-includes\class-wp-hook.php(307): YITH_WFBT_Frontend->add_bought_together_form()
-#3 D:\Ampps\www\OVANIC\wp-includes\class-wp-hook.php(331): WP_Hook->apply_filters()
-#4 D:\Ampps\www\OVANIC\wp-includes\plugin.php(476): WP_Hook->do_action()
-#5 D:\Ampps\www\OVANIC\wp-content\themes\flatsome-child\woocommerce\single-product\layouts\product-no-sidebar.php(68): do_action()
-#6 D:\Ampps\www\OVANIC\wp-includes\template.php(772): require('D:\\Ampps\\www\\OV...')
-#7 D:\Ampps\www\OVANIC\wp-content\plugins\woocommerce\includes\wc-core-functions.php(284): load_template()
-#8 D:\Ampps\www\OVANIC\w in D:\Ampps\www\OVANIC\wp-content\themes\flatsome-child\woocommerce\yith-wfbt-form.php on line 32
-
-2022-09-02T12:57:23+00:00 CRITICAL Uncaught Error: Call to undefined function is_amp_endpoint() in D:\Ampps\www\OVANIC\wp-content\themes\flatsome-child\woocommerce\yith-wfbt-form.php:32
-Stack trace:
-#0 D:\Ampps\www\OVANIC\wp-content\plugins\woocommerce\includes\wc-core-functions.php(345): include()
-#1 D:\Ampps\www\OVANIC\wp-content\plugins\yith-woocommerce-frequently-bought-together-premium\includes\class.yith-wfbt-frontend.php(419): wc_get_template()
-#2 D:\Ampps\www\OVANIC\wp-includes\class-wp-hook.php(307): YITH_WFBT_Frontend->add_bought_together_form()
-#3 D:\Ampps\www\OVANIC\wp-includes\class-wp-hook.php(331): WP_Hook->apply_filters()
-#4 D:\Ampps\www\OVANIC\wp-includes\plugin.php(476): WP_Hook->do_action()
-#5 D:\Ampps\www\OVANIC\wp-content\themes\flatsome-child\woocommerce\single-product\layouts\product-no-sidebar.php(68): do_action()
-#6 D:\Ampps\www\OVANIC\wp-includes\template.php(772): require('D:\\Ampps\\www\\OV...')
-#7 D:\Ampps\www\OVANIC\wp-content\plugins\woocommerce\includes\wc-core-functions.php(284): load_template()
-#8 D:\Ampps\www in D:\Ampps\www\OVANIC\wp-content\themes\flatsome-child\woocommerce\yith-wfbt-form.php on line 32
-
-2022-09-02T12:57:47+00:00 CRITICAL Uncaught Error: Call to undefined function is_amp_endpoint() in D:\Ampps\www\OVANIC\wp-content\themes\flatsome-child\woocommerce\yith-wfbt-form.php:32
-Stack trace:
-#0 D:\Ampps\www\OVANIC\wp-content\plugins\woocommerce\includes\wc-core-functions.php(345): include()
-#1 D:\Ampps\www\OVANIC\wp-content\plugins\yith-woocommerce-frequently-bought-together-premium\includes\class.yith-wfbt-frontend.php(419): wc_get_template()
-#2 D:\Ampps\www\OVANIC\wp-includes\class-wp-hook.php(307): YITH_WFBT_Frontend->add_bought_together_form()
-#3 D:\Ampps\www\OVANIC\wp-includes\class-wp-hook.php(331): WP_Hook->apply_filters()
-#4 D:\Ampps\www\OVANIC\wp-includes\plugin.php(476): WP_Hook->do_action()
-#5 D:\Ampps\www\OVANIC\wp-content\themes\flatsome-child\woocommerce\single-product\layouts\product-no-sidebar.php(68): do_action()
-#6 D:\Ampps\www\OVANIC\wp-includes\template.php(772): require('D:\\Ampps\\www\\OV...')
-#7 D:\Ampps\www\OVANIC\wp-content\plugins\woocommerce\includes\wc-core-functions.php(284): load_template()
-#8 D:\Ampps\www in D:\Ampps\www\OVANIC\wp-content\themes\flatsome-child\woocommerce\yith-wfbt-form.php on line 32
-
-2022-09-02T13:51:37+00:00 CRITICAL Uncaught Error: Call to undefined method WP::request() in D:\Ampps\www\OVANIC\wp-content\themes\flatsome-child\woocommerce\yith-wfbt-form.php:34
-Stack trace:
-#0 D:\Ampps\www\OVANIC\wp-content\plugins\woocommerce\includes\wc-core-functions.php(345): include()
-#1 D:\Ampps\www\OVANIC\wp-content\plugins\yith-woocommerce-frequently-bought-together-premium\includes\class.yith-wfbt-frontend.php(419): wc_get_template()
-#2 D:\Ampps\www\OVANIC\wp-includes\class-wp-hook.php(307): YITH_WFBT_Frontend->add_bought_together_form()
-#3 D:\Ampps\www\OVANIC\wp-includes\class-wp-hook.php(331): WP_Hook->apply_filters()
-#4 D:\Ampps\www\OVANIC\wp-includes\plugin.php(476): WP_Hook->do_action()
-#5 D:\Ampps\www\OVANIC\wp-content\themes\flatsome-child\wp-amp\parts\product_add_to_cart_block.php(37): do_action()
-#6 D:\Ampps\www\OVANIC\wp-content\plugins\wp-amp\includes\class-amphtml-template-abstract.php(75): include('D:\\Ampps\\www\\OV...')
-#7 D:\Ampps\www\OVANIC\wp-content\plugins\wp-amp\templates\single-content.php(21): AMPHTML_Templat in D:\Ampps\www\OVANIC\wp-content\themes\flatsome-child\woocommerce\yith-wfbt-form.php on line 34
-
-2022-09-02T13:51:54+00:00 CRITICAL Uncaught Error: Call to undefined method WP::request() in D:\Ampps\www\OVANIC\wp-content\themes\flatsome-child\woocommerce\yith-wfbt-form.php:34
-Stack trace:
-#0 D:\Ampps\www\OVANIC\wp-content\plugins\woocommerce\includes\wc-core-functions.php(345): include()
-#1 D:\Ampps\www\OVANIC\wp-content\plugins\yith-woocommerce-frequently-bought-together-premium\includes\class.yith-wfbt-frontend.php(419): wc_get_template()
-#2 D:\Ampps\www\OVANIC\wp-includes\class-wp-hook.php(307): YITH_WFBT_Frontend->add_bought_together_form()
-#3 D:\Ampps\www\OVANIC\wp-includes\class-wp-hook.php(331): WP_Hook->apply_filters()
-#4 D:\Ampps\www\OVANIC\wp-includes\plugin.php(476): WP_Hook->do_action()
-#5 D:\Ampps\www\OVANIC\wp-content\themes\flatsome-child\wp-amp\parts\product_add_to_cart_block.php(37): do_action()
-#6 D:\Ampps\www\OVANIC\wp-content\plugins\wp-amp\includes\class-amphtml-template-abstract.php(75): include('D:\\Ampps\\www\\OV...')
-#7 D:\Ampps\www\OVANIC\wp-content\plugins\wp-amp\templates\single-content.php(21): AMPHTML_Templat in D:\Ampps\www\OVANIC\wp-content\themes\flatsome-child\woocommerce\yith-wfbt-form.php on line 34
-
-2022-09-02T13:52:12+00:00 CRITICAL Uncaught Error: Call to undefined method WP::request() in D:\Ampps\www\OVANIC\wp-content\themes\flatsome-child\woocommerce\yith-wfbt-form.php:34
-Stack trace:
-#0 D:\Ampps\www\OVANIC\wp-content\plugins\woocommerce\includes\wc-core-functions.php(345): include()
-#1 D:\Ampps\www\OVANIC\wp-content\plugins\yith-woocommerce-frequently-bought-together-premium\includes\class.yith-wfbt-frontend.php(419): wc_get_template()
-#2 D:\Ampps\www\OVANIC\wp-includes\class-wp-hook.php(307): YITH_WFBT_Frontend->add_bought_together_form()
-#3 D:\Ampps\www\OVANIC\wp-includes\class-wp-hook.php(331): WP_Hook->apply_filters()
-#4 D:\Ampps\www\OVANIC\wp-includes\plugin.php(476): WP_Hook->do_action()
-#5 D:\Ampps\www\OVANIC\wp-content\themes\flatsome-child\wp-amp\parts\product_add_to_cart_block.php(37): do_action()
-#6 D:\Ampps\www\OVANIC\wp-content\plugins\wp-amp\includes\class-amphtml-template-abstract.php(75): include('D:\\Ampps\\www\\OV...')
-#7 D:\Ampps\www\OVANIC\wp-content\plugins\wp-amp\templates\single-content.php(21): AMPHTML_Templat in D:\Ampps\www\OVANIC\wp-content\themes\flatsome-child\woocommerce\yith-wfbt-form.php on line 34
-
-2022-09-02T14:45:20+00:00 CRITICAL Uncaught Error: Function name must be a string in D:\Ampps\www\OVANIC\wp-content\themes\flatsome-child\woocommerce\yith-wfbt-form.php:95
-Stack trace:
-#0 D:\Ampps\www\OVANIC\wp-content\plugins\woocommerce\includes\wc-core-functions.php(345): include()
-#1 D:\Ampps\www\OVANIC\wp-content\plugins\yith-woocommerce-frequently-bought-together-premium\includes\class.yith-wfbt-frontend.php(419): wc_get_template()
-#2 D:\Ampps\www\OVANIC\wp-includes\class-wp-hook.php(307): YITH_WFBT_Frontend->add_bought_together_form()
-#3 D:\Ampps\www\OVANIC\wp-includes\class-wp-hook.php(331): WP_Hook->apply_filters()
-#4 D:\Ampps\www\OVANIC\wp-includes\plugin.php(476): WP_Hook->do_action()
-#5 D:\Ampps\www\OVANIC\wp-content\themes\flatsome-child\wp-amp\parts\product_add_to_cart_block.php(37): do_action()
-#6 D:\Ampps\www\OVANIC\wp-content\plugins\wp-amp\includes\class-amphtml-template-abstract.php(75): include('D:\\Ampps\\www\\OV...')
-#7 D:\Ampps\www\OVANIC\wp-content\plugins\wp-amp\templates\single-content.php(21): AMPHTML_Template_Abstra in D:\Ampps\www\OVANIC\wp-content\themes\flatsome-child\woocommerce\yith-wfbt-form.php on line 95
-
-2022-09-02T14:52:59+00:00 CRITICAL syntax error, unexpected '$id_check_out' (T_VARIABLE), expecting ')' in D:\Ampps\www\OVANIC\wp-content\themes\flatsome-child\woocommerce\yith-wfbt-form.php on line 95
+2022-09-02T15:36:33+00:00 CRITICAL require_once(): Failed opening required '/files.php' (include_path='.:/usr/local/php74/pear') in /home/customer/www/ovanic.vn/public_html/wp-content/plugins/wp-rocket_tat/inc/main.php on line 13
 
