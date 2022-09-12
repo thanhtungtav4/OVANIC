@@ -16,9 +16,30 @@ function conditionally_enqueue_styles_scripts() {
         wp_enqueue_style('style_single');
     }
 }
-// function collectiveray_theme_scripts_function() {
-//     if(is_product_category()){
-//         wp_enqueue_script( 'js-file', get_stylesheet_directory_uri() . '/assets/order_by.js');
-//     }
-//   }
-//   add_action('wp_enqueue_scripts','collectiveray_theme_scripts_function');
+//remove js css not using inhome
+function wp_remove_scripts() {
+    if (is_front_page() ) {
+        // Remove Scripts
+        wp_dequeue_script( 'masonry.pkgd' );
+        wp_deregister_script( 'masonry.pkgd' );
+        wp_dequeue_script( 'magnific-popup' );
+        wp_deregister_script( 'magnific-popup' );
+        wp_dequeue_style( 'magnific-popup' );
+        wp_deregister_style('magnific-popup');
+        wp_dequeue_style( 'devvn-shortcode-reviews' );
+        wp_deregister_style( 'devvn-shortcode-reviews' );
+        wp_dequeue_style( 'ion.range-slider' );
+        wp_deregister_style( 'ion.range-slider' );
+        wp_dequeue_style( 'shortcodes' );
+        wp_deregister_style( 'shortcodes' );
+        wp_dequeue_style( 'owl.carousel' );
+        wp_deregister_style( 'owl.carousel' );
+        wp_dequeue_style( 'devvn-post-comment' );
+        wp_deregister_style( 'devvn-post-comment' );
+        wp_dequeue_style( 'wc-memberships-frontend' );
+        wp_deregister_style( 'wc-memberships-frontend' );
+        wp_dequeue_style( 'automatewoo-referralsd' );
+        wp_deregister_style( 'automatewoo-referrals' );
+        }
+    }       
+    add_action( 'wp_enqueue_scripts', 'wp_remove_scripts', 999 );
