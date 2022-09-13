@@ -365,6 +365,16 @@ button.single_add_to_cart_button:nth-of-type(1) {
   font-size: 1.1rem;
   color: red;
 }
+.woocommerce-product-rating{
+  display: flex;
+  align-items: center;
+}
+.woocommerce-product-rating .woocommerce-review-link{
+  padding: 0 10px;
+}
+.product-title{
+  margin-bottom: 0;
+}
 @media only screen and (min-width: 768px) {
   .shop_info .detail_info.seach_taget{
    margin: 0;
@@ -380,6 +390,9 @@ button.single_add_to_cart_button:nth-of-type(1) {
   }
   .product-short-description p{
     margin-bottom: 0;
+  }
+  .h1, h1 {
+    font-size: 1.4em;
   }
 }
 @media only screen and (max-width: 768px) {
