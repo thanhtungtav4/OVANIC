@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 2022-09-08T04:54:51+00:00 CRITICAL Uncaught Error: Call to undefined function dev_category_rewrite_rules() in /home/customer/www/ovanic.vn/public_html/wp-content/themes/flatsome-child/functions/url.php:86
 Stack trace:
 #0 /home/customer/www/ovanic.vn/public_html/wp-includes/class-wp-hook.php(309): new_thuong_hieu_cat_edit_success(386, 386)
@@ -64,4 +65,19 @@ Stack trace:
 #6 /home/customer/www/ovanic.vn/public_html/wp-includes/class-wp-hook.ph in /home/customer/www/ovanic.vn/public_html/wp-content/themes/flatsome-child/functions/url.php on line 86
 
 2022-09-08T16:50:21+00:00 CRITICAL syntax error, unexpected end of file, expecting ')' in /home/customer/www/ovanic.vn/public_html/wp-content/themes/flatsome-child/functions/acf.php on line 517
+=======
+2022-09-08T16:42:13+00:00 CRITICAL Uncaught Error: Call to undefined function dev_category_rewrite_rules() in D:\Ampps\www\OVANIC\wp-content\themes\flatsome-child\functions\url.php:86
+Stack trace:
+#0 D:\Ampps\www\OVANIC\wp-includes\class-wp-hook.php(309): new_thuong_hieu_cat_edit_success()
+#1 D:\Ampps\www\OVANIC\wp-includes\class-wp-hook.php(331): WP_Hook->apply_filters()
+#2 D:\Ampps\www\OVANIC\wp-includes\plugin.php(476): WP_Hook->do_action()
+#3 D:\Ampps\www\OVANIC\wp-includes\taxonomy.php(2582): do_action()
+#4 D:\Ampps\www\OVANIC\wp-content\plugins\woocommerce\includes\class-wc-ajax.php(597): wp_insert_term()
+#5 D:\Ampps\www\OVANIC\wp-includes\class-wp-hook.php(307): WC_AJAX::add_new_attribute()
+#6 D:\Ampps\www\OVANIC\wp-includes\class-wp-hook.php(331): WP_Hook->apply_filters()
+#7 D:\Ampps\www\OVANIC\wp-includes\plugin.php(476): WP_Hook->do_action()
+#8 D:\Ampps\www\OVANIC\wp-admin\admin-ajax.php(187): do_action()
+#9 {main}
+  thrown in D:\Ampps\www\OVANIC\wp-content\themes\flatsome-child\functions\url.php on line 86
+>>>>>>> c2f31ea8886f0d46a757daf6caeef5f624e93fea
 
