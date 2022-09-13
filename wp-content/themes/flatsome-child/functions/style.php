@@ -51,3 +51,11 @@ function wp_remove_scripts_head() {
     }
 }
 add_action( 'wp_head', 'wp_remove_scripts_head', 9999 );
+
+// function change_default_jquery( ){
+//     if (is_front_page() && !is_user_logged_in()) {
+//         wp_dequeue_script( 'jquery');
+//         wp_deregister_script( 'jquery');
+//     }
+// }
+// add_filter( 'wp_enqueue_scripts', 'change_default_jquery', PHP_INT_MAX );

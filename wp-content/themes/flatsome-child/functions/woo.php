@@ -26,7 +26,7 @@ add_action('woocommerce_single_title_module', 'add_brand_product_singer');
 function show_info(){
   global $post;
   global $product;
- 
+
   $brand = get_the_terms( $post->ID, 'thuong-hieu' );
   $made = wc_get_product_terms($post->ID, 'pa_xuat-xu', 'names');
   $price = $product->get_sale_price() ? wc_price($product->get_sale_price()) : wc_price($product->get_price());
@@ -182,39 +182,39 @@ add_action('woocommerce_cross_sell_tungnt', 'show_woocommerce_output_related_pro
 function show_woocommerce_output_related_products(){
   woocommerce_output_related_products();
 }
-// add to cart muti product 
+// add to cart muti product
 // ex ovanic.io/checkout?add-to-cart=product_id_1,product_id_2,product_id_3
 function woocommerce_maybe_add_multiple_products_to_cart() {
   // Make sure WC is installed, and add-to-cart qauery arg exists, and contains at least one comma.
   if ( ! class_exists( 'WC_Form_Handler' ) || empty( $_REQUEST['add-to-cart'] ) || false === strpos( $_REQUEST['add-to-cart'], ',' ) ) {
       return;
   }
-  
+
   // Remove WooCommerce's hook, as it's useless (doesn't handle multiple products).
   remove_action( 'wp_loaded', array( 'WC_Form_Handler', 'add_to_cart_action' ), 20 );
-  
+
   $product_ids = explode( ',', $_REQUEST['add-to-cart'] );
   $count       = count( $product_ids );
   $number      = 0;
-  
+
   foreach ( $product_ids as $product_id ) {
       if ( ++$number === $count ) {
           // Ok, final item, let's send it back to woocommerce's add_to_cart_action method for handling.
           $_REQUEST['add-to-cart'] = $product_id;
-  
+
           return WC_Form_Handler::add_to_cart_action();
       }
-  
+
       $product_id        = apply_filters( 'woocommerce_add_to_cart_product_id', absint( $product_id ) );
       $was_added_to_cart = false;
       $adding_to_cart    = wc_get_product( $product_id );
-  
+
       if ( ! $adding_to_cart ) {
           continue;
       }
-  
+
       $add_to_cart_handler = apply_filters( 'woocommerce_add_to_cart_handler', $adding_to_cart->product_type, $adding_to_cart );
-  
+
       /*
        * Sorry.. if you want non-simple products, you're on your own.
        *
@@ -228,17 +228,17 @@ function woocommerce_maybe_add_multiple_products_to_cart() {
       if ( 'simple' !== $add_to_cart_handler ) {
           continue;
       }
-  
+
       // For now, quantity applies to all products.. This could be changed easily enough, but I didn't need this feature.
       $quantity          = empty( $_REQUEST['quantity'] ) ? 1 : wc_stock_amount( $_REQUEST['quantity'] );
       $passed_validation = apply_filters( 'woocommerce_add_to_cart_validation', true, $product_id, $quantity );
-  
+
       if ( $passed_validation && false !== WC()->cart->add_to_cart( $product_id, $quantity ) ) {
           wc_add_to_cart_message( array( $product_id => $quantity ), true );
       }
   }
   }
-  
+
    // Fire before the WC_Form_Handler::add_to_cart_action callback.
 add_action( 'wp_loaded',        'woocommerce_maybe_add_multiple_products_to_cart', 15 );
 
@@ -256,8 +256,10 @@ function wc_customize_product_sorting($sorting_options){
 
     return $sorting_options;
 }
-function filter_woocommerce_attribute_value( $value ) { 
+function filter_woocommerce_attribute_value( $value ) {
   return preg_replace( '#<a.*?>([^>]*)</a>#i', '$1', $value );
 }
 
 add_filter( 'woocommerce_attribute', 'filter_woocommerce_attribute_value', 99 );
+
+// fix Excessive DOM elements Currency Symbol

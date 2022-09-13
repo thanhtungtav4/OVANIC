@@ -7,9 +7,6 @@ Version: 3.0
 */
 
 /*************** ADD CUSTOM CSS HERE.   ***************/
-html, body *{
-  font-display: swap;
-}
 .yith-wcan-filters .yith-wcan-filter .filter-items .filter-item .star-rating{
   height: 1.5rem;
 }
