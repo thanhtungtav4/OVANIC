@@ -452,7 +452,21 @@ button.single_add_to_cart_button:nth-of-type(1) {
     display: none;
   }
 }
-
+/* button{
+  background-color: #2961ff;
+  color: white;
+  border-radius: 5px;
+  font-size: 0.9rem;
+  position: relative;
+  padding-right: 15px;
+}
+button::before{
+  position: absolute;
+  background-image: url(../assets/images/ico_video.svg);
+  background-repeat: no-repeat;
+  background-size: 15px;
+  background-position: center;
+} */
 @media only screen and (max-width: 380px) {
   .single_add_to_cart_button.button{
     font-size: 0.9rem !important;

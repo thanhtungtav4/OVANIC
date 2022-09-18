@@ -1,0 +1,223 @@
+/**
+ * All of the CSS for your public-facing functionality should be
+ * included in this file.
+ */
+
+ .flatsome-ultils-mh-pagination li{
+ 	margin-left: 0 !important;
+ }
+ .flatsome-utils-loading-m {
+ 	display: none;
+ 	position: fixed;
+ 	left: 0;
+ 	top: 0;
+ 	z-index: 999992 !important;
+ 	width: 100%;
+ 	height: 100%;
+ 	background: rgba(0,0,0,0.5);
+ }
+  .flatsome-utils-loading-m.in {
+  	display: flex;
+	    align-items: center;
+	    justify-content: center;
+  }
+
+.grid-col .slider:not(.flickity-enabled), .grid-col>.col-inner>.img, .grid-col>.col-inner>.img div, .grid-col>.col-inner>.img .img-inner>img, .grid-col .slider>.img, .grid-col .flickity-slider>.img, .grid-col .col-inner>.img, .grid-col .slider-wrapper, .grid-col .slider, .grid-col .banner, .grid-col .box, .grid-col .box-image, .grid-col .box-image img, .grid-col .image-cover, .grid-col .image-cover img
+  {
+  	/*left: 0;*/
+  }
+
+@media screen and (min-width: 850px) {
+	.large-columns-6 .flickity-slider>.flatsome-utils-2-rows {
+	    max-width: 16.66667%;;
+	    -ms-flex-preferred-size: 16.66667%;;
+	    flex-basis: 16.66667%;;
+	}
+	.large-columns-5 .flickity-slider>.flatsome-utils-2-rows {
+	    max-width: 20%;
+	    -ms-flex-preferred-size: 20%;
+	    flex-basis: 20%;
+	}
+	.large-columns-4 .flickity-slider>.flatsome-utils-2-rows {
+	    max-width: 25%;
+	    -ms-flex-preferred-size: 25%;
+	    flex-basis: 25%;
+	}
+
+	.large-columns-3 .flickity-slider>.flatsome-utils-2-rows {
+	    max-width: 33.33%;
+	    -ms-flex-preferred-size: 33.33%;
+	    flex-basis: 33.33%;
+	}
+	.large-columns-2 .flickity-slider>.flatsome-utils-2-rows {
+	    max-width: 50%;
+	    -ms-flex-preferred-size: 50%;
+	    flex-basis: 50%;
+	}
+	.large-columns-1 .flickity-slider>.flatsome-utils-2-rows {
+	    max-width: 100%;
+	    -ms-flex-preferred-size: 100%;
+	    flex-basis: 100%;
+	}
+
+	.large-columns-7 .flickity-slider>.flatsome-utils-2-rows {
+	    max-width: 14.28%;
+	    -ms-flex-preferred-size: 14.28%;
+	    flex-basis: 14.28%;
+	}
+	.large-columns-8 .flickity-slider>.flatsome-utils-2-rows {
+	    max-width: 12.5%;
+	    -ms-flex-preferred-size: 12.5%;
+	    flex-basis: 12.5%;
+	}
+}
+@media screen and (max-width: 849px) {
+	.small-columns-1 .flickity-slider>.flatsome-utils-2-rows, .small-columns-2 .flickity-slider>.flatsome-utils-2-rows, .small-columns-3 .flickity-slider>.flatsome-utils-2-rows, .small-columns-4 .flickity-slider>.flatsome-utils-2-rows, .small-columns-5 .flickity-slider>.flatsome-utils-2-rows, .small-columns-6 .flickity-slider>.flatsome-utils-2-rows {
+	    max-width: 50%;
+	    -ms-flex-preferred-size: 50%;
+	    flex-basis: 50%;
+	}
+	.flatsome-utils-2-rows .col {
+		padding: 0 9.8px 19.6px;
+	}
+
+
+
+}
+
+@media screen and (max-width: 600px) {
+
+	.fu-categories-mobile-col-3 .flatsome-utils-2-rows{
+		max-width: 33.33% !important;
+	    -ms-flex-preferred-size: 33.33% !important;
+	    flex-basis: 33.33% !important;
+	} 
+	.fu-categories-mobile-col-4 .flatsome-utils-2-rows{
+		max-width: 25% !important;
+	    -ms-flex-preferred-size: 25% !important;
+	    flex-basis: 25% !important;
+	} 
+}
+@media screen and (max-width: 320px) {
+
+	.fu-categories-mobile-col-3 .flatsome-utils-2-rows, .fu-categories-mobile-col-4 .flatsome-utils-2-rows{
+		max-width: 50% !important;
+	    -ms-flex-preferred-size: 50% !important;
+	    flex-basis: 50% !important;
+	} 
+}
+
+/*.small-columns-2>.col, .small-columns-2 .flickity-slider>.col {
+    max-width: 50%;
+    -ms-flex-preferred-size: 50%;
+    flex-basis: 50%;
+}*/
+.fu-categories-section .product-category .box-text-inner{
+	height: 32px;
+}
+.fu-categories-section h5 {
+	overflow: hidden;
+	text-overflow: ellipsis;
+	display: -webkit-box;
+	-webkit-line-clamp: 2;
+	font-size: 13px;
+	-webkit-box-orient: vertical;
+}
+.fu-categories-section {
+	border-top: 1px solid rgba(0,0,0,.05);
+	border-left: 1px solid rgba(0,0,0,.05);
+}
+.fu-categories-section {
+	/*padding: 0 15px;*/
+}
+.fu-categories-section .col {
+	padding-bottom: 15px;
+}
+.fu-categories-section .box-text {
+	padding: 0 !important;
+}
+.fu-categories-section.slider-nav-push.slider-nav-reveal .flickity-prev-next-button svg {
+     margin-top: 0px; 
+}
+.fu-categories-section.slider-nav-push:not(.slider-nav-reveal) .flickity-prev-next-button {
+     margin-top: 0%; 
+}
+.fu-categories-section .box-category{
+	padding: 15px;
+}
+.fu-categories-section .flatsome-utils-2-rows > div {
+    text-decoration: none;
+    color: rgba(0,0,0,.8);
+    border-right: 1px solid rgba(0,0,0,.05);
+    border-bottom: 1px solid rgba(0,0,0,.05);
+    text-align: center;
+    background-color: #fff;
+    display: block;
+    position: relative;
+    -webkit-transition: box-shadow .1s cubic-bezier(.4,0,.6,1),-webkit-transform .1s cubic-bezier(.4,0,.6,1);
+    transition: box-shadow .1s cubic-bezier(.4,0,.6,1),-webkit-transform .1s cubic-bezier(.4,0,.6,1);
+    transition: transform .1s cubic-bezier(.4,0,.6,1),box-shadow .1s cubic-bezier(.4,0,.6,1);
+    transition: transform .1s cubic-bezier(.4,0,.6,1),box-shadow .1s cubic-bezier(.4,0,.6,1),-webkit-transform .1s cubic-bezier(.4,0,.6,1);
+}
+
+
+.flatsome-ultils-mh-ux .flickity-slider .col,.flatsome-ultils-mh-ux .flickity-slider .gallery-item,.flatsome-ultils-mh-ux .flickity-slider .columns{
+	/*padding: 0;*/
+}
+
+.flatsome-ultils-mh-ux.row-small .flickity-slider > * {
+	padding: 0 9.8px 19.6px !important;
+	margin-bottom: 0;
+}
+.flatsome-ultils-mh-ux.row-xsmall .flickity-slider > * {
+    padding: 0 2px 3px !important;
+	margin-bottom: 0;
+}
+.flatsome-ultils-mh-ux.row-normal .flickity-slider > * {
+	   padding: 0 15px 30px !important;
+	margin-bottom: 0;
+}
+.flatsome-ultils-mh-ux.row-large .flickity-slider > * {
+	   padding: 0 30px 30px !important;
+	margin-bottom: 0;
+}
+.slide-2-row-init {
+	/*visibility: hidden;*/
+	white-space: nowrap;
+    overflow-y: hidden;
+    overflow-x: scroll;
+}
+.flatsome-ultils-slide-2-row > * {
+	display: inline-block;
+}
+
+.ribbon-wrapper {
+	width: 88px;
+	height: 88px;
+	overflow: hidden;
+	position: absolute;
+	z-index: 3;
+	top: -3px;
+	right: -3px;
+}
+.ribbon-wrapper .ribbon {
+	font: bold .8rem sans-serif;
+	color: #333;
+	text-align: center;
+	-webkit-transform: rotate(
+	45deg
+	);
+	-moz-transform: rotate(45deg);
+	-ms-transform: rotate(45deg);
+	-o-transform: rotate(45deg);
+	position: relative;
+	padding: 7px 0;
+	background-color: #ef513f;
+	color: #fff;
+	top: 15px;
+	right: 18px;
+	width: 150px;
+}
+.tab_sc_fs_ut{
+	display: none;
+}
