@@ -47,7 +47,15 @@ function show_info(){
     echo '<span class="price-on-sale" style="text-decoration: line-through;"> ' . $f_price_save . '</span><sup>đ<sup> ';
   }
   echo '</div>';
-    woocommerce_simple_add_to_cart();
+  if (function_exists('get_field')){
+    if(get_field('stop_selling') == true){
+      echo '<p class="m-status"><strong>Sản phẩm ngừng kinh doanh</strong></p>';
+    }
+    else{
+      woocommerce_simple_add_to_cart();
+    }
+  }
+    
 };
 add_action('get_brand_name', 'show_info');
 // show thuong hieu

@@ -17,15 +17,22 @@ $this->add_embedded_element( array(
         <?php endif; ?>
     </p>
 </div>
+
 <div class="clearfix" style="display: flex;align-items: center;justify-content: space-around;position: fixed;bottom: 0;padding: 0 0 10px;background-color: white;z-index: 99;left: 0;right: 0;">
-    <?php if ( $this->get_option( 'product_add_to' ) ): ?>
-        <?php AMPHTML_WC()->get_add_to_cart_button( false ); ?>
-    <?php endif; ?>
-    <?php if ( $this->get_option( 'product_price' ) ): ?>
-        <p class="amphtml-add-to">
-            <?php do_action('woocommerce_after_add_to_cart_button_tungnt') ?>
-        </p>
-    <?php endif; ?>
+        <?php if (function_exists('get_field')) :
+            if(get_field('stop_selling') == true) : ?>
+                <p>Sản Phẩm ngừng Kinh Doanh</p>
+            <?php else : ?>
+                <?php if ( $this->get_option( 'product_add_to' ) ): ?>
+                    <?php AMPHTML_WC()->get_add_to_cart_button( false ); ?>
+                <?php endif; ?>
+                <?php if ( $this->get_option( 'product_price' )  ): ?>
+                    <p class="amphtml-add-to">
+                        <?php do_action('woocommerce_after_add_to_cart_button_tungnt') ?>
+                    </p>
+                <?php endif; ?>
+        <?php endif;?>  
+        <?php endif;?>          
 </div>
 <?php
     /**
