@@ -50,6 +50,10 @@
 					<a href="<?php the_author_meta( 'user_url' ); ?>"><?php the_author_meta( 'display_name' ); ?></a>
 				</h5>
 				<p class="author-desc small"><?php the_author_meta( 'description' ); ?></p>
+				<div class="social-icons share-icons share-row relative">
+					<a href="<?php the_author_meta( 'description' ); ?>" target="_blank" class="icon primary button circle tooltip facebook tooltipstered"><i class="icon-facebook"></i></a>
+					<a href="" target="_blank" class="icon primary button circle tooltip twitter tooltipstered"><i class="icon-twitter"></i></a>
+					<a href="" target="_blank" class="icon primary button circle tooltip telegram tooltipstered"><i class="icon-telegram"></i></a></div>
 			</div>
 		</div>
 	</div>
