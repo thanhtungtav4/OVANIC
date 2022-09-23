@@ -54,8 +54,7 @@
 					<a href="<?php the_author_meta( 'facebook' ); ?>" target="_blank" class="icon primary button circle tooltip facebook tooltipstered"><i class="icon-facebook"></i></a>
 					<a href="<?php the_author_meta( 'twitter' ); ?>" target="_blank" class="icon primary button circle tooltip twitter tooltipstered"><i class="icon-twitter"></i></a>
 					<a href="<?php the_author_meta( 'telegram' ); ?>" target="_blank" class="icon primary button circle tooltip telegram tooltipstered"><i class="icon-telegram"></i></a>
-					<a href="<?php the_author_meta( 'youtube' ); ?>" target="_blank" class="icon primary button circle tooltip youtube tooltipstered"><i class="icon-youtube"></i></a>
-					<a href="<?php the_author_meta( 'pinterest' ); ?>" target="_blank" class="icon primary button circle tooltip pinterest tooltipstered"><i class="icon-pinterest"></i></a>
+					<a href="<?php the_author_meta( 'linkedin' ); ?>" target="_blank" class="icon primary button circle tooltip linkedin tooltipstered"><i class="icon-linkedin"></i></a>
 				</div>
 			</div>
 		</div>
