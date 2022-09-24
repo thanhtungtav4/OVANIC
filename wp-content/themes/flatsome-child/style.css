@@ -16,6 +16,28 @@ Version: 3.0
 .category-page-row {
   padding-top: 10px;
 }
+.flatsome-utils-loading-m svg circle{
+  stroke: #42b348 !important;
+}
+.info > button {
+  background: #42b348;
+  color: #ffff;
+  border: none;
+  border-radius: 8px;
+  font-size: 15px;
+  font-weight: 500;
+  padding: 0 10px;
+  text-align: center;
+  margin: 15px 0;
+  position: relative;
+  padding-left: 48px;
+}
+.info > button::before{
+  position: absolute;
+  left: 10px;
+  content: url("data:image/svg+xml,%3Csvg id='Video' xmlns='http://www.w3.org/2000/svg' width='40' height='40' viewBox='0 0 40 40'%3E%3Ccircle id='Ellipse_708' data-name='Ellipse 708' cx='20' cy='20' r='20' fill='rgba(41,97,250,0)'%3E%3C/circle%3E%3Cpath id='Path_65857' data-name='Path 65857' d='M241.38,19.358a2.76,2.76,0,0,1-2.78-2.731V2.871A2.76,2.76,0,0,1,241.38.14h13.646a2.76,2.76,0,0,1,2.784,2.731V16.627a2.76,2.76,0,0,1-2.784,2.731Zm0-17.686a1.21,1.21,0,0,0-1.217,1.2V16.627a1.206,1.206,0,0,0,1.217,1.2h13.646a1.21,1.21,0,0,0,1.221-1.2V2.871a1.21,1.21,0,0,0-1.221-1.2Zm23.648,16.722a.771.771,0,0,1-.38-.1l-4.317-2.458a.551.551,0,0,1-.205-.747l.205-.351a.588.588,0,0,1,.506-.288.571.571,0,0,1,.289.078l2.8,1.588h.107l.167-.093.053-.093V3.6l-.053-.09-.167-.1h-.107L261.092,5a.576.576,0,0,1-.761-.205l-.217-.374a.537.537,0,0,1-.057-.415.547.547,0,0,1,.259-.332l4.3-2.436a.829.829,0,0,1,.418-.123h.053a.776.776,0,0,1,.73.766V17.572a.806.806,0,0,1-.791.822Z' transform='translate(-232.6 9.911)' fill='%23ffff'%3E%3C/path%3E%3C/svg%3E");
+  top: 0;
+}
 @media screen and (max-width: 849px){
   #footer .col:not(.col-821728723) {
     padding-bottom: 5px;
