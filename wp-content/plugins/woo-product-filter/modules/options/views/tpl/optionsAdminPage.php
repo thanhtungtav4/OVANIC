@@ -25,7 +25,7 @@
 						}
 						?>
 						<li class="woobewoo-tab-<?php echo esc_attr($tabKey); ?> <?php echo ( ( $this->activeTab == $tabKey || in_array($tabKey, $this->activeParentTabs) ) ? 'active' : '' ); ?>">
-							<a href="<?php echo esc_url($t['url']); ?>" title="<?php echo esc_attr($t['label']); ?>">
+							<a href="<?php echo esc_url($t['url']); ?>" title="<?php echo esc_attr($t['label']); ?>"<?php echo empty($t['blank']) ? '' : ' target="_blank"'; ?>>
 								<?php if (isset($t['fa_icon'])) { ?>
 									<i class="fa <?php echo esc_attr($t['fa_icon']); ?>"></i>
 								<?php } elseif (isset($t['wp_icon'])) { ?>

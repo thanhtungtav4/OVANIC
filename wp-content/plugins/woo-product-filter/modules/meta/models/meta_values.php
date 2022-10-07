@@ -144,12 +144,16 @@ class Meta_ValuesModelWpf extends ModelWpf {
 	}
 
 	public function getMetaValueIds( $keyId, $values, $like = '', $keys = array() ) {
-		if (is_array($values) && !empty($values)) {
-			$valueStr = implode( "','", $values );
 
-			if ( false === strpos( $valueStr, '%' ) ) {
-				$valueStr = strtolower( urlencode( $valueStr ) );
+		if (is_array($values) && !empty($values)) {
+
+			foreach ( $values as &$value ) {
+				if ( false === strpos( $value, '%' ) ) {
+					$value = strtolower( rawurlencode( $value ) );
+				}
 			}
+
+			$valueStr = implode( "','", $values );
 
 			$this->addWhere( "value in ('" . $valueStr . "')" );
 		} else if (!empty($like)) {
@@ -157,10 +161,13 @@ class Meta_ValuesModelWpf extends ModelWpf {
 		} else {
 			return array(0);
 		}
+
 		if (!empty($keys)) {
 			$this->addWhere(array($keys));
 		}
+
 		$ids = $this->setSelectFields('id')->addWhere(array('key_id' => $keyId))->getFromTbl(array('return' => 'col'));
+
 		return empty($ids) ? array(0) : $ids;
 	}
 

@@ -391,7 +391,7 @@ class Settings {
 				$req_template['id'] = 'new_order';
 			}
 			foreach ( $this->emails as $value ) {
-				if (is_array($value)) {
+				if ( is_array( $value ) ) {
 					if ( $value['id'] == $req_template['id'] ) {
 						$req_template['title'] = $value['title'];
 					}
@@ -400,7 +400,6 @@ class Settings {
 						$req_template['title'] = $value->title;
 					}
 				}
-				
 			}
 
 			$allowed_html_tags          = wp_kses_allowed_html( 'post' );
@@ -684,6 +683,12 @@ class Settings {
 						'dokan_vendor_refund_canceled',
 						'Dokan_Email_Booking_New',
 						'Dokan_Email_Booking_Cancelled_NEW',
+						'DokanNewSupportTicketForAdmin',
+						'DokanReplyToAdminSupportTicket_vendor_customer',
+						'reverse_withdrawal_invoice',
+						'dokan_staff_password_update',
+						'dokan_new_store_review',
+						'Dokan_Subscription_Cancelled',
 					),
 					'link_upgrade'  => 'https://yaycommerce.com/yaymail-woocommerce-email-customizer/#yaymail-addon-dokan',
 				),
@@ -1247,16 +1252,16 @@ class Settings {
 
 			$this->emails = array_map(
 				function( $item ) {
-					$final_item        = new stdClass();
-					
-					if (is_array($item)) {
+					$final_item = new stdClass();
+
+					if ( is_array( $item ) ) {
 						$final_item->id    = $item['id'];
 						$final_item->title = $item['title'];
 					} else {
 						$final_item->id    = $item->id;
 						$final_item->title = $item->title;
 					}
-				
+
 					return $final_item;
 				},
 				$this->emails

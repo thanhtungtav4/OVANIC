@@ -114,7 +114,6 @@ class WoofiltersWpf extends ModuleWpf {
 		if ( is_plugin_active( 'woolementor/woolementor.php' ) ) {
 			add_filter( 'woolementor-product_query_params', array( $this, 'replaceArgsIfBuilderUsed' ) );
 		}
-
 	}
 
 	public function forceElementorProductFilter( $widget ) {
@@ -282,7 +281,6 @@ class WoofiltersWpf extends ModuleWpf {
 	public function addFilterClausesRequest( $clauses, $wp_query ) {
 		if ( ( ! empty( $wp_query->query_vars['wpf_query'] ) && $this->validPostType( $wp_query ) ) || ( $wp_query->is_main_query() && isset( $wp_query->query_vars['wc_query'] ) && ! empty( $wp_query->query_vars['wc_query'] ) && 'product_query' === $wp_query->query_vars['wc_query'] ) ) {
 			$filterClauses = $this->isLightMode ? $this->clausesLight : $this->clauses;
-
 			global $wpdb;
 			foreach ( $filterClauses as $key => $data ) {
 				foreach ( $data as $i => $str ) {
@@ -580,7 +578,6 @@ class WoofiltersWpf extends ModuleWpf {
 		if ( count( $data ) == 0 ) {
 			return $metaQuery;
 		}
-
 		$minPrice = ( isset( $data['wpf_min_price'] ) ) ? $data['wpf_min_price'] : null;
 		$maxPrice = ( isset( $data['wpf_max_price'] ) ) ? $data['wpf_max_price'] : null;
 		$price    = $this->preparePriceFilter( $minPrice, $maxPrice );
@@ -1873,6 +1870,18 @@ class WoofiltersWpf extends ModuleWpf {
 		}
 		add_filter( 'posts_where', array( $this, 'controlDecimalType' ), 9999, 2 );
 
+		if (function_exists('wcpbc_the_zone') && wcpbc_the_zone()) {
+			
+			$key = '_' . wcpbc_the_zone()->get_id() . '_price';
+			$exists = array('key' => $key, 'compare' => 'NOT EXISTS');
+			$metaQueryZ = $metaQuery;
+			$metaQueryZ['key'] = $key;
+
+			$metaQuery = array('relation' => 'AND', $exists, $metaQuery);
+			$exists['compare'] = 'EXISTS';
+			$metaQuery = array('relation' => 'OR', array('relation' => 'AND', $exists, $metaQueryZ), $metaQuery);
+		}
+		
 		return array( 'price_filter' => $metaQuery );
 	}
 

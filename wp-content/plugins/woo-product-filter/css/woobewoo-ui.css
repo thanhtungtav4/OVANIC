@@ -92,6 +92,9 @@
     font-size: 2.2em;
     margin-bottom: 5px;
 }
+.woobewoo-navigation .woobewoo-tab-gopro a, .woobewoo-navigation .woobewoo-tab-gopro i {
+	color: green !important;
+}
 .woobewoo-navigation ul li.woobewoo-pro {
     background-color: #e74c3c;
 }
@@ -1150,4 +1153,7 @@ a.search-choice-close {
 	.pl-sm-0 {
 		padding-left: 0!important;
 	}
+}
+.s-notify i {
+	margin: 0 5px;
 }

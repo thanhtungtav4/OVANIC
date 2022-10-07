@@ -31,26 +31,35 @@ class AdminmenuWpf extends ModuleWpf {
 		$mainMenuPageOptions = DispatcherWpf::applyFilters('adminMenuMainOption', $mainMenuPageOptions);
 		add_menu_page($mainMenuPageOptions['page_title'], $mainMenuPageOptions['menu_title'], $mainMenuPageOptions['capability'], $mainMenuPageOptions['menu_slug'], $mainMenuPageOptions['function'], 'dashicons-list-view');
 		//remove duplicated WP menu item
-		add_submenu_page($mainMenuPageOptions['menu_slug'], '', '', $mainMenuPageOptions['capability'], $mainMenuPageOptions['menu_slug'], $mainMenuPageOptions['function']);
+		//add_submenu_page($mainMenuPageOptions['menu_slug'], '', '', $mainMenuPageOptions['capability'], $mainMenuPageOptions['menu_slug'], $mainMenuPageOptions['function']);
 		$tabs = FrameWpf::_()->getModule('options')->getTabs();
 		$subMenus = array();
 		foreach ($tabs as $tKey => $tab) {
 			if ('main_page' == $tKey) {
 				continue;	// Top level menu item - is main page, avoid place it 2 times
 			}
+
 			if ( ( isset($tab['hidden']) && $tab['hidden'] )
 				|| ( isset($tab['hidden_for_main']) && $tab['hidden_for_main'] )	// Hidden for WP main
-				|| ( isset($tab['is_main']) && $tab['is_main'] ) ) {
+				/*|| ( isset($tab['is_main']) && $tab['is_main'] )*/ ) {
 				continue;
 			}
-			$subMenus[] = array(
-				'title' => $tab['label'], 'capability' => $mainCap, 'menu_slug' => 'admin.php?page=' . $mainSlug . '&tab=' . $tKey, 'function' => '',
-			);
+
+			if ('gopro' == $tKey) {
+				$subMenus[] = array(
+					'title' => esc_html__('Upgrade To Pro', 'woo-product-filter'), 'capability' => $mainCap, 'menu_slug' => $tab['callback'], 'function' => '',
+				);
+			} else {
+				$subMenus[] = array(
+					'title' => $tab['label'], 'capability' => $mainCap, 'menu_slug' => 'admin.php?page=' . $mainSlug . '&tab=' . $tKey, 'function' => '',
+				);
+			}
 		}
 		$subMenus = DispatcherWpf::applyFilters('adminMenuOptions', $subMenus);
 		foreach ($subMenus as $opt) {
 			add_submenu_page($mainSlug, $opt['title'], $opt['title'], $opt['capability'], $opt['menu_slug'], $opt['function']);
 		}
+		remove_submenu_page($mainSlug, $mainSlug);
 	}
 	public function getMainLink() {
 		return UriWpf::_(array('baseUrl' => admin_url('admin.php'), 'page' => $this->getMainSlug()));

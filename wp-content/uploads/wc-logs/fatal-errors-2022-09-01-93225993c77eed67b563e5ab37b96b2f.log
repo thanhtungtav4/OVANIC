@@ -1,6 +1,0 @@
-2022-09-01T07:58:06+00:00 CRITICAL Allowed memory size of 805306368 bytes exhausted (tried to allocate 4820352 bytes) in /home/customer/www/ovanic.vn/public_html/wp-content/plugins/woo-vietnam-checkout/devvn-woo-address-selectbox.php on line 509
-
-2022-09-01T09:09:18+00:00 CRITICAL Allowed memory size of 805306368 bytes exhausted (tried to allocate 4820352 bytes) in /home/customer/www/ovanic.vn/public_html/wp-content/plugins/woo-vietnam-checkout/devvn-woo-address-selectbox.php on line 509
-
-2022-09-01T09:26:58+00:00 CRITICAL Allowed memory size of 805306368 bytes exhausted (tried to allocate 4820352 bytes) in /home/customer/www/ovanic.vn/public_html/wp-content/plugins/woo-vietnam-checkout/devvn-woo-address-selectbox.php on line 509
-

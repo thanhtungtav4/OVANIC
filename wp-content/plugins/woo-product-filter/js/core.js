@@ -90,6 +90,9 @@ jQuery.fn.sendFormWpf = function(params) {
 			params.btnIconElement
 				.data('prev-class', params.btnIconElement.attr('class'))
 				.attr('class', 'fa fa-spinner fa-spin');
+		} else {
+			params.btnIconElement.attr('data-prev-text', params.btnIconElement.html());
+			params.btnIconElement.html('<i class="fa fa-spinner fa-spin"></i>');
 		}
 	}
     var url = '';
@@ -159,6 +162,8 @@ function toeProcessAjaxResponseWpf(res, msgEl, form, sentFromForm, params) {
 		jQuery(params.btn).removeAttr('disabled');
 		if(params.btnIconElement) {
 			params.btnIconElement.attr('class', params.btnIconElement.data('prev-class'));
+			var prevText = params.btnIconElement.attr('data-prev-text');
+			if (prevText && prevText.length) params.btnIconElement.html(prevText);
 		}
 	}
     /*if(sentFromForm) {
@@ -189,7 +194,7 @@ function toeProcessAjaxResponseWpf(res, msgEl, form, sentFromForm, params) {
 				else
 					errorsArr.push( res.errors[name] );
             }
-			if(errorsArr.length && params.btn && jQuery.fn.dialog && !msgEl) {
+			if(errorsArr.length && params.btn && jQuery.fn.dialog && !msgEl && !params.noError) {
 				jQuery('<div title="'+ toeLangWpf("Really small warning :)")+ '" />').html( errorsArr.join('<br />') ).appendTo('body').dialog({
 					modal: true
 				,	width: '500px'

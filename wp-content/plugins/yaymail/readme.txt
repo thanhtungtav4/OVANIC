@@ -2,8 +2,8 @@
 Contributors: YayCommerce
 Tags: woocommerce emails, email designer, woocommerce email templates, woocommerce email customizer, email template, woo mail, new order email, email customizer
 Requires at least: 3.0
-Tested up to: 6.0.1
-Stable tag: 3.0.3
+Tested up to: 6.0.2
+Stable tag: 3.0.5
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -192,6 +192,20 @@ We offer single-site licenses and also unlimited site licenses to better support
 5. Easily copy your favorite content blocks over to another Woo email template to reuse the design that’s paying off
 
 == Changelog ==
+
+= Sep 19, 2022 - Version 3.0.5 =
+- Fixed: Bug tracking click in AutomateWoo
+- Fixed: CSS button
+
+= Sep 12, 2022 - Version 3.0.4 =
+- Fixed: RTL in multilingual websites  
+- Added: Addon Dokan supports new templates v2.1
+(Dokan New Support Ticket For Admin
+Dokan Reply To Admin Support Ticket From Vendor & Customer
+Dokan New Store Review
+Dokan Subscription Cancelled
+Dokan Reverse Withdrawal Invoice
+Dokan Staff Password Update)
 
 = Aug 27, 2022 - Version 3.0.3 =
 - Added: Translate options for discount and shipping

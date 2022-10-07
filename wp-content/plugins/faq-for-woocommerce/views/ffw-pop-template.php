@@ -1,9 +1,11 @@
-<div class="ffw-wrapper ffw-pop-wrapper <?php echo esc_attr($layout_name); ?>" id="ffw-wrapper">
+<div class="ffw-layout-container">
+    <div class="ffw-wrapper ffw-pop-wrapper <?php echo esc_attr($layout_name); ?>" data-layout="<?php echo esc_attr($layout); ?>" id="ffw-wrapper">
     <div class="ffw-pop-container">
 		<?php
-        $counter = 0;
 		if ( is_array($faqs) && ! empty($faqs) ) {
+            $counter = 0;
 			foreach ( $faqs as $faq ) {
+                do_action('ffw_before_display_faq_item', array('faqs' => $faqs, 'counter' => $counter));
 				?>
                 <div class="ffw-collapse ffw-accordion-item">
 					<?php echo sprintf('<span class="ffw-button">%s</span>', esc_html__($faq['question'], 'faq-for-woocommerce') ); ?>
@@ -19,10 +21,11 @@
                     </div>
                 </div>
 				<?php
+                do_action('ffw_after_display_faq_item', array('faqs' => $faqs, 'counter' => $counter));
+                $counter++;
             }
-			$counter++;
 		}
 		?>
     </div>
 </div>
-
+</div>

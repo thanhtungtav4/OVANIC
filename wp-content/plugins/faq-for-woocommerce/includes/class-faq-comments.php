@@ -183,7 +183,6 @@ if ( ! class_exists( 'FFW_Comments', false ) ) :
          */
         function ffw_redirect_on_comment_submit($location, $comment) {
             if( isset($comment->comment_post_ID) && $comment->comment_post_ID == $this->faq_id ) {
-                error_log("when redirect: " . $comment->comment_post_ID);
                 $location = get_permalink($this->post_id);
             }
 

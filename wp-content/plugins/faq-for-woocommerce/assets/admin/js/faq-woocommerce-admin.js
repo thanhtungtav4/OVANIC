@@ -264,8 +264,6 @@ jQuery(document).ready(function ($) {
                 nonce: nonce,
                 faq_data: faq_data,
             } ).then( response => {
-                console.log('success.......');
-                console.log(response.message);
                 $('#ffw_products').val(JSON.stringify(response.faq_data));
                 $('.ffw-body').html(response.faq);
                 $('.ffw-popup-form-add-question').val('');
@@ -298,7 +296,6 @@ jQuery(document).ready(function ($) {
             if( undefined === __ffw_products_faqs || 0 === __ffw_products_faqs.length ) {
                 console.log(__ffw_products_faqs);
                 total_product = 0;
-
             }
 
             //insert faq's data
@@ -319,12 +316,13 @@ jQuery(document).ready(function ($) {
                         nonce: nonce,
                         faq_delete_data: faq_delete_data,
                     }).then( response => {
-                        console.log('success.......');
-                        console.log(response.success);
 
                         if(response.success) {
                             //item hide
                             $('.ffw-metabox-item').hide();
+
+                            //make current faqs data empty
+                            $('#ffw_products').val(JSON.stringify([]));
 
                             const Toast = Swal.mixin({
                                 toast: true,

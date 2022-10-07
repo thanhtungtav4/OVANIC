@@ -3,7 +3,7 @@
  * Plugin Name: XPlainer - WooCommerce Product FAQ
  * Plugin URI: https://wordpress.org/plugins/faq-for-woocommerce/
  * Description: This plugin shows faq question and answers for per product with comment and FAQ schema support.
- * Version: 1.3.34
+ * Version: 1.4.0
  * Author: Optemiz
  * Author URI: https://optemiz.com/
  * Text Domain: faq-for-woocommerce
@@ -29,7 +29,7 @@ if ( ! defined( 'FFW_VERSION' ) ) {
 	 * @var string
 	 * @since 1.0.0
 	 */
-	define( 'FFW_VERSION', '1.3.34' );
+	define( 'FFW_VERSION', '1.4.0' );
 }
 
 if ( ! defined( 'FFW_FILE' ) ) {
@@ -78,7 +78,6 @@ function appsero_init_tracker_faq_for_woocommerce() {
     $client->insights()->init();
 
 }
-
 appsero_init_tracker_faq_for_woocommerce();
 
 /**

@@ -35,7 +35,8 @@ class InstallerWpf {
 				(NULL, 'woofilters',1,1,'woofilters'),
 				(NULL, 'woofilters_widget',1,1,'woofilters_widget'),
 				(NULL, 'mail',1,1,'mail'),
-				(NULL, 'meta',1,1,'meta');");
+				(NULL, 'meta',1,1,'meta'),
+				(NULL, 'overview',1,1,'overview');");
 		}
 		/**
 		 *  Table modules_type 

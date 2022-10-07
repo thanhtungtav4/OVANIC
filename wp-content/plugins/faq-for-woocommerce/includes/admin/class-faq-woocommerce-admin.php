@@ -36,7 +36,8 @@ class FAQ_Woocommerce_Admin {
         include_once dirname( __FILE__ ) . '/class-faq-woocommerce-admin-menus.php';
         include_once dirname( __FILE__ ) . '/class-faq-woocommerce-admin-notices.php';
         include_once dirname( __FILE__ ) . '/class-faq-woocommerce-admin-assets.php';
-        
+        include_once dirname( __FILE__ ) . '/class-ffw-metaboxes.php';
+
         //Setting page
         include_once dirname( __FILE__ ) . '/class-faq-woocommerce-settings.php';
     }

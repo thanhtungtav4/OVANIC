@@ -677,3 +677,6 @@ function stripslashes (str) {
 			}
 		});
 }
+jQuery(document).ready(function(){
+	jQuery('#toplevel_page_wpf-filters a[href*="woobewoo.com"]').attr('target', '_blank');
+});

@@ -65,7 +65,6 @@
   padding: 0 20px;
   cursor: pointer;
   font-size: 20px;
-  box-sizing: border-box;
 }
 #ffw-main-wrapper .ffw-accordion .ffw-accordion-item .ffw-classic-answer p {
   position: relative;

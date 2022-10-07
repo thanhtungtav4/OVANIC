@@ -80,3 +80,6 @@ https://github.com/virustran/button-contact-vr/tree/develops
 
 = 4.1 =
 * Fix showroom and contact
+
+= 4.2 =
+* Add action links

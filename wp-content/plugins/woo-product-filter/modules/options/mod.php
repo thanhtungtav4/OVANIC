@@ -70,6 +70,11 @@ class OptionsWpf extends ModuleWpf {
 		$tabs['settings'] = array(
 			'label' => esc_html__('Settings', 'woo-product-filter'), 'callback' => array($this, 'getSettingsTabContent'), 'fa_icon' => 'fa-gear', 'sort_order' => 30,
 		);
+		if (!FrameWpf::_()->isPro()) {
+			$tabs['gopro'] = array(
+				'label' => esc_html__('Go PRO', 'woo-product-filter'), 'callback' => 'https://woobewoo.com/plugins/woocommerce-filter/#license', 'blank' => true, 'fa_icon' => 'fa-star', 'sort_order' => 998,
+			);
+		}
 		return $tabs;
 	}
 	public function getSettingsTabContent() {
@@ -82,7 +87,7 @@ class OptionsWpf extends ModuleWpf {
 			));
 			foreach ($this->_tabs as $tabKey => $tab) {
 				if (!isset($this->_tabs[ $tabKey ]['url'])) {
-					$this->_tabs[ $tabKey ]['url'] = $this->getTabUrl( $tabKey );
+					$this->_tabs[ $tabKey ]['url'] = is_array($tab['callback']) ? $this->getTabUrl( $tabKey ) : $tab['callback'];
 				}
 			}
 			uasort($this->_tabs, array($this, 'sortTabsClb'));

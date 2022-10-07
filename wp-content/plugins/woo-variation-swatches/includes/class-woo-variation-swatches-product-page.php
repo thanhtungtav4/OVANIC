@@ -24,7 +24,7 @@
             }
             
             protected function includes() {
-                
+            
             }
             
             protected function hooks() {
@@ -37,9 +37,14 @@
                 add_filter( 'woocommerce_variable_children_args', array( $this, 'variable_children_args' ), 10, 3 );
                 add_filter( 'woocommerce_variation_is_active', array( $this, 'disable_out_of_stock_item' ), 10, 2 );
                 add_filter( 'woocommerce_available_variation', array( $this, 'add_variation_data' ), 10, 3 );
+                
+                add_action( 'woocommerce_before_variations_form', array( $this, 'before_variations_form' ) );
+                add_action( 'woocommerce_after_variations_form', array( $this, 'after_variations_form' ) );
                 // add_action( 'woocommerce_after_variations_form', array( $this, 'enqueue_script' ) );
                 
-                add_filter( 'nocache_headers', array( $this, 'cache_ajax_response' ) );
+                // add_filter( 'nocache_headers', array( $this, 'cache_ajax_response' ), 99 );
+                // add_action( 'wp', array( $this, 'stop_prevent_ajax_caching' ), 1 );
+                // wp_cache_flush()
             }
             
             protected function init() {
@@ -48,25 +53,60 @@
             
             // Start
             
-            public function cache_ajax_response( $headers ) {
+            public function before_variations_form() {
+                global $product;
+                $threshold_min  = apply_filters( 'woocommerce_ajax_variation_threshold', 30, $product );
+                $threshold_max  = $this->get_variation_threshold_max( $product );
+                $total_children = count( $product->get_children() );
+                $attributes     = apply_filters( 'woo_variation_swatches_single_product_wrapper_attributes', array(
+                    'data-product_id'    => absint( $product->get_id() ),
+                    'data-threshold_min' => absint( $threshold_min ),
+                    'data-threshold_max' => absint( $threshold_max ),
+                    'data-total'         => absint( $total_children ),
+                ),                               $product );
+                
+                echo sprintf( '<div %s>', wc_implode_html_attributes( $attributes ) ); // WPCS: XSS ok. );
+            }
+            
+            public function after_variations_form() {
+                echo '</div>';
+            }
+            
+            public function stop_prevent_ajax_caching() {
                 global $wp_query;
+                if ( ! is_ajax() ) {
+                    return true;
+                }
+                
+                $action   = isset( $_GET[ 'wc-ajax' ] ) ? sanitize_text_field( $_GET[ 'wc-ajax' ] ) : false;
+                $requests = array( 'woo_get_variations', 'woo_get_all_variations' );
+                
+                if ( $action && in_array( $action, $requests ) ) {
+                    wc_maybe_define_constant( 'DONOTCACHEPAGE', false );
+                    wc_maybe_define_constant( 'DONOTCACHEOBJECT', false );
+                    wc_maybe_define_constant( 'DONOTCACHEDB', false );
+                }
+                
+                return true;
+                
+            }
+            
+            public function cache_ajax_response( $headers ) {
+                
                 if ( ! is_ajax() ) {
                     return $headers;
                 }
                 
-                if ( ! is_object( $wp_query ) ) {
-                    return $headers;
-                }
+                $action = isset( $_GET[ 'wc-ajax' ] ) ? sanitize_text_field( $_GET[ 'wc-ajax' ] ) : false;
                 
-                $action   = $wp_query->get( 'wc-ajax' ) ? sanitize_text_field( $wp_query->get( 'wc-ajax' ) ) : false;
                 $requests = array( 'woo_get_variations', 'woo_get_all_variations' );
                 if ( $action && in_array( $action, $requests ) ) {
                     // ask the browser to cache this response
                     
                     $expires       = HOUR_IN_SECONDS;        // 1 hr
-                    $cache_control = sprintf( 'public, max-age=%d', $expires );
+                    $cache_control = sprintf( 'public, s-max-age=%d', $expires );
                     
-                    $headers[ 'Pragma' ]                                    = 'public'; // public / cache. backwards compatibility with HTTP/1.0 caches
+                    $headers[ 'Pragma' ]                                    = 'cache'; // public / cache. backwards compatibility with HTTP/1.0 caches
                     $headers[ 'Expires' ]                                   = $expires;
                     $headers[ 'Cache-Control' ]                             = $cache_control;
                     $headers[ 'X-Variation-Swatches-Ajax-Header-Modified' ] = true;
@@ -121,8 +161,8 @@
             public function add_to_cart_variation_params( $params, $handle ) {
                 
                 if ( 'wc-add-to-cart-variation' === $handle ) {
-                    
                     if ( is_product() ) {
+                        
                         $product = wc_get_product();
                         
                         $params[ 'woo_variation_swatches_ajax_variation_threshold_min' ] = apply_filters( 'woocommerce_ajax_variation_threshold', 30, $product );
@@ -164,7 +204,7 @@
                 
                 $this->add_inline_style();
                 
-                wp_register_script( 'woo-variation-swatches', woo_variation_swatches()->assets_url( "/js/frontend{$suffix}.js" ), array( 'jquery', 'wp-util', 'underscore', 'jquery-blockui' ), woo_variation_swatches()->assets_version( "/js/frontend{$suffix}.js" ), true );
+                wp_register_script( 'woo-variation-swatches', woo_variation_swatches()->assets_url( "/js/frontend{$suffix}.js" ), array( 'jquery', 'wp-util', 'underscore', 'jquery-blockui', 'wp-api-request', 'wp-api-fetch', 'wp-polyfill' ), woo_variation_swatches()->assets_version( "/js/frontend{$suffix}.js" ), true );
                 
                 wp_localize_script( 'woo-variation-swatches', 'woo_variation_swatches_options', $this->js_options() );
                 

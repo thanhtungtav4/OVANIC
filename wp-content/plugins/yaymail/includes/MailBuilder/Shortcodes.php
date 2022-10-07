@@ -763,7 +763,8 @@ class Shortcodes {
 	}
 
 	public function collectOrderData( $sent_to_admin = '', $args = array() ) {
-		$order = $this->order;
+		$shortcode = array();
+		$order     = $this->order;
 		if ( empty( $this->order_id ) || empty( $order ) ) {
 			return false;
 		}

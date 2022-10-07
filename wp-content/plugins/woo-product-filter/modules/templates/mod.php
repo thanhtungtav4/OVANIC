@@ -41,9 +41,9 @@ class TemplatesWpf extends ModuleWpf {
 				FrameWpf::_()->addScript('adminOptionsWpf', WPF_JS_PATH . 'admin.options.js', array(), false, true);
 				add_action('admin_enqueue_scripts', array($this, 'loadMediaScripts'));
 				add_action('init', array($this, 'connectAdditionalAdminAssets'));
-				// Some common styles - that need to be on all admin pages - be careful with them
-				FrameWpf::_()->addStyle('woobewoo-for-all-admin-' . WPF_CODE, WPF_CSS_PATH . 'woobewoo-for-all-admin.css');
 			}
+			// Some common styles - that need to be on all admin pages - be careful with them
+			FrameWpf::_()->addStyle('woobewoo-for-all-admin-' . WPF_CODE, WPF_CSS_PATH . 'woobewoo-for-all-admin.css');
 		}
 		parent::init();
 	}

@@ -31,11 +31,9 @@ if ( ! class_exists( 'FAQ_Woocommerce_Admin_Assets', false ) ) :
 
             // Register admin styles.
             wp_register_style( 'ffw_bootstrap', FFW_PLUGIN_URL . '/assets/admin/css/bootstrap.min.css', array(), FFW_PLUGIN_VERSION );
-            wp_register_style( 'ffw_select2_styles', FFW_PLUGIN_URL . '/assets/admin/css/ffw-select2.min.css', array(), FFW_PLUGIN_VERSION );
             wp_register_style( 'ffw_admin_menu_styles', FFW_PLUGIN_URL . '/assets/admin/css/faq-woocommerce-admin.min.css', array(), FFW_PLUGIN_VERSION );
             wp_register_style( 'ffw_admin_popup_styles', FFW_PLUGIN_URL . '/assets/admin/css/faq-woocommerce-popup.min.css', array(), FFW_PLUGIN_VERSION );
 
-            
 
             // Add RTL support for admin styles.
             //wp_style_add_data( 'ffw_admin_menu_styles', 'rtl', 'replace' );
@@ -47,10 +45,12 @@ if ( ! class_exists( 'FAQ_Woocommerce_Admin_Assets', false ) ) :
             wp_enqueue_style( 'ffw_admin_menu_styles' );
 
             if ( isset($_GET['post']) && isset($_GET['action']) && 'edit' === $_GET['action'] ) {
-                wp_enqueue_style( 'ffw_select2_styles' );
+                wp_enqueue_style( 'woocommerce_admin_styles' );
                 wp_enqueue_style( 'ffw_admin_popup_styles' );
-            } elseif( isset($_GET['page']) && 'woocommerce-faq' === $_GET['page'] ) {
-                wp_enqueue_style( 'ffw_select2_styles' );
+            }elseif( isset($_GET['post_type']) && 'ffw' === $_GET['post_type'] ) {
+                wp_enqueue_style( 'woocommerce_admin_styles' );
+            }elseif( isset($_GET['page']) && 'woocommerce-faq' === $_GET['post_type'] ) {
+                wp_enqueue_style( 'woocommerce_admin_styles' );
             }
         }
 
@@ -72,11 +72,17 @@ if ( ! class_exists( 'FAQ_Woocommerce_Admin_Assets', false ) ) :
                 $page_action = wp_unslash($_GET['action']);
             }
 
+            // dependency
+            $dep = array( 'jquery', 'jquery-blockui', 'jquery-ui-sortable', 'jquery-ui-widget', 'jquery-ui-core', 'jquery-tiptip', 'wp-color-picker');
+
+            if ( class_exists( 'WooCommerce' ) ) {
+                $dep[] = 'wc-enhanced-select';
+            }
+
             // Register scripts.
             wp_register_script( 'ffw_bootstrap_js', FFW_PLUGIN_URL . '/assets/admin/js/bootstrap.min.js', array( 'jquery', 'jquery-blockui', 'jquery-ui-sortable', 'jquery-ui-widget', 'jquery-ui-core', 'jquery-tiptip' ), FFW_PLUGIN_VERSION, true );
             wp_register_script( 'ffw_sweetalert', FFW_PLUGIN_URL . '/assets/admin/js/ffw-sweetalert.all.min.js', array( 'jquery', 'jquery-blockui', 'jquery-ui-sortable', 'jquery-ui-widget', 'jquery-ui-core', 'jquery-tiptip' ), FFW_PLUGIN_VERSION, true );
-            wp_register_script( 'ffw_select2_js', FFW_PLUGIN_URL . '/assets/admin/js/ffw-select2.min.js', array( 'jquery', 'jquery-blockui', 'jquery-ui-sortable', 'jquery-ui-widget', 'jquery-ui-core', 'jquery-tiptip' ), FFW_PLUGIN_VERSION, true );
-            wp_register_script( 'ffw_admin', FFW_PLUGIN_URL . '/assets/admin/js/faq-woocommerce-admin.min.js', array( 'jquery', 'jquery-blockui', 'jquery-ui-sortable', 'jquery-ui-widget', 'jquery-ui-core', 'jquery-tiptip', 'wp-color-picker' ), FFW_PLUGIN_VERSION, true );
+            wp_register_script( 'ffw_admin', FFW_PLUGIN_URL . '/assets/admin/js/faq-woocommerce-admin.min.js', $dep, FFW_PLUGIN_VERSION, true );
 			wp_localize_script( 'ffw_admin', 'ffw_admin', [
 				'ajaxurl'               => admin_url( 'admin-ajax.php' ),
 				'nonce'                 => wp_create_nonce( 'ffw_admin' ),
@@ -84,19 +90,17 @@ if ( ! class_exists( 'FAQ_Woocommerce_Admin_Assets', false ) ) :
                 'current_page_action'   => $page_action,
 			] );
 
-
-
             //Enqueue scripts
             if( "ffw_page_woocommerce-faq" === $needle ) {
                 wp_enqueue_script( 'ffw_bootstrap_js' );
             }
 
             if ( isset($_GET['post']) && isset($_GET['action']) && 'edit' === $_GET['action'] ) {
-                wp_enqueue_script( 'ffw_select2_js' );
                 wp_enqueue_script( 'ffw_sweetalert' );
                 wp_enqueue_script( 'ffw_admin' );
+            } elseif( isset($_GET['post_type']) && 'ffw' === $_GET['post_type'] ) {
+                wp_enqueue_script( 'ffw_admin' );
             } elseif( isset($_GET['page']) && 'woocommerce-faq' === $_GET['page'] ) {
-                wp_enqueue_script( 'ffw_select2_js' );
                 wp_enqueue_script( 'ffw_admin' );
             }
 

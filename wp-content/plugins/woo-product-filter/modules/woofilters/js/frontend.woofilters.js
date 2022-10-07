@@ -526,7 +526,11 @@
 				_thisObj.clearFilters($filterWrapper.find('.wpfFilterWrapper'), true);
 			}
 			_thisObj.filtering($filterWrapper, true);
-			_thisObj.initOneByOne($filterWrapper);
+
+			if (typeof (_thisObj.initOneByOne) == 'function') {
+				_thisObj.initOneByOne($filterWrapper);
+			}
+
 		});
 
 		//price range choose only one checkbox

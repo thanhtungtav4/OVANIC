@@ -193,7 +193,7 @@ if ( ! function_exists('ffw_get_template') ) {
 	function ffw_get_template( $layout, $id, $args, $is_shortcode = false ) {
 		$content = '';
 
-        $shortcode_wrap_class = $is_shortcode ? 'ffw-main-wrapper-shortcode' : '';
+        $shortcode_wrap_class = $is_shortcode ? ['ffw-main-wrapper-shortcode'] : [];
         if( ( isset($args['cat_ids']) && ! empty($args['cat_ids']) ) ) {
             $faqs = get_product_faqs_by_cat_ids($args);
             $display_schema_type = 'shortcode';
@@ -201,6 +201,10 @@ if ( ! function_exists('ffw_get_template') ) {
             $faqs = get_product_faqs($id);
             $display_schema_type = 'product_page';
         }
+
+        $wrapper_classes = apply_filters('ffw_filter_template_wrapper_classes', ['ffw-main-wrapper'], $layout, $id);
+        $wrapper_classes = array_merge($wrapper_classes, $shortcode_wrap_class);
+        $wrapper_classes = implode(' ', $wrapper_classes);
 
         //faq schema
         new FAQ_Woocommerce_Schema($faqs, $display_schema_type);
@@ -210,34 +214,6 @@ if ( ! function_exists('ffw_get_template') ) {
         $width      = (isset($options['ffw_width']) && !empty($options['ffw_width'])) ? $options['ffw_width'] : '100';
         $ffw_display_all_answers = isset( $options['ffw_display_all_faq_answers'] ) ? $options['ffw_display_all_faq_answers'] : "2";
 
-        //load fonts
-        ?>
-        <style type="text/css">
-            @font-face {
-                font-family: 'Nunito';
-                font-weight: 900;
-                src: url('<?php echo FFW_PLUGIN_URL; ?>/assets/public/fonts/Nunito-Black.ttf')  format('truetype'),
-            }
-
-            @font-face {
-                font-family: 'Nunito';
-                font-weight: 700;
-                src: url('<?php echo FFW_PLUGIN_URL; ?>/assets/public/fonts/Nunito-Bold.ttf')  format('truetype'),
-            }
-
-            @font-face {
-                font-family: 'Nunito';
-                font-weight: 600;
-                src: url('<?php echo FFW_PLUGIN_URL; ?>/assets/public/fonts/Nunito-SemiBold.ttf')  format('truetype'),
-            }
-
-            @font-face {
-                font-family: 'Nunito';
-                font-weight: 400;
-                src: url('<?php echo FFW_PLUGIN_URL; ?>/assets/public/fonts/Nunito-Regular.ttf')  format('truetype'),
-            }
-        </style>
-        <?php
         //init layout name
         $layout_name = '';
         
@@ -261,20 +237,24 @@ if ( ! function_exists('ffw_get_template') ) {
 
 		ob_start();
 
-		$content .= '<div style="width: '.$width.'%;max-width: 100%;" class="ffw-main-wrapper'. esc_attr($shortcode_wrap_class) .'" id="ffw-main-wrapper">';
+		$content .= '<div style="width: '.$width.'%;max-width: 100%;" class="'. esc_attr($wrapper_classes) .'" id="ffw-main-wrapper" data-product_id="'. esc_attr($id) .'" data-layout="'. esc_attr($layout) .'" >';
+
+        $content .= '<input type="hidden" id="ffw-hidden-faqs" value="' . base64_encode(json_encode($faqs)) . '" />';
+
+        do_action('ffw_search_input');
 
 		do_action('ffw_before_faq_start');
 
         do_action('ffw_expand_collapse_all');
 
-		//get faq templates
-		if ( 1 === $layout || 2 === $layout ) {
-			include FFW_FILE_DIR . '/views/ffw-classic-template.php';
-		} elseif ( 3 === $layout ) {
-			include FFW_FILE_DIR . '/views/ffw-trip-template.php';
-		} elseif ( 4 === $layout ) {
-			include FFW_FILE_DIR . '/views/ffw-pop-template.php';
-		}
+        //get faq templates
+        if ( 1 === $layout || 2 === $layout ) {
+            include FFW_FILE_DIR . '/views/ffw-classic-template.php';
+        } elseif ( 3 === $layout ) {
+            include FFW_FILE_DIR . '/views/ffw-trip-template.php';
+        } elseif ( 4 === $layout ) {
+            include FFW_FILE_DIR . '/views/ffw-pop-template.php';
+        }
 
 		echo '<br>';
 
@@ -283,6 +263,64 @@ if ( ! function_exists('ffw_get_template') ) {
 		$content .= ob_get_clean();
 
 		return $content . '</div>';
+	}
+}
+
+
+if ( ! function_exists('ffw_get_layout') ) {
+    /**
+     * @param $faqs array faqs list
+     * @param $layout int template number
+     * @param $id int product id
+     * @return string
+     *
+     * @since  1.4.0
+     */
+    function ffw_get_layout($faqs, $layout, $id ) {
+		$content = '';
+
+        $display_schema_type = 'product_page';
+
+        // Get registered option
+        $options    = get_option( 'ffw_general_settings' );
+        $width      = (isset($options['ffw_width']) && !empty($options['ffw_width'])) ? $options['ffw_width'] : '100';
+        $ffw_display_all_answers = isset( $options['ffw_display_all_faq_answers'] ) ? $options['ffw_display_all_faq_answers'] : "2";
+
+        //init layout name
+        $layout_name = '';
+
+        // enqueue template CSS.
+        if ( 1 === $layout ) {
+            $layout_name = "ffw-classic-layout";
+            wp_enqueue_style( 'ffw_classic_styles' );
+        }elseif ( 2 === $layout ) {
+            $layout_name = "ffw-whitish-layout";
+            wp_enqueue_style( 'ffw_whitish_styles' );
+        }elseif ( 3 === $layout ) {
+            $layout_name = "ffw-trip-layout";
+            wp_enqueue_style( 'ffw_trip_styles' );
+        }elseif ( 4 === $layout ) {
+            $layout_name = "ffw-pop-layout";
+            wp_enqueue_style( 'ffw_pop_styles' );
+        }
+
+        // general styles
+        wp_enqueue_style( 'ffw_public_styles' );
+
+		ob_start();
+
+        //get faq templates
+        if ( 1 === $layout || 2 === $layout ) {
+            include FFW_FILE_DIR . '/views/ffw-classic-template.php';
+        } elseif ( 3 === $layout ) {
+            include FFW_FILE_DIR . '/views/ffw-trip-template.php';
+        } elseif ( 4 === $layout ) {
+            include FFW_FILE_DIR . '/views/ffw-pop-template.php';
+        }
+
+		$content .= ob_get_clean();
+
+		return $content;
 	}
 }
 
@@ -633,7 +671,11 @@ if( ! function_exists('ffw_show_content') ) {
         global $post;
         $post = get_post($faq_id);
         setup_postdata($post);
-        the_content();
+
+        $content = get_the_content($post);
+        $content = apply_filters("ffw_apply_dynamic_product_attribute", $content, $post, $faq_id);
+        $content = apply_filters( 'the_content', $content );
+        echo $content = str_replace( ']]>', ']]&gt;', $content );
         wp_reset_postdata();
     }
 }

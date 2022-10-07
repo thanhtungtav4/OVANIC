@@ -1365,7 +1365,7 @@ class WoofiltersViewWpf extends ViewWpf {
 				'" data-show-hierarchical="' . $hierarchical .
 				'" data-taxonomy="product_cat' .
 				'" data-hide-active="' . ( $hideEmptyActive ? '1' : '0' ) .
-				'" data-show-all="' . ( (int) $showAllCats ) . '"' .
+				'" data-show-all="' . ( (int) $showAllCats ) .
 				'" data-use-slugs="' . ( $useSlugs ? '1' : '0' ) . '"' .
 
 				$filter['blockAttributes'] .
@@ -2691,7 +2691,7 @@ class WoofiltersViewWpf extends ViewWpf {
 
 				if ( is_array($showedTerms) && ( empty($showedTerms) || !in_array($filterItem->term_id, $showedTerms) ) ) {
 					$style = ' display:none;';
-				} else {
+				} elseif ( ! $hideParent || ( $isChild && ( ! $hideAllParent || ! $hasChildren ) ) ) {
 					self::$leer = false;
 				}
 
@@ -2734,7 +2734,7 @@ class WoofiltersViewWpf extends ViewWpf {
 
 				if ( is_array($showedTerms) && ( empty($showedTerms) || !in_array($filterItem->term_id, $showedTerms) ) ) {
 					$style .= 'display:none;';
-				} else {
+				} elseif ( ! $hideParent || ( $isChild && ( ! $hideAllParent || ! $hasChildren ) ) ) {
 					self::$leer = false;
 				}
 
@@ -3257,7 +3257,7 @@ class WoofiltersViewWpf extends ViewWpf {
 			' data-get-attribute="' . $filterName . '"' .
 			( $displayType ? ' data-display-type="' . $displayType . '"'  : '' ) .
 			( $filterContentType ? ' data-content-type="' . $filterContentType . '"'  : '' ) .
-			( $filterSlug ? ' data-slug="' . $filterSlug . '"' : '' ).
+			( $filterSlug ? ' data-slug="' . $filterSlug . '"' : '' ) .
 			( empty($filter['uniqId']) ? '' : ' data-uniq-id="' . $filter['uniqId'] . '"' ) ;
 	}
 
