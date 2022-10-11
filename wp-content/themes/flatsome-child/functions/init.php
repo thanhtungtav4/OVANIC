@@ -15,3 +15,34 @@ add_filter('body_class','my_class_names');
 function my_class_names($classes) {
     return array();
 }
+
+function hide_menu(){
+    global $current_user;
+    $user_id = get_current_user_id();
+       if($user_id == '2'){
+           remove_menu_page( 'edit.php?post_type=blocks' );    
+           remove_menu_page( 'themes.php' );
+           remove_menu_page( 'edit.php?post_type=featured_item' );
+           remove_menu_page( 'edit.php?post_type=acf-field-group' );
+           remove_menu_page('admin.php?page=wpseo_dashboard');
+           remove_menu_page( 'getwooplugins' );
+           remove_menu_page('tools.php');
+           remove_menu_page('options-general.php');
+           remove_menu_page('admin.php?page=theme-general-settings');
+           remove_menu_page('plugins.php');
+           remove_menu_page( 'woocommerce' );
+           remove_menu_page('flatsome-panel');
+           remove_menu_page('admin.php?page=yith_wfbt_panel');
+           remove_menu_page( 'index.php' );
+           remove_submenu_page( 'themes.php', 'themes.php' );
+           remove_submenu_page( 'themes.php', 'theme-editor.php' );
+           remove_submenu_page( 'themes.php', 'theme_options' );
+           remove_menu_page( 'users.php' );
+           remove_submenu_page( 'users.php', 'user-new.php' );
+           remove_submenu_page( 'users.php', 'profile.php' );
+           // Remove Comments Menu
+           remove_menu_page( 'edit-comments.php' );
+   
+       }
+   }
+   add_action('admin_head', 'hide_menu');

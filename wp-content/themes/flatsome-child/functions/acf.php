@@ -588,7 +588,7 @@ if( function_exists('acf_add_local_field_group') ):
         'key' => 'field_630af828d32a1',
         'label' => 'insert schema product',
         'name' => 'insert_schema_product',
-        'type' => 'textarea',
+        'type' => 'wysiwyg',
         'instructions' => '',
         'required' => 0,
         'conditional_logic' => 0,
