@@ -3,7 +3,18 @@
 <?php /* Start the Loop */ ?>
 
 <?php while ( have_posts() ) : the_post(); ?>
-
+<?php
+		$categories = get_categories();
+	?>
+	<ul class="m-categories flex-row container">
+		<?php foreach($categories as $key=>$categorie) : ?>
+			<li>
+				<a href="<?php echo $categorie->slug; ?>" class="<?php $categorie->slug == getPrimary(get_the_ID())->slug ? print 'active' : ''?>">
+					<?php echo $categorie->name ?>
+				</a>
+			</li>
+		<?php endforeach; ?>
+		</ul>
 <article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
 	<div class="article-inner <?php flatsome_blog_article_classes(); ?>">
 		<?php

@@ -28,3 +28,159 @@ Stack trace:
 
 2022-11-07T06:41:05+00:00 CRITICAL syntax error, unexpected ';', expecting ')' in D:\xampp\htdocs\OVANIC\wp-content\themes\flatsome-child\functions\schema.php on line 10
 
+2022-11-07T07:42:19+00:00 CRITICAL Uncaught Error: Call to undefined function getPrimary() in D:\xampp\htdocs\OVANIC\wp-content\themes\flatsome-child\template-parts\posts\single.php:8
+Stack trace:
+#0 D:\xampp\htdocs\OVANIC\wp-includes\template.php(785): require()
+#1 D:\xampp\htdocs\OVANIC\wp-includes\template.php(718): load_template('D:\\xampp\\htdocs...', false, Array)
+#2 D:\xampp\htdocs\OVANIC\wp-includes\general-template.php(204): locate_template(Array, true, false, Array)
+#3 D:\xampp\htdocs\OVANIC\wp-content\themes\flatsome\template-parts\posts\layout.php(12): get_template_part('template-parts/...')
+#4 D:\xampp\htdocs\OVANIC\wp-includes\template.php(785): require('D:\\xampp\\htdocs...')
+#5 D:\xampp\htdocs\OVANIC\wp-includes\template.php(718): load_template('D:\\xampp\\htdocs...', false, Array)
+#6 D:\xampp\htdocs\OVANIC\wp-includes\general-template.php(204): locate_template(Array, true, false, Array)
+#7 D:\xampp\htdocs\OVANIC\wp-content\themes\flatsome\single.php(13): get_template_part('template-parts/...', 'no-sidebar')
+#8 D:\xampp\htdocs\ in D:\xampp\htdocs\OVANIC\wp-content\themes\flatsome-child\template-parts\posts\single.php on line 8
+
+2022-11-07T07:44:18+00:00 CRITICAL Uncaught Error: Call to undefined function getPrimary() in D:\xampp\htdocs\OVANIC\wp-content\themes\flatsome-child\template-parts\posts\single.php:8
+Stack trace:
+#0 D:\xampp\htdocs\OVANIC\wp-includes\template.php(785): require()
+#1 D:\xampp\htdocs\OVANIC\wp-includes\template.php(718): load_template('D:\\xampp\\htdocs...', false, Array)
+#2 D:\xampp\htdocs\OVANIC\wp-includes\general-template.php(204): locate_template(Array, true, false, Array)
+#3 D:\xampp\htdocs\OVANIC\wp-content\themes\flatsome\template-parts\posts\layout.php(12): get_template_part('template-parts/...')
+#4 D:\xampp\htdocs\OVANIC\wp-includes\template.php(785): require('D:\\xampp\\htdocs...')
+#5 D:\xampp\htdocs\OVANIC\wp-includes\template.php(718): load_template('D:\\xampp\\htdocs...', false, Array)
+#6 D:\xampp\htdocs\OVANIC\wp-includes\general-template.php(204): locate_template(Array, true, false, Array)
+#7 D:\xampp\htdocs\OVANIC\wp-content\themes\flatsome\single.php(13): get_template_part('template-parts/...', 'no-sidebar')
+#8 D:\xampp\htdocs\ in D:\xampp\htdocs\OVANIC\wp-content\themes\flatsome-child\template-parts\posts\single.php on line 8
+
+2022-11-07T07:44:55+00:00 CRITICAL Uncaught Error: Call to undefined function getPrimary() in D:\xampp\htdocs\OVANIC\wp-content\themes\flatsome-child\template-parts\posts\single.php:8
+Stack trace:
+#0 D:\xampp\htdocs\OVANIC\wp-includes\template.php(785): require()
+#1 D:\xampp\htdocs\OVANIC\wp-includes\template.php(718): load_template('D:\\xampp\\htdocs...', false, Array)
+#2 D:\xampp\htdocs\OVANIC\wp-includes\general-template.php(204): locate_template(Array, true, false, Array)
+#3 D:\xampp\htdocs\OVANIC\wp-content\themes\flatsome\template-parts\posts\layout.php(12): get_template_part('template-parts/...')
+#4 D:\xampp\htdocs\OVANIC\wp-includes\template.php(785): require('D:\\xampp\\htdocs...')
+#5 D:\xampp\htdocs\OVANIC\wp-includes\template.php(718): load_template('D:\\xampp\\htdocs...', false, Array)
+#6 D:\xampp\htdocs\OVANIC\wp-includes\general-template.php(204): locate_template(Array, true, false, Array)
+#7 D:\xampp\htdocs\OVANIC\wp-content\themes\flatsome\single.php(13): get_template_part('template-parts/...', 'no-sidebar')
+#8 D:\xampp\htdocs\ in D:\xampp\htdocs\OVANIC\wp-content\themes\flatsome-child\template-parts\posts\single.php on line 8
+
+2022-11-07T07:45:25+00:00 CRITICAL Uncaught Error: Call to undefined function getPrimary() in D:\xampp\htdocs\OVANIC\wp-content\themes\flatsome-child\template-parts\posts\single.php:8
+Stack trace:
+#0 D:\xampp\htdocs\OVANIC\wp-includes\template.php(785): require()
+#1 D:\xampp\htdocs\OVANIC\wp-includes\template.php(718): load_template('D:\\xampp\\htdocs...', false, Array)
+#2 D:\xampp\htdocs\OVANIC\wp-includes\general-template.php(204): locate_template(Array, true, false, Array)
+#3 D:\xampp\htdocs\OVANIC\wp-content\themes\flatsome\template-parts\posts\layout.php(12): get_template_part('template-parts/...')
+#4 D:\xampp\htdocs\OVANIC\wp-includes\template.php(785): require('D:\\xampp\\htdocs...')
+#5 D:\xampp\htdocs\OVANIC\wp-includes\template.php(718): load_template('D:\\xampp\\htdocs...', false, Array)
+#6 D:\xampp\htdocs\OVANIC\wp-includes\general-template.php(204): locate_template(Array, true, false, Array)
+#7 D:\xampp\htdocs\OVANIC\wp-content\themes\flatsome\single.php(13): get_template_part('template-parts/...', 'no-sidebar')
+#8 D:\xampp\htdocs\ in D:\xampp\htdocs\OVANIC\wp-content\themes\flatsome-child\template-parts\posts\single.php on line 8
+
+2022-11-07T07:45:41+00:00 CRITICAL Uncaught Error: Call to undefined function getPrimary() in D:\xampp\htdocs\OVANIC\wp-content\themes\flatsome-child\template-parts\posts\single.php:8
+Stack trace:
+#0 D:\xampp\htdocs\OVANIC\wp-includes\template.php(785): require()
+#1 D:\xampp\htdocs\OVANIC\wp-includes\template.php(718): load_template('D:\\xampp\\htdocs...', false, Array)
+#2 D:\xampp\htdocs\OVANIC\wp-includes\general-template.php(204): locate_template(Array, true, false, Array)
+#3 D:\xampp\htdocs\OVANIC\wp-content\themes\flatsome\template-parts\posts\layout.php(12): get_template_part('template-parts/...')
+#4 D:\xampp\htdocs\OVANIC\wp-includes\template.php(785): require('D:\\xampp\\htdocs...')
+#5 D:\xampp\htdocs\OVANIC\wp-includes\template.php(718): load_template('D:\\xampp\\htdocs...', false, Array)
+#6 D:\xampp\htdocs\OVANIC\wp-includes\general-template.php(204): locate_template(Array, true, false, Array)
+#7 D:\xampp\htdocs\OVANIC\wp-content\themes\flatsome\single.php(13): get_template_part('template-parts/...', 'no-sidebar')
+#8 D:\xampp\htdocs\ in D:\xampp\htdocs\OVANIC\wp-content\themes\flatsome-child\template-parts\posts\single.php on line 8
+
+2022-11-07T07:46:04+00:00 CRITICAL Uncaught Error: Call to undefined function getPrimary() in D:\xampp\htdocs\OVANIC\wp-content\themes\flatsome-child\template-parts\posts\single.php:8
+Stack trace:
+#0 D:\xampp\htdocs\OVANIC\wp-includes\template.php(785): require()
+#1 D:\xampp\htdocs\OVANIC\wp-includes\template.php(718): load_template('D:\\xampp\\htdocs...', false, Array)
+#2 D:\xampp\htdocs\OVANIC\wp-includes\general-template.php(204): locate_template(Array, true, false, Array)
+#3 D:\xampp\htdocs\OVANIC\wp-content\themes\flatsome\template-parts\posts\layout.php(12): get_template_part('template-parts/...')
+#4 D:\xampp\htdocs\OVANIC\wp-includes\template.php(785): require('D:\\xampp\\htdocs...')
+#5 D:\xampp\htdocs\OVANIC\wp-includes\template.php(718): load_template('D:\\xampp\\htdocs...', false, Array)
+#6 D:\xampp\htdocs\OVANIC\wp-includes\general-template.php(204): locate_template(Array, true, false, Array)
+#7 D:\xampp\htdocs\OVANIC\wp-content\themes\flatsome\single.php(13): get_template_part('template-parts/...', 'no-sidebar')
+#8 D:\xampp\htdocs\ in D:\xampp\htdocs\OVANIC\wp-content\themes\flatsome-child\template-parts\posts\single.php on line 8
+
+2022-11-07T07:46:28+00:00 CRITICAL Uncaught Error: Call to undefined function getPrimary() in D:\xampp\htdocs\OVANIC\wp-content\themes\flatsome-child\template-parts\posts\single.php:8
+Stack trace:
+#0 D:\xampp\htdocs\OVANIC\wp-includes\template.php(785): require()
+#1 D:\xampp\htdocs\OVANIC\wp-includes\template.php(718): load_template('D:\\xampp\\htdocs...', false, Array)
+#2 D:\xampp\htdocs\OVANIC\wp-includes\general-template.php(204): locate_template(Array, true, false, Array)
+#3 D:\xampp\htdocs\OVANIC\wp-content\themes\flatsome\template-parts\posts\layout.php(12): get_template_part('template-parts/...')
+#4 D:\xampp\htdocs\OVANIC\wp-includes\template.php(785): require('D:\\xampp\\htdocs...')
+#5 D:\xampp\htdocs\OVANIC\wp-includes\template.php(718): load_template('D:\\xampp\\htdocs...', false, Array)
+#6 D:\xampp\htdocs\OVANIC\wp-includes\general-template.php(204): locate_template(Array, true, false, Array)
+#7 D:\xampp\htdocs\OVANIC\wp-content\themes\flatsome\single.php(13): get_template_part('template-parts/...', 'no-sidebar')
+#8 D:\xampp\htdocs\ in D:\xampp\htdocs\OVANIC\wp-content\themes\flatsome-child\template-parts\posts\single.php on line 8
+
+2022-11-07T07:46:44+00:00 CRITICAL Uncaught Error: Call to undefined function getPrimary() in D:\xampp\htdocs\OVANIC\wp-content\themes\flatsome-child\template-parts\posts\single.php:8
+Stack trace:
+#0 D:\xampp\htdocs\OVANIC\wp-includes\template.php(785): require()
+#1 D:\xampp\htdocs\OVANIC\wp-includes\template.php(718): load_template('D:\\xampp\\htdocs...', false, Array)
+#2 D:\xampp\htdocs\OVANIC\wp-includes\general-template.php(204): locate_template(Array, true, false, Array)
+#3 D:\xampp\htdocs\OVANIC\wp-content\themes\flatsome\template-parts\posts\layout.php(12): get_template_part('template-parts/...')
+#4 D:\xampp\htdocs\OVANIC\wp-includes\template.php(785): require('D:\\xampp\\htdocs...')
+#5 D:\xampp\htdocs\OVANIC\wp-includes\template.php(718): load_template('D:\\xampp\\htdocs...', false, Array)
+#6 D:\xampp\htdocs\OVANIC\wp-includes\general-template.php(204): locate_template(Array, true, false, Array)
+#7 D:\xampp\htdocs\OVANIC\wp-content\themes\flatsome\single.php(13): get_template_part('template-parts/...', 'no-sidebar')
+#8 D:\xampp\htdocs\ in D:\xampp\htdocs\OVANIC\wp-content\themes\flatsome-child\template-parts\posts\single.php on line 8
+
+2022-11-07T07:48:39+00:00 CRITICAL Uncaught Error: Call to undefined function getPrimary() in D:\xampp\htdocs\OVANIC\wp-content\themes\flatsome-child\template-parts\posts\single.php:8
+Stack trace:
+#0 D:\xampp\htdocs\OVANIC\wp-includes\template.php(785): require()
+#1 D:\xampp\htdocs\OVANIC\wp-includes\template.php(718): load_template('D:\\xampp\\htdocs...', false, Array)
+#2 D:\xampp\htdocs\OVANIC\wp-includes\general-template.php(204): locate_template(Array, true, false, Array)
+#3 D:\xampp\htdocs\OVANIC\wp-content\themes\flatsome\template-parts\posts\layout.php(12): get_template_part('template-parts/...')
+#4 D:\xampp\htdocs\OVANIC\wp-includes\template.php(785): require('D:\\xampp\\htdocs...')
+#5 D:\xampp\htdocs\OVANIC\wp-includes\template.php(718): load_template('D:\\xampp\\htdocs...', false, Array)
+#6 D:\xampp\htdocs\OVANIC\wp-includes\general-template.php(204): locate_template(Array, true, false, Array)
+#7 D:\xampp\htdocs\OVANIC\wp-content\themes\flatsome\single.php(13): get_template_part('template-parts/...', 'no-sidebar')
+#8 D:\xampp\htdocs\ in D:\xampp\htdocs\OVANIC\wp-content\themes\flatsome-child\template-parts\posts\single.php on line 8
+
+2022-11-07T07:49:16+00:00 CRITICAL Uncaught Error: Call to undefined function getPrimary() in D:\xampp\htdocs\OVANIC\wp-content\themes\flatsome-child\template-parts\posts\single.php:8
+Stack trace:
+#0 D:\xampp\htdocs\OVANIC\wp-includes\template.php(785): require()
+#1 D:\xampp\htdocs\OVANIC\wp-includes\template.php(718): load_template('D:\\xampp\\htdocs...', false, Array)
+#2 D:\xampp\htdocs\OVANIC\wp-includes\general-template.php(204): locate_template(Array, true, false, Array)
+#3 D:\xampp\htdocs\OVANIC\wp-content\themes\flatsome\template-parts\posts\layout.php(12): get_template_part('template-parts/...')
+#4 D:\xampp\htdocs\OVANIC\wp-includes\template.php(785): require('D:\\xampp\\htdocs...')
+#5 D:\xampp\htdocs\OVANIC\wp-includes\template.php(718): load_template('D:\\xampp\\htdocs...', false, Array)
+#6 D:\xampp\htdocs\OVANIC\wp-includes\general-template.php(204): locate_template(Array, true, false, Array)
+#7 D:\xampp\htdocs\OVANIC\wp-content\themes\flatsome\single.php(13): get_template_part('template-parts/...', 'no-sidebar')
+#8 D:\xampp\htdocs\ in D:\xampp\htdocs\OVANIC\wp-content\themes\flatsome-child\template-parts\posts\single.php on line 8
+
+2022-11-07T07:49:31+00:00 CRITICAL Uncaught Error: Call to undefined function getPrimary() in D:\xampp\htdocs\OVANIC\wp-content\themes\flatsome-child\template-parts\posts\single.php:8
+Stack trace:
+#0 D:\xampp\htdocs\OVANIC\wp-includes\template.php(785): require()
+#1 D:\xampp\htdocs\OVANIC\wp-includes\template.php(718): load_template('D:\\xampp\\htdocs...', false, Array)
+#2 D:\xampp\htdocs\OVANIC\wp-includes\general-template.php(204): locate_template(Array, true, false, Array)
+#3 D:\xampp\htdocs\OVANIC\wp-content\themes\flatsome\template-parts\posts\layout.php(12): get_template_part('template-parts/...')
+#4 D:\xampp\htdocs\OVANIC\wp-includes\template.php(785): require('D:\\xampp\\htdocs...')
+#5 D:\xampp\htdocs\OVANIC\wp-includes\template.php(718): load_template('D:\\xampp\\htdocs...', false, Array)
+#6 D:\xampp\htdocs\OVANIC\wp-includes\general-template.php(204): locate_template(Array, true, false, Array)
+#7 D:\xampp\htdocs\OVANIC\wp-content\themes\flatsome\single.php(13): get_template_part('template-parts/...', 'no-sidebar')
+#8 D:\xampp\htdocs\ in D:\xampp\htdocs\OVANIC\wp-content\themes\flatsome-child\template-parts\posts\single.php on line 8
+
+2022-11-07T07:49:50+00:00 CRITICAL Uncaught Error: Call to undefined function getPrimary() in D:\xampp\htdocs\OVANIC\wp-content\themes\flatsome-child\template-parts\posts\single.php:8
+Stack trace:
+#0 D:\xampp\htdocs\OVANIC\wp-includes\template.php(785): require()
+#1 D:\xampp\htdocs\OVANIC\wp-includes\template.php(718): load_template('D:\\xampp\\htdocs...', false, Array)
+#2 D:\xampp\htdocs\OVANIC\wp-includes\general-template.php(204): locate_template(Array, true, false, Array)
+#3 D:\xampp\htdocs\OVANIC\wp-content\themes\flatsome\template-parts\posts\layout.php(12): get_template_part('template-parts/...')
+#4 D:\xampp\htdocs\OVANIC\wp-includes\template.php(785): require('D:\\xampp\\htdocs...')
+#5 D:\xampp\htdocs\OVANIC\wp-includes\template.php(718): load_template('D:\\xampp\\htdocs...', false, Array)
+#6 D:\xampp\htdocs\OVANIC\wp-includes\general-template.php(204): locate_template(Array, true, false, Array)
+#7 D:\xampp\htdocs\OVANIC\wp-content\themes\flatsome\single.php(13): get_template_part('template-parts/...', 'no-sidebar')
+#8 D:\xampp\htdocs\ in D:\xampp\htdocs\OVANIC\wp-content\themes\flatsome-child\template-parts\posts\single.php on line 8
+
+2022-11-07T07:51:08+00:00 CRITICAL Uncaught Error: Call to undefined function getPrimary() in D:\xampp\htdocs\OVANIC\wp-content\themes\flatsome-child\template-parts\posts\single.php:8
+Stack trace:
+#0 D:\xampp\htdocs\OVANIC\wp-includes\template.php(785): require()
+#1 D:\xampp\htdocs\OVANIC\wp-includes\template.php(718): load_template('D:\\xampp\\htdocs...', false, Array)
+#2 D:\xampp\htdocs\OVANIC\wp-includes\general-template.php(204): locate_template(Array, true, false, Array)
+#3 D:\xampp\htdocs\OVANIC\wp-content\themes\flatsome\template-parts\posts\layout.php(12): get_template_part('template-parts/...')
+#4 D:\xampp\htdocs\OVANIC\wp-includes\template.php(785): require('D:\\xampp\\htdocs...')
+#5 D:\xampp\htdocs\OVANIC\wp-includes\template.php(718): load_template('D:\\xampp\\htdocs...', false, Array)
+#6 D:\xampp\htdocs\OVANIC\wp-includes\general-template.php(204): locate_template(Array, true, false, Array)
+#7 D:\xampp\htdocs\OVANIC\wp-content\themes\flatsome\single.php(13): get_template_part('template-parts/...', 'no-sidebar')
+#8 D:\xampp\htdocs\ in D:\xampp\htdocs\OVANIC\wp-content\themes\flatsome-child\template-parts\posts\single.php on line 8
+
