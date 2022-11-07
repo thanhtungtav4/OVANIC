@@ -143,9 +143,10 @@ class WooTemplate {
 						$templateActive = file_exists( YAYMAIL_PLUGIN_PATH . 'views/templates/single-follow-up-mail-template.php' ) ? YAYMAIL_PLUGIN_PATH . 'views/templates/single-follow-up-mail-template.php' : false;
 						$raw_data       = $workflow->data_layer()->get_raw_data();
 						$args           = array(
-							'order'    => isset( $raw_data['order'] ) ? $raw_data['order'] : null,
-							'email'    => '',
-							'workflow' => $workflow,
+							'order'        => isset( $raw_data['order'] ) ? $raw_data['order'] : null,
+							'subscription' => isset( $raw_data['subscription'] ) ? $raw_data['subscription'] : null,
+							'email'        => '',
+							'workflow'     => $workflow,
 						);
 
 						ob_start();
@@ -220,13 +221,14 @@ class WooTemplate {
 		}
 		$template_path = '';
 		$template_name = 'emails/customer-reset-password.php';
-		if ( $this_template !== false ) {
+		if ( false !== $this_template ) {
 			ob_start();
 			include $this_template;
 			$message = ob_get_contents();
 			ob_end_clean();
 			$site_name = wp_specialchars_decode( get_option( 'blogname' ), ENT_QUOTES );
-			$title     = sprintf( __( '[%s] Password Reset' ), $site_name );
+			// translators: none.
+			$title = sprintf( __( '[%s] Password Reset', 'yaymail' ), $site_name );
 			wc_mail( $email['user_email'], $title, $message );
 			$message = false;
 		}

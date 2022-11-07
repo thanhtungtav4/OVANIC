@@ -68,6 +68,14 @@ class OptionsModelWpf extends ModelWpf {
 					} else {
 						wp_unschedule_hook( 'wpf_calc_meta_indexing_shedule' );
 					}
+				} else if ( 'optimizing_schedule' === $code ) {
+					if ( '1' === $val ) {
+						if ( ! wp_next_scheduled( 'wpf_calc_meta_optimizing_shedule' ) ) {
+							wp_schedule_event( time(), 'hourly', 'wpf_calc_meta_optimizing_shedule' );
+						}
+					} else {
+						wp_unschedule_hook( 'wpf_calc_meta_optimizing_shedule' );
+					}
 				}
 				$this->save( $code, $val, true );
 			}

@@ -392,4 +392,7 @@ class HtmlWpf {
 	public static function startMetaButton( $name, $params ) {
 		echo '<button id="wpfStartMetaIndexing" class="button button-primary"><i class="fa fa-play" aria-hidden="true"></i></button>';
 	}
+	public static function startOptimizingButton( $name, $params ) {
+		echo '<button id="wpfStartOptimizing" class="button button-primary"><i class="fa fa-play" aria-hidden="true"></i></button>';
+	}
 }

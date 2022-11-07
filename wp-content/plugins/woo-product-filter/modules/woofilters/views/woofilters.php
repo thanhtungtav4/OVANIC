@@ -1282,12 +1282,14 @@ class WoofiltersViewWpf extends ViewWpf {
 				$currentCategoryId = $category->term_id;
 			}
 		}
-
+		
+		$setCurCat = false;
 		if ($prodCatId && $this->getFilterSetting($settings, 'f_set_page_category', false)) {
 			$catSelected[] = $prodCatId;
 			if ($this->getFilterSetting($settings, 'f_set_parent_page_category', false)) {
 				$catSelected = array_merge($catSelected, get_ancestors($prodCatId, 'product_cat'));
 			}
+			$setCurCat = true;
 		}
 
 		$layout      = $this->getFilterLayout($settings, $filterSettings);
@@ -1329,7 +1331,7 @@ class WoofiltersViewWpf extends ViewWpf {
 			));
 		}
 
-		$noActive    = $defSelected ? '' : 'wpfNotActive';
+		$noActive    = $defSelected || $setCurCat ? '' : 'wpfNotActive';
 		$noActive    = $hidden_categories ? 'wpfHidden' : $noActive;
 		$preselected = $hidden_categories ? ' wpfPreselected' : '';
 
@@ -2250,15 +2252,19 @@ class WoofiltersViewWpf extends ViewWpf {
 
 		list( $showedTerms, $countsTerms, $showFilter, $allTerms ) = $this->getShowedTerms( $attrName, $show_all_atts, $filterName );
 
-
 		//doing the sorting through the hook while some themes/plugins impose their own
 		if ($isCustomOrder) {
 			$args['wpf_orderby'] = implode(',', $includeAttsId);
 			add_filter('get_terms_orderby', array($this, 'wpfGetTermsOrderby'), 99, 2);
 		}
+		if ($isCustom) {
+			$custArgs = array(
+				'wpf_fbv' => $this->getFilterSetting($filterSettings['settings'], 'filtering_by_variations'),
+				'all_attrs' => $this->getFilterSetting($settings, 'f_show_all_attributes', false)
+			);
+		}
 
-		$productAttr = $isCustom ? DispatcherWpf::applyFilters('getCustomTerms', array(), $attrSlug, array_merge($args, array('wpf_fbv' => $this->getFilterSetting($filterSettings['settings'], 'filtering_by_variations')))) : $this->getTaxonomyHierarchy($attrName, $args);
-
+		$productAttr = $isCustom ? DispatcherWpf::applyFilters('getCustomTerms', array(), $attrSlug, array_merge($args, $custArgs)) : $this->getTaxonomyHierarchy($attrName, $args);
 		remove_filter('get_terms_orderby', array($this, 'wpfGetTermsOrderby'), 99, 2);
 
 		if (!$productAttr) {

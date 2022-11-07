@@ -184,6 +184,12 @@ class OptionsWpf extends ModuleWpf {
 							'def'   => '0',
 							'html'  => 'checkboxHiddenVal',
 						),
+						'disable_clean_rocket_cache' => array(
+							'label' => esc_html__( 'Disable clearing WP Rocket cache', 'woo-product-filter' ),
+							'desc'  => esc_html__( 'Disable clearing WP Rocket cache by saving filter settings', 'woo-product-filter' ),
+							'def'   => '0',
+							'html'  => 'checkboxHiddenVal',
+						),
 					),
 				),
 			));

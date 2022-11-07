@@ -7,7 +7,7 @@ use YayMail\Page\Source\CustomPostType;
 use YayMail\Page\Source\UpdateElement;
 
 $postID           = CustomPostType::postIDByTemplate( 'wgm_sepa' );
-$custom_shortcode = new YayMail\MailBuilder\Shortcodes( 'wgm_sepa' );
+$custom_shortcode = new YayMail\MailBuilder\Shortcodes( 'wgm_sepa', '', false );
 $args             = array(
 	'order'         => new \WC_Order( $email->object->id ),
 	'content'       => $content,

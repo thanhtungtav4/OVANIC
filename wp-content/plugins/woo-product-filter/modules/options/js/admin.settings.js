@@ -160,4 +160,24 @@ jQuery(document).ready(function(){
 		});
 		return false;
 	});
+	jQuery('#wpfStartOptimizing').click(function(){
+		jQuery.sendFormWpf({
+			data: {
+			mod: 'meta',
+			action: 'doMetaOptimizing',
+			},
+			btn: jQuery('#wpfStartOptimizing'),
+			appendData: {wpfNonce: window.wpfNonce},
+			onSuccess: function(res) {
+				if (!res.error && res['messages'] && res['messages'].length) {
+					jQuery.sNotify({
+						'icon': 'fa fa-check',
+						'content': ' <span> '+res['messages'][0]+'</span>',
+						'delay' : 2500
+					});
+				}
+			}
+		});
+		return false;
+	});
 });

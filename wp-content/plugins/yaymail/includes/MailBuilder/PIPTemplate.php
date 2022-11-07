@@ -143,7 +143,7 @@ class PIPTemplate {
 			$site_title   = wp_specialchars_decode( get_option( 'blogname' ), ENT_QUOTES );
 			$orders_count = count( $object->order_ids );
 			// translators: woocommerce-pip.
-			$orders       = sprintf( _n( '%d order', '%d orders', $orders_count, 'woocommerce-pip' ), $orders_count );
+			$orders = sprintf( _n( '%d order', '%d orders', $orders_count, 'woocommerce-pip' ), $orders_count );
 
 			// translators: woocommerce-pip.
 			$email_subject  = sprintf( __( '[%1$s] Pick List for %2$s', 'woocommerce-pip' ), $site_title, $orders );

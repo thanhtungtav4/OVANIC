@@ -77,7 +77,7 @@ if ( isset( $args['yith_wc_email'] ) && isset( $args['yith_wc_email']->id ) && !
 if ( isset( $args['email'] ) && isset( $args['email']->id ) && false !== strpos( get_class( $args['email'] ), 'ORDDD_Email_Delivery_Reminder' ) ) {
 	$template .= '_customer';
 }
-$custom_shortcode = new YayMail\MailBuilder\Shortcodes( $template );
+$custom_shortcode = new YayMail\MailBuilder\Shortcodes( $template, '', false );
 if ( CustomPostType::postIDByTemplate( $template ) ) {
 	$postID = CustomPostType::postIDByTemplate( $template );
 }
@@ -197,7 +197,7 @@ if ( $flag_do_action ) {
 								$element['settingRow']['content'] = $content;
 							}
 						}
-						if ( has_filter('yaymail_addon_for_conditional_logic') && isset( $element['settingRow']['arrConditionLogic'] ) && ! empty( $element['settingRow']['arrConditionLogic'] ) ) {
+						if ( has_filter( 'yaymail_addon_for_conditional_logic' ) && isset( $element['settingRow']['arrConditionLogic'] ) && ! empty( $element['settingRow']['arrConditionLogic'] ) ) {
 							$conditional_Logic = apply_filters( 'yaymail_addon_for_conditional_logic', false, $args, $element['settingRow'] );
 
 							if ( $conditional_Logic ) {

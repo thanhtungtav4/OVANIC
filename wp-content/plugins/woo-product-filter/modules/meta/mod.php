@@ -2,15 +2,19 @@
 
 class MetaWpf extends ModuleWpf {
 	private $calculated = false;
+	public static $wpfPreviousProductId = -1;
+	public static $wpfPreviousProductIdAcf = -1;
 
 	public function init() {
 		parent::init();
 		DispatcherWpf::addFilter( 'optionsDefine', array( $this, 'addOptions' ) );
-		add_action( 'woocommerce_update_product', array( $this, 'recalcProductMetaValues' ), 100, 1 );
+		add_action( 'woocommerce_update_product', array( $this, 'recalcProductMetaValues' ), 99999, 1 );
+		add_action( 'acf/save_post', array( $this, 'recalcProductMetaValuesAcf' ), 99999, 1);
 		add_action( 'woocommerce_product_set_stock_status', array( $this, 'recalcProductStockStatus' ), 100, 1 );
 		add_action( 'woocommerce_variation_set_stock_status', array( $this, 'recalcProductStockStatus' ), 100, 1 );
 		add_action( 'wpf_calc_meta_indexing', array( $this->getModel(), 'recalcMetaValues' ), 10, 1 );
 		add_action( 'wpf_calc_meta_indexing_shedule', array( $this, 'recalcMetaIndexingShedule' ), 10, 1 );
+		add_action( 'wpf_calc_meta_optimizing_shedule', array( $this, 'recalcMetaOptimizingShedule' ), 10, 1 );
 
 		add_filter('woocommerce_product_csv_importer_steps', array($this, 'recalcAfterImporting'));
 	}
@@ -58,14 +62,30 @@ class MetaWpf extends ModuleWpf {
 				'html' => 'checkboxHiddenVal',
 				'def' => '0',
 			),
+			'start_optimization' => array(
+				'label' => esc_html__('Start index tables optimization', 'woo-product-filter'),
+				'desc' => esc_html__('Sometimes index tables take up more space than they should, and product filtering takes longer than they should. Start optimizing your index tables to defragment them and rebuild your data in the most efficient way.', 'woo-product-filter'),
+				'html' => 'startOptimizingButton',
+				'def' => '',
+			),
+			'optimizing_schedule'    => array(
+				'label'        => esc_html__( 'Start optimization on a schedule', 'woo-product-filter' ),
+				'desc'         => esc_html__( 'Index tables optimization will start at the selected time according to the schedule', 'woo-product-filter' ),
+				'html'         => 'checkboxHiddenVal',
+				'def'          => '0',
+				'add_sub_opts' => array( $this, 'getSettingsOptimizingSchedule' ),
+			),
 		), $options['general']['opts']);
 
 		$options['general']['opts'] = $opts;
 		return $options;
 	}
+	public function getSettingsOptimizingSchedule( $options ) {
+		return $this->getSettingsIndexingSchedule( $options, '_optimizing' );
+	}
 
-	public function getSettingsIndexingSchedule( $options ) {
-		$hourSelect = FrameWpf::_()->getModule( 'options' )->getModel()->get( 'shedule_hour' );
+	public function getSettingsIndexingSchedule( $options, $addName = '' ) {
+		$hourSelect = FrameWpf::_()->getModule( 'options' )->getModel()->get( 'shedule_hour' . $addName );
 		$hours      = array(
 			'00',
 			'01',
@@ -98,7 +118,7 @@ class MetaWpf extends ModuleWpf {
 			$hoursHtml .= "<option value=\"{$value}\" {$selected}>{$name}</option>";
 		}
 
-		$daySelect = FrameWpf::_()->getModule( 'options' )->getModel()->get( 'shedule_day' );
+		$daySelect = FrameWpf::_()->getModule( 'options' )->getModel()->get( 'shedule_day' . $addName );
 		$days      = array(
 			__( 'Everyday', 'woo-product-filter' ),
 			__( 'Monday', 'woo-product-filter' ),
@@ -115,12 +135,23 @@ class MetaWpf extends ModuleWpf {
 			$daysHtml .= "<option value=\"{$value}\" {$selected}>{$name}</option>";
 		}
 
-		return "<div><select name=\"opt_values[shedule_hour]\">{$hoursHtml}</select> <select name=\"opt_values[shedule_day]\">{$daysHtml}</select></div>";
+		return "<div><select name=\"opt_values[shedule_hour{$addName}]\">{$hoursHtml}</select> <select name=\"opt_values[shedule_day{$addName}]\">{$daysHtml}</select></div>";
 	}
 
 	public function recalcProductMetaValues( $productId ) {
 		if ( ! $this->isDisabledAutoindexing() ) {
-			$this->getModel()->recalcMetaValues( $productId );
+			if (self::$wpfPreviousProductId !== $productId) {
+				self::$wpfPreviousProductId = $productId;
+				$this->getModel()->recalcMetaValues( $productId );
+			}
+		}
+	}
+	public function recalcProductMetaValuesAcf( $productId ) {
+		if ( ! $this->isDisabledAutoindexing() ) {
+			if (self::$wpfPreviousProductIdAcf !== $productId) {
+				self::$wpfPreviousProductIdAcf = $productId;
+				$this->getModel()->recalcMetaValues( $productId );
+			}
 		}
 	}
 
@@ -158,6 +189,18 @@ class MetaWpf extends ModuleWpf {
 
 		$this->getModel()->recalcMetaValues();
 
+	}
+	public function recalcMetaOptimizingShedule() {
+		$daySelect = FrameWpf::_()->getModule( 'options' )->getModel()->get( 'shedule_day_optimizing' );
+		if ( '0' !== $daySelect && gmdate( 'N' ) !== $daySelect ) {
+			return false;
+		}
+		$hourSelect       = FrameWpf::_()->getModule( 'options' )->getModel()->get( 'shedule_hour_optimizing' );
+		$timestampShedule = mktime( $hourSelect, 0, 0 );
+		if ( time() < $timestampShedule ) {
+			return false;
+		}
+		$this->getModel()->optimizeMetaTables();
 	}
 
 

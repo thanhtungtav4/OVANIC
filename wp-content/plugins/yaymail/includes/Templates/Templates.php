@@ -136,6 +136,7 @@ class Templates {
 		$custom_css             = isset( $yaymail_settings['custom_css'] ) && ! empty( $yaymail_settings['custom_css'] ) ? sanitize_text_field( $yaymail_settings['custom_css'] ) : '';
 		$enableCustomCss        = isset( $yaymail_settings['enable_css_custom'] ) && ! empty( $yaymail_settings['enable_css_custom'] ) ? $yaymail_settings['enable_css_custom'] : '';
 		$orderImagePostions     = isset( $yaymail_settings['image_position'] ) && ! empty( $yaymail_settings['image_position'] ) ? $yaymail_settings['image_position'] : 'Top';
+		$productRegularPrice    = isset( $yaymail_settings['product_regular_price'] ) ? $yaymail_settings['product_regular_price'] : 0;
 		/*
 		 ======
 		@@@ Start css for shortcode [yaymail_items_border]
@@ -465,6 +466,11 @@ class Templates {
 		if ( 'Top' == $orderImagePostions ) {
 			$css .= '.yaymail-product-image{
         float: unset;
+      }';
+		}
+		if ( $productRegularPrice ) {
+			$css .= '.order_item del{
+        opacity: 0.5;
       }';
 		}
 		$css .= 'a.yaymail-web-button{

@@ -2,7 +2,7 @@
 
 if (!defined('ABSPATH')) die('Access denied.');
 
-class Simba_Two_Factor_Authentication {
+class Simba_Two_Factor_Authentication_1 {
 
 	/**
 	 * Simba 2FA frontend object
@@ -12,11 +12,11 @@ class Simba_Two_Factor_Authentication {
 	protected $frontend;
 
 	/**
-	 * Simba 2FA totp object
+	 * Simba 2FA TOTP object
 	 *
 	 * @var Object
 	 */
-	protected $totp_controller;
+	protected $controllers = array();
 	
 	/**
 	 * Flag for prevent PHP notices in AJAX
@@ -90,9 +90,15 @@ class Simba_Two_Factor_Authentication {
 	 */
 	public function __construct() {
 
-		require_once(__DIR__.'/providers/totp-hotp/loader.php');
-
-		$this->totp_controller = new Simba_TFA_Provider_TOTP($this);
+		$load_providers = apply_filters('simbatfa_load_providers', array('totp'));
+		
+		foreach ($load_providers as $provider_id) {
+			$class_name = "Simba_TFA_Provider_$provider_id";
+			if (!class_exists($class_name)) {
+				require_once(__DIR__.'/providers/'.$provider_id.'/loader.php');
+			}
+			$this->controllers[$provider_id] = new $class_name($this);
+		}
 
 		// Process login form AJAX events
 		add_action('wp_ajax_nopriv_simbatfa-init-otp', array($this, 'tfaInitLogin'));
@@ -100,7 +106,7 @@ class Simba_Two_Factor_Authentication {
 
 		add_action('wp_ajax_simbatfa_shared_ajax', array($this, 'shared_ajax'));
 
-		require_once($this->includes_dir().'/login-form-integrations.php');
+		if (!class_exists('Simba_TFA_Login_Form_Integrations')) require_once($this->includes_dir().'/login-form-integrations.php');
 		new Simba_TFA_Login_Form_Integrations($this);
 
 		// Add TFA column on admin users list
@@ -110,6 +116,8 @@ class Simba_Two_Factor_Authentication {
 
 		// CSS for admin users screen
 		add_action('admin_print_styles-users.php', array($this, 'load_users_css'), 10, 0);
+		
+		add_action('admin_menu', array($this, 'admin_menu'), 9);
 
 		add_action('admin_init', array($this, 'register_two_factor_auth_settings'));
 		add_action('init', array($this, 'init'));
@@ -127,6 +135,13 @@ class Simba_Two_Factor_Authentication {
 		}
 	}
 
+	/**
+	 * Runs upon the WP filter admin_menu
+	 */
+	public function admin_menu() {
+		$this->get_controller('totp')->potentially_port_private_keys();
+	}
+	
 	/**
 	 * Give the filesystem path to the plugin's includes directory
 	 *
@@ -359,6 +374,7 @@ class Simba_Two_Factor_Authentication {
 		}
 
 		register_setting('tfa_user_roles_required_group', 'tfa_requireafter');
+		register_setting('tfa_user_roles_required_group', 'tfa_require_enforce_after');
 		register_setting('tfa_user_roles_required_group', 'tfa_if_required_redirect_to');
 		register_setting('tfa_user_roles_required_group', 'tfa_hide_turn_off');
 		register_setting('tfa_user_roles_trusted_group', 'tfa_trusted_for');
@@ -670,14 +686,35 @@ class Simba_Two_Factor_Authentication {
 	}
 
 	/**
-	 * Return the Simba_TFA_Provider_TOTP object.
+	 * Return the TOTP provider object.
 	 *
-	 * @returns Simba_TFA_Provider_TOTP
+	 * @param String $controller_id - which controller
+	 *
+	 * @return Simba_TFA_Provider_totp
 	 */
-	public function get_totp_controller() {
-		return $this->totp_controller;
+	public function get_controller($controller_id = 'totp') {
+		return $this->controllers[$controller_id];
+	}
+	
+	/**
+	 * Return all OTP controllers
+	 *
+	 * @return Array
+	 */
+	public function get_controllers() {
+		return $this->controllers;
 	}
 
+	/**
+	 * Deprecated synonym for get_controller('totp')
+	 *
+	 * @return Simba_TFA_Provider_totp
+	 */
+	public function get_totp_controller() {
+		trigger_error("Deprecated: Call get_controller('totp'), not get_totp_controller()", E_USER_WARNING);
+		return $this->get_controller('totp');
+	}
+	
 	/**
 	 * "Shared" - i.e. could be called from either front-end or back-end
 	 */
@@ -691,7 +728,7 @@ class Simba_Two_Factor_Authentication {
 
 		if ('refreshotp' == $subaction) {
 
-			$code = $this->totp_controller->get_current_code($current_user->ID);
+			$code = $this->get_controller('totp')->get_current_code($current_user->ID);
 
 			if (false === $code) die(json_encode(array('code' => '')));
 
@@ -912,7 +949,7 @@ class Simba_Two_Factor_Authentication {
 
 		$result = false;
 
-		$totp_controller = $this->totp_controller;
+		$totp_controller = $this->get_controller('totp');
 
 		if ($user) {
 			$tfa_priv_key = get_user_meta($user->ID, 'tfa_priv_key_64', true);
@@ -968,7 +1005,7 @@ class Simba_Two_Factor_Authentication {
 		$tfa_enabled_label = $long_label ? __('Enable two-factor authentication', 'all-in-one-wp-security-and-firewall') : __('Enabled', 'all-in-one-wp-security-and-firewall');
 
 		if ('show_current' == $style) {
-			$tfa_enabled_label .= ' '.sprintf(__('(Current code: %s)', 'all-in-one-wp-security-and-firewall'), $this->get_totp_controller()->current_otp_code($user_id));
+			$tfa_enabled_label .= ' '.sprintf(__('(Current code: %s)', 'all-in-one-wp-security-and-firewall'), $this->get_controller('totp')->current_otp_code($user_id));
 		} elseif ('require_current' == $style) {
 			$tfa_enabled_label .= ' '.sprintf(__('(you must enter the current code: %s)', 'all-in-one-wp-security-and-firewall'), '<input type="text" class="tfa_enable_current" name="tfa_enable_current" size="6" style="height">');
 		}
@@ -1081,38 +1118,58 @@ class Simba_Two_Factor_Authentication {
 			$response = $wpdb->get_row($wpdb->prepare("SELECT ID, user_registered from ".$wpdb->users." WHERE user_login=%s", $params['log']));
 		}
 
-		$user_ID = is_object($response) ? $response->ID : false;
+		$user_id = is_object($response) ? $response->ID : false;
 		$user_registered = is_object($response) ? $response->user_registered : false;
 
 		$user_code = isset($params['two_factor_code']) ? str_replace(' ', '', trim($params['two_factor_code'])) : '';
 
 		// This condition in theory should not be possible
-		if (!$user_ID) return new WP_Error('tfa_user_not_found', apply_filters('simbatfa_tfa_user_not_found', '<strong>'.__('Error:', 'all-in-one-wp-security-and-firewall').'</strong> '.__('The indicated user could not be found.', 'all-in-one-wp-security-and-firewall')));
+		if (!$user_id) return new WP_Error('tfa_user_not_found', apply_filters('simbatfa_tfa_user_not_found', '<strong>'.__('Error:', 'all-in-one-wp-security-and-firewall').'</strong> '.__('The indicated user could not be found.', 'all-in-one-wp-security-and-firewall')));
 
-		if (!$this->is_activated_for_user($user_ID)) return 1;
+		if (!$this->is_activated_for_user($user_id)) return 1;
 
-		if (!empty($params['trust_token']) && $this->user_trust_token_valid($user_ID, $params['trust_token'])) {
+		if (!empty($params['trust_token']) && $this->user_trust_token_valid($user_id, $params['trust_token'])) {
 			return 1;
 		}
 
-		if (!$this->is_activated_by_user($user_ID)) {
+		if (!$this->is_activated_by_user($user_id)) {
 
-			if (!$this->is_required_for_user($user_ID)) return 1;
+			if (!$this->is_required_for_user($user_id)) return 1;
+
+			$enforce_require_after_check = true;
+			
+			$require_enforce_after = $this->get_option('tfa_require_enforce_after');
+			
+			// Don't enforce if the setting has never been saved
+			if (is_string($require_enforce_after) && preg_match('#^(\d+)-(\d+)-(\d+)$#', $require_enforce_after, $enforce_matches)) {
+				
+				// wp_date() is WP 5.3+, but performs translation into the site locale
+				$current_date = function_exists('wp_date') ? wp_date('Y-m-d') : get_date_from_gmt(gmdate('Y-m-d H:i:s'), 'Y-m-d');
+				
+				if (preg_match('#^(\d+)-(\d+)-(\d+)$#', $current_date, $current_date_matches)) {
+					if ($current_date_matches[0] < $enforce_matches[0] || ($current_date_matches[0] == $enforce_matches[0] && ($current_date_matches[1] < $enforce_matches[1] || ($current_date_matches[1] == $enforce_matches[1] && $current_date_matches[2] < $enforce_matches[2])))) {
+						// Enforcement not yet begun; skip
+						$enforce_require_after_check = false;
+					}
+				}
+				
+			}
 
 			$require_after = absint($this->get_option('tfa_requireafter')) * 86400;
 
 			$account_age = time() - strtotime($user_registered);
 
-			if ($account_age > $require_after && apply_filters('simbatfa_enforce_require_after_check', true, $user_ID, $require_after, $account_age)) {
+			if ($account_age > $require_after && apply_filters('simbatfa_enforce_require_after_check', $enforce_require_after_check, $user_id, $require_after, $account_age)) {
+				
 				return new WP_Error('tfa_required', apply_filters('simbatfa_notfa_forbidden_login', '<strong>'.__('Error:', 'all-in-one-wp-security-and-firewall').'</strong> '.__('The site owner has forbidden you to login without two-factor authentication. Please contact the site owner to re-gain access.', 'all-in-one-wp-security-and-firewall')));
 			}
 
 			return 1;
 		}
 
-		$tfa_creds_user_id = !empty($params['creds_user_id']) ? $params['creds_user_id'] : $user_ID;
+		$tfa_creds_user_id = !empty($params['creds_user_id']) ? $params['creds_user_id'] : $user_id;
 
-		if ($tfa_creds_user_id != $user_ID) {
+		if ($tfa_creds_user_id != $user_id) {
 
 			// Authenticating using a different user's credentials (e.g. https://wordpress.org/plugins/use-administrator-password/)
 			// In this case, we require that different user to have TFA active - so that this mechanism can't be used to avoid TFA
@@ -1123,7 +1180,7 @@ class Simba_Two_Factor_Authentication {
 
 		}
 
-		return $this->totp_controller->check_code_for_user($tfa_creds_user_id, $user_code);
+		return $this->get_controller('totp')->check_code_for_user($tfa_creds_user_id, $user_code);
 
 	}
 
@@ -1261,13 +1318,14 @@ class Simba_Two_Factor_Authentication {
 
 		if (!file_exists($template_file)) {
 			error_log("TFA: template not found: $template_file (from $path)");
-			echo __('Error:', 'all-in-one-wp-security-and-firewall').' '.__('two-factor-authentication', 'wp-optimize')." (".$path.")";
+			echo __('Error:', 'all-in-one-wp-security-and-firewall').' '.__('Template path not found:', 'all-in-one-wp-security-and-firewall')." (".htmlspecialchars($path).")";
 		} else {
 			extract($extract_these);
 			// The following are useful variables which can be used in the template.
 			// They appear as unused, but may be used in the $template_file.
 			$wpdb = $GLOBALS['wpdb'];// phpcs:ignore VariableAnalysis.CodeAnalysis.VariableAnalysis.UnusedVariable -- $wpdb might be used in the included template
 			$simba_tfa = $this;// phpcs:ignore VariableAnalysis.CodeAnalysis.VariableAnalysis.UnusedVariable -- $wp_optimize might be used in the included template
+			$totp_controller = $this->get_controller('totp');// phpcs:ignore VariableAnalysis.CodeAnalysis.VariableAnalysis.UnusedVariable -- $wp_optimize might be used in the included template
 			include $template_file;
 		}
 

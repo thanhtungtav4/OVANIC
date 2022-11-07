@@ -252,3 +252,9 @@ Stack trace:
 2022-09-21 15:03:47 16384 Hàm WC_Cart::get_checkout_url hiện tại <strong>không dùng nữa</strong> từ phiên bản 2.5! Sử dụng wc_get_checkout_url để thay thế. D:\Ampps\www\OVANIC\wp-includes\functions.php 5379 70429
 2022-09-21 15:03:48 8 Undefined variable: bestsale D:\Ampps\www\OVANIC\wp-content\themes\flatsome-child\wp-amp\parts\title.php 25 70429
 2022-09-21 15:03:48 16384 Hàm WC_Cart::get_checkout_url hiện tại <strong>không dùng nữa</strong> từ phiên bản 2.5! Sử dụng wc_get_checkout_url để thay thế. D:\Ampps\www\OVANIC\wp-includes\functions.php 5379 70429
+2022-11-07 06:35:38 8 Undefined variable: bestsale D:\xampp\htdocs\OVANIC\wp-content\themes\flatsome-child\wp-amp\parts\title.php 25 70326
+2022-11-07 06:35:38 16384 Hàm WC_Cart::get_checkout_url hiện tại <strong>không dùng nữa</strong> từ phiên bản 2.5! Sử dụng wc_get_checkout_url để thay thế. D:\xampp\htdocs\OVANIC\wp-includes\functions.php 5383 70326
+2022-11-07 06:35:38 16384 Hàm WC_Product::list_attributes hiện tại <strong>không dùng nữa</strong> từ phiên bản 3.0! Sử dụng wc_display_product_attributes để thay thế. D:\xampp\htdocs\OVANIC\wp-includes\functions.php 5383 70326
+2022-11-07 06:35:59 8 Undefined variable: bestsale D:\xampp\htdocs\OVANIC\wp-content\themes\flatsome-child\wp-amp\parts\title.php 25 70326
+2022-11-07 06:35:59 16384 Hàm WC_Cart::get_checkout_url hiện tại <strong>không dùng nữa</strong> từ phiên bản 2.5! Sử dụng wc_get_checkout_url để thay thế. D:\xampp\htdocs\OVANIC\wp-includes\functions.php 5383 70326
+2022-11-07 06:35:59 16384 Hàm WC_Product::list_attributes hiện tại <strong>không dùng nữa</strong> từ phiên bản 3.0! Sử dụng wc_display_product_attributes để thay thế. D:\xampp\htdocs\OVANIC\wp-includes\functions.php 5383 70326

@@ -56,7 +56,9 @@ class WoofiltersControllerWpf extends ControllerWpf {
 		}
 
 		if ( is_plugin_active( 'wp-rocket/wp-rocket.php' ) && function_exists( 'rocket_clean_domain' ) ) {
-			rocket_clean_domain();
+			if (FrameWpf::_()->getModule( 'options' )->get( 'disable_clean_rocket_cache' ) != 1) {
+				rocket_clean_domain();
+			}
 		}
 
 		check_ajax_referer('wpf-save-nonce', 'wpfNonce');

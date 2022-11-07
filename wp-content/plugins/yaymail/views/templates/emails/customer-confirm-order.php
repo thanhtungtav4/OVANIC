@@ -7,7 +7,7 @@ use YayMail\Page\Source\CustomPostType;
 use YayMail\Page\Source\UpdateElement;
 
 $postID           = CustomPostType::postIDByTemplate( 'wgm_confirm_order_email' );
-$custom_shortcode = new YayMail\MailBuilder\Shortcodes( 'wgm_confirm_order_email' );
+$custom_shortcode = new YayMail\MailBuilder\Shortcodes( 'wgm_confirm_order_email', '', false );
 $args             = array(
 	'order'         => $order,
 	'sent_to_admin' => false,

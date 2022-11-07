@@ -7,7 +7,7 @@ use YayMail\Page\Source\CustomPostType;
 use YayMail\Page\Source\UpdateElement;
 
 $postID           = CustomPostType::postIDByTemplate( 'wgm_double_opt_in_customer_registration' );
-$custom_shortcode = new YayMail\MailBuilder\Shortcodes( 'wgm_double_opt_in_customer_registration' );
+$custom_shortcode = new YayMail\MailBuilder\Shortcodes( 'wgm_double_opt_in_customer_registration', '', false );
 $args             = array(
 	'email_heading'   => $email_heading,
 	'user_login'      => $user_login,

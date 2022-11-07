@@ -315,6 +315,7 @@ class Settings {
 				'product_sku'                  => 1,
 				'product_des'                  => 0,
 				'product_hyper_links'          => 0,
+				'product_regular_price'        => 0,
 				'background_color_table_items' => '#e5e5e5',
 				'content_items_color'          => '#636363',
 				'title_items_color'            => '#7f54b3',
@@ -1180,6 +1181,26 @@ class Settings {
 						'ywraq_send_quote_reminder_accept',
 					),
 					'link_upgrade'  => 'https://yaycommerce.com/yaymail-woocommerce-email-customizer/#yaymail-addon-yith-request-a-quote',
+				),
+				'Woo_Sell_Services'                        => array(
+					'plugin_name'   => 'Woo Sell Services',
+					'template_name' => array(
+						'order_accepted',
+						'order_conversation_ready',
+						'order_ready',
+						'order_rejected',
+						'submit_requirement',
+						'requirements_received',
+					),
+					'link_upgrade'  => 'https://yaycommerce.com/downloads/yaymail-addon-for-woo-sell-services/',
+				),
+				'YITH_WC_Recover_Abandoned_Cart'           => array(
+					'plugin_name'   => 'YITH WooCommerce Recover Abandoned Cart Premium',
+					'template_name' => array(
+						'ywrac_email',
+						'ywrac_email_recovered_cart',
+					),
+					'link_upgrade'  => 'https://yaycommerce.com/yaymail-woocommerce-email-customizer/#yaymail-addon-for-yith-woo-recover-abandoned-cart/',
 				),
 			);
 

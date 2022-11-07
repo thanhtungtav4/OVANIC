@@ -303,9 +303,7 @@ class MiniCart extends AbstractBlock {
 		$cart_controller     = $this->get_cart_controller();
 		$cart                = $cart_controller->get_cart_instance();
 		$cart_contents_total = $cart->get_subtotal();
-		$typography_styles   = isset( StyleAttributesUtils::get_font_weight_class_and_style( $attributes )['style'] ) ? StyleAttributesUtils::get_font_weight_class_and_style( $attributes )['style'] : null;
-
-		return '<span class="wc-block-mini-cart__amount" style="' . esc_attr( $typography_styles ) . '">' . esc_html( wp_strip_all_tags( wc_price( $cart_contents_total ) ) ) . '</span>
+		return '<span class="wc-block-mini-cart__amount">' . esc_html( wp_strip_all_tags( wc_price( $cart_contents_total ) ) ) . '</span>
 		' . $this->get_include_tax_label_markup();
 	}
 
@@ -325,12 +323,12 @@ class MiniCart extends AbstractBlock {
 	/**
 	 * Append frontend scripts when rendering the Mini Cart block.
 	 *
-	 * @param array  $attributes Block attributes.
-	 * @param string $content    Block content.
-	 *
+	 * @param array    $attributes Block attributes.
+	 * @param string   $content    Block content.
+	 * @param WP_Block $block      Block instance.
 	 * @return string Rendered block type output.
 	 */
-	protected function render( $attributes, $content ) {
+	protected function render( $attributes, $content, $block ) {
 		return $content . $this->get_markup( $attributes );
 	}
 
@@ -358,7 +356,7 @@ class MiniCart extends AbstractBlock {
 			$cart_contents_total += $cart->get_subtotal_tax();
 		}
 
-		$classes_styles  = StyleAttributesUtils::get_classes_and_styles_by_attributes( $attributes, array( 'text_color', 'background_color', 'font_size', 'font_family' ) );
+		$classes_styles  = StyleAttributesUtils::get_classes_and_styles_by_attributes( $attributes, array( 'text_color', 'background_color', 'font_size', 'font_weight', 'font_family' ) );
 		$wrapper_classes = sprintf( 'wc-block-mini-cart wp-block-woocommerce-mini-cart %s', $classes_styles['classes'] );
 		if ( ! empty( $attributes['className'] ) ) {
 			$wrapper_classes .= ' ' . $attributes['className'];
@@ -523,7 +521,7 @@ class MiniCart extends AbstractBlock {
 		register_block_pattern(
 			'woocommerce/mini-cart-empty-cart-message',
 			array(
-				'title'    => __( 'Mini Cart Empty Cart Message', 'woocommerce' ),
+				'title'    => __( 'Empty Mini Cart Message', 'woocommerce' ),
 				'inserter' => false,
 				'content'  => '<!-- wp:paragraph {"align":"center"} --><p class="has-text-align-center"><strong>' . __( 'Your cart is currently empty!', 'woocommerce' ) . '</strong></p><!-- /wp:paragraph -->',
 			)

@@ -22,6 +22,7 @@ class Shortcodes {
 	public $customer_note    = false;
 	public $shipping_address = null;
 	public $billing_address  = null;
+	public $preview_mail     = false;
 	// public $array_content_template = false;
 	public $shortcodes_lists;
 	public static function getInstance() {
@@ -31,7 +32,8 @@ class Shortcodes {
 		return self::$instance;
 	}
 
-	public function __construct( $template = false, $checkOrder = '' ) {
+	public function __construct( $template = false, $checkOrder = '', $preview_mail = true ) {
+		$this->preview_mail = $preview_mail;
 		if ( $template ) {
 			$this->template = $template;
 			if ( 'sampleOrder' === $checkOrder ) {
@@ -63,6 +65,7 @@ class Shortcodes {
 				'order_total',
 				'order_total_numbers',
 				'orders_count',
+				'quantity_count',
 				'orders_count_double',
 				'order_tn',
 				'items_border_before',
@@ -713,6 +716,12 @@ class Shortcodes {
 					$result->titleShipping               = get_post_meta( $postID, '_email_title_shipping', true ) ? get_post_meta( $postID, '_email_title_shipping', true ) : 'Shipping Address';
 					$result->titleBilling                = get_post_meta( $postID, '_email_title_billing', true ) ? get_post_meta( $postID, '_email_title_billing', true ) : 'Billing Address';
 					$result->orderTitle                  = get_post_meta( $postID, '_yaymail_email_order_item_title', true );
+					$result->orderItemsDownloadTitle     = get_post_meta( $postID, '_yaymail_email_order_item_download_title', true ) ? get_post_meta( $postID, '_yaymail_email_order_item_download_title', true ) : array(
+						'items_download_header_title'   => __( 'Downloads', 'yaymail' ),
+						'items_download_product_title'  => __( 'Product', 'yaymail' ),
+						'items_download_expires_title'  => __( 'Expires', 'yaymail' ),
+						'items_download_download_title' => __( 'Download', 'yaymail' ),
+					);
 					$result->customCSS                   = $this->applyCSSFormat();
 					$result->shortcode_order_meta        = $shortcode_order_meta;
 					$result->shortcode_order_custom_meta = $shortcode_order_custom_meta;
@@ -757,7 +766,7 @@ class Shortcodes {
 		$shortcode['[yaymail_billing_shipping_address_title]']   = $this->billingShippingAddressTitle( '', $this->order ); // done
 		$shortcode['[yaymail_billing_shipping_address_content]'] = $this->billingShippingAddressContent( '', $this->order ); // done
 		$shortcode['[yaymail_check_billing_shipping_address]']   = $this->checkBillingShippingAddress( '', $this->order );
-		$shortcode['[yaymail_order_coupon_codes]']               = $this->orderCouponCodes( $this->order );
+		$shortcode['[yaymail_order_coupon_codes]']               = $this->orderCouponCodes( '', $this->order );
 
 		$this->order_data = array_merge( $this->order_data, $shortcode );
 	}
@@ -891,6 +900,7 @@ class Shortcodes {
 		$shortcode['[yaymail_order_total]']         = wc_price( $order->get_total() );
 		$shortcode['[yaymail_order_total_numbers]'] = $order->get_total();
 		$shortcode['[yaymail_orders_count]']        = count( $order->get_items() );
+		$shortcode['[yaymail_quantity_count]']      = $order->get_item_count();
 		$shortcode['[yaymail_orders_count_double]'] = count( $order->get_items() ) * 2;
 
 		// PAYMENTS
@@ -1264,6 +1274,7 @@ class Shortcodes {
 		$shortcode['[yaymail_order_total]']                   = wc_price( '18.00' );
 		$shortcode['[yaymail_order_total_numbers]']           = '18.00';
 		$shortcode['[yaymail_orders_count]']                  = '1';
+		$shortcode['[yaymail_quantity_count]']                = '1';
 		$shortcode['[yaymail_orders_count_double]']           = '2';
 
 		// PAYMENTS
@@ -1361,10 +1372,16 @@ class Shortcodes {
 	}
 
 	public function ordetItemTables( $order, $default_args ) {
-		$postID           = CustomPostType::postIDByTemplate( $this->template );
-		$text_link_color  = get_post_meta( $postID, '_yaymail_email_textLinkColor_settings', true ) ? get_post_meta( $postID, '_yaymail_email_textLinkColor_settings', true ) : '#7f54b3';
-		$items            = $order->get_items();
-		$path             = YAYMAIL_PLUGIN_PATH . 'views/templates/emails/email-order-items.php';
+		$is_preview      = Helper::isPreview( $this->preview_mail );
+		$postID          = CustomPostType::postIDByTemplate( $this->template );
+		$text_link_color = get_post_meta( $postID, '_yaymail_email_textLinkColor_settings', true ) ? get_post_meta( $postID, '_yaymail_email_textLinkColor_settings', true ) : '#7f54b3';
+		$items           = $order->get_items();
+		if ( $is_preview ) {
+			$path = YAYMAIL_PLUGIN_PATH . 'views/templates/emails/email-order-items-preview.php';
+		} else {
+			$path = YAYMAIL_PLUGIN_PATH . 'views/templates/emails/email-order-items.php';
+		}
+
 		$yaymail_settings = get_option( 'yaymail_settings' );
 
 		$show_product_image            = isset( $yaymail_settings['product_image'] ) ? $yaymail_settings['product_image'] : 0;
@@ -1582,40 +1599,56 @@ class Shortcodes {
 	}
 
 	public function billingShippingAddressContent( $atts, $order ) {
-		$postID = CustomPostType::postIDByTemplate( $this->template );
-
+		$postID          = CustomPostType::postIDByTemplate( $this->template );
 		$text_link_color = get_post_meta( $postID, '_yaymail_email_textLinkColor_settings', true ) ? get_post_meta( $postID, '_yaymail_email_textLinkColor_settings', true ) : '#7f54b3';
-		if ( null !== $order ) {
-			$shipping_address = class_exists( 'Flexible_Checkout_Fields_Disaplay_Options' ) ? $this->shipping_address : $order->get_formatted_shipping_address();
-			$billing_address  = class_exists( 'Flexible_Checkout_Fields_Disaplay_Options' ) ? $this->billing_address : $order->get_formatted_billing_address();
-			if ( $order->get_billing_phone() ) {
-				$billing_address .= "<br/> <a href='tel:" . esc_html( $order->get_billing_phone() ) . "' style='color:" . esc_attr( $text_link_color ) . "; font-weight: normal; text-decoration: underline;'>" . esc_html( $order->get_billing_phone() ) . '</a>';
+		$is_preview      = Helper::isPreview( $this->preview_mail );
+		if ( $is_preview ) {
+			if ( null !== $order ) {
+				$shipping_address = class_exists( 'Flexible_Checkout_Fields_Disaplay_Options' ) ? $this->shipping_address : $order->get_formatted_shipping_address();
+				$billing_address  = class_exists( 'Flexible_Checkout_Fields_Disaplay_Options' ) ? $this->billing_address : $order->get_formatted_billing_address();
+			} else {
+				$billing_address  = 'John Doe<br/>YayCommerce<br/>7400 Edwards Rd<br/>Edwards Rd<br/>';
+				$shipping_address = 'John Doe<br/>YayCommerce<br/>755 E North Grove Rd<br/>Mayville, Michigan<br/>';
 			}
-			if ( $order->get_billing_email() ) {
-				$billing_address .= "<br/><a href='mailto:" . esc_html( $order->get_billing_email() ) . "' style='color:" . esc_attr( $text_link_color ) . ";font-weight: normal; text-decoration: underline;'>" . esc_html( $order->get_billing_email() ) . '</a>';
-			}
-
-			if ( method_exists( $order, 'get_shipping_phone' ) && ! empty( $order->get_shipping_phone() ) ) {
-				if ( ! str_contains( $shipping_address, $order->get_shipping_phone() ) ) {
-					$shipping_address .= "<br/> <a href='tel:" . esc_html( $order->get_shipping_phone() ) . "' style='color:" . esc_attr( $text_link_color ) . "; font-weight: normal; text-decoration: underline;'>" . esc_html( $order->get_shipping_phone() ) . '</a>';
-				}
-			}
-			if ( metadata_exists( 'post', $order->get_id(), '_shipping_email' ) ) {
-				if ( ! str_contains( $shipping_address, get_post_meta( $order->get_id(), '_shipping_email', true ) ) ) {
-					$shipping_address .= "<br/><a href='mailto:" . esc_html( get_post_meta( $order->get_id(), '_shipping_email', true ) ) . "' style='color:" . esc_attr( $text_link_color ) . ";font-weight: normal; text-decoration: underline;'>" . esc_html( get_post_meta( $order->get_id(), '_shipping_email', true ) ) . '</a>';
-				}
-			}
+			ob_start();
+			$path  = YAYMAIL_PLUGIN_PATH . 'views/templates/emails/email-billing-shipping-address-content-preview.php';
+			$order = $this->order;
+			include $path;
+			$html = ob_get_contents();
+			ob_end_clean();
+			return $html;
 		} else {
-			$billing_address  = "John Doe<br/>YayCommerce<br/>7400 Edwards Rd<br/>Edwards Rd<br/><a href='tel:+18587433828' style='color: " . esc_attr( $text_link_color ) . "; font-weight: normal; text-decoration: underline;'>(910) 529-1147</a><br/>";
-			$shipping_address = "John Doe<br/>YayCommerce<br/>755 E North Grove Rd<br/>Mayville, Michigan<br/><a href='tel:+18587433828' style='color: " . esc_attr( $text_link_color ) . "; font-weight: normal; text-decoration: underline;'>(910) 529-1147</a><br/>";
+			if ( null !== $order ) {
+				$shipping_address = class_exists( 'Flexible_Checkout_Fields_Disaplay_Options' ) ? $this->shipping_address : $order->get_formatted_shipping_address();
+				$billing_address  = class_exists( 'Flexible_Checkout_Fields_Disaplay_Options' ) ? $this->billing_address : $order->get_formatted_billing_address();
+				if ( $order->get_billing_phone() ) {
+					$billing_address .= "<br/> <a href='tel:" . esc_html( $order->get_billing_phone() ) . "' style='color:" . esc_attr( $text_link_color ) . "; font-weight: normal; text-decoration: underline;'>" . esc_html( $order->get_billing_phone() ) . '</a>';
+				}
+				if ( $order->get_billing_email() ) {
+					$billing_address .= "<br/><a href='mailto:" . esc_html( $order->get_billing_email() ) . "' style='color:" . esc_attr( $text_link_color ) . ";font-weight: normal; text-decoration: underline;'>" . esc_html( $order->get_billing_email() ) . '</a>';
+				}
+				if ( method_exists( $order, 'get_shipping_phone' ) && ! empty( $order->get_shipping_phone() ) ) {
+					if ( ! str_contains( $shipping_address, $order->get_shipping_phone() ) ) {
+						$shipping_address .= "<br/> <a href='tel:" . esc_html( $order->get_shipping_phone() ) . "' style='color:" . esc_attr( $text_link_color ) . "; font-weight: normal; text-decoration: underline;'>" . esc_html( $order->get_shipping_phone() ) . '</a>';
+					}
+				}
+				if ( metadata_exists( 'post', $order->get_id(), '_shipping_email' ) ) {
+					if ( ! str_contains( $shipping_address, get_post_meta( $order->get_id(), '_shipping_email', true ) ) ) {
+						$shipping_address .= "<br/><a href='mailto:" . esc_html( get_post_meta( $order->get_id(), '_shipping_email', true ) ) . "' style='color:" . esc_attr( $text_link_color ) . ";font-weight: normal; text-decoration: underline;'>" . esc_html( get_post_meta( $order->get_id(), '_shipping_email', true ) ) . '</a>';
+					}
+				}
+			} else {
+				$billing_address  = "John Doe<br/>YayCommerce<br/>7400 Edwards Rd<br/>Edwards Rd<br/><a href='tel:+18587433828' style='color: " . esc_attr( $text_link_color ) . "; font-weight: normal; text-decoration: underline;'>(910) 529-1147</a><br/>";
+				$shipping_address = "John Doe<br/>YayCommerce<br/>755 E North Grove Rd<br/>Mayville, Michigan<br/><a href='tel:+18587433828' style='color: " . esc_attr( $text_link_color ) . "; font-weight: normal; text-decoration: underline;'>(910) 529-1147</a><br/>";
+			}
+			ob_start();
+			$path  = YAYMAIL_PLUGIN_PATH . 'views/templates/emails/email-billing-shipping-address-content.php';
+			$order = $this->order;
+			include $path;
+			$html = ob_get_contents();
+			ob_end_clean();
+			return $html;
 		}
-		ob_start();
-		$path  = YAYMAIL_PLUGIN_PATH . 'views/templates/emails/email-billing-shipping-address-content.php';
-		$order = $this->order;
-		include $path;
-		$html = ob_get_contents();
-		ob_end_clean();
-		return $html;
 	}
 	/* Billing Shipping Address - end */
 
@@ -1656,7 +1689,7 @@ class Shortcodes {
 
 	/*  Woocommerce Hook - End */
 
-	public function woocommerceEmailOrderMeta( $args, $sent_to_admin = '', $checkOrder = '' ) {
+	public function woocommerceEmailOrderMeta( $attr, $sent_to_admin = '', $checkOrder = '', $args = '' ) {
 		if ( 'sampleOrder' === $checkOrder ) {
 			return '[woocommerce_email_order_meta]';
 		} else {
@@ -1670,7 +1703,7 @@ class Shortcodes {
 		}
 	}
 
-	public function woocommerceEmailOrderDetails( $args, $sent_to_admin = '', $checkOrder = '' ) {
+	public function woocommerceEmailOrderDetails( $attr, $sent_to_admin = '', $checkOrder = '', $args = '' ) {
 		if ( 'sampleOrder' === $checkOrder ) {
 			return '[woocommerce_email_order_details]';
 		} else {
@@ -1683,7 +1716,7 @@ class Shortcodes {
 			return $html;
 		}
 	}
-	public function woocommerceEmailBeforeOrderTable( $args, $sent_to_admin = '', $checkOrder = '' ) {
+	public function woocommerceEmailBeforeOrderTable( $attr, $sent_to_admin = '', $checkOrder = '', $args = '' ) {
 		if ( 'sampleOrder' === $checkOrder ) {
 			return '[woocommerce_email_before_order_table]';
 		} else {
@@ -1696,7 +1729,7 @@ class Shortcodes {
 			return $html;
 		}
 	}
-	public function woocommerceEmailAfterOrderTable( $args, $sent_to_admin = '', $checkOrder = '' ) {
+	public function woocommerceEmailAfterOrderTable( $attr, $sent_to_admin = '', $checkOrder = '', $args = '' ) {
 		if ( 'sampleOrder' === $checkOrder ) {
 			return '[woocommerce_email_after_order_table]';
 		} else {
@@ -1722,7 +1755,7 @@ class Shortcodes {
 		}
 		return $email_heading;
 	}
-	public function orderCouponCodes( $order ) {
+	public function orderCouponCodes( $args, $order ) {
 		if ( isset( $order ) && method_exists( $order, 'get_coupon_codes' ) && ! empty( $order->get_coupon_codes() ) ) {
 			$coupon_codes = $order->get_coupon_codes();
 			ob_start();

@@ -218,4 +218,11 @@ class Helper {
 		}
 		return $yaymail_elements;
 	}
+
+	public static function isPreview( $is_preview = true ) {
+		if ( $is_preview ) {
+			return true;
+		}
+		return false;
+	}
 }

@@ -1,6 +1,6 @@
-/* stylelint-disable */
+
 @mixin thumb {
-	background-color: transparent;
+	background: $white;
 	background-position: 0 0;
 	box-sizing: content-box;
 	width: 12px;
@@ -13,28 +13,31 @@
 	cursor: pointer;
 	z-index: 20;
 	pointer-events: auto;
-	background: $white;
-	transition: transform .2s ease-in-out;
+	transition: transform 0.2s ease-in-out;
 	-webkit-appearance: none;
 	-moz-appearance: none;
 	appearance: none;
-
 	&:hover {
 		@include thumbFocus;
 	}
 }
+
 @mixin thumbFocus {
 	background: $gray-900;
+	border-color: $white;
 }
-/* stylelint-enable */
+
+
 @mixin track {
 	cursor: default;
-	height: 1px; /* Required for Samsung internet based browsers */
+	height: 1px;
+	/* Required for Samsung internet based browsers */
 	outline: 0;
 	-webkit-appearance: none;
 	-moz-appearance: none;
 	appearance: none;
 }
+
 @mixin reset {
 	margin: 0;
 	/* Use !important to prevent theme input styles from breaking the component.
@@ -51,7 +54,6 @@
 
 .wc-block-components-price-slider {
 	margin-bottom: $gap-large;
-
 	&.is-loading.is-disabled {
 		.wc-block-components-price-slider__range-input-wrapper,
 		.wc-block-components-filter-reset-button,
@@ -59,12 +61,10 @@
 			@include placeholder();
 			box-shadow: none;
 		}
-
 		.wc-block-components-price-slider__amount {
 			display: none;
 		}
 	}
-
 	&.is-disabled:not(.is-loading) {
 		.wc-block-components-price-slider__range-input-wrapper,
 		.wc-block-components-price-slider__amount,
@@ -76,13 +76,30 @@
 
 .wc-block-components-price-slider__range-input-wrapper {
 	@include reset;
-	background: $gray-300;
+	background: transparent;
 	border-radius: 4px;
 	clear: both;
 	flex-grow: 1;
 	height: 4px;
 	margin: 15px 0;
 	position: relative;
+
+	&::before {
+		content: "";
+		position: absolute;
+		top: 0;
+		right: 0;
+		left: 0;
+		bottom: 0;
+		background: currentColor;
+		opacity: 0.2;
+	}
+
+	&.is-loading {
+		@include placeholder();
+		height: em(9px);
+		border-radius: 0;
+	}
 }
 
 .wc-block-components-price-slider__range-input-progress {
@@ -92,7 +109,7 @@
 	top: 0;
 	width: 100%;
 	--track-background: linear-gradient(to right, transparent var(--low), var(--range-color) 0, var(--range-color) var(--high), transparent 0) no-repeat 0 100% / 100% 100%;
-	--range-color: #{$gray-900};
+	--range-color: currentColor;
 	/*rtl:ignore*/
 	background: var(--track-background);
 }
@@ -102,16 +119,23 @@
 	display: flex;
 	gap: $gap-smaller;
 	justify-content: space-between;
-	margin: $gap-large 0;
-
+	margin: $gap 0;
 	.wc-block-components-price-slider__amount {
 		margin: 0;
 		border-radius: 4px;
 		border-width: 1px;
 		width: auto;
-		max-width: 100px;
+		max-width: 80px;
 		min-width: 0;
 		padding: $gap-smaller;
+		.wc-block-components-price-slider--is-input-inline & {
+			max-width: 60px;
+		}
+		&.is-loading {
+			@include placeholder();
+			border-radius: 0 !important;
+			width: max-content;
+		}
 	}
 }
 
@@ -127,8 +151,9 @@
 	display: flex;
 	gap: $gap;
 	justify-content: flex-end;
-
-	.wc-block-components-filter-submit-button {
+	// The specificity here is needed to overwrite the margin-top that is inherited on WC block template pages such as Shop.
+	button[type="submit"]:not(.wp-block-search__button).wc-block-components-filter-submit-button {
+		margin-top: 0;
 		margin-left: 0;
 	}
 }
@@ -144,7 +169,6 @@
 	position: absolute;
 	left: 0;
 	top: 0;
-
 	&::-webkit-slider-runnable-track {
 		@include track;
 	}
@@ -155,7 +179,6 @@
 	&::-webkit-slider-progress {
 		@include reset;
 	}
-
 	&::-moz-focus-outer {
 		border: 0;
 	}
@@ -168,11 +191,9 @@
 	&::-moz-range-thumb {
 		@include thumb;
 	}
-
 	&::-ms-thumb {
 		@include thumb;
 	}
-
 	&:focus {
 		&::-webkit-slider-thumb {
 			@include thumbFocus;
@@ -184,10 +205,8 @@
 			@include thumbFocus;
 		}
 	}
-
 	&.wc-block-components-price-slider__range-input--min {
 		z-index: 21;
-
 		&::-webkit-slider-thumb {
 			margin-left: -2px;
 			background-position-x: left;
@@ -200,10 +219,8 @@
 			background-position-x: left;
 		}
 	}
-
 	&.wc-block-components-price-slider__range-input--max {
 		z-index: 20;
-
 		&::-webkit-slider-thumb {
 			background-position-x: right;
 			margin-left: 2px;
@@ -240,15 +257,12 @@
 	.wc-block-components-price-slider__range-input {
 		height: 24px;
 		pointer-events: auto;
-
 		&::-ms-track {
 			/*remove bg colour from the track, we'll use ms-fill-lower and ms-fill-upper instead */
 			background: transparent;
-
 			/*leave room for the larger thumb to overflow with a transparent border */
 			border-color: transparent;
 			border-width: 7px 0;
-
 			/*remove default tick marks*/
 			color: transparent;
 		}
@@ -276,7 +290,6 @@
 			background: transparent;
 		}
 	}
-
 	.wc-block-components-price-slider {
 		&.is-loading.is-disabled {
 			.wc-block-components-price-slider__range-input-wrapper {
@@ -284,7 +297,6 @@
 				box-shadow: none;
 			}
 		}
-
 		&.is-disabled:not(.is-loading) {
 			.wc-block-components-price-slider__range-input-wrapper {
 				animation: none;
@@ -293,7 +305,9 @@
 	}
 }
 
+
 /* IE 11 will not support multi-range slider due to poor pointer-events support on the thumb. Reverts to 2 sliders. */
+
 @include ie11() {
 	@include ie-fixes();
 }
@@ -305,23 +319,19 @@
 
 .theme-twentytwentyone {
 	$border-width: 3px;
-
 	.wc-block-components-price-slider__range-input-wrapper {
 		background: transparent;
 		border: $border-width solid currentColor;
 		box-sizing: border-box;
 	}
-
 	.wc-block-components-price-slider__range-input-progress {
 		--range-color: currentColor;
 		margin: -$border-width;
 	}
-
 	.wc-block-price-filter__range-input {
 		background: transparent;
 		margin: -$border-width;
 		width: calc(100% + #{$border-width * 2});
-
 		&:hover,
 		&:focus {
 			&::-webkit-slider-thumb {
@@ -334,24 +344,19 @@
 				filter: none;
 			}
 		}
-
 		&::-webkit-slider-thumb {
 			margin-top: -9px;
 		}
-
 		&.wc-block-components-price-slider__range-input--max::-moz-range-thumb {
 			transform: translate(2px, 1px);
 		}
-
 		&.wc-block-components-price-slider__range-input--min::-moz-range-thumb {
 			transform: translate(-2px, 1px);
 		}
-
 		&::-ms-track {
 			border-color: transparent !important;
 		}
 	}
-
 	@include ie11() {
 		.wc-block-components-price-slider__range-input-wrapper {
 			border: 0;
@@ -359,11 +364,9 @@
 			position: relative;
 			height: 50px;
 		}
-
 		.wc-block-components-price-slider__range-input-progress {
 			display: none;
 		}
-
 		.wc-block-price-filter__range-input {
 			height: 100%;
 			margin: 0;

@@ -1,0 +1,30 @@
+2022-11-07T06:13:02+00:00 CRITICAL Uncaught Error: Call to undefined function is_woocommerce_activated() in D:\xampp\htdocs\OVANIC\wp-content\plugins\flatsome-utils-mh\inc\init.php:5
+Stack trace:
+#0 D:\xampp\htdocs\OVANIC\wp-content\plugins\flatsome-utils-mh\public\class-flatsome-utils-mh-public.php(91): require()
+#1 D:\xampp\htdocs\OVANIC\wp-includes\class-wp-hook.php(307): Flatsome_Utils_Mh_Public->flatsome_untils_init('')
+#2 D:\xampp\htdocs\OVANIC\wp-includes\class-wp-hook.php(331): WP_Hook->apply_filters(NULL, Array)
+#3 D:\xampp\htdocs\OVANIC\wp-includes\plugin.php(476): WP_Hook->do_action(Array)
+#4 D:\xampp\htdocs\OVANIC\wp-settings.php(598): do_action('init')
+#5 D:\xampp\htdocs\OVANIC\wp-config.php(182): require_once('D:\\xampp\\htdocs...')
+#6 D:\xampp\htdocs\OVANIC\wp-load.php(50): require_once('D:\\xampp\\htdocs...')
+#7 D:\xampp\htdocs\OVANIC\wp-admin\admin.php(34): require_once('D:\\xampp\\htdocs...')
+#8 D:\xampp\htdocs\OVANIC\wp-admin\index.php(10): require_once('D:\\xampp\\htdocs...')
+#9 {main}
+  thrown in D:\xampp\htdocs\OVANIC\wp-content\plugins\flatsome-utils-mh\inc\init.php on line 5
+
+2022-11-07T06:13:04+00:00 CRITICAL Uncaught Error: Call to undefined function is_woocommerce_activated() in D:\xampp\htdocs\OVANIC\wp-content\plugins\flatsome-utils-mh\inc\init.php:5
+Stack trace:
+#0 D:\xampp\htdocs\OVANIC\wp-content\plugins\flatsome-utils-mh\public\class-flatsome-utils-mh-public.php(91): require()
+#1 D:\xampp\htdocs\OVANIC\wp-includes\class-wp-hook.php(307): Flatsome_Utils_Mh_Public->flatsome_untils_init('')
+#2 D:\xampp\htdocs\OVANIC\wp-includes\class-wp-hook.php(331): WP_Hook->apply_filters(NULL, Array)
+#3 D:\xampp\htdocs\OVANIC\wp-includes\plugin.php(476): WP_Hook->do_action(Array)
+#4 D:\xampp\htdocs\OVANIC\wp-settings.php(598): do_action('init')
+#5 D:\xampp\htdocs\OVANIC\wp-config.php(182): require_once('D:\\xampp\\htdocs...')
+#6 D:\xampp\htdocs\OVANIC\wp-load.php(50): require_once('D:\\xampp\\htdocs...')
+#7 D:\xampp\htdocs\OVANIC\wp-blog-header.php(13): require_once('D:\\xampp\\htdocs...')
+#8 D:\xampp\htdocs\OVANIC\index.php(17): require('D:\\xampp\\htdocs...')
+#9 {main}
+  thrown in D:\xampp\htdocs\OVANIC\wp-content\plugins\flatsome-utils-mh\inc\init.php on line 5
+
+2022-11-07T06:41:05+00:00 CRITICAL syntax error, unexpected ';', expecting ')' in D:\xampp\htdocs\OVANIC\wp-content\themes\flatsome-child\functions\schema.php on line 10
+

@@ -282,7 +282,7 @@
 .wpfFilterWrapper ul li::before {
   display:none !important;
 }
-.wpfFilterWrapper ul li {
+.wpfFilterWrapper ul:not(.wpfButtonsFilter) li {
 	width: auto !important;
 }
 .wpfFilterWrapper ul:not(.wpfButtonsFilter) li {

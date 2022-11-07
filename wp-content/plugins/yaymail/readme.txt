@@ -2,10 +2,11 @@
 Contributors: YayCommerce
 Tags: woocommerce emails, email designer, woocommerce email templates, woocommerce email customizer, email template, woo mail, new order email, email customizer
 Requires at least: 3.0
-Tested up to: 6.0.2
-Stable tag: 3.0.5
+Tested up to: 6.1
+Stable tag: 3.1.2
+Requires PHP: 7.2
 License: GPLv2 or later
-License URI: http://www.gnu.org/licenses/gpl-2.0.html
+License URI: https://www.gnu.org/licenses/gpl-2.0.html
 
 Customize WooCommerce email templates with live preview & drag and drop email builder
 
@@ -26,7 +27,10 @@ Exclusively, you can also send personalized email templates using WooCommerce co
 
 ###⚡️ FEATURES
 
-The YayMail free version allows you to add unlimited elements to create html email template:
+The YayMail free version allows you to add **unlimited** elements to create html email template:
+
+**Custom WooCommerce Email Templates**
+Unlike Kadence woocommerce email designer, this email customizer allows you to create extra blocks to add to your email templates to make a unique and memorable brand identity for your store.
 
 **Drag and Drop Interface**
 Easy to navigate between the element sidebar and the preview area to customise email block elements.
@@ -192,6 +196,38 @@ We offer single-site licenses and also unlimited site licenses to better support
 5. Easily copy your favorite content blocks over to another Woo email template to reuse the design that’s paying off
 
 == Changelog ==
+
+= Nov 3, 2022 - Version 3.1.2 =
+- Added: Addon for YITH WooCommerce Recover Abandoned Cart v1.0
+
+= Oct 27, 2022 - Version 3.1.1 =
+- Added: Support Custom Order Status Manager for WooCommerce by Bright Plugins (in PRO)
+- Added: Option show/hide Product Regular Price
+- Fixed: Addon for YITH Booking and Appointment for WooCommerce v1.8
+- Fixed: Addon for AutomateWoo v1.7
+- Fixed: Addon for WooCommerce Subscriptions v2.0
+
+= Oct 20, 2022 - Version 3.1 =
+- Supported: Addon for Woo Sell Services v1.0
+- Added: Shortcode yaymail_quantity_count
+- Added: Social icons Tiktok, Telegram, Discord
+
+= Oct 16, 2022 - Version 3.0.9 =
+- Fixed: Allow edit title of elements Order Items Download & Additional Order Details
+- Added: CTA buttons in lite version
+
+= Oct 12, 2022 - Version 3.0.8 =
+- Added: Support WooCommerce hook
+- Fixed: YayMail Addon for Germanized v1.9
+- Fixed: YayMail Addon for WooCommerce Appointments v1.5
+- Added: Shortcodes for YayMail Addon for YITH WooCommerce Gift Cards v1.3 (yaymail_addon_gift_card_price, yaymail_addon_gift_card_code, yaymail_addon_sender_name, yaymail_addon_recipient_name, yaymail_addon_delivered_gift_card_image)
+
+= Oct 11, 2022 - Version 3.0.7 =
+- Fixed: Check to send mail
+
+= Sep 30, 2022 - Version 3.0.6 =
+- Fixed: Error not send email 
+- Fixed: Small bugs
 
 = Sep 19, 2022 - Version 3.0.5 =
 - Fixed: Bug tracking click in AutomateWoo

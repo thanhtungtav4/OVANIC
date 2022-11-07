@@ -5,7 +5,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 
 use YayMail\Page\Source\CustomPostType;
 use YayMail\Page\Source\UpdateElement;
-$custom_shortcode = new YayMail\MailBuilder\Shortcodes( $template );
+$custom_shortcode = new YayMail\MailBuilder\Shortcodes( $template, '', false );
 $arrData          = array( $custom_shortcode, $args, $template );
 do_action_ref_array( 'yaymail_addon_defined_shorcode', array( &$arrData ) );
 

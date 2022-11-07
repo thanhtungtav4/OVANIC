@@ -3,7 +3,7 @@
         'name' => 'woocommerce/woocommerce-blocks',
         'pretty_version' => 'dev-trunk',
         'version' => 'dev-trunk',
-        'reference' => '5990f9ecd58cae1c84690656f0d61f44b6e1aad8',
+        'reference' => '3a12afc62e82d3a96243f70f82a90109e7006f84',
         'type' => 'wordpress-plugin',
         'install_path' => __DIR__ . '/../../',
         'aliases' => array(),
@@ -11,9 +11,9 @@
     ),
     'versions' => array(
         'automattic/jetpack-autoloader' => array(
-            'pretty_version' => 'v2.11.6',
-            'version' => '2.11.6.0',
-            'reference' => 'a22f41ff845b8bd4591a933b282270f57dd5bc1d',
+            'pretty_version' => 'v2.11.7',
+            'version' => '2.11.7.0',
+            'reference' => '65170ab358aa5a8efd9de96666a46b74dc74513d',
             'type' => 'composer-plugin',
             'install_path' => __DIR__ . '/../automattic/jetpack-autoloader',
             'aliases' => array(),
@@ -43,7 +43,7 @@
         'woocommerce/woocommerce-blocks' => array(
             'pretty_version' => 'dev-trunk',
             'version' => 'dev-trunk',
-            'reference' => '5990f9ecd58cae1c84690656f0d61f44b6e1aad8',
+            'reference' => '3a12afc62e82d3a96243f70f82a90109e7006f84',
             'type' => 'wordpress-plugin',
             'install_path' => __DIR__ . '/../../',
             'aliases' => array(),

@@ -3,11 +3,12 @@
 if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
-$text_align         = is_rtl() ? 'right' : 'left';
-$yaymail_settings   = get_option( 'yaymail_settings' );
-$orderImagePostions = isset( $yaymail_settings['image_position'] ) && ! empty( $yaymail_settings['image_position'] ) ? $yaymail_settings['image_position'] : 'Top';
-$orderImage         = isset( $yaymail_settings['product_image'] ) && '0' != $yaymail_settings['product_image'] ? $yaymail_settings['product_image'] : '0';
-$productHyperLinks  = isset( $yaymail_settings['product_hyper_links'] ) ? $yaymail_settings['product_hyper_links'] : 0;
+$text_align          = is_rtl() ? 'right' : 'left';
+$yaymail_settings    = get_option( 'yaymail_settings' );
+$orderImagePostions  = isset( $yaymail_settings['image_position'] ) && ! empty( $yaymail_settings['image_position'] ) ? $yaymail_settings['image_position'] : 'Top';
+$orderImage          = isset( $yaymail_settings['product_image'] ) && '0' != $yaymail_settings['product_image'] ? $yaymail_settings['product_image'] : '0';
+$productHyperLinks   = isset( $yaymail_settings['product_hyper_links'] ) ? $yaymail_settings['product_hyper_links'] : 0;
+$productRegularPrice = isset( $yaymail_settings['product_regular_price'] ) ? $yaymail_settings['product_regular_price'] : 0;
 
 if ( ! function_exists( 'yaymail_get_global_taxonomy_attribute_data' ) ) :
 	function yaymail_get_global_taxonomy_attribute_data( $name, $product, $single_product = null ) {
@@ -140,7 +141,14 @@ foreach ( $items as $item_id => $item ) :
 		<?php echo wp_kses_post( apply_filters( 'woocommerce_email_order_item_quantity', $item->get_quantity(), $item ) ); ?>
 			</th>
 			<th class="td yaymail_item_price_content" style="text-align:<?php echo esc_attr( $text_align ); ?>;font-weight: normal;vertical-align: middle;padding: 12px;font-size: 14px;border-width: 1px;border-style: solid;<?php echo esc_attr( isset( $default_args['border_color'] ) ? $default_args['border_color'] : '' ); ?>; word-break: break-all;">
-		<?php echo wp_kses_post( $order->get_formatted_line_subtotal( $item ) ); ?>
+			<?php
+			if ( $productRegularPrice ) {
+				$product_regular_price = (float) $product->get_data()['regular_price'];
+				if ( (float) $product_regular_price !== $order->get_line_subtotal( $item ) ) {
+					echo wp_kses_post( '<del>' . wc_price( $product_regular_price ) . '</del>  ' );
+				}
+			} echo wp_kses_post( $order->get_formatted_line_subtotal( $item ) );
+			?>
 			</th>
 		</tr>
 		<?php

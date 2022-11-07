@@ -26,4 +26,18 @@ class MetaControllerWpf extends ControllerWpf {
 		}
 		return $res->ajaxExec();
 	}
+	public function doMetaOptimizing() {
+		check_ajax_referer('wpf-save-nonce', 'wpfNonce');
+		if (!current_user_can('manage_options')) {
+			wp_die();
+		}
+
+		$res = new ResponseWpf();
+		if ( $this->getModel()->optimizeMetaTables() ) {
+			$res->addMessage(esc_html__('Done', 'woo-product-filter'));
+		} else {
+			$res->pushError($this->getModel()->getErrors());
+		}
+		return $res->ajaxExec();
+	}
 }

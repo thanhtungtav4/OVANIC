@@ -2,7 +2,7 @@
 // ----------------------FLATSOME_UTILS
 $flatsome_utils_path = ABSPATH . 'wp-content/plugins/flatsome-utils-mh/';
 require __DIR__ . '/helpers/helpers-flatsome_utils.php';
-if (is_woocommerce_activated()) {
+if (class_exists( 'WooCommerce' ) ) {
   require __DIR__ . '/shortcodes/ux_products_flatsome_utils.php';
   require __DIR__ . '/shortcodes/ux_product_categories_flatsome_utils.php';
 }

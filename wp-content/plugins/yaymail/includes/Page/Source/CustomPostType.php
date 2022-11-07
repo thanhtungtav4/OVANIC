@@ -116,8 +116,15 @@ class CustomPostType {
 					'subscript_end_of_prepaid_term' => __( 'End of Prepaid Term', 'yaymail' ),
 					'subscript_date_suspended'      => __( 'Date Suspended', 'yaymail' ),
 				);
+				$order_item_download_title = array(
+					'items_download_header_title'   => __( 'Downloads', 'yaymail' ),
+					'items_download_product_title'  => __( 'Product', 'yaymail' ),
+					'items_download_expires_title'  => __( 'Expires', 'yaymail' ),
+					'items_download_download_title' => __( 'Download', 'yaymail' ),
+				);
 
 				update_post_meta( $insert_id, '_yaymail_email_order_item_title', $order_item_title );
+				update_post_meta( $insert_id, '_yaymail_email_order_item_download_title', $order_item_download_title );
 				update_post_meta( $insert_id, '_yaymail_template', $args['_yaymail_template'] );
 				if ( isset( $args['_yaymail_template_language'] ) ) {
 					update_post_meta( $insert_id, '_yaymail_template_language', $args['_yaymail_template_language'] );

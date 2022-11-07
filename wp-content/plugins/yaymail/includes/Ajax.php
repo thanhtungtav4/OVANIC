@@ -255,7 +255,7 @@ class Ajax {
 					}
 					if ( CustomPostType::postIDByTemplate( $template ) ) {
 						update_user_meta( get_current_user_id(), 'yaymail_default_email_test', $email_address );
-						$customShortcode = new Shortcodes( $template, sanitize_text_field( $_POST['order_id'] ) );
+						$customShortcode = new Shortcodes( $template, sanitize_text_field( $_POST['order_id'] ), false );
 						if ( sanitize_text_field( $_POST['order_id'] ) !== 'sampleOrder' ) {
 							$order_id = intval( sanitize_text_field( $_POST['order_id'] ) );
 							$WC_order = new \WC_Order( $order_id );
@@ -357,6 +357,7 @@ class Ajax {
 					$titleShipping        = isset( $_POST['titleShipping'] ) ? sanitize_text_field( $_POST['titleShipping'] ) : 'Shipping Address';
 					$titleBilling         = isset( $_POST['titleBilling'] ) ? sanitize_text_field( $_POST['titleBilling'] ) : 'Billing Address';
 					$orderTitle           = ( isset( $_POST['orderTitle'] ) && is_array( $_POST['orderTitle'] ) ) ? array_map( 'sanitize_text_field', wp_unslash( $_POST['orderTitle'] ) ) : array();
+					$orderItemsDownloadTitle = ( isset( $_POST['orderItemsDownloadTitle'] ) && is_array( $_POST['orderItemsDownloadTitle'] ) ) ? array_map( 'sanitize_text_field', wp_unslash( $_POST['orderItemsDownloadTitle'] ) ) : array();
 					$template             = sanitize_text_field( $_POST['template'] );
 					$updateElement        = new UpdateElement();
 					$setDefaultLogo       = isset( $_POST['setDefaultLogo'] ) ? 'true' == sanitize_text_field( $_POST['setDefaultLogo'] ) ? true : false : false;
@@ -391,6 +392,7 @@ class Ajax {
 						update_post_meta( $postID, '_email_title_shipping', $titleShipping );
 						update_post_meta( $postID, '_email_title_billing', $titleBilling );
 						update_post_meta( $postID, '_yaymail_email_order_item_title', $orderTitle );
+						update_post_meta( $postID, '_yaymail_email_order_item_download_title', $orderItemsDownloadTitle );
 						// Change default logo
 						$default_logo = array(
 							'set_default' => (bool) $setDefaultLogo,
@@ -476,6 +478,7 @@ class Ajax {
 						$titleShipping        = isset( $_POST['titleShipping'] ) ? sanitize_text_field( $_POST['titleShipping'] ) : 'Shipping Address';
 						$titleBilling         = isset( $_POST['titleBilling'] ) ? sanitize_text_field( $_POST['titleBilling'] ) : 'Billing Address';
 						$orderTitle           = isset( $_POST['orderTitle'] ) ? array_map( 'sanitize_text_field', wp_unslash( $_POST['orderTitle'] ) ) : array();
+						$orderItemsDownloadTitle = ( isset( $_POST['orderItemsDownloadTitle'] ) && is_array( $_POST['orderItemsDownloadTitle'] ) ) ? array_map( 'sanitize_text_field', wp_unslash( $_POST['orderItemsDownloadTitle'] ) ) : array();
 						if ( CustomPostType::postIDByTemplate( $copyTo ) ) {
 							$idTo = CustomPostType::postIDByTemplate( $copyTo );
 							update_post_meta( $idTo, '_yaymail_elements', $emailContentsFrom );
@@ -484,6 +487,7 @@ class Ajax {
 							update_post_meta( $idTo, '_email_title_shipping', $titleShipping );
 							update_post_meta( $idTo, '_email_title_billing', $titleBilling );
 							update_post_meta( $idTo, '_yaymail_email_order_item_title', $orderTitle );
+							update_post_meta( $idTo, '_yaymail_email_order_item_download_title', $orderItemsDownloadTitle );
 							wp_send_json_success(
 								array(
 									'mess' => __( 'Copied Template successfully.', 'yaymail' ),
@@ -562,6 +566,12 @@ class Ajax {
 						'subscript_end_of_prepaid_term' => __( 'End of Prepaid Term', 'yaymail' ),
 						'subscript_date_suspended'      => __( 'Date Suspended', 'yaymail' ),
 					);
+					$orderItemsDownloadTitle = array(
+						'items_download_header_title'   => __( 'Downloads', 'yaymail' ),
+						'items_download_product_title'  => __( 'Product', 'yaymail' ),
+						'items_download_expires_title'  => __( 'Expires', 'yaymail' ),
+						'items_download_download_title' => __( 'Download', 'yaymail' ),
+					);
 					if ( 'all' == $reset ) {
 						foreach ( $templates as $key => $template ) {
 							if ( CustomPostType::postIDByTemplate( $key ) ) {
@@ -572,6 +582,7 @@ class Ajax {
 								update_post_meta( $postID, '_email_title_shipping', __( 'Shipping Address', 'yaymail' ) );
 								update_post_meta( $postID, '_email_title_billing', __( 'Billing Address', 'yaymail' ) );
 								update_post_meta( $postID, '_yaymail_email_order_item_title', $orderTitle );
+								update_post_meta( $postID, '_yaymail_email_order_item_download_title', $orderItemsDownloadTitle );
 							}
 						}
 
@@ -592,6 +603,7 @@ class Ajax {
 							update_post_meta( $postID, '_email_title_shipping', __( 'Shipping Address', 'yaymail' ) );
 							update_post_meta( $postID, '_email_title_billing', __( 'Billing Address', 'yaymail' ) );
 							update_post_meta( $postID, '_yaymail_email_order_item_title', $orderTitle );
+							update_post_meta( $postID, '_yaymail_email_order_item_download_title', $orderItemsDownloadTitle );
 							wp_send_json_success( array( 'mess' => __( 'Template reset successfully.', 'yaymail' ) ) );
 						} else {
 							wp_send_json_error( array( 'mess' => __( 'Template not Exists!.', 'yaymail' ) ) );

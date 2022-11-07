@@ -64,6 +64,12 @@ class ActivePlugin {
 						'subscript_end_of_prepaid_term' => 'End of Prepaid Term',
 						'subscript_date_suspended'      => 'Date Suspended',
 					),
+					'_yaymail_email_order_item_download_title' => array(
+						'items_download_header_title'   => __( 'Downloads', 'yaymail' ),
+						'items_download_product_title'  => __( 'Product', 'yaymail' ),
+						'items_download_expires_title'  => __( 'Expires', 'yaymail' ),
+						'items_download_download_title' => __( 'Download', 'yaymail' ),
+					),
 				);
 				$insert = CustomPostType::insert( $arr );
 			} else {
@@ -95,6 +101,15 @@ class ActivePlugin {
 					);
 
 					update_post_meta( CustomPostType::postIDByTemplate( $key ), '_yaymail_email_order_item_title', $orderTitle );
+				}
+				if ( ! metadata_exists( 'post', CustomPostType::postIDByTemplate( $key ), '_yaymail_email_order_item_download_title' ) ) {
+					$orderItemsDownloadTitle = array(
+						'items_download_header_title'   => __( 'Downloads', 'yaymail' ),
+						'items_download_product_title'  => __( 'Product', 'yaymail' ),
+						'items_download_expires_title'  => __( 'Expires', 'yaymail' ),
+						'items_download_download_title' => __( 'Download', 'yaymail' ),
+					);
+					update_post_meta( CustomPostType::postIDByTemplate( $key ), '_yaymail_email_order_item_download_title', $orderItemsDownloadTitle );
 				}
 			}
 		}
@@ -193,6 +208,7 @@ class ActivePlugin {
 				'product_sku'                  => 1,
 				'product_des'                  => 0,
 				'product_hyper_links'          => 0,
+				'product_regular_price'        => 0,
 				'background_color_table_items' => '#e5e5e5',
 				'content_items_color'          => '#636363',
 				'title_items_color'            => '#7f54b3',

@@ -123,7 +123,7 @@ define('NONCE_SALT',       'y~T#!G^Z4.V2u5t2/~]9!{-]iG5dW@Z32P|RT?FcfOj6GGI2$Yp1
 
  */
 
-$table_prefix = 'wp_';
+$table_prefix = 'vwpnt_';
 
 
 
