@@ -8,13 +8,13 @@
 	?>
 	<ul class="m-categories flex-row container">
 		<?php foreach($categories as $key=>$categorie) : ?>
-			<li>
-				<a href="<?php echo $categorie->slug; ?>" class="<?php $categorie->slug == getPrimary(get_the_ID())->slug ? print 'active' : ''?>">
+			<li class="<?php $categorie->slug == getPrimary(get_the_ID())->slug ? print 'active' : ''?>">
+				<a href="<?php echo $categorie->slug; ?>">
 					<?php echo $categorie->name ?>
 				</a>
 			</li>
 		<?php endforeach; ?>
-		</ul>
+	</ul>
 <article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
 	<div class="article-inner <?php flatsome_blog_article_classes(); ?>">
 		<?php

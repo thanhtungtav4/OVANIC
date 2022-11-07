@@ -53,5 +53,21 @@ Version: 3.0
   list-style: none;
   display: flex;
   flex-wrap: wrap;
-  gap: 15px;
+  gap: 5px;
+  justify-content: flex-start;
+  font-size: 0.9rem;
+  margin: 1rem 0;
+  font-weight: 600;
+}
+.m-categories li {
+  padding: 5px;
+}
+.m-categories li a{
+  color: #42b348;
+}
+.m-categories li.active, .m-categories li:hover{
+  background-color: #42b348;
+}
+.m-categories li.active a, .m-categories li:hover a{
+  color: #ffff;
 }
