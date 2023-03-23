@@ -2,7 +2,7 @@
 /***
  * Disable Gutenberg with Code
  */
-add_filter('use_block_editor_for_post', '__return_false', 10);
+//add_filter('use_block_editor_for_post', '__return_false', 10);
 /***
  * !Disable Gutenberg with Code
  */
@@ -20,7 +20,7 @@ function hide_menu(){
     global $current_user;
     $user_id = get_current_user_id();
        if($user_id == '2'){
-           remove_menu_page( 'edit.php?post_type=blocks' );    
+           remove_menu_page( 'edit.php?post_type=blocks' );
            remove_menu_page( 'themes.php' );
            remove_menu_page( 'edit.php?post_type=featured_item' );
            remove_menu_page( 'edit.php?post_type=acf-field-group' );
@@ -42,7 +42,7 @@ function hide_menu(){
            remove_submenu_page( 'users.php', 'profile.php' );
            // Remove Comments Menu
            remove_menu_page( 'edit-comments.php' );
-   
+
        }
    }
    add_action('admin_head', 'hide_menu');
