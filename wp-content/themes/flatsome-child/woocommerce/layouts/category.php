@@ -97,7 +97,9 @@
 			 * @hooked woocommerce_output_content_wrapper_end - 10 (outputs closing divs for the content)
 			 */
 			do_action( 'woocommerce_after_main_content' );
-			echo 	$color;
+			if (!empty($color)) {
+				echo $color;
+			}
 			if(is_tax('thuong-hieu') || is_product_category() ){
 				$term = get_queried_object();
 				$bottom_content = get_field('bottom_content', $term);
