@@ -19,23 +19,20 @@
 if ( ! defined( 'ABSPATH' ) ) {
 	exit; // Exit if accessed directly
 }
-
 global $product;
-// $price = wc_price ($product->sale_price());
 ?>
 		<div class="price-wrapper price-block">
-			<?php if($product->get_price()) : ?>
-				<p class="price_item is_price"> <strong>Giá:</strong> <?php echo wc_price($product->get_price()); ?> </p>
-			<?php endif ; ?>
-			<!-- <?php //if(get_the_terms( get_the_ID() ,'product_type')[0]->slug == 'wooco') : ?>
-				<p class="price_item is_price"> <?php// echo $product->get_price_html(); ?> </p>
-			<?php //endif ; ?> -->
-			<?php if($product->is_on_sale() && $product->get_price()) :?>
-				<?php
-				$percentage = round( ( ( $product->regular_price - $product->sale_price ) / $product->regular_price ) * 100 );
-				$price_save =  $product->regular_price - $product->sale_price ;
-				?>
-				<p class="price_item is_percentage"><strong> Tiết kiệm: </strong><span><span class="red"><?php print $percentage . '%' ?> </span> <span class="sale_value">(<?php echo number_format($price_save) .'<sup>đ<sup>' ?></span>)</span> </p>
-				<p class="price_item is_sale "><strong> Giá thị trường: </strong><span class="price-on-sale"><?php echo(number_format($product->get_regular_price()) .'<sup>đ<sup>') ?> </span> </p>
-			<?php endif ; ?>
+		<?php
+			if ($product->get_price()) {
+				echo '<p class="price_item is_price"><strong>Giá:</strong> ' . wc_price($product->get_price()) . '</p>';
+			}
+			if ($product->is_on_sale() && $product->get_price()) {
+				$regular_price = $product->get_regular_price();
+				$sale_price = $product->get_sale_price();
+				$percentage = round(($regular_price - $sale_price) / $regular_price * 100);
+				$price_save = $regular_price - $sale_price;
+				echo '<p class="price_item is_percentage"><strong>Tiết kiệm:</strong> <span><span class="red">' . $percentage . '%</span> <span class="sale_value">(' . number_format($price_save) . '<sup>đ</sup>)</span></span></p>';
+				echo '<p class="price_item is_sale"><strong>Giá thị trường:</strong> <span class="price-on-sale">' . number_format($regular_price) . '<sup>đ</sup></span></p>';
+			}
+		?>
 		</div>

@@ -1,63 +1,64 @@
 <?php
 //https://stackoverflow.com/questions/39063958/woocommerce-action-hooks-and-overriding-templates
 function add_brand_product_singer() {
-  global $post;
-  $brand = get_the_terms( $post->ID , array( 'thuong-hieu') );
-  $product = new WC_Product($post->ID);
-  $made = wc_get_product_terms($post->ID, 'pa_xuat-xu', 'names');
+  $brand = get_the_terms(get_the_ID(), 'thuong-hieu');
+  $product = wc_get_product(get_the_ID());
+  $made = wc_get_product_terms(get_the_ID(), 'pa_xuat-xu', array('fields' => 'names'));
 
-  if(!empty($brand[0]->name)){
-   echo '<div class="brand-block">';
-   echo '<div class="item item-brand">Thương hiệu:&nbsp;<a href='. $brand[0]->slug .'>  ' . $brand[0]->name .' </a></div>';
-   if(!empty($product->get_sku())){
-    echo '<div class="item item-sku">Mã sản phẩm:&nbsp; <span>'. $product->get_sku() .'</span> </div>';
-   }
-   if(!empty($made[0]->name)){
-    echo '<div class="item item-made">Xuất xứ: &nbsp; <span>'. $made[0]->name .'</span> </div>';
-   }
-  do_action( 'woocommerce_rating_custome' );
-  echo '</div>';
+  if (!empty($brand)) {
+      echo '<div class="brand-block">';
+      echo '<div class="item item-brand">Thương hiệu:&nbsp;<a href="' . get_term_link($brand[0]) . '">' . $brand[0]->name . '</a></div>';
+
+      if (!empty($product->get_sku())) {
+          echo '<div class="item item-sku">Mã sản phẩm:&nbsp;<span>' . $product->get_sku() . '</span></div>';
+      }
+
+      if (!empty($made[0])) {
+          echo '<div class="item item-made">Xuất xứ:&nbsp;<span>' . $made[0] . '</span></div>';
+      }
+
+      do_action('woocommerce_rating_custome');
+      echo '</div>';
   }
-};
+}
 add_action('woocommerce_single_title_module', 'add_brand_product_singer');
 
 
-// show thuong hieu
-function show_info(){
-  global $post;
+function show_info() {
   global $product;
 
-  $brand = get_the_terms( $post->ID, 'thuong-hieu' );
-  $made = wc_get_product_terms($post->ID, 'pa_xuat-xu', 'names');
-  $price = $product->get_sale_price() ? wc_price($product->get_sale_price()) : wc_price($product->get_price());
-  if($product->is_on_sale() ){
-    $percentage = round( ( ( $product->regular_price - $product->sale_price ) / $product->regular_price ) * 100 );
-    $price_save =  $product->regular_price - $product->sale_price;
-    $f_price_save = number_format($product->get_regular_price());
+  $brand = get_the_terms(get_the_ID(), 'thuong-hieu');
+  $made = wc_get_product_terms(get_the_ID(), 'pa_xuat-xu', array('fields' => 'names'));
+  $price = $product->get_sale_price() ? wc_price($product->get_sale_price()) : wc_price($product->get_regular_price());
+
+  if ($product->is_on_sale()) {
+      $percentage = round(($product->get_regular_price() - $product->get_sale_price()) / $product->get_regular_price() * 100);
+      $price_save = $product->get_regular_price() - $product->get_sale_price();
+      $f_price_save = number_format($product->get_regular_price());
   }
 
-  if(!empty($brand[0]->name)){
-    echo '<div>Thương hiệu:&nbsp;<a href='. $brand[0]->slug .'>  ' . $brand[0]->name .' </a></div>';
+  if (!empty($brand)) {
+      echo '<div>Thương hiệu:&nbsp;<a href="' . get_term_link($brand[0]) . '">' . $brand[0]->name . '</a></div>';
   }
-  if(!empty($made[0]->name)){
-    echo '<div>Xuất xứ: &nbsp; <span>'. $made[0]->name .'</span> </div>';
-   }
-    echo '<div class="nt-price">Giá: &nbsp;' . $price .'</span> ';
-  if(!empty($price_save)){
-    echo '<span class="price-on-sale" style="text-decoration: line-through;"> ' . $f_price_save . '</span><sup>đ<sup> ';
+
+  if (!empty($made[0])) {
+      echo '<div>Xuất xứ:&nbsp;<span>' . $made[0] . '</span></div>';
   }
-  echo '</div>';
-  if (function_exists('get_field')){
-    if(get_field('stop_selling') == true){
+
+  echo '<div class="nt-price">Giá:&nbsp;' . $price . '</div>';
+
+  if (!empty($price_save)) {
+      echo '<div class="price-on-sale" style="text-decoration: line-through;">' . $f_price_save . 'đ</div>';
+  }
+
+  if (function_exists('get_field') && get_field('stop_selling') == true) {
       echo '<p class="m-status"><strong>Sản phẩm ngừng kinh doanh</strong></p>';
-    }
-    else{
+  } else {
       woocommerce_simple_add_to_cart();
-    }
   }
-    
-};
+}
 add_action('get_brand_name', 'show_info');
+
 // show thuong hieu
 //
 // add text sản phẩm bán chạy ttl
