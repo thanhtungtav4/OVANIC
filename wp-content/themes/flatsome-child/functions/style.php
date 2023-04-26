@@ -20,14 +20,14 @@ function conditionally_enqueue_styles_scripts() {
 function wp_remove_scripts() {
     if (is_front_page() ) {
         // Remove Scripts
-        wp_dequeue_script( 'masonry.pkgd' );
-        wp_deregister_script( 'masonry.pkgd' );
-        wp_dequeue_script( 'magnific-popup' );
-        wp_deregister_script( 'magnific-popup' );
-        wp_dequeue_style( 'magnific-popup' );
-        wp_deregister_style('magnific-popup');
-        wp_dequeue_style( 'devvn-shortcode-reviews' );
-        wp_deregister_style( 'devvn-shortcode-reviews' );
+        //wp_dequeue_script( 'masonry.pkgd' );
+        //wp_deregister_script( 'masonry.pkgd' );
+        //wp_dequeue_script( 'magnific-popup' );
+        //wp_deregister_script( 'magnific-popup' );
+        //wp_dequeue_style( 'magnific-popup' );
+        //wp_deregister_style('magnific-popup');
+        //wp_dequeue_style( 'devvn-shortcode-reviews' );
+        //wp_deregister_style( 'devvn-shortcode-reviews' );
         wp_dequeue_style( 'ion.range-slider' );
         wp_deregister_style( 'ion.range-slider' );
         wp_dequeue_style( 'shortcodes' );
@@ -38,19 +38,19 @@ function wp_remove_scripts() {
         wp_deregister_style( 'devvn-post-comment' );
         wp_dequeue_style( 'wc-memberships-frontend' );
         wp_deregister_style( 'wc-memberships-frontend' );
-        wp_dequeue_style( 'automatewoo-referralsd' );
-        wp_deregister_style( 'automatewoo-referrals' );
+        //wp_dequeue_style( 'automatewoo-referralsd' );
+        //wp_deregister_style( 'automatewoo-referrals' );
         }
     }
 add_action( 'wp_enqueue_scripts', 'wp_remove_scripts', 999 );
-function wp_remove_scripts_head() {
-    if (is_front_page() ) {
-        // Remove Scripts
-        wp_dequeue_style( 'devvn-shortcode-reviews' );
-        wp_deregister_style( 'devvn-shortcode-reviews' );
-    }
-}
-add_action( 'wp_head', 'wp_remove_scripts_head', 9999 );
+// function wp_remove_scripts_head() {
+//     if (is_front_page() ) {
+//         // Remove Scripts
+//         wp_dequeue_style( 'devvn-shortcode-reviews' );
+//         wp_deregister_style( 'devvn-shortcode-reviews' );
+//     }
+// }
+//add_action( 'wp_head', 'wp_remove_scripts_head', 9999 );
 
 // function change_default_jquery( ){
 //     if (is_front_page() && !is_user_logged_in()) {

@@ -84,11 +84,20 @@ remove_action( 'wp_head', 'wp_generator' ) ;
 remove_action( 'wp_head', 'wlwmanifest_link' ) ;
 // !Remove WLManifest Link
 // Disable Heartbeat
-add_action( 'init', 'stop_heartbeat', 1 );
-function stop_heartbeat() {
-wp_deregister_script('heartbeat');
-}
+//add_action( 'init', 'stop_heartbeat', 1 );
+// function stop_heartbeat() {
+//     wp_deregister_script('heartbeat');
+// }
 // ! Disable Heartbeat
+
+
+/* Heartbeat API
+*===============================================================*/
+function heartbeat( $settings ) {
+    $settings['interval'] = 120; //thay doi thoi gian chay
+    return $settings;
+}
+add_filter( 'heartbeat_settings', 'heartbeat' );
 
 //Disable Dashicons on Front-end
 function wpdocs_dequeue_dashicon() {
@@ -119,4 +128,16 @@ function remove_dashboard_widgets() {
 	unset($wp_meta_boxes['dashboard']['normal']);
 }
 add_action('wp_dashboard_setup', 'remove_dashboard_widgets' );
-// ! Disable Unnecessary Dashboard Widgets
+
+// Add preload
+/*===============================================================*/
+function add_preload() {
+	
+	?>
+		<link rel="preload" as="image" href="/wp-content/uploads/2022/09/ovanic-logo-official.jpg.webp"/>
+		<link rel="preload" as="image" href="/wp-content/uploads/2022/09/top-blackmores-ban-chay-banner-min.jpg.webp"/>
+		<link rel="preload" as="image" href="/wp-content/uploads/2022/07/top-blackmores-ban-chay-banner-min.jpg.webp"/>
+	<?php
+	
+}
+add_action('wp_head', 'add_preload',100);

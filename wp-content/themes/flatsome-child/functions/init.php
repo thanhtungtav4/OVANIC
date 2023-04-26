@@ -2,7 +2,7 @@
 /***
  * Disable Gutenberg with Code
  */
-//add_filter('use_block_editor_for_post', '__return_false', 10);
+add_filter('use_block_editor_for_post', '__return_false', 10);
 /***
  * !Disable Gutenberg with Code
  */
@@ -20,7 +20,7 @@ function hide_menu(){
     global $current_user;
     $user_id = get_current_user_id();
        if($user_id == '2'){
-           remove_menu_page( 'edit.php?post_type=blocks' );
+           remove_menu_page( 'edit.php?post_type=blocks' );    
            remove_menu_page( 'themes.php' );
            remove_menu_page( 'edit.php?post_type=featured_item' );
            remove_menu_page( 'edit.php?post_type=acf-field-group' );
@@ -42,7 +42,27 @@ function hide_menu(){
            remove_submenu_page( 'users.php', 'profile.php' );
            // Remove Comments Menu
            remove_menu_page( 'edit-comments.php' );
-
+   
        }
    }
-   add_action('admin_head', 'hide_menu');
+   
+   
+    add_action('admin_head', 'hide_menu');
+   
+   	// define the custom replacement callback
+	function get_current_year() {
+		return date('y');
+	}
+	
+	function get_current_month() {
+		return date('m');
+	}
+
+	// define the action for register yoast_variable replacments
+	function register_custom_yoast_variables() {
+		wpseo_register_var_replacement( '%%currentyear%%', 'get_current_year', 'advanced', 'some help text' );
+		wpseo_register_var_replacement( '%%currentmonth%%', 'get_current_month', 'advanced', 'some help text' );
+	}
+
+	// Add action
+	add_action('wpseo_register_extra_replacements', 'register_custom_yoast_variables');

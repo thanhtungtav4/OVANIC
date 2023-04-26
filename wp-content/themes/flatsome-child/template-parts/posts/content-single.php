@@ -60,7 +60,48 @@
 		</div>
 	</div>
 <?php endif; ?>
+<style>
+    .blog-single table {
+    margin: 0 0 1.5em;
+    width: 100%!important;
+    border-spacing: 0;
+    border-width: 1px 0 0 1px;
+    border: 1px solid rgba(0,0,0,.1)
+}
 
+.blog-single table th,table td {
+    padding: 12px;
+    font-weight: 400;
+    text-align: left
+}
+
+.blog-single table td {
+    border-width: 0 1px 1px 0;
+    font-weight: 400;
+    text-align: left
+}
+
+.blog-single table td ul li {
+    line-height: 1.5;
+    list-style-type: circle;
+    margin-left: 2rem
+}
+
+.blog-single table table,.blog-single table th,.blog-single table td {
+    border: 1px solid rgba(0,0,0,.1)
+}
+
+.blog-single table tr td:first-child {
+    background: #f1f1f1;
+    white-space: wrap;
+    width: 30%;
+    padding-left: 15px
+}
+
+.blog-single th:first-child,.blog-single td:first-child {
+    padding-left: 15px!important
+}
+</style>
 <?php if ( get_theme_mod( 'blog_single_next_prev_nav', 1 ) ) :
 	flatsome_content_nav( 'nav-below' );
 endif; ?>
